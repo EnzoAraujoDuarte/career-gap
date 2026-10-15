@@ -1,5 +1,5 @@
 import type { Catalog } from '@/domain/roadmap';
-import type { CareerTrack, CompetencyId, PathLevel, Resource } from '@/domain/model';
+import type { CareerTrack, CompetencyId, Level, PathLevel, Resource } from '@/domain/model';
 import { selectResourcesFor } from '@/domain/resources';
 import type { RoadmapView } from './roadmap-view';
 import { adviseCompetencies, type Advice } from './advice';
@@ -23,6 +23,9 @@ export interface PathStop {
   readonly practice?: Resource;
   /** Total de recursos no nível-alvo; a página da competência mostra todos. */
   readonly resourceCount: number;
+  readonly targetLevel: Level;
+  /** Quantos critérios de saída o nível-alvo tem — o "x de y" da parada. */
+  readonly criteriaCount: number;
   readonly advice?: Advice;
 }
 
@@ -73,6 +76,8 @@ export function buildPathView(
       start,
       practice: card.find((item) => isPractice(item.resource))?.resource,
       resourceCount: selectResourcesFor(id, target, catalog.resources, Infinity).length,
+      targetLevel: target,
+      criteriaCount: competency?.levels[target]?.exitCriteria.length ?? 0,
       advice: advice.get(id),
     };
   };

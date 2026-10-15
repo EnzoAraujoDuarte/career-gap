@@ -7,6 +7,9 @@ const nextConfig: NextConfig = {
   // Os espaços antigos viraram filtros do Explorar e a Minha área (docs/PLANO-FASE4.md §3).
   // Temporário: um link antigo compartilhado continua chegando ao lugar certo.
   redirects: async () => [
+    // A trilha sem perfil é a porta de entrada: valor em zero toque, e o convite para dizer o
+    // que já sabe fica no topo dela.
+    { source: '/', destination: '/trilha', permanent: false },
     { source: '/projetos', destination: '/explorar?tipo=praticar', permanent: false },
     { source: '/biblioteca', destination: '/explorar?tipo=livros', permanent: false },
     { source: '/kit', destination: '/explorar?aba=ferramentas', permanent: false },

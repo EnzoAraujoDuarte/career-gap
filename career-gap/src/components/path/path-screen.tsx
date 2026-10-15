@@ -5,11 +5,14 @@ import { useMemo } from 'react';
 import { CATALOG, FIRST_WEB_ROLE } from '@/catalog';
 import { generateRoadmap } from '@/domain/roadmap';
 import { useCurrentProfile, useProfileSuffix } from '@/lib/current-profile';
+import { useCriteria } from '@/lib/criteria-storage';
 import { buildPathView, type PathLevelView, type PathStop } from '@/lib/path-view';
+import { criteriaKey } from '@/lib/user-state';
 import { formatDuration } from '@/lib/resource-duration';
 import { buildRoadmapView } from '@/lib/roadmap-view';
 import { EcosystemNav } from '@/components/ecosystem/ecosystem-nav';
 import { Loading } from '@/components/ecosystem/page-shell';
+import { DemoSwitcher } from '@/components/flow/demo-switcher';
 import { AdviceMark } from '@/components/ui/advice-mark';
 import { ResourceLine } from '@/components/ui/resource-line';
 
@@ -22,7 +25,7 @@ const MINUTES_PER_WEEK = 90 * 5;
  * sugestão; tudo abre. O que é pessoal são as marcas.
  */
 export function PathScreen() {
-  const { profile } = useCurrentProfile();
+  const { profile, demoId } = useCurrentProfile();
   const suffix = useProfileSuffix();
   const track = (profile && CATALOG.tracks.get(profile.trackId)) || FIRST_WEB_ROLE;
   const path = useMemo(
@@ -54,8 +57,13 @@ export function PathScreen() {
           <Loading />
         ) : profile === null ? (
           <section className="mt-6 border-l-2 border-[var(--state-now)] pl-3">
-            <p className="text-ink text-[14px] leading-relaxed">
-              Diga o que você já sabe e a trilha marca o que pular e o que vale agora.
+            <p className="text-ink-soft text-[13.5px] leading-relaxed">
+              {track.requirements.length} competências e {CATALOG.resources.length} materiais
+              conferidos um a um — {CATALOG.resources.filter((r) => r.ptBrStatus === 'complete').length}{' '}
+              em português.
+            </p>
+            <p className="text-ink mt-1.5 text-[14px] leading-relaxed">
+              Responda 6 perguntas e a trilha marca o que você pode pular e o que vale agora.
             </p>
             <Link
               href="/avaliacao"
@@ -116,12 +124,17 @@ export function PathScreen() {
           </ul>
         </section>
       </div>
+      <div className="mx-auto mt-12 max-w-[640px]">
+        <DemoSwitcher currentId={demoId} />
+      </div>
     </main>
   );
 }
 
 function Level({ level, here, suffix }: { level: PathLevelView; here: boolean; suffix: string }) {
   const weeks = Math.max(1, Math.round(level.minutes / MINUTES_PER_WEEK));
+  const met = level.stops.filter((stop) => stop.advice?.kind === 'met').length;
+  const personal = level.stops.some((stop) => stop.advice);
   return (
     <section className="mt-12" aria-labelledby={`nivel-${level.level.id}`}>
       <div className="flex items-baseline gap-3">
@@ -142,6 +155,14 @@ function Level({ level, here, suffix }: { level: PathLevelView; here: boolean; s
         {level.stops.length} competências · {formatDuration(level.minutes)} no caminho mínimo ·
         umas {weeks} semanas a 1h30 por dia
       </p>
+      {personal && (
+        <p className="mt-1 text-[12.5px]">
+          <span className="text-done">
+            {met} de {level.stops.length}
+          </span>{' '}
+          <span className="text-ink-soft">já no seu nível</span>
+        </p>
+      )}
       <p className="text-ink mt-3 text-[14px] leading-relaxed">{level.level.summary}</p>
 
       <h3 className="font-serif mt-4 text-[12.5px] tracking-[0.1em] text-ink-soft">Você vai aprender</h3>
@@ -180,6 +201,7 @@ function Level({ level, here, suffix }: { level: PathLevelView; here: boolean; s
 
 function Stop({ stop, suffix }: { stop: PathStop; suffix: string }) {
   const dim = stop.advice?.kind === 'met' || stop.advice?.kind === 'not-now';
+  const checked = useCriteria()?.[criteriaKey(stop.id, stop.targetLevel)]?.checked.length ?? 0;
   return (
     <li className="relative pb-7 pl-7">
       <span className="absolute bottom-0 left-[6px] top-2.5 w-px bg-[var(--rule)]" aria-hidden />
@@ -206,6 +228,11 @@ function Stop({ stop, suffix }: { stop: PathStop; suffix: string }) {
       </div>
       {stop.advice && stop.advice.kind !== 'recommended' && (
         <p className="text-ink-soft mt-0.5 text-[12.5px] leading-snug">{stop.advice.reason}</p>
+      )}
+      {checked > 0 && (
+        <p className="text-done mt-0.5 text-[12.5px]">
+          ✓ {checked} de {stop.criteriaCount} critérios de saída
+        </p>
       )}
 
       {stop.start && (

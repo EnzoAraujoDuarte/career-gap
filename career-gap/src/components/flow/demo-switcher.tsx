@@ -1,6 +1,6 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { DEMO_PROFILES } from '@/lib/demo-profiles';
 
@@ -12,6 +12,7 @@ import { DEMO_PROFILES } from '@/lib/demo-profiles';
  */
 export function DemoSwitcher({ currentId }: { currentId?: string }) {
   const router = useRouter();
+  const pathname = usePathname();
 
   return (
     <footer className="border-rule bg-paper-edge flex flex-wrap items-center gap-x-4 gap-y-1 border-t px-4 py-1.5 sm:px-5">
@@ -20,7 +21,7 @@ export function DemoSwitcher({ currentId }: { currentId?: string }) {
         <select
           value={currentId ?? ''}
           onChange={(event) =>
-            router.push(event.target.value ? `/mapa?perfil=${event.target.value}` : '/mapa')
+            router.push(event.target.value ? `${pathname}?perfil=${event.target.value}` : pathname)
           }
           className="border-rule bg-paper text-ink-soft focus-visible:outline-attention rounded-sm border px-1.5 py-0.5 text-[12px] focus-visible:outline-2"
         >

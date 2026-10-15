@@ -64,7 +64,7 @@ export function SelfAssessment({ track }: { track: CareerTrack }) {
           <Option
             onSelect={() => {
               persist(levels, undefined);
-              router.push('/perfil');
+              router.push('/trilha');
             }}
             label="Ainda não sei"
             hint="Caminho equilibrado — a maioria começa assim"
@@ -74,7 +74,7 @@ export function SelfAssessment({ track }: { track: CareerTrack }) {
               key={emphasis.id}
               onSelect={() => {
                 persist(levels, emphasis.id);
-                router.push('/perfil');
+                router.push('/trilha');
               }}
               label={emphasis.name.replace('Ênfase em ', '')}
               hint={emphasis.description}
