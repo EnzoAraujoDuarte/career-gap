@@ -94,7 +94,12 @@ export function CompetencyScreen({ id }: { id: string }) {
         )}
 
         <div className="mt-9">
-          <ExitCriteria criteria={competency.exitCriteria} competencyName={competency.name} />
+          <ExitCriteria
+            competencyId={competency.id}
+            level={competency.targetLevel}
+            criteria={competency.exitCriteria}
+            competencyName={competency.name}
+          />
         </div>
 
         {competency.opens.length > 0 && (

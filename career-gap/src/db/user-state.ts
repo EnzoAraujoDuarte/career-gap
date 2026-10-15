@@ -3,8 +3,11 @@ import { CATALOG } from '@/catalog';
 import type { Level } from '@/domain/model';
 import { generateRoadmap } from '@/domain/roadmap';
 import {
+  criteriaKey,
   mergeUserState,
   toUserProfile,
+  type CriteriaChecks,
+  type CriteriaMap,
   type Goals,
   type ProgressMap,
   type ResourceProgress,
@@ -12,7 +15,7 @@ import {
   type UserState,
 } from '@/lib/user-state';
 import type { Db } from './client';
-import { competencyLevel, learner, resourceProgress, roadmapSnapshot } from './schema';
+import { competencyLevel, criteriaCheck, learner, resourceProgress, roadmapSnapshot } from './schema';
 
 /**
  * Leitura e gravação do estado de uma pessoa. Recebe o `userId` já autenticado — nunca um id
@@ -29,6 +32,7 @@ export async function loadUserState(db: Db, userId: string): Promise<UserState> 
   const [row] = await db.select().from(learner).where(eq(learner.userId, userId));
   const levels = await db.select().from(competencyLevel).where(eq(competencyLevel.userId, userId));
   const progressRows = await db.select().from(resourceProgress).where(eq(resourceProgress.userId, userId));
+  const criteriaRows = await db.select().from(criteriaCheck).where(eq(criteriaCheck.userId, userId));
 
   const profile: StoredProfile | undefined =
     row?.trackId && row.profileUpdatedAt
@@ -57,7 +61,14 @@ export async function loadUserState(db: Db, userId: string): Promise<UserState> 
       updatedAt: iso(item.updatedAt)!,
     };
   }
-  return { profile, goals, progress };
+  const criteria: Record<string, CriteriaChecks> = {};
+  for (const item of criteriaRows) {
+    criteria[criteriaKey(item.competencyId, item.level as Level)] = {
+      checked: item.checked,
+      updatedAt: iso(item.updatedAt)!,
+    };
+  }
+  return { profile, goals, progress, criteria };
 }
 
 /** Grava o perfil e, junto, a entrada e a saída do motor — a trilha de auditoria do TCC. */
@@ -143,15 +154,42 @@ export async function saveProgress(db: Db, userId: string, progress: ProgressMap
   }
 }
 
+export async function saveCriteria(db: Db, userId: string, criteria: CriteriaMap): Promise<void> {
+  for (const [key, entry] of Object.entries(criteria)) {
+    const [competencyId, level] = key.split('@');
+    const values = { checked: [...entry.checked], updatedAt: new Date(entry.updatedAt) };
+    const where = and(
+      eq(criteriaCheck.userId, userId),
+      eq(criteriaCheck.competencyId, competencyId),
+      eq(criteriaCheck.level, level),
+    );
+    const [current] = await db.select({ updatedAt: criteriaCheck.updatedAt }).from(criteriaCheck).where(where);
+    if (current && current.updatedAt >= values.updatedAt) continue;
+    await db
+      .insert(criteriaCheck)
+      .values({ userId, competencyId, level, ...values })
+      .onConflictDoUpdate({
+        target: [criteriaCheck.userId, criteriaCheck.competencyId, criteriaCheck.level],
+        set: values,
+      });
+  }
+}
+
 /** Grava o que o `mergeUserState` mandou subir. */
 export async function saveUserState(
   db: Db,
   userId: string,
-  patch: { readonly profile?: StoredProfile; readonly goals?: Goals; readonly progress?: ProgressMap },
+  patch: {
+    readonly profile?: StoredProfile;
+    readonly goals?: Goals;
+    readonly progress?: ProgressMap;
+    readonly criteria?: CriteriaMap;
+  },
 ): Promise<void> {
   if (patch.profile) await saveProfile(db, userId, patch.profile);
   if (patch.goals) await saveGoals(db, userId, patch.goals);
   if (patch.progress) await saveProgress(db, userId, patch.progress);
+  if (patch.criteria) await saveCriteria(db, userId, patch.criteria);
 }
 
 /**

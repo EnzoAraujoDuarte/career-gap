@@ -194,6 +194,8 @@ export function FlowStation({
 
             <div className="mt-6">
               <ExitCriteria
+                competencyId={node.id}
+                level={node.targetLevel}
                 criteria={node.exitCriteria}
                 competencyName={node.name}
                 readOnly={readOnlyCriteria}

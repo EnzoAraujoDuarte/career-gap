@@ -49,10 +49,26 @@ export interface ResourceProgress {
 
 export type ProgressMap = Readonly<Record<string, ResourceProgress>>;
 
+/**
+ * Critérios de saída que a pessoa marcou numa competência, num nível. Marcar NUNCA muda o nível
+ * (docs/DECISOES.md §3): torna o progresso visível, e o nível só muda pela autoavaliação.
+ */
+export interface CriteriaChecks {
+  /** Índices em `exitCriteria` do nível. */
+  readonly checked: readonly number[];
+  readonly updatedAt: string;
+}
+
+/** Chave `competência@nível`: o mesmo critério não vale para outro nível-alvo. */
+export type CriteriaMap = Readonly<Record<string, CriteriaChecks>>;
+
+export const criteriaKey = (competency: string, level: Level) => `${competency}@${level}`;
+
 export interface UserState {
   readonly profile?: StoredProfile;
   readonly goals?: Goals;
   readonly progress: ProgressMap;
+  readonly criteria: CriteriaMap;
 }
 
 /** O que sobe para o banco numa gravação: só os pedaços que mudaram. */
@@ -60,6 +76,7 @@ export interface UserStatePatch {
   readonly profile?: StoredProfile;
   readonly goals?: Goals;
   readonly progress?: ProgressMap;
+  readonly criteria?: CriteriaMap;
 }
 
 const newer = <T extends { readonly updatedAt?: string }>(a?: T, b?: T): T | undefined =>
@@ -69,28 +86,38 @@ export interface Merge {
   /** O que o navegador deve passar a guardar. */
   readonly local: UserState;
   /** O que o servidor ainda não tem, ou tem mais velho. */
-  readonly push: UserStatePatch & { readonly progress: ProgressMap };
+  readonly push: UserStatePatch & { readonly progress: ProgressMap; readonly criteria: CriteriaMap };
+}
+
+/** Mapa chave → pedaço com `updatedAt`: ganha o mais recente de cada chave. */
+function mergeMap<T extends { readonly updatedAt: string }>(
+  local: Readonly<Record<string, T>>,
+  remote: Readonly<Record<string, T>>,
+) {
+  const merged: Record<string, T> = { ...remote };
+  const push: Record<string, T> = {};
+  for (const [key, entry] of Object.entries(local)) {
+    const winner = newer(remote[key], entry)!;
+    merged[key] = winner;
+    if (winner === entry && entry !== remote[key]) push[key] = entry;
+  }
+  return { merged, push };
 }
 
 /** Junta o que está no navegador com o que está no banco, pedaço a pedaço. */
 export function mergeUserState(local: UserState, remote: UserState): Merge {
   const profile = newer(remote.profile, local.profile);
   const goals = newer(remote.goals, local.goals);
-
-  const progress: Record<string, ResourceProgress> = { ...remote.progress };
-  const pushProgress: Record<string, ResourceProgress> = {};
-  for (const [id, entry] of Object.entries(local.progress)) {
-    const winner = newer(remote.progress[id], entry)!;
-    progress[id] = winner;
-    if (winner === entry && entry !== remote.progress[id]) pushProgress[id] = entry;
-  }
+  const progress = mergeMap(local.progress, remote.progress);
+  const criteria = mergeMap(local.criteria, remote.criteria);
 
   return {
-    local: { profile, goals, progress },
+    local: { profile, goals, progress: progress.merged, criteria: criteria.merged },
     push: {
       profile: profile && profile === local.profile && profile !== remote.profile ? profile : undefined,
       goals: goals && goals === local.goals && goals !== remote.goals ? goals : undefined,
-      progress: pushProgress,
+      progress: progress.push,
+      criteria: criteria.push,
     },
   };
 }
@@ -142,5 +169,19 @@ export function assertProgress(resourceId: unknown, value: unknown): asserts val
   if (!isOptionalDate(entry?.savedAt) || !isOptionalDate(entry.startedAt) || !isOptionalDate(entry.completedAt)) {
     throw new InvalidUserState('data inválida');
   }
+  if (!isDate(entry.updatedAt)) throw new InvalidUserState('data inválida');
+}
+
+export function assertCriteria(key: unknown, value: unknown): asserts value is CriteriaChecks {
+  const [competency, level] = typeof key === 'string' ? key.split('@') : [];
+  const criteria = CATALOG.competencies.get(competency)?.levels[level as Level]?.exitCriteria;
+  if (!criteria) throw new InvalidUserState('critério desconhecido');
+  const entry = value as CriteriaChecks;
+  const checked = Array.isArray(entry?.checked) ? entry.checked : undefined;
+  const valid =
+    checked !== undefined &&
+    new Set(checked).size === checked.length &&
+    checked.every((index) => Number.isInteger(index) && index >= 0 && index < criteria.length);
+  if (!valid) throw new InvalidUserState('critério fora do intervalo');
   if (!isDate(entry.updatedAt)) throw new InvalidUserState('data inválida');
 }

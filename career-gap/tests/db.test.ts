@@ -6,9 +6,10 @@ import { beforeAll, describe, expect, it } from 'vitest';
 import { CATALOG } from '@/catalog';
 import type { Db } from '@/db/client';
 import * as schema from '@/db/schema';
-import { loadUserState, moveUserData, saveGoals, saveProfile, saveProgress } from '@/db/user-state';
+import { loadUserState, moveUserData, saveCriteria, saveGoals, saveProfile, saveProgress } from '@/db/user-state';
 import { buildAuth, configuredProviders } from '@/lib/auth';
 import {
+  assertCriteria,
   assertGoals,
   assertProfile,
   assertProgress,
@@ -101,12 +102,20 @@ describe('banco: estado da pessoa', () => {
     });
   });
 
+  it('guarda os critérios marcados por competência e nível, ignorando escrita mais velha', async () => {
+    await saveCriteria(db, 'ana', { 'debugging@L2': { checked: [0, 2], updatedAt: at(6) } });
+    await saveCriteria(db, 'ana', { 'debugging@L2': { checked: [], updatedAt: at(5) } });
+    const state = await loadUserState(db, 'ana');
+    expect(state.criteria).toEqual({ 'debugging@L2': { checked: [0, 2], updatedAt: at(6) } });
+  });
+
   it('leva junto o que a pessoa fez anônima quando ela entra com uma conta', async () => {
     await createUser('anonima');
     await createUser('conta');
     await saveProfile(db, 'anonima', profile(10, 'L2'));
     await saveProgress(db, 'anonima', { [RESOURCE]: { startedAt: at(10), updatedAt: at(10) } });
     await saveGoals(db, 'conta', { purpose: 'já tinha', careerGoal: '', updatedAt: at(1) });
+    await saveCriteria(db, 'anonima', { 'debugging@L2': { checked: [0], updatedAt: at(10) } });
 
     await moveUserData(db, 'anonima', 'conta');
     await db.delete(schema.user).where(eq(schema.user.id, 'anonima'));
@@ -115,16 +124,36 @@ describe('banco: estado da pessoa', () => {
     expect(merged.profile?.levels['programming-fundamentals']).toBe('L2');
     expect(merged.progress[RESOURCE]?.startedAt).toBe(at(10));
     expect(merged.goals?.purpose).toBe('já tinha');
-    // Apagar o usuário anônimo leva os dados dele em cascata.
-    expect(await loadUserState(db, 'anonima')).toEqual({ profile: undefined, goals: undefined, progress: {} });
+    expect(merged.criteria['debugging@L2']?.checked).toEqual([0]);
+    // Apagar o usuário anônimo leva os dados dele em cascata — inclusive os registros do motor.
+    const snapshots = await db
+      .select()
+      .from(schema.roadmapSnapshot)
+      .where(eq(schema.roadmapSnapshot.userId, 'anonima'));
+    expect(snapshots).toEqual([]);
+    expect(await loadUserState(db, 'anonima')).toEqual({
+      profile: undefined,
+      goals: undefined,
+      progress: {},
+      criteria: {},
+    });
   });
 });
 
 describe('sincronização', () => {
   it('fica com o mais recente de cada pedaço e só sobe o que o banco não tem', () => {
     const { local, push } = mergeUserState(
-      { profile: profile(9), progress: { a: { updatedAt: at(1) }, b: { updatedAt: at(8) } } },
-      { profile: profile(2), goals: { purpose: 'x', careerGoal: '', updatedAt: at(5) }, progress: { a: { updatedAt: at(3) } } },
+      {
+        profile: profile(9),
+        progress: { a: { updatedAt: at(1) }, b: { updatedAt: at(8) } },
+        criteria: { 'debugging@L2': { checked: [1], updatedAt: at(7) } },
+      },
+      {
+        profile: profile(2),
+        goals: { purpose: 'x', careerGoal: '', updatedAt: at(5) },
+        progress: { a: { updatedAt: at(3) } },
+        criteria: { 'debugging@L2': { checked: [0], updatedAt: at(4) } },
+      },
     );
     expect(local.profile?.updatedAt).toBe(at(9));
     expect(local.goals?.purpose).toBe('x');
@@ -132,6 +161,7 @@ describe('sincronização', () => {
     expect(push.profile?.updatedAt).toBe(at(9));
     expect(push.goals).toBeUndefined();
     expect(Object.keys(push.progress)).toEqual(['b']);
+    expect(push.criteria['debugging@L2'].checked).toEqual([1]);
   });
 });
 
@@ -141,6 +171,10 @@ describe('validação na entrada do servidor', () => {
     expect(() => assertProfile({ ...profile(1), levels: { 'programming-fundamentals': 'L9' } })).toThrow();
     expect(() => assertProgress('nao-existe', { updatedAt: at(1) })).toThrow();
     expect(() => assertGoals({ purpose: '', careerGoal: '', targetMonth: '2027-13', updatedAt: at(1) })).toThrow();
+    expect(() => assertCriteria('debugging@L2', { checked: [99], updatedAt: at(1) })).toThrow();
+    expect(() => assertCriteria('debugging@L2', { checked: [0, 0], updatedAt: at(1) })).toThrow();
+    expect(() => assertCriteria('inventada@L1', { checked: [0], updatedAt: at(1) })).toThrow();
+    expect(() => assertCriteria('debugging@L2', { checked: [0], updatedAt: at(1) })).not.toThrow();
     expect(() => assertProfile(profile(1))).not.toThrow();
     expect(() => assertProgress(RESOURCE, { savedAt: at(1), updatedAt: at(1) })).not.toThrow();
   });

@@ -137,6 +137,21 @@ export const resourceProgress = pgTable(
   (table) => [primaryKey({ columns: [table.userId, table.resourceId] })],
 );
 
+/** Critérios de saída marcados — o "você terminou quando" de cada competência, por nível. */
+export const criteriaCheck = pgTable(
+  'criteria_check',
+  {
+    userId: text('user_id')
+      .notNull()
+      .references(() => user.id, { onDelete: 'cascade' }),
+    competencyId: text('competency_id').notNull(),
+    level: text('level').notNull(),
+    checked: jsonb('checked').$type<number[]>().notNull(),
+    updatedAt: instant('updated_at').notNull(),
+  },
+  (table) => [primaryKey({ columns: [table.userId, table.competencyId, table.level] })],
+);
+
 /**
  * Entrada e saída do motor a cada mudança de perfil. É a trilha de auditoria do TCC: permite
  * explicar por que algo foi recomendado a alguém, com a versão do catálogo daquele dia.

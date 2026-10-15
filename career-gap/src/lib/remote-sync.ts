@@ -1,6 +1,7 @@
 'use client';
 
 import { pullUserState, pushUserState } from '@/server/user-state-actions';
+import { loadCriteria, replaceCriteria } from './criteria-storage';
 import { loadGoals, replaceGoals } from './goals-storage';
 import { loadDraft, replaceDraft } from './profile-storage';
 import { loadProgress, replaceProgress } from './progress-storage';
@@ -17,13 +18,16 @@ export async function syncNow(): Promise<boolean> {
   const remote = await pullUserState();
   if (!remote) return false;
   const { local, push } = mergeUserState(
-    { profile: loadDraft(), goals: loadGoals(), progress: loadProgress() },
+    { profile: loadDraft(), goals: loadGoals(), progress: loadProgress(), criteria: loadCriteria() },
     remote,
   );
   if (local.profile) replaceDraft(local.profile);
   if (local.goals) replaceGoals(local.goals);
   replaceProgress(local.progress);
-  if (push.profile || push.goals || Object.keys(push.progress).length > 0) await pushUserState(push);
+  replaceCriteria(local.criteria);
+  const hasPush =
+    push.profile || push.goals || Object.keys(push.progress).length > 0 || Object.keys(push.criteria).length > 0;
+  if (hasPush) await pushUserState(push);
   enableRemote(scheduleResync);
   return true;
 }

@@ -2,10 +2,12 @@
 
 import { headers } from 'next/headers';
 import { CATALOG } from '@/catalog';
+import { LEVELS } from '@/domain/model';
 import { getDb } from '@/db/client';
 import { loadUserState, saveUserState } from '@/db/user-state';
 import { getAuth } from '@/lib/auth';
 import {
+  assertCriteria,
   assertGoals,
   assertProfile,
   assertProgress,
@@ -42,6 +44,10 @@ export async function pushUserState(patch: UserStatePatch): Promise<void> {
   const progress = Object.entries(patch.progress ?? {});
   if (progress.length > CATALOG.resources.length) throw new InvalidUserState('progresso grande demais');
   for (const [resourceId, entry] of progress) assertProgress(resourceId, entry);
+  const criteria = Object.entries(patch.criteria ?? {});
+  if (criteria.length > CATALOG.competencies.size * LEVELS.length) throw new InvalidUserState('critérios demais');
+  for (const [key, entry] of criteria) assertCriteria(key, entry);
 
   await saveUserState(current.db, current.userId, patch);
 }
+

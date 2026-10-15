@@ -5,6 +5,7 @@ import { CATALOG } from '@/catalog';
 import type { Resource } from '@/domain/model';
 import type { SocialProvider } from '@/lib/auth';
 import { authClient } from '@/lib/auth-client';
+import { clearCriteria } from '@/lib/criteria-storage';
 import { clearGoals, saveGoals, useGoals } from '@/lib/goals-storage';
 import { clearDraft } from '@/lib/profile-storage';
 import { clearProgress, useProgress } from '@/lib/progress-storage';
@@ -71,6 +72,7 @@ export function MyAreaScreen() {
           Refazer as 6 perguntas
         </Link>
       </p>
+
     </PageShell>
   );
 }
@@ -171,12 +173,17 @@ function Account() {
   );
 }
 
-/** Num computador compartilhado, sair precisa levar junto o que está no navegador. */
-async function signOut() {
+function clearLocalState() {
   disableRemote();
   clearDraft();
   clearGoals();
   clearProgress();
+  clearCriteria();
+}
+
+/** Num computador compartilhado, sair precisa levar junto o que está no navegador. */
+async function signOut() {
+  clearLocalState();
   await authClient.signOut();
   // Recarga completa de propósito: zera a sessão no cliente, e o provedor cria uma anônima nova.
   // eslint-disable-next-line @next/next/no-location-assign-relative-destination
@@ -232,3 +239,4 @@ function GoalsForm({ initial }: { initial?: Goals }) {
     </section>
   );
 }
+

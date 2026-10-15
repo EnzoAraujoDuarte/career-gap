@@ -1,42 +1,47 @@
 'use client';
 
-import { useState } from 'react';
+import Link from 'next/link';
+import type { Level } from '@/domain/model';
+import { toggleCriterion, useCriteria } from '@/lib/criteria-storage';
+import { criteriaKey } from '@/lib/user-state';
 
 /**
- * Critério de saída, marcável.
+ * Critério de saída, marcável e guardado.
  *
  * Marcar NÃO promove o nível (docs/DECISOES.md §3): registra a afirmação e torna o progresso
- * visível. Quem promove é evidência — por isso, ao completar, o componente OFERECE a
- * verificação em vez de dar o nível de graça. A alternativa que descartamos promovia 16 das
- * 25 competências com um clique, e um checklist que se autopromove é o caminho mais barato
- * para inflar o próprio roadmap.
+ * visível. A alternativa que descartamos promovia 16 das 25 competências com um clique, e um
+ * checklist que se autopromove é o caminho mais barato para inflar o próprio roadmap. Ao marcar
+ * tudo, o componente aponta para a autoavaliação — é ela que muda o nível.
  */
 export function ExitCriteria({
+  competencyId,
+  level,
   criteria,
   competencyName,
   readOnly = false,
 }: {
+  competencyId: string;
+  level: Level;
   criteria: readonly string[];
   competencyName: string;
+  /** Congelado durante a sessão experimental, nas duas condições (DECISOES §3). */
   readOnly?: boolean;
 }) {
-  const [checked, setChecked] = useState<ReadonlySet<number>>(new Set());
+  const stored = useCriteria();
   if (criteria.length === 0) return null;
 
+  const checked = new Set(stored?.[criteriaKey(competencyId, level)]?.checked ?? []);
   const complete = checked.size === criteria.length;
-
-  const toggle = (index: number) =>
-    setChecked((current) => {
-      const next = new Set(current);
-      if (next.has(index)) next.delete(index);
-      else next.add(index);
-      return next;
-    });
 
   return (
     <section>
       <h3 className="font-serif text-[12.5px] tracking-[0.1em] text-ink-soft">
         Você terminou quando
+        {checked.size > 0 && (
+          <span className="text-done ml-2 normal-case tracking-normal">
+            {checked.size} de {criteria.length}
+          </span>
+        )}
       </h3>
       <ul className="mt-2 space-y-1.5">
         {criteria.map((criterion, index) => (
@@ -45,7 +50,7 @@ export function ExitCriteria({
               <input
                 type="checkbox"
                 checked={checked.has(index)}
-                onChange={() => toggle(index)}
+                onChange={() => toggleCriterion(competencyId, level, index)}
                 disabled={readOnly}
                 className="accent-done mt-[3px] h-4 w-4 shrink-0"
               />
@@ -63,16 +68,14 @@ export function ExitCriteria({
             Você marcou tudo em <strong className="font-medium">{competencyName}</strong>.
           </p>
           <p className="text-ink-soft mt-1 text-[12px] leading-snug">
-            Marcar não muda seu nível — quem muda é uma verificação rápida. Quer confirmar em
-            3 perguntas?
+            Marcar não muda o seu nível. Se você já faz isso sem ajuda, diga — a trilha se ajusta.
           </p>
-          <button
-            className="border-done text-done focus-visible:outline-attention mt-2 rounded-sm border px-2 py-1 text-[12px] focus-visible:outline-2"
-            disabled
-            title="Sondagens entram no próximo bloco"
+          <Link
+            href="/perfil"
+            className="border-done text-done focus-visible:outline-attention mt-2 inline-block rounded-sm border px-2 py-1 text-[12px] focus-visible:outline-2"
           >
-            Verificar em 3 perguntas
-          </button>
+            Ajustar meu nível
+          </Link>
         </div>
       )}
     </section>
