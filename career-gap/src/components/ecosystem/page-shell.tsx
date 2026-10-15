@@ -7,7 +7,7 @@ export function PageShell({
   intro,
   children,
 }: {
-  current: SpaceId;
+  current?: SpaceId;
   title: string;
   intro: string;
   children: React.ReactNode;

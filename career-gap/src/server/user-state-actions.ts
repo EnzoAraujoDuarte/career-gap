@@ -1,9 +1,11 @@
 'use server';
 
+import { eq } from 'drizzle-orm';
 import { headers } from 'next/headers';
 import { CATALOG } from '@/catalog';
 import { LEVELS } from '@/domain/model';
 import { getDb } from '@/db/client';
+import { user } from '@/db/schema';
 import { loadUserState, saveUserState } from '@/db/user-state';
 import { getAuth } from '@/lib/auth';
 import {
@@ -51,3 +53,12 @@ export async function pushUserState(patch: UserStatePatch): Promise<void> {
   await saveUserState(current.db, current.userId, patch);
 }
 
+/**
+ * Direito de eliminação (LGPD, art. 18, VI). Apaga o usuário; perfil, metas, progresso,
+ * critérios, registros do motor, sessões e contas vinculadas saem em cascata.
+ */
+export async function deleteMyData(): Promise<void> {
+  const current = await currentUser();
+  if (!current) return;
+  await current.db.delete(user).where(eq(user.id, current.userId));
+}

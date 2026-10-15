@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { useState } from 'react';
 import { CATALOG } from '@/catalog';
 import type { Resource } from '@/domain/model';
 import type { SocialProvider } from '@/lib/auth';
@@ -11,6 +12,7 @@ import { clearDraft } from '@/lib/profile-storage';
 import { clearProgress, useProgress } from '@/lib/progress-storage';
 import { disableRemote } from '@/lib/remote-push';
 import type { Goals, ResourceProgress } from '@/lib/user-state';
+import { deleteMyData } from '@/server/user-state-actions';
 import { Loading, PageShell, SectionLabel } from '@/components/ecosystem/page-shell';
 import { usePersistence } from '@/components/persistence/persistence';
 import { ResourceLine } from '@/components/ui/resource-line';
@@ -73,6 +75,7 @@ export function MyAreaScreen() {
         </Link>
       </p>
 
+      <YourData />
     </PageShell>
   );
 }
@@ -240,3 +243,77 @@ function GoalsForm({ initial }: { initial?: Goals }) {
   );
 }
 
+/** O que o Career Gap guarda, e o botão para apagar tudo (LGPD, art. 18, VI). */
+function YourData() {
+  const { status } = usePersistence();
+  const [confirming, setConfirming] = useState(false);
+  const [deleting, setDeleting] = useState(false);
+  const [failed, setFailed] = useState(false);
+
+  async function erase() {
+    setDeleting(true);
+    setFailed(false);
+    // Primeiro o servidor: se falhar, nada some do navegador e a pessoa pode tentar de novo.
+    try {
+      if (status === 'on') await deleteMyData();
+    } catch {
+      setDeleting(false);
+      setFailed(true);
+      return;
+    }
+    clearLocalState();
+    // Recarga completa: zera o estado em memória e, com banco, começa uma sessão anônima nova.
+    // eslint-disable-next-line @next/next/no-location-assign-relative-destination
+    window.location.assign('/trilha');
+  }
+
+  return (
+    <section>
+      <SectionLabel>Seus dados</SectionLabel>
+      <p className="text-ink-soft mt-1 text-[13px] leading-relaxed">
+        O que guardamos, para quê e por quanto tempo está na{' '}
+        <Link href="/privacidade" className="text-now underline underline-offset-2">
+          página de privacidade
+        </Link>
+        .
+      </p>
+      {!confirming ? (
+        <button
+          onClick={() => setConfirming(true)}
+          className="text-critical focus-visible:outline-attention mt-2 py-1 text-[13.5px] underline underline-offset-2 focus-visible:outline-2"
+        >
+          Apagar meus dados
+        </button>
+      ) : (
+        <div className="mt-3 border-l-2 border-[var(--state-critical)] pl-3">
+          <p className="text-ink text-[13.5px] leading-relaxed">
+            Isso apaga o que você respondeu, suas metas, sua lista, o que concluiu e os critérios
+            marcados{status === 'on' ? ', neste navegador e no servidor' : ' neste navegador'}. Não
+            tem volta.
+          </p>
+          {failed && (
+            <p className="text-critical mt-2 text-[13px]" role="alert">
+              Não conseguimos apagar no servidor agora. Nada foi apagado; tente de novo em instantes.
+            </p>
+          )}
+          <p className="mt-2 flex flex-wrap gap-3">
+            <button
+              onClick={erase}
+              disabled={deleting}
+              className="focus-visible:outline-attention rounded-sm bg-[var(--state-critical)] px-3 py-1.5 text-[13.5px] text-[var(--paper)] focus-visible:outline-2 disabled:opacity-60"
+            >
+              {deleting ? 'Apagando…' : 'Apagar tudo'}
+            </button>
+            <button
+              onClick={() => setConfirming(false)}
+              disabled={deleting}
+              className="text-ink-soft hover:text-ink focus-visible:outline-attention text-[13.5px] focus-visible:outline-2"
+            >
+              Cancelar
+            </button>
+          </p>
+        </div>
+      )}
+    </section>
+  );
+}
