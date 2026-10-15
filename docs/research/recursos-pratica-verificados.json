@@ -1,0 +1,235 @@
+{
+  "verified_at": "2026-10-15",
+  "method": "Cada URL respondeu HTTP 200 em 2026-10-15. Custo, cadastro e idioma lidos na página do detentor; idioma conferido no CORPO do texto, não no título. Comportamento das APIs das missões testado com requisição real (CNPJ real -> 200, dígito inválido -> 400, CNPJ bem formado inexistente -> 404; estado inexistente no IBGE -> 200 com lista vazia). Cálculo do dígito verificador conferido contra o exemplo resolvido no documento da Receita e contra o CNPJ real do Banco do Brasil.",
+  "purpose": "Preencher a lacuna medida na auditoria de 2026-10-15: 7 competências core sem nenhuma prática. Missões são texto do projeto (permitido pela ADR-0005); a URL aponta para a documentação pública que a missão usa.",
+  "entries": [
+    {
+      "title": "Neps Academy — exercícios com correção automática",
+      "source": "Neps Academy",
+      "url": "https://neps.academy/br/exercises",
+      "kind": "exercise",
+      "action_type": "BUILD",
+      "competencies": [
+        "programming-fundamentals",
+        "problem-decomposition"
+      ],
+      "level_min": "L1",
+      "technology": "agnostic",
+      "cost": "free",
+      "pt_br_status": "complete",
+      "requires_signup": true,
+      "license": "direitos reservados — apenas linkar",
+      "why": "Plataforma brasileira de exercícios em português, com correção automática. Gratuita com cadastro; o plano Pro é opcional. Resolver sem copiar a solução é o critério de saída de Fundamentos L1.",
+      "origin": "practice"
+    },
+    {
+      "title": "OBI — problemas das edições anteriores",
+      "source": "Olimpíada Brasileira de Informática (Unicamp)",
+      "url": "https://olimpiada.ic.unicamp.br/pratique/",
+      "kind": "exercise",
+      "action_type": "BUILD",
+      "competencies": [
+        "problem-decomposition",
+        "programming-fundamentals"
+      ],
+      "level_min": "L1",
+      "technology": "agnostic",
+      "cost": "free",
+      "pt_br_status": "complete",
+      "requires_signup": false,
+      "license": "direitos reservados — apenas linkar",
+      "why": "Enunciados de olimpíada separados por nível, em português e sem cadastro para ler. Bons para treinar listar os passos antes de codar — o critério de Decomposição L1.",
+      "origin": "practice"
+    },
+    {
+      "title": "Exercism — trilha de JavaScript",
+      "source": "Exercism",
+      "url": "https://exercism.org/tracks/javascript",
+      "kind": "exercise",
+      "action_type": "BUILD",
+      "competencies": [
+        "programming-fundamentals",
+        "javascript-essentials"
+      ],
+      "level_min": "L1",
+      "technology": "javascript",
+      "cost": "free",
+      "pt_br_status": "none",
+      "requires_signup": true,
+      "license": "plataforma aberta e gratuita — apenas linkar",
+      "why": "Exercícios curtos com testes prontos: você sabe que terminou quando os testes passam. Mentoria humana gratuita é opcional. Em inglês.",
+      "origin": "practice"
+    },
+    {
+      "title": "Depurar o JavaScript — tutorial do Chrome DevTools",
+      "source": "Chrome for Developers (Google)",
+      "url": "https://developer.chrome.com/docs/devtools/javascript?hl=pt-br",
+      "kind": "tutorial",
+      "action_type": "BUILD",
+      "competencies": [
+        "debugging"
+      ],
+      "level_min": "L1",
+      "technology": "javascript",
+      "cost": "free",
+      "pt_br_status": "complete",
+      "requires_signup": false,
+      "license": "conteúdo do Google para desenvolvedores — apenas linkar",
+      "estimated_time": "20 min",
+      "why": "Tutorial em português com uma página de demonstração defeituosa: você acha o defeito com ponto de interrupção, sem chutar e sem encher o código de console.log. É o critério de Depuração L1 feito na prática.",
+      "origin": "practice"
+    },
+    {
+      "title": "Gilded Rose — kata de refatoração",
+      "source": "Emily Bache (GitHub)",
+      "url": "https://github.com/emilybache/GildedRose-Refactoring-Kata",
+      "kind": "exercise",
+      "action_type": "BUILD",
+      "competencies": [
+        "code-readability",
+        "automated-testing-basics"
+      ],
+      "level_min": "L1",
+      "technology": "agnostic",
+      "cost": "free",
+      "pt_br_status": "none",
+      "requires_signup": false,
+      "license": "MIT",
+      "why": "Código legado confuso de propósito, em dezenas de linguagens. Primeiro você escreve os testes que travam o comportamento; depois refatora sem medo. Treina testes e legibilidade juntos — nessa ordem.",
+      "origin": "practice"
+    },
+    {
+      "title": "OverTheWire — Bandit",
+      "source": "OverTheWire",
+      "url": "https://overthewire.org/wargames/bandit/",
+      "kind": "exercise",
+      "action_type": "BUILD",
+      "competencies": [
+        "command-line-basics"
+      ],
+      "level_min": "L1",
+      "technology": "shell",
+      "cost": "free",
+      "pt_br_status": "none",
+      "requires_signup": false,
+      "license": "direitos reservados — apenas linkar",
+      "why": "Jogo de terminal em fases: cada nível só se passa usando comandos de verdade. Navegar, ler arquivo e buscar texto sem decorar lista de comandos.",
+      "origin": "practice"
+    },
+    {
+      "title": "Missão: consulte CNPJs e leia o que a resposta diz",
+      "source": "Missão Career Gap · BrasilAPI",
+      "url": "https://brasilapi.com.br/docs#tag/CNPJ",
+      "kind": "exercise",
+      "action_type": "BUILD",
+      "competencies": [
+        "http-fundamentals"
+      ],
+      "level_min": "L1",
+      "technology": "http",
+      "cost": "free",
+      "pt_br_status": "complete",
+      "requires_signup": false,
+      "license": "missão do projeto; BrasilAPI é pública e aberta (MIT)",
+      "estimated_time": "30 min",
+      "task": "Pelo navegador ou com curl, consulte na API de CNPJ da BrasilAPI: um CNPJ real (o do Banco do Brasil é 00.000.000/0001-91), o mesmo número com o último dígito trocado e o 00.000.000/0000-00. Para cada um, anote o código de status e o que o corpo diz, e explique por que um volta 400 e outro 404. Depois consulte na API de Localidades do IBGE um estado que não existe: vem 200 com lista vazia. O que isso ensina sobre olhar só o status? Feche explicando por que consulta é GET e quando um cadastro seria POST.",
+      "why": "Consultar empresa por CNPJ é tarefa comum em sistema brasileiro — cadastro de cliente, de fornecedor, nota fiscal. As respostas foram testadas: 200 para CNPJ real, 400 para dígito inválido, 404 para CNPJ bem formado que não existe.",
+      "origin": "mission"
+    },
+    {
+      "title": "Missão: monte um cadastro de fornecedor só pela documentação",
+      "source": "Missão Career Gap · BrasilAPI",
+      "url": "https://brasilapi.com.br/docs",
+      "kind": "exercise",
+      "action_type": "BUILD",
+      "competencies": [
+        "reading-documentation"
+      ],
+      "level_min": "L2",
+      "technology": "http",
+      "cost": "free",
+      "pt_br_status": "complete",
+      "requires_signup": false,
+      "license": "missão do projeto; BrasilAPI é pública e aberta (MIT)",
+      "estimated_time": "40 min",
+      "task": "Você vai preencher um cadastro de fornecedor a partir do CNPJ. Usando só a documentação da BrasilAPI — sem tutorial e sem pedir a URL a uma IA —, descubra como obter a razão social e o endereço pelo CNPJ e como completar o endereço pelo CEP. A consulta de CEP existe em duas versões: diga qual você usaria e por quê. Monte as URLs e confira o resultado no navegador.",
+      "why": "Os dois critérios de saída de Leitura de documentação L2 são resolver uma dúvida de API só pela documentação e identificar a versão certa — e a BrasilAPI tem duas versões da consulta de CEP, o que torna o segundo critério real.",
+      "origin": "mission"
+    },
+    {
+      "title": "Missão: valide o CNPJ — inclusive o novo, com letras",
+      "source": "Missão Career Gap · Receita Federal",
+      "url": "https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/perguntas-e-respostas/cnpj/cnpj-alfanumerico.pdf",
+      "kind": "exercise",
+      "action_type": "BUILD",
+      "competencies": [
+        "programming-fundamentals"
+      ],
+      "level_min": "L2",
+      "technology": "agnostic",
+      "cost": "free",
+      "pt_br_status": "complete",
+      "requires_signup": false,
+      "license": "missão do projeto; documento público da Receita Federal",
+      "estimated_time": "1–2 h",
+      "task": "Desde julho de 2026 a Receita emite CNPJ com letras nas 12 primeiras posições, e todo sistema brasileiro precisa aceitar os dois formatos. Antes de codar, liste os passos. Depois escreva uma função que diga se um CNPJ é válido, nos dois formatos, seguindo a regra oficial dos dígitos verificadores do documento. Teste com o exemplo resolvido no próprio documento e com um CNPJ numérico real. Troque um dígito de propósito: a função tem que recusar com uma mensagem útil.",
+      "why": "É a mudança de mercado de 2026 no cadastro de empresas, e exercita exatamente os critérios de Fundamentos L2: programa do zero e erro tratado com mensagem útil. Pede ainda que os passos sejam listados antes de codar. Ensina de quebra que CNPJ é texto, não número.",
+      "origin": "mission"
+    },
+    {
+      "title": "Desafio técnico de empresa brasileira — front-end",
+      "source": "felipefialho/frontend-challenges (GitHub)",
+      "url": "https://github.com/felipefialho/frontend-challenges",
+      "kind": "exercise",
+      "action_type": "PROVE",
+      "competencies": [
+        "build-an-application"
+      ],
+      "level_min": "L2",
+      "technology": "agnostic",
+      "cost": "free",
+      "pt_br_status": "complete",
+      "requires_signup": false,
+      "license": "MIT",
+      "why": "Testes técnicos que empresas brasileiras aplicam em processos seletivos, reunidos pela comunidade (15 mil estrelas, ativo em outubro de 2026). Entregar um é a prova mais próxima do que o mercado pede — e já entra no portfólio.",
+      "origin": "practice"
+    },
+    {
+      "title": "Desafio técnico de empresa brasileira — back-end",
+      "source": "backend-br/desafios (GitHub)",
+      "url": "https://github.com/backend-br/desafios",
+      "kind": "exercise",
+      "action_type": "PROVE",
+      "competencies": [
+        "build-an-application"
+      ],
+      "level_min": "L2",
+      "technology": "agnostic",
+      "cost": "free",
+      "pt_br_status": "complete",
+      "requires_signup": false,
+      "license": "MIT",
+      "why": "A versão de back-end da mesma ideia: desafios reais de processos seletivos no Brasil. Serve de marco para quem segue a ênfase de back-end.",
+      "origin": "practice"
+    },
+    {
+      "title": "Primeira contribuição: Querido Diário",
+      "source": "Open Knowledge Brasil (GitHub)",
+      "url": "https://github.com/okfn-brasil/querido-diario/issues?q=is%3Aopen+label%3A%22good+first+issue%22",
+      "kind": "exercise",
+      "action_type": "PROVE",
+      "competencies": [
+        "code-review-participation",
+        "version-control-git"
+      ],
+      "level_min": "L1",
+      "technology": "agnostic",
+      "cost": "free",
+      "pt_br_status": "complete",
+      "requires_signup": true,
+      "license": "MIT",
+      "why": "Projeto brasileiro de dados abertos com 25 issues marcadas para quem está começando (15/10/2026). Um pull request aceito passa por revisão de verdade — é evidência pública de Git, de revisão e de comunicação.",
+      "origin": "practice"
+    }
+  ]
+}

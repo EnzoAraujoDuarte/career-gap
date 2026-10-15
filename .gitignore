@@ -1,0 +1,26 @@
+# Dependências e saídas de build — tudo regenerável
+node_modules/
+.next/
+.venv/
+__pycache__/
+coverage/
+*.tsbuildinfo
+
+# Sistema
+.DS_Store
+
+# Segredos: nunca versionar. Só o modelo, sem valores.
+.env*
+!.env.example
+
+# Configuração do Claude Code que vale só nesta máquina
+.claude/settings.local.json
+# Skill de terceiro instalada localmente (14 MB, reinstalável)
+.claude/skills/
+
+# Documento de outra pessoa, usado só como referência de formato e no teste de plágio
+TCC_AI_WASHING_ENXUTO.docx
+tcc/plagio/corpus/
+
+# Páginas renderizadas pelo conferir.py
+tcc/.paginas/

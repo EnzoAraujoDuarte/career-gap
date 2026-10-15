@@ -1,0 +1,870 @@
+{
+  "gerado_em": "2026-09-11",
+  "metodo": "mapeamento em 4 fatias + verificação adversarial por agente independente",
+  "verificados_mantidos": 38,
+  "entries": [
+    {
+      "creator": "Gustavo Guanabara (Curso em Vídeo)",
+      "creator_url": "https://www.cursoemvideo.com/",
+      "artifact_kind": "course",
+      "artifact_title": "Curso de Algoritmos e Lógica de Programação [40 Horas]",
+      "artifact_url": "https://www.cursoemvideo.com/curso/curso-de-algoritmo/",
+      "competencies": [
+        "programming-fundamentals",
+        "problem-decomposition"
+      ],
+      "level_min": "L0",
+      "cost": "free",
+      "action_type": "LEARN",
+      "technology": "agnostic",
+      "year_or_recency": "sem data na página; curso ativo no catálogo oficial em 2026",
+      "why": "16 aulas de pseudocódigo, de entrada/operadores a vetores e matrizes. Verificado na página oficial: gratuito, só o certificado é pago. Pseudocódigo não sofre defasagem de sintaxe, então a ausência de data não invalida. É o nó de entrada para quem nunca escreveu um algoritmo."
+    },
+    {
+      "creator": "Jhonatan de Souza (Dev Aprender)",
+      "creator_url": "https://www.youtube.com/@DevAprender",
+      "artifact_kind": "video",
+      "artifact_title": "Curso Lógica de Programação 2026 – Aprenda em 3 Horas (De Verdade!)",
+      "artifact_url": "https://www.youtube.com/watch?v=epf-WQdVis0",
+      "competencies": [
+        "programming-fundamentals",
+        "problem-decomposition"
+      ],
+      "level_min": "L0",
+      "cost": "free",
+      "action_type": "WATCH",
+      "technology": "agnostic",
+      "year_or_recency": "publicado em ago/2025 — o '2026' do título é rótulo de marketing, não data",
+      "why": "Mesma competência do curso de 40h em um artefato único de ~3h: variante de baixo atrito para quem abandona curso longo. Canal oficial confirmado e ativo. Registrar 2025 como ano; nunca tomar o título como fonte de data."
+    },
+    {
+      "creator": "Rafaella Ballerini",
+      "creator_url": "https://www.youtube.com/@rafaellaballerini",
+      "artifact_kind": "video",
+      "artifact_title": "CURSO DE JAVASCRIPT DO ZERO | parte 1 - variáveis, onClick, funções e interação com HTML",
+      "artifact_url": "https://www.youtube.com/watch?v=Z7mnxUI4u00",
+      "competencies": [
+        "javascript-essentials",
+        "dom-and-browser"
+      ],
+      "level_min": "L0",
+      "cost": "free",
+      "action_type": "WATCH",
+      "technology": "javascript",
+      "year_or_recency": "27/11/2024 (uploadDate confirmado)",
+      "why": "Único artefato de JS/DOM da lista com data de publicação confirmada e recente. O título nomeia onClick e interação com HTML, o que sustenta o mapeamento sem depender de assistir. É 'parte 1' de série: o nó precisa indicar a continuidade, senão o usuário termina pela metade."
+    },
+    {
+      "creator": "Gustavo Guanabara (Curso em Vídeo)",
+      "creator_url": "https://www.youtube.com/@cursoemvideo",
+      "artifact_kind": "playlist",
+      "artifact_title": "Curso Grátis de JavaScript e ECMAScript para Iniciantes",
+      "artifact_url": "https://www.youtube.com/playlist?list=PLHz_AreHm4dlsK3Nr9GVvXCbpQyHQl1o1",
+      "competencies": [
+        "javascript-essentials"
+      ],
+      "level_min": "L0",
+      "cost": "free",
+      "action_type": "WATCH",
+      "technology": "javascript",
+      "year_or_recency": "datas das aulas NÃO confirmadas",
+      "why": "Cobertura mais longa de JavaScript como linguagem-base em pt-BR gratuito. Risco declarado: JavaScript é a tecnologia mais perecível do catálogo e não confirmei a data das aulas; se forem anteriores a ~2018 (var/ES5), rebaixar ou substituir. Validar manualmente antes de publicar este nó."
+    },
+    {
+      "creator": "Gustavo Guanabara (Curso em Vídeo)",
+      "creator_url": "https://www.youtube.com/@cursoemvideo",
+      "artifact_kind": "video",
+      "artifact_title": "Introdução ao DOM - Curso JavaScript #09",
+      "artifact_url": "https://www.youtube.com/watch?v=WWZX8RWLxIk",
+      "competencies": [
+        "dom-and-browser"
+      ],
+      "level_min": "L1",
+      "cost": "free",
+      "action_type": "WATCH",
+      "technology": "javascript",
+      "year_or_recency": "~2019 (não confirmado); canal ativo em 2026",
+      "why": "Modelo mental de árvore DOM (parent/child, querySelector), que é o conceito ausente quando o aluno copia seletores sem entender o que seleciona. Autoria e gratuidade confirmadas por oEmbed e pela página oficial do curso. Não cobre APIs modernas de navegador."
+    },
+    {
+      "creator": "Loiane Groner",
+      "creator_url": "https://loiane.training/",
+      "artifact_kind": "playlist",
+      "artifact_title": "Curso Estrutura de Dados e Algoritmos Java",
+      "artifact_url": "https://www.youtube.com/playlist?list=PLGxZ4Rq3BOBrgumpzz-l8kFMw2DLERdxi",
+      "competencies": [
+        "algorithms-and-complexity"
+      ],
+      "level_min": "L2",
+      "cost": "free",
+      "action_type": "WATCH",
+      "technology": "java",
+      "year_or_recency": "datas não confirmadas; repositório e plataforma da autora ativos",
+      "why": "Conteúdo gratuito mais completo de estruturas de dados em pt-BR, com autoria confirmada pelo repositório oficial github.com/loiane/estrutura-dados-algoritmos-java. Duas ressalvas que o nó deve carregar: é Java (não a stack do público) e é L2 — deve ser ADIADO para quem ainda está em lógica básica."
+    },
+    {
+      "creator": "Fabio Akita (Akitando)",
+      "creator_url": "https://akitaonrails.com/",
+      "artifact_kind": "video",
+      "artifact_title": "[Akitando] #94 - O que vem DEPOIS do Hello World | Consertando meu C",
+      "artifact_url": "https://akitaonrails.com/2021/03/22/akitando-94-o-que-vem-depois-do-hello-world-consertando-meu-c/",
+      "competencies": [
+        "algorithms-and-complexity"
+      ],
+      "level_min": "L2",
+      "cost": "free",
+      "action_type": "WATCH",
+      "technology": "agnostic",
+      "year_or_recency": "22/03/2021",
+      "why": "Competência e nível CORRIGIDOS na verificação: o conteúdo real é segmentação de memória, listas encadeadas, tabelas hash, ordenação e Big O — algorithms-and-complexity em L2, não problem-decomposition em L1. Depende do episódio anterior sobre C. Publicado no site do próprio autor."
+    },
+    {
+      "creator": "Fábio dos Reis (Bóson Treinamentos)",
+      "creator_url": "https://www.bosontreinamentos.com.br/",
+      "artifact_kind": "video",
+      "artifact_title": "Comandos Básicos Linux 01 - bash, ls, cd, pwd, encadeamento, clear",
+      "artifact_url": "https://www.youtube.com/watch?v=ufWrWK0I2o0",
+      "competencies": [
+        "command-line-basics"
+      ],
+      "level_min": "L0",
+      "cost": "free",
+      "action_type": "WATCH",
+      "technology": "linux",
+      "year_or_recency": "data não confirmada; comandos POSIX básicos não mudam",
+      "why": "Primeiro passo do tamanho certo: navegação e orientação no shell, sem carga de sysadmin. Canal oficial confirmado. Preferível à playlist LPIC completa como porta de entrada."
+    },
+    {
+      "creator": "Fábio dos Reis (Bóson Treinamentos)",
+      "creator_url": "https://www.bosontreinamentos.com.br/",
+      "artifact_kind": "playlist",
+      "artifact_title": "Curso de Linux Básico / Certificação LPIC - 1",
+      "artifact_url": "https://www.youtube.com/playlist?list=PLucm8g_ezqNp92MmkF9p_cj4yhT-fCTl7",
+      "competencies": [
+        "command-line-basics"
+      ],
+      "level_min": "L0",
+      "cost": "free",
+      "action_type": "WATCH",
+      "technology": "linux",
+      "year_or_recency": "sem datas declaradas; curso listado e mantido no site oficial",
+      "why": "Continuação para cp/mv/rm, chmod, ps/kill, grep/awk, pipes. RESSALVA FORTE: é orientado a certificação de sysadmin e a maior parte (boot, systemd, particionamento, redes) é irrelevante para dev web. O nó deve apontar aulas específicas, jamais a playlist inteira."
+    },
+    {
+      "creator": "Rafaella Ballerini",
+      "creator_url": "https://www.youtube.com/@rafaellaballerini",
+      "artifact_kind": "video",
+      "artifact_title": "Curso completo de HTML - seu PRIMEIRO SITE DO ZERO para iniciar em PROGRAMAÇÃO!",
+      "artifact_url": "https://www.youtube.com/watch?v=Fhy-5CtVkiM",
+      "competencies": [
+        "html-semantics"
+      ],
+      "level_min": "L0",
+      "cost": "free",
+      "action_type": "WATCH",
+      "technology": "html",
+      "year_or_recency": "12/09/2024 (uploadDate confirmado; a estimativa original de ~2025 estava errada)",
+      "why": "1h31 contínuas do zero a uma página pronta, sem exigir atravessar 40 aulas antes de ver resultado — reduz abandono em L0. Canal oficial ativo (último upload 31/08/2026)."
+    },
+    {
+      "creator": "Matheus Battisti (Hora de Codar)",
+      "creator_url": "https://www.youtube.com/@MatheusBattisti",
+      "artifact_kind": "video",
+      "artifact_title": "Curso de HTML para iniciantes 2023 - Aprenda HTML 5 e crie um projeto",
+      "artifact_url": "https://www.youtube.com/watch?v=yvCAX68TJMc",
+      "competencies": [
+        "html-semantics"
+      ],
+      "level_min": "L0",
+      "cost": "free",
+      "action_type": "WATCH",
+      "technology": "html",
+      "year_or_recency": "07/02/2023 (única data do lote que conferiu exatamente)",
+      "why": "1h47 só de HTML, útil quando misturar CSS na mesma aula sobrecarrega o aluno L0. Canal oficial e muito ativo (uploads diários em set/2026). Alternativa de dosagem ao vídeo de 3h do mesmo autor."
+    },
+    {
+      "creator": "Rafaella Ballerini",
+      "creator_url": "https://www.youtube.com/@rafaellaballerini",
+      "artifact_kind": "video",
+      "artifact_title": "Aprenda CSS do ZERO até colocar o SITE NO AR | Tutorial PASSO A PASSO com PROJETO PRÁTICO",
+      "artifact_url": "https://www.youtube.com/watch?v=AB35iSr1YyA",
+      "competencies": [
+        "css-layout"
+      ],
+      "level_min": "L0",
+      "cost": "free",
+      "action_type": "WATCH",
+      "technology": "css",
+      "year_or_recency": "30/09/2024 (uploadDate confirmado)",
+      "why": "Entrada em CSS no ponto em que o iniciante trava: sair do HTML cru e conseguir posicionar. NÃO confirmei que ensine flexbox/grid em vez de float, nem que a parte de publicar seja substantiva — por isso mapeei só css-layout e não deployment-basics."
+    },
+    {
+      "creator": "Gustavo Guanabara (Curso em Vídeo)",
+      "creator_url": "https://www.youtube.com/@cursoemvideo",
+      "artifact_kind": "playlist",
+      "artifact_title": "Curso HTML5 e CSS3.- Módulo 5 de 5",
+      "artifact_url": "https://www.youtube.com/playlist?list=PLHz_AreHm4dn1bAtIJWFrugl5z2Ej_52d",
+      "competencies": [
+        "css-layout"
+      ],
+      "level_min": "L1",
+      "cost": "free",
+      "action_type": "WATCH",
+      "technology": "css",
+      "year_or_recency": "vídeos ~2024-2025; canal com uploads em set/2026",
+      "why": "Artefato mais bem sustentado do catálogo: a varredura da playlist encontrou 39 menções a Flexbox e 41 a Grid nos títulos das aulas — o foco em layout moderno é evidência, não inferência por data. É o recurso PRINCIPAL de css-layout; o resto do catálogo gratuito pt-BR de CSS ainda é majoritariamente de 2017-2019."
+    },
+    {
+      "creator": "Matheus Battisti (Hora de Codar)",
+      "creator_url": "https://www.youtube.com/@MatheusBattisti",
+      "artifact_kind": "video",
+      "artifact_title": "Curso de HTML e CSS com projeto - HTML e CSS para iniciantes",
+      "artifact_url": "https://www.youtube.com/watch?v=PuyZAUyZYDI",
+      "competencies": [
+        "build-an-application"
+      ],
+      "level_min": "L0",
+      "cost": "free",
+      "action_type": "BUILD",
+      "technology": "html",
+      "year_or_recency": "03/10/2022 (a estimativa original de ~2023 estava errada)",
+      "why": "Projeto guiado de 2h59 que fecha o gap 'sei as tags mas nunca montei uma página inteira'. Entra como projeto, não como recurso principal de HTML/CSS — para marcação e layout o catálogo já tem artefatos mais novos. Não confirmei se o CSS do projeto usa flexbox/grid."
+    },
+    {
+      "creator": "Fernanda Kipper",
+      "creator_url": "https://www.youtube.com/@kipperdev",
+      "artifact_kind": "video",
+      "artifact_title": "Criando Aplicação Fullstack do Zero com Java Spring e React - Parte 1: Desenvolvimento do Backend",
+      "artifact_url": "https://www.youtube.com/watch?v=lUVureR5GqI",
+      "competencies": [
+        "build-an-application"
+      ],
+      "level_min": "L1",
+      "cost": "free",
+      "action_type": "BUILD",
+      "technology": "java",
+      "year_or_recency": "indicação de 07/03/2023 por fonte secundária; canal ativo em set/2026",
+      "why": "URL e título CORRIGIDOS: o mapeamento original apontava para o repositório GitHub com um título inventado. Projeto de ponta a ponta (Spring MVC + JPA + PostgreSQL) com repositório oficial (95 stars) e front companheiro em React. É 'Parte 1' — cadastrar a parte de frontend separadamente se o nó exigir ciclo completo."
+    },
+    {
+      "creator": "Guia WCAG (projeto Acessibilidade Toolkit)",
+      "creator_url": "https://guia-wcag.com/",
+      "artifact_kind": "article",
+      "artifact_title": "Guia WCAG | Guia de consulta rápida",
+      "artifact_url": "https://guia-wcag.com/",
+      "competencies": [
+        "web-accessibility-basics",
+        "reading-documentation"
+      ],
+      "level_min": "L1",
+      "cost": "free",
+      "action_type": "READ",
+      "technology": "agnostic",
+      "year_or_recency": "versão 8.5.1, última atualização 02/09/2026 — conteúdo comprovadamente vivo",
+      "why": "Traduz os critérios da WCAG para linguagem utilizável e resolve o gap de 'a norma oficial é ilegível para iniciante'. Sem paywall e sem cadastro. Autoria pessoal NÃO confirmada na página, por isso o creator está registrado como o projeto. É referência de consulta, não substitui aula prática — que não existe em pt-BR gratuito."
+    },
+    {
+      "creator": "Canal Inclunet (Camila Domingues e Leonardo Gleison Ferreira)",
+      "creator_url": "https://www.youtube.com/@Inclunet",
+      "artifact_kind": "video",
+      "artifact_title": "Como uma pessoa cega navega na internet?",
+      "artifact_url": "https://www.youtube.com/watch?v=_wjFPrRfBZI",
+      "competencies": [
+        "web-accessibility-basics"
+      ],
+      "level_min": "L0",
+      "cost": "free",
+      "action_type": "WATCH",
+      "technology": "agnostic",
+      "year_or_recency": "17/05/2023; canal ativo (uploads em abr-mai/2026)",
+      "why": "Mostra o leitor de tela sendo usado de verdade em sites reais. Sem isso, alt e ARIA viram regra decorada; com isso, viram consequência observável. Usar como motivação inicial — é canal de usuário/tecnologia assistiva, nunca fonte técnica de implementação."
+    },
+    {
+      "creator": "Matheus Battisti (Hora de Codar)",
+      "creator_url": "https://www.youtube.com/@MatheusBattisti",
+      "artifact_kind": "video",
+      "artifact_title": "APRENDA FETCH API DE JAVASCRIPT COM PROJETO",
+      "artifact_url": "https://www.youtube.com/watch?v=qIGYM4S8x50",
+      "competencies": [
+        "api-consumption"
+      ],
+      "level_min": "L1",
+      "cost": "free",
+      "action_type": "WATCH",
+      "technology": "javascript",
+      "year_or_recency": "24/05/2022 (confirmado)",
+      "why": "Único artefato-aula gratuito em pt-BR que confirmei ensinando consumo de API com projeto, e o título nomeia Fetch sem ambiguidade. 45min. NÃO confirmei cobertura de async/await, tratamento de erro ou estados de carregamento — recomendar só depois de javascript-essentials e complementar com documentação."
+    },
+    {
+      "creator": "Rafaella Ballerini",
+      "creator_url": "https://www.youtube.com/@rafaellaballerini",
+      "artifact_kind": "video",
+      "artifact_title": "Como usar o CONSOLE no navegador? | Conteúdo extra das aulas de Javascript!",
+      "artifact_url": "https://www.youtube.com/watch?v=rvBdC3Ziwg8",
+      "competencies": [
+        "debugging"
+      ],
+      "level_min": "L0",
+      "cost": "free",
+      "action_type": "WATCH",
+      "technology": "javascript",
+      "year_or_recency": "09/12/2024 (confirmado), 15min40",
+      "why": "Gap raramente coberto: o iniciante escreve código e não sabe que o navegador tem ferramentas de inspeção. Mapeamento para dom-and-browser foi REMOVIDO na verificação — pelo título cobre console, não DevTools inteiro (inspetor, network, breakpoints)."
+    },
+    {
+      "creator": "hcode",
+      "creator_url": "https://www.hcode.com.br/",
+      "artifact_kind": "video",
+      "artifact_title": "Debugger JavaScript no Google Chrome DevTools - Aprenda a Debugar",
+      "artifact_url": "https://www.youtube.com/watch?v=ReL1M9m2wqc",
+      "competencies": [
+        "debugging"
+      ],
+      "level_min": "L1",
+      "cost": "free",
+      "action_type": "WATCH",
+      "technology": "javascript",
+      "year_or_recency": "25/08/2020, confirmado pela página oficial hcode.com.br",
+      "why": "Breakpoints, step e watch no navegador — o caminho mais curto para parar de adivinhar bug. Titularidade confirmada porque o próprio site publica o vídeo. RESSALVAS: sem evidência de publicações do canal nos últimos 18 meses, e a UI do Chrome mudou painéis de lugar desde 2020."
+    },
+    {
+      "creator": "Fernanda Kipper",
+      "creator_url": "https://www.youtube.com/@kipperdev",
+      "artifact_kind": "video",
+      "artifact_title": "APRENDENDO DOCKER | EMPACOTANDO API JAVA SPRING + DEPLOY NA AWS",
+      "artifact_url": "https://www.youtube.com/watch?v=l9k_tWRTX7k",
+      "competencies": [
+        "deployment-basics"
+      ],
+      "level_min": "L1",
+      "cost": "free",
+      "action_type": "WATCH",
+      "technology": "java",
+      "year_or_recency": "~2024 por fonte secundária — NÃO confirmado",
+      "why": "Único artefato razoável de deployment em pt-BR gratuito que sobreviveu à verificação: leva a API do 'roda na minha máquina' até publicada. ALERTA: tutorial de console AWS é o tipo de conteúdo que envelhece rápido; revalidar antes de tratar como caminho único, e não assumir que cobre variáveis de ambiente, logs ou rollback."
+    },
+    {
+      "creator": "Código Fonte TV (Gabriel Fróes e Vanessa Weber)",
+      "creator_url": "https://www.youtube.com/@codigofontetv",
+      "artifact_kind": "playlist",
+      "artifact_title": "Dicionário do Programador",
+      "artifact_url": "https://www.youtube.com/playlist?list=PLVc5bWuiFQ8GgKm5m0cZE6E02amJho94o",
+      "competencies": [
+        "technical-communication",
+        "reading-documentation"
+      ],
+      "level_min": "L0",
+      "cost": "free",
+      "action_type": "WATCH",
+      "technology": "agnostic",
+      "year_or_recency": "série longeva; canal ativo em 2026 (contagem de 236 vídeos não confirmada)",
+      "why": "Entra como REFERÊNCIA de vocabulário: o gap de iniciante costuma ser não saber nomear as coisas (API, deploy, HTTP) ao falar com o time e ao ler documentação. Só esta playlist do canal entra — o restante é notícia e opinião, que não popula nó de competência."
+    },
+    {
+      "creator": "TabNews (comunidade open source BR, mantida por Filipe Deschamps)",
+      "creator_url": "https://www.tabnews.com.br/",
+      "artifact_kind": "community",
+      "artifact_title": "TabNews — Conteúdos para quem trabalha com Programação e Tecnologia",
+      "artifact_url": "https://www.tabnews.com.br/",
+      "competencies": [
+        "technical-communication"
+      ],
+      "level_min": "L0",
+      "cost": "free",
+      "action_type": "PROVE",
+      "technology": "agnostic",
+      "year_or_recency": "feed com publicações de horas atrás na verificação (set/2026)",
+      "why": "Comunicação técnica não se aprende assistindo vídeo. Único espaço BR gratuito verificado onde o iniciante escreve pergunta técnica pública e recebe resposta. Só faz sentido no roadmap atrelado a uma tarefa concreta ('publique sua dúvida descrevendo o que já tentou'), nunca como leitura passiva."
+    },
+    {
+      "creator": "Fábio dos Reis (Bóson Treinamentos)",
+      "creator_url": "https://www.bosontreinamentos.com.br/",
+      "artifact_kind": "playlist",
+      "artifact_title": "Curso de Modelagem de Dados",
+      "artifact_url": "https://www.youtube.com/playlist?list=PLucm8g_ezqNoNHU8tjVeHmRGBFnjDIlxD",
+      "competencies": [
+        "relational-data-modeling"
+      ],
+      "level_min": "L0",
+      "cost": "free",
+      "action_type": "WATCH",
+      "technology": "agnostic",
+      "year_or_recency": "série dos anos 2010; canal ativo (último vídeo 04/09/2026); conteúdo conceitual",
+      "why": "Raro conteúdo pt-BR que trata modelagem relacional como disciplina própria (MER/DER, dicionário de dados, formas normais) e não como apêndice de tutorial de CRUD. Ementa confirmada no site oficial. Fecha o gap de quem escreve SELECT mas não sabe decidir tabelas e chaves."
+    },
+    {
+      "creator": "Fábio dos Reis (Bóson Treinamentos)",
+      "creator_url": "https://www.bosontreinamentos.com.br/",
+      "artifact_kind": "playlist",
+      "artifact_title": "Curso de Bancos de Dados com MySQL",
+      "artifact_url": "https://www.youtube.com/playlist?list=PLucm8g_ezqNrWAQH2B_0AnrFY5dJcgOLR",
+      "competencies": [
+        "sql-basics",
+        "relational-data-modeling"
+      ],
+      "level_min": "L0",
+      "cost": "free",
+      "action_type": "WATCH",
+      "technology": "sql",
+      "year_or_recency": "série dos anos 2010; SQL básico é estável; canal ativo",
+      "why": "SQL do zero com progressão explícita para quem nunca abriu um banco. CORREÇÃO: a alegação de repositório com scripts do curso NÃO se sustenta — github.com/bosontreinamentos/mysql tem 3 commits e 2 arquivos soltos, não serve como material de prática."
+    },
+    {
+      "creator": "Gustavo Guanabara (Curso em Vídeo)",
+      "creator_url": "https://www.youtube.com/@cursoemvideo",
+      "artifact_kind": "playlist",
+      "artifact_title": "Curso de Banco de Dados MySQL",
+      "artifact_url": "https://www.youtube.com/playlist?list=PLHz_AreHm4dkBs-795Dsgvau_ekxg8g1r",
+      "competencies": [
+        "sql-basics"
+      ],
+      "level_min": "L0",
+      "cost": "free",
+      "action_type": "WATCH",
+      "technology": "sql",
+      "year_or_recency": "ano de gravação NÃO confirmado (estimativa 2015-2016 não verificada); canal ativo",
+      "why": "Rampa de menor atrito para L0 absoluto: ritmo lento, sem jargão, instalação guiada. Indicar quando o usuário trava em 'nem sei o que é uma tabela'. Para L1 é lento demais — nesse caso preferir Bóson. A parte de instalação pode estar datada; o SQL não."
+    },
+    {
+      "creator": "Matheus Battisti (Hora de Codar)",
+      "creator_url": "https://www.youtube.com/@MatheusBattisti",
+      "artifact_kind": "video",
+      "artifact_title": "Crie uma API RESTful com Node.js e MongoDB | CRUD com Node, Express e Mongoose",
+      "artifact_url": "https://www.youtube.com/watch?v=K5QaTfE5ylk",
+      "competencies": [
+        "api-development"
+      ],
+      "level_min": "L1",
+      "cost": "free",
+      "action_type": "BUILD",
+      "technology": "node",
+      "year_or_recency": "data NÃO confirmada (estimativa 2022-2023); canal com upload em 11/09/2026",
+      "why": "Caminho de menor atrito para quem vem de JavaScript no navegador e nunca escreveu servidor: CRUD completo em uma sessão. PRÉ-REQUISITO OBRIGATÓRIO no roadmap: usa MongoDB, então NÃO cobre sql-basics nem relational-data-modeling — parear com os cursos de banco, senão o aluno termina a trilha de API sem nunca ter escrito um JOIN."
+    },
+    {
+      "creator": "Michelli Brito",
+      "creator_url": "https://www.youtube.com/@MichelliBrito",
+      "artifact_kind": "video",
+      "artifact_title": "Spring Data JPA | Curso 2024",
+      "artifact_url": "https://www.youtube.com/watch?v=Ca30sv9EbLo",
+      "competencies": [
+        "api-development"
+      ],
+      "level_min": "L1",
+      "cost": "free",
+      "action_type": "WATCH",
+      "technology": "java",
+      "year_or_recency": "2024 pelo título; canal oficial ativo (último vídeo 01/09/2026)",
+      "why": "Caminho Java/Spring, que domina vaga júnior em banco e seguro no Brasil. Liga API a persistência relacional — o salto 'já sei sintaxe, nunca liguei API a banco'. CORREÇÃO: o rótulo api-consumption foi removido, o curso é de persistência, não de consumo de APIs externas."
+    },
+    {
+      "creator": "Fernanda Kipper",
+      "creator_url": "https://www.youtube.com/@kipperdev",
+      "artifact_kind": "video",
+      "artifact_title": "Autenticação e Autorização com Spring Security, JWT Tokens e Roles",
+      "artifact_url": "https://www.youtube.com/watch?v=5w-YCcOjPD0",
+      "competencies": [
+        "authentication-basics"
+      ],
+      "level_min": "L1",
+      "cost": "free",
+      "action_type": "WATCH",
+      "technology": "java",
+      "year_or_recency": "data exata não confirmada; canal ativo (uploads em set/2026)",
+      "why": "Único artefato do lote cuja evidência de apoio se confirmou por inteiro: repositório oficial github.com/Fernanda-Kipper/auth-api com 321 stars, Spring Security + JWT + PostgreSQL + Flyway e README documentando os papéis USER e ADMIN — o que sustenta a separação entre autenticação e autorização. Limite: é Java; não há equivalente em Node/JS no catálogo."
+    },
+    {
+      "creator": "Julio de Lima",
+      "creator_url": "https://www.youtube.com/@JuliodeLimas",
+      "artifact_kind": "video",
+      "artifact_title": "Programação para QA's que querem automatizar testes: A introdução",
+      "artifact_url": "https://www.youtube.com/watch?v=XAFfvt0Fej0",
+      "competencies": [
+        "automated-testing-basics"
+      ],
+      "level_min": "L0",
+      "cost": "free",
+      "action_type": "WATCH",
+      "technology": "agnostic",
+      "year_or_recency": "indício de dez/2021 — o canal é ativo, o vídeo não é recente",
+      "why": "Artefato de teste automatizado mais próximo de L0 que encontrei em pt-BR: assume zero base e constrói do conceito. RESSALVA ESTRUTURAL: a lente é de carreira QA, não de dev testando o próprio código — cobre o conceito, não o hábito de escrever teste junto com a função."
+    },
+    {
+      "creator": "Erick Wendel",
+      "creator_url": "https://www.youtube.com/@ErickWendel",
+      "artifact_kind": "video",
+      "artifact_title": "Como fazer testes automatizados em JavaScript (SEM FRAMEWORKS)",
+      "artifact_url": "https://www.youtube.com/watch?v=8hxhZkBzWhk",
+      "competencies": [
+        "automated-testing-basics"
+      ],
+      "level_min": "L2",
+      "cost": "free",
+      "action_type": "WATCH",
+      "technology": "javascript",
+      "year_or_recency": "data não confirmada; canal oficial ativo (25/08/2026)",
+      "why": "Desmonta a ideia de que testar é configurar Jest e mostra o mecanismo por baixo. O próprio título pressupõe que o aluno já saiba o que um framework de teste faz: manter como L2 e ADIADO — recomendar antes disso causa reversão de expertise."
+    },
+    {
+      "creator": "Rocketseat",
+      "creator_url": "https://www.rocketseat.com.br/",
+      "artifact_kind": "course",
+      "artifact_title": "Aprenda a Programar do Zero com IA: Curso 100% Gratuito | Rocketseat Discover",
+      "artifact_url": "https://www.rocketseat.com.br/discover",
+      "competencies": [
+        "ai-assisted-development-basics"
+      ],
+      "level_min": "L0",
+      "cost": "free",
+      "action_type": "LEARN",
+      "technology": "agnostic",
+      "year_or_recency": "trilha ativa em 2026 (fontes independentes: ~71 aulas, ~10h, conduzida por Mayk Brito)",
+      "why": "Única trilha BR gratuita confirmada que trata uso de IA no aprendizado já em L0, dentro de projeto guiado. CORREÇÃO: o rótulo version-control-git foi REMOVIDO — a página retorna 403 ao fetch e a ementa não foi verificada. Não confirmei se o acesso exige cadastro."
+    },
+    {
+      "creator": "Rocketseat",
+      "creator_url": "https://www.youtube.com/@rocketseat",
+      "artifact_kind": "video",
+      "artifact_title": "O que todo dev precisa saber antes de confiar na IA",
+      "artifact_url": "https://www.youtube.com/watch?v=0ifZP3AJuV0",
+      "competencies": [
+        "ai-assisted-development-basics"
+      ],
+      "level_min": "L1",
+      "cost": "free",
+      "action_type": "WATCH",
+      "technology": "agnostic",
+      "year_or_recency": "data alegada 23/06/2026 NÃO verificada",
+      "why": "Cobre o lado de ceticismo e verificação — o gap perigoso de L0-L1, que é aceitar código gerado sem entender. PENDÊNCIA DECLARADA: a URL e o título conferem, mas nenhuma fonte independente liga este vídeo ao canal da Rocketseat; a titularidade precisa de conferência humana antes de publicar o nó."
+    },
+    {
+      "creator": "Rodrigo Branas",
+      "creator_url": "https://www.youtube.com/@rodrigobranas",
+      "artifact_kind": "playlist",
+      "artifact_title": "Clean Code (Rodrigo Branas)",
+      "artifact_url": "https://www.youtube.com/playlist?list=PLQCmSnNFVYnSpfpwwQGO8QHQ3CcizaZsV",
+      "competencies": [
+        "code-readability"
+      ],
+      "level_min": "L1",
+      "cost": "free",
+      "action_type": "WATCH",
+      "technology": "agnostic",
+      "year_or_recency": "2017 (Clean Code #1 em 06/03/2017; #2 em 08/04/2017); canal ativo em 2026",
+      "why": "Trata nomeação, legibilidade e refatoração como decisão, não como regra decorada. Playlist curta e de 2017, mas conceitual e independente de versão de linguagem. É o nó mais frágil do catálogo: todo material BR recente de legibilidade está atrás de paywall ou é nível pleno/sênior."
+    },
+    {
+      "creator": "Gustavo Guanabara (Curso em Vídeo)",
+      "creator_url": "https://www.youtube.com/@cursoemvideo",
+      "artifact_kind": "playlist",
+      "artifact_title": "Curso de Git e GitHub: grátis, prático e sem usar comandos no terminal",
+      "artifact_url": "https://www.youtube.com/playlist?list=PLHz_AreHm4dm7ZULPAmadvNhH6vk9oNZA",
+      "competencies": [
+        "version-control-git"
+      ],
+      "level_min": "L0",
+      "cost": "free",
+      "action_type": "WATCH",
+      "technology": "git",
+      "year_or_recency": "aulas de 2020; curso ativo no catálogo oficial (versão site: 20h, 13 aulas, gratuita)",
+      "why": "Melhor rampa L0: ensina o modelo mental de versionamento sem exigir terminal, reduzindo a carga de quem ainda não tem command-line-basics. LIMITE EXPLÍCITO que o nó deve exibir: por ser via interface gráfica, NÃO cobre o fluxo por linha de comando — precisa ser sucedido pelo curso do Willian Justen."
+    },
+    {
+      "creator": "Willian Justen",
+      "creator_url": "https://willianjusten.com.br/",
+      "artifact_kind": "playlist",
+      "artifact_title": "Git e Github na Vida Real",
+      "artifact_url": "https://www.youtube.com/playlist?list=PLlAbYrWSYTiNqugqFFWWsgONJsmc3eMpg",
+      "competencies": [
+        "version-control-git",
+        "command-line-basics"
+      ],
+      "level_min": "L1",
+      "cost": "free",
+      "action_type": "WATCH",
+      "technology": "git",
+      "year_or_recency": "2022; curso antes pago, liberado gratuitamente pelo autor",
+      "why": "Confirmado no blog do próprio autor: 45 aulas em 4 módulos (~4h), com Issues/PR/code review no módulo 3 e Git Flow/feature branch no módulo 4. Único artefato BR gratuito verificado que trata Git como prática de equipe, e não como lista de comandos."
+    },
+    {
+      "creator": "Programador de Elite",
+      "creator_url": "https://www.youtube.com/@progdeelite",
+      "artifact_kind": "video",
+      "artifact_title": "Como revisar e comentar pull requests sem ser grosseiro — revisão de código (título original contém linguagem chula)",
+      "artifact_url": "https://www.youtube.com/watch?v=fsMFuT59rMU",
+      "competencies": [
+        "code-review-participation",
+        "technical-communication"
+      ],
+      "level_min": "L1",
+      "cost": "free",
+      "action_type": "WATCH",
+      "technology": "agnostic",
+      "year_or_recency": "25/10/2023 (ano confirmado por busca independente)",
+      "why": "Cobre o lado humano do code review — como escrever o comentário — que é o gap real de quem entra no primeiro time. Quase nenhum material BR gratuito trata isso. DUAS RESSALVAS: o título original contém palavrão e deve ser exibido editado num contexto acadêmico; a titularidade do canal não foi confirmada por fonte independente."
+    },
+    {
+      "creator": "Angelo Luz",
+      "creator_url": "https://www.youtube.com/c/AngeloLuz",
+      "artifact_kind": "video",
+      "artifact_title": "Git - Pull requests, Code review e contribuição em projetos públicos no github e gitlab",
+      "artifact_url": "https://www.youtube.com/watch?v=thtAHpgYVg8",
+      "competencies": [
+        "code-review-participation"
+      ],
+      "level_min": "L1",
+      "cost": "free",
+      "action_type": "WATCH",
+      "technology": "git",
+      "year_or_recency": "05/04/2020 (não confirmado na página); atividade recente do canal NÃO comprovada",
+      "why": "Mostra o fluxo fork → PR → review em projeto público, que é o único caminho de praticar code review sem ter emprego. Perfil do autor (professor de TI e CTO) é coerente com a autoria. Entra por falta de alternativa viva e recente: a competência inteira depende de dois vídeos de 2020 e 2023."
+    }
+  ],
+  "cobertura": [
+    {
+      "competency": "programming-fundamentals",
+      "verified_count": 5,
+      "status": "bem-servida",
+      "note": "Guanabara (Algoritmos e Python Mundo 1), Dev Aprender (2025), Akita #80 e as aulas gratuitas do Programação Dinâmica. Há folga real: dá para escolher por formato e dosagem (40h estruturadas vs. 3h em sessão única). Cap de 2 aplicado; os demais ficam como alternativas documentadas."
+    },
+    {
+      "competency": "problem-decomposition",
+      "verified_count": 3,
+      "status": "parcial",
+      "note": "Nenhum artefato dedicado em pt-BR. Aparece sempre embutido em curso de lógica (Guanabara, Dev Aprender). O nó deve apontar aulas específicas dentro desses cursos, não um recurso próprio. O único conteúdo que ataca o platô pós-tutorial de forma direta (Akita #94) foi reclassificado para algorithms-and-complexity após verificação do conteúdo real."
+    },
+    {
+      "competency": "javascript-essentials",
+      "verified_count": 3,
+      "status": "parcial",
+      "note": "Rafaella (2024, data confirmada) é o único com recência verificada. As duas playlists longas (Guanabara e Battisti) tiveram título, canal e gratuidade confirmados, mas NENHUMA data de aula — e JavaScript é a tecnologia mais perecível do catálogo. Risco concreto de ensinarem var/ES5. Verificação manual de data obrigatória antes de publicar."
+    },
+    {
+      "competency": "problem-solving-via-algorithms",
+      "verified_count": 0,
+      "status": "lacuna",
+      "note": "Linha de controle: esta chave NÃO pertence às 25 competências do catálogo e está aqui apenas para evidenciar que a lista foi percorrida por nome; ignorar na importação."
+    },
+    {
+      "competency": "algorithms-and-complexity",
+      "verified_count": 2,
+      "status": "lacuna",
+      "note": "Os dois artefatos são L2 e desalinhados com a stack do público: Loiane é Java e Akita #94 depende de um episódio anterior sobre C. NÃO existe aula gratuita pt-BR de complexidade/Big-O em JavaScript, nível L1, com autoria verificável. Para o público early-career web, esta competência precisa ser ADIADA ou atendida em inglês."
+    },
+    {
+      "competency": "command-line-basics",
+      "verified_count": 3,
+      "status": "parcial",
+      "note": "O que existe é curso de Linux orientado a certificação sysadmin (Bóson/LPIC), não 'terminal para dev web' (navegar em projeto, npm/npx, rodar script, ler erro, pipes). O melhor material nesse recorte é pago (Hora de Codar na Udemy) ou em espanhol. Achado do estudo, não falha de busca."
+    },
+    {
+      "competency": "html-semantics",
+      "verified_count": 5,
+      "status": "bem-servida",
+      "note": "Única competência com folga de curadoria: Rafaella (2024), Battisti (2023 e 2022) e Curso em Vídeo (módulos 1 e 4). Dá para escolher por dosagem — vídeo único de 1h47 só de HTML ou playlist granular com aulas dedicadas a hierarquia de títulos e semântica."
+    },
+    {
+      "competency": "css-layout",
+      "verified_count": 4,
+      "status": "bem-servida",
+      "note": "Sustentada pelo Módulo 5 do Curso em Vídeo, o único curso gratuito pt-BR cuja atualidade foi comprovada por inspeção (39 menções a Flexbox e 41 a Grid nos títulos das aulas). Registro metodológico: boa parte do catálogo gratuito pt-BR de CSS ainda é de 2017-2019 e foi descartada como recurso principal por isso."
+    },
+    {
+      "competency": "dom-and-browser",
+      "verified_count": 2,
+      "status": "parcial",
+      "note": "Cobertura desequilibrada: o artefato conceitualmente mais completo (Curso em Vídeo, ~2019) é antigo, e o recente (Rafaella, 2024) é introdutório. Não há material gratuito pt-BR atual cobrindo eventos, delegação de eventos e APIs de navegador em L2."
+    },
+    {
+      "competency": "debugging",
+      "verified_count": 3,
+      "status": "parcial",
+      "note": "Só vídeos avulsos (2019, 2020, 2024) — nenhum curso ou playlist pt-BR sobre depuração sistemática (hipótese, bisseção, leitura de stack trace). O candidato mais recente (Código Frontend BR, 2024) caiu na verificação porque o canal alegado não existe. Gap didático relevante: é a competência que mais separa L1 de L2."
+    },
+    {
+      "competency": "api-consumption",
+      "verified_count": 1,
+      "status": "parcial",
+      "note": "Um único artefato (Battisti, fetch com projeto, 2022) sustenta a competência inteira. Não confirmei cobertura de async/await, tratamento de erro ou estados de carregamento. O outro candidato caiu porque o tema real do vídeo não foi confirmado. Nenhuma série gratuita pt-BR recente de consumo de API para iniciante de front-end."
+    },
+    {
+      "competency": "web-accessibility-basics",
+      "verified_count": 3,
+      "status": "parcial",
+      "note": "Existe referência de consulta (Guia WCAG, atualizado em 09/2026), fonte normativa (W3C Brasil, L2) e demonstração de leitor de tela (Inclunet). FALTA a camada do meio: nenhuma aula gratuita pt-BR viva ensinando ARIA, ordem de foco, navegação por teclado e teste com leitor de tela. A única aula prática encontrada caiu por canal abandonado desde 03/2023. O bom conteúdo existe, mas é pago (Alura, TreinaWeb, PUC-SP, Casa do Código)."
+    },
+    {
+      "competency": "http-fundamentals",
+      "verified_count": 0,
+      "status": "lacuna",
+      "note": "Zero artefatos. Nenhum material pt-BR gratuito ensina HTTP como competência própria em L0/L1 — só vídeos dispersos sobre status codes e módulos dentro de cursos pagos. HTTP aparece sempre como efeito colateral de tutorial de API, nunca como objeto de estudo. O mapeamento indireto via Módulo 1 do Curso em Vídeo não foi verificado e por isso não entrou."
+    },
+    {
+      "competency": "build-an-application",
+      "verified_count": 4,
+      "status": "bem-servida",
+      "note": "Projetos guiados com escopo fechado e resultado visível, em dois níveis: página completa em HTML/CSS (L0) e aplicação fullstack com repositório público (L1). O artefato de L1 teve URL e título corrigidos — o mapeamento original apontava para um repositório GitHub com título inventado."
+    },
+    {
+      "competency": "deployment-basics",
+      "verified_count": 1,
+      "status": "lacuna",
+      "note": "Quase órfã. Um único artefato (Docker + AWS da Kipper), com data não confirmada e nível acima do primeiro deploy de um iniciante. O resto do que existe é tutorial de 8 minutos sobre Render/Railway, sem variáveis de ambiente, logs, rollback ou 'por que quebrou em produção'."
+    },
+    {
+      "competency": "reading-documentation",
+      "verified_count": 3,
+      "status": "lacuna",
+      "note": "Nenhuma aula pt-BR gratuita sobre como ler e usar documentação oficial. Os três itens contados são paliativos: vocabulário (Dicionário do Programador), referência traduzida (Guia WCAG) e norma densa (W3C, L2). Melhor caminho no MVP: tarefa prática construída pelo próprio Career Gap ('leia a seção X do MDN e resuma'), não conteúdo consumido."
+    },
+    {
+      "competency": "relational-data-modeling",
+      "verified_count": 3,
+      "status": "bem-servida",
+      "note": "Bóson trata modelagem como disciplina própria (MER/DER, dicionário de dados, formas normais), com ementa confirmada no site oficial. Conteúdo agnóstico de SGBD, portanto de baixa perecibilidade — a idade da série não pesa aqui como pesaria em front-end."
+    },
+    {
+      "competency": "sql-basics",
+      "verified_count": 2,
+      "status": "bem-servida",
+      "note": "Dois cursos completos e gratuitos, em ritmos diferentes (Curso em Vídeo para L0 absoluto, Bóson para quem já tem base). SQL básico é estável. Ressalva menor: a parte de instalação/ferramental de ambos pode estar datada; o conteúdo de consulta não."
+    },
+    {
+      "competency": "api-development",
+      "verified_count": 5,
+      "status": "bem-servida",
+      "note": "Boa oferta, mas com concentração de risco por stack: o gratuito de qualidade está em Java/Spring, e o caminho Node confirmado usa MongoDB. Consequência para o roadmap: o aluno de Node pode terminar a trilha de API sem nunca ter escrito um JOIN — o pareamento com os cursos de banco precisa ser pré-requisito explícito."
+    },
+    {
+      "competency": "authentication-basics",
+      "verified_count": 1,
+      "status": "lacuna",
+      "note": "Um único artefato forte, e é Java/Spring Security. Não existe equivalente gratuito e estruturado em Node/JS explicando sessão vs. token, hash de senha e autorização por papéis — só tutoriais de JWT que mandam copiar o middleware sem explicar o modelo. Para o aluno de stack JS, a competência está descoberta."
+    },
+    {
+      "competency": "automated-testing-basics",
+      "verified_count": 5,
+      "status": "lacuna",
+      "note": "Há material, mas nos níveis errados. Dois extremos que não se encontram: conteúdo de QA acessível em L0 que não ensina o dev a testar o próprio código, e conteúdo de dev excelente porém L2+ que pressupõe API e arquitetura prontas. Falta a ponte: 'você acabou de escrever esta função, agora escreva o primeiro teste dela'. Lacuna real confirmada."
+    },
+    {
+      "competency": "ai-assisted-development-basics",
+      "verified_count": 5,
+      "status": "parcial",
+      "note": "Oferta desbalanceada por nível: abundante em L2+ (Akita, Michelli) e escassa em L0-L1. Agravante metodológico: dois dos artefatos de nível adequado têm titularidade NÃO comprovada (nenhuma fonte independente liga os vídeos ao canal alegado). Falta material que ensine a verificar, testar e revisar código gerado por IA para quem ainda não programa bem."
+    },
+    {
+      "competency": "technical-communication",
+      "verified_count": 4,
+      "status": "lacuna",
+      "note": "Nenhuma AULA em pt-BR. Só comunidades (TabNews, frontendbr) e referência de vocabulário. Nada gratuito e brasileiro sobre escrever mensagem de commit, descrever bug, fazer boa pergunta ou apresentar decisão técnica. No MVP, tratar como prática guiada com tarefa, não como conteúdo a consumir."
+    },
+    {
+      "competency": "code-readability",
+      "verified_count": 1,
+      "status": "parcial",
+      "note": "Depende de uma playlist de 2017 com poucos vídeos. O conteúdo é conceitual e resiste à idade, mas o nó é frágil: todo material BR recente sobre legibilidade e refatoração está atrás de paywall ou é dirigido a pleno/sênior, o que causaria reversão de expertise no público-alvo."
+    },
+    {
+      "competency": "version-control-git",
+      "verified_count": 5,
+      "status": "bem-servida",
+      "note": "Única competência da fatia de carreira com cobertura sólida e redundante, em progressão clara: Curso em Vídeo para L0 (sem terminal, menor carga cognitiva) e Willian Justen para L1-L2 (45 aulas, Git como prática de equipe, com conflitos e workflows). Nenhuma ação necessária."
+    },
+    {
+      "competency": "code-review-participation",
+      "verified_count": 3,
+      "status": "parcial",
+      "note": "Cobertura fina e envelhecida: um vídeo de 2023, um de 2020 e o módulo 3 do curso do Willian Justen (2022). Nenhum material BR gratuito recente e estruturado sobre participar de review no dia a dia. Um dos dois artefatos catalogados tem palavrão no título e precisa de exibição editada no contexto do TCC."
+    }
+  ],
+  "rejeitados": [
+    {
+      "creator": "Fabio Akita — [Akitando] #81 (Super Mario / Hardcore++)",
+      "reason": "Nível e relevância. Conteúdo verificado é arquitetura 6502, emulação, bank switching e análise de exploits em speedruns — retrocomputação, não fundamentos de programação para dev web. Custo de oportunidade alto, ganho quase nulo no roadmap-alvo."
+    },
+    {
+      "creator": "Rafaella Ballerini — 'ESSAS APIs FAZEM TODA A DIFERENÇA EM QUALQUER PROJETO WEB!'",
+      "reason": "Tema não confirmado. O título provavelmente designa Web APIs do navegador, não consumo de API HTTP com fetch; 13 minutos é curto para ensinar api-consumption de forma utilizável. Nenhuma fonte descreve o conteúdo. Regra 'na dúvida séria, fora'."
+    },
+    {
+      "creator": "Marcelo Pereira (Dica do Nerd) — 2 vídeos do curso de HTML5/CSS3",
+      "reason": "Canal inativo. Último upload em 10/03/2023, ~3,5 anos, muito além da janela de 18 meses, e o curso foi interrompido na aula 31. Perda dolorosa: era a única aula gratuita pt-BR que aplicava acessibilidade a um projeto real já construído."
+    },
+    {
+      "creator": "Leiautar — Módulo Gratuito de Design Inclusivo",
+      "reason": "Continuidade em dúvida. Página de captura viva e gratuita, mas sem nenhuma data de produção ou revisão, e o site principal da operação está em holding page anunciando 'nova fase'. Exige cadastro e é orientado a design, não a código."
+    },
+    {
+      "creator": "Código Frontend BR — 'Como Usar o Debugger do VSCode...'",
+      "reason": "Autoria e atividade não confirmadas. O canal alegado (@CodigoFrontendBR) não aparece em nenhuma busca; existem duas entidades distintas de nome próximo. Como todo o valor do item era ser o artefato de debugging mais recente e de canal comprovadamente ativo, e nenhuma das duas coisas se sustentou, foi cortado."
+    },
+    {
+      "creator": "Otávio Miranda — playlist 'Curso de Django API REST'",
+      "reason": "Erro de atribuição. A playlist pertence ao canal 'UB Social', um agregador que indexa conteúdo de terceiros, não ao canal de Otávio Miranda. Citar conteúdo alheio sob autoria errada seria falha metodológica no TCC."
+    },
+    {
+      "creator": "Julio de Lima — playlist 'Curso COMPLETO de QA'",
+      "reason": "Erro de atribuição. A playlist é do canal 'Aprendendo a Fazer TI', não do canal oficial do Julio de Lima. Possível curadoria de vídeos alheios; não é página do detentor de direitos."
+    },
+    {
+      "creator": "Filipe Deschamps (curso.dev)",
+      "reason": "Só pago. R$ 2.700 em pré-lançamento (previsão R$ 4.000), 265 aulas, sem módulo gratuito próprio — apesar de cobrir exatamente as competências mais carentes (PostgreSQL, migrations, testes, CI/CD, autenticação, deploy). Entra no catálogo só indiretamente, como mantenedor do TabNews."
+    },
+    {
+      "creator": "Origamid (plataforma) / André Rafael",
+      "reason": "Só pago no nível de curso: 'HTML e CSS para Iniciantes' custa R$249 avulso ou assinatura. Apenas um vídeo solto e gratuito sobreviveu à verificação (com a URL corrigida), insuficiente para popular um nó como recurso principal."
+    },
+    {
+      "creator": "Balta.io, Bonieky Lacerda (B7Web), Full Cycle, Rodrigo Branas (cursos), Dev Eficiente, Elemar Jr",
+      "reason": "Só pago e/ou nível errado. Núcleo atrás de assinatura, e o conteúdo público é L2/L3 (arquitetura, DDD, CQRS, liderança) — recomendar a um usuário L0-L1 causa reversão de expertise. Reavaliar quando o catálogo cobrir níveis mais altos."
+    },
+    {
+      "creator": "Reinaldo Ferraz, Alura, TreinaWeb (acessibilidade com NVDA e WAI-ARIA)",
+      "reason": "Só pago. É exatamente o conteúdo que falta — acessibilidade avaliada com leitor de tela, por instrutores credenciados — mas está atrás de assinatura, curso da PUC-SP ou livro. Registrado para provar que o conteúdo bom existe em pt-BR; só não é gratuito."
+    },
+    {
+      "creator": "Lucas Montano, Attekita Dev, Código Fonte TV (canal principal), Fabio Akita (canal no YouTube)",
+      "reason": "Opinião/notícia, não aula — não popula nó de competência. No caso do canal do Akita, também inatividade em vídeo (último upload 16/03/2024); o material vivo dele está no blog, que foi o que entrou. Do Código Fonte TV entrou só a playlist Dicionário do Programador."
+    },
+    {
+      "creator": "'Tempos Esquisitos' — vídeo sobre 'O Método Akita com IA'",
+      "reason": "Canal de terceiros reagindo ao trabalho de outro criador. Não é página do detentor de direitos e reação não popula nó de competência."
+    },
+    {
+      "creator": "Loiane Groner — livro 'Estruturas de dados e algoritmos com JavaScript'",
+      "reason": "Pago (Novatec), e todas as cópias que aparecem em busca são PDFs piratas. Proibido linkar. A playlist gratuita de Java entrou no lugar, com a ressalva de linguagem e nível."
+    },
+    {
+      "creator": "Willian Justen — curso de Git na Udemy",
+      "reason": "Preço não confirmado (a página retornou HTTP 403). Como a regra exige artefato comprovadamente gratuito, ficou fora — a playlist gratuita no YouTube cobre a mesma competência."
+    },
+    {
+      "creator": "Mario Souto, Fernanda Kipper (na fatia de front-end), Hashtag, Rodolfo Mori, Rafael Procópio",
+      "reason": "Fora das competências da fatia ou sem artefato-aula completo e gratuito nelas. Rafael Procópio é matemática escolar/ENEM, não programação. Rodolfo Mori usa MongoDB e o artefato é curto demais para fechar api-development."
+    },
+    {
+      "creator": "Fernando Masanori, Lucas Nhimi, 'Gabriel Pereira / Rodrigo Gonçalves / Michelle Bolsoni / Pablo Henrique / Chico Rodrigues'",
+      "reason": "Sem evidência. Não foi possível confirmar canal canônico, artefato ou atividade recente. Descartados por falta de verificação, não por mérito — se forem relevantes, é preciso fornecer o link do canal para nova rodada."
+    },
+    {
+      "creator": "Conteúdo de terminal em espanhol; DIO/DEV Community (posts avulsos); backend-br/vagas; NLW da Rocketseat",
+      "reason": "Fora do escopo de idioma (espanhol), sem criador canônico verificável (posts avulsos), não é artefato de aprendizagem (mural de vagas) ou é evento com acesso temporário, o que não serve como recurso estável de roadmap."
+    },
+    {
+      "creator": "Gustavo Guanabara — 'Curso de Git e GitHub' como cobertura de terminal",
+      "reason": "Rejeitado apenas nessa função: o próprio título diz 'sem usar comandos no terminal'. O artefato foi mantido para version-control-git em L0, com o limite declarado no nó."
+    }
+  ],
+  "lacunas_precisam_ingles": [
+    "http-fundamentals",
+    "reading-documentation",
+    "technical-communication",
+    "automated-testing-basics",
+    "deployment-basics",
+    "authentication-basics",
+    "algorithms-and-complexity",
+    "web-accessibility-basics",
+    "api-consumption"
+  ]
+}

@@ -1,0 +1,696 @@
+{
+  "gerado_em": "2026-09-11",
+  "mantidos": 40,
+  "rejeitados": 11,
+  "entries": [
+    {
+      "name": "Pro Git — 2ª edição (tradução pt-BR)",
+      "url": "https://git-scm.com/book/pt-br/v2",
+      "kind": "book",
+      "competencies": [
+        "version-control-git"
+      ],
+      "level_min": "L1",
+      "cost": "grátis",
+      "pt_br_status": "complete",
+      "license": "CC BY-NC-SA 3.0",
+      "action_type": "READ",
+      "chapters": "caps. 2 (Fundamentos do Git) e 3 (Ramificação); o restante é L2+",
+      "why": "Site oficial do projeto Git, corpo verificado em português, tradução mantida continuamente. Referência gratuita e canônica que torna o livro pago de Git da Casa do Código desnecessário. Atenção à rota correta do capítulo: 'Fundamentos-do-Git-...', não 'Fundamentos-de-Git-...'."
+    },
+    {
+      "name": "JavaScript Eloquente — 4ª edição (tradução BrazilJS)",
+      "url": "https://braziljs.github.io/eloquente-javascript/",
+      "kind": "book",
+      "competencies": [
+        "javascript-essentials",
+        "programming-fundamentals"
+      ],
+      "level_min": "L1",
+      "cost": "grátis",
+      "pt_br_status": "complete",
+      "license": "CC BY-NC 3.0 (texto) / MIT (código)",
+      "action_type": "READ",
+      "chapters": "caps. 1-5 primeiro; os capítulos de navegador (14-20) depois de DOM e navegador",
+      "why": "Projeto de tradução comunitária do BrazilJS sobre o original CC BY-NC, 22 capítulos com corpo verificado em português. Ressalva obrigatória na ficha: o próprio README declara que a 4ª edição foi traduzida com auxílio de IA e está aberta a revisão — oferecer o original em eloquentjavascript.net como alternativa."
+    },
+    {
+      "name": "Pense em Python — 2ª edição (Allen Downey, trad. Sheila Gomes)",
+      "url": "https://penseallen.github.io/PensePython2e/",
+      "kind": "book",
+      "competencies": [
+        "programming-fundamentals",
+        "problem-decomposition",
+        "debugging"
+      ],
+      "level_min": "L0",
+      "cost": "grátis",
+      "pt_br_status": "complete",
+      "license": "CC BY-NC 3.0",
+      "action_type": "READ",
+      "chapters": "caps. 1-8 para fundamentos; os apêndices de depuração servem a debugging L0",
+      "why": "Tradução integral autorizada, montada por Luciano Ramalho a partir de arquivos da Novatec. Serve fundamentos agnósticos, não a plataforma web — só recomendar quando o usuário ainda não escolheu caminho, e encadear com material de HTML/CSS/JS depois."
+    },
+    {
+      "name": "Apostila Caelum/Alura — Desenvolvimento Web com HTML, CSS e JavaScript",
+      "url": "https://www.alura.com.br/apostila-html-css-javascript",
+      "kind": "apostila",
+      "competencies": [
+        "html-semantics",
+        "css-layout",
+        "javascript-essentials"
+      ],
+      "level_min": "L0",
+      "cost": "grátis (exige cadastro)",
+      "pt_br_status": "n/a",
+      "license": "proprietária — Alura/Caelum, redistribuição proibida",
+      "action_type": "READ",
+      "chapters": "cap. 34 (Display Flex) e cap. 46 (display: grid) são o motivo de manter",
+      "why": "Página oficial da Alura, 59 capítulos gratuitos, e cobre Flexbox e Grid — não é material pré-flexbox. Exige cadastro com nome, e-mail e interesses. A página não declara data de atualização, e parte do material ainda ensina Bootstrap como caminho de layout: usar como apoio, nunca como referência única de CSS moderno."
+    },
+    {
+      "name": "E-book e material do curso HTML5 e CSS3 (Gustavo Guanabara)",
+      "url": "https://github.com/gustavoguanabara/html-css",
+      "kind": "material de curso",
+      "competencies": [
+        "html-semantics",
+        "css-layout"
+      ],
+      "level_min": "L0",
+      "cost": "grátis",
+      "pt_br_status": "n/a",
+      "license": "MIT com exigência de referência ao autor; veda reuso comercial",
+      "action_type": "READ",
+      "chapters": "módulos finais (Flexbox e Grid); os iniciais param em CSS inline/interno/externo",
+      "why": "Repositório da conta pessoal do próprio autor, com PDFs das aulas e exercícios executáveis via GitHub Pages, 16,5k estrelas. Ressalva: a atualização do repositório (nov/2025) não significa aulas regravadas — o conteúdo é da safra 2019-2021."
+    },
+    {
+      "name": "git — guia prático (pt-BR)",
+      "url": "https://rogerdudler.github.io/git-guide/index.pt_BR.html",
+      "kind": "guia",
+      "competencies": [
+        "version-control-git"
+      ],
+      "level_min": "L0",
+      "cost": "grátis",
+      "pt_br_status": "complete",
+      "license": "não declarada na página — apenas linkar",
+      "action_type": "READ",
+      "why": "Página do próprio autor, corpo integralmente em pt-BR, cobre init, clone, add/commit, push/pull, branch/merge, tag e reset em 15 minutos. Primeiríssimo contato com Git, nunca recurso único — encadear com Pro Git ou Learn Git Branching."
+    },
+    {
+      "name": "Oh Shit, Git!?! (pt_BR)",
+      "url": "https://ohshitgit.com/pt_BR",
+      "kind": "referência",
+      "competencies": [
+        "version-control-git"
+      ],
+      "level_min": "L1",
+      "cost": "grátis",
+      "pt_br_status": "complete",
+      "license": "não declarada — © Katie Sylor-Miller; apenas linkar",
+      "action_type": "READ",
+      "why": "Site oficial da autora com tradução pt-BR no próprio domínio, corpo em português. Cobre exatamente o momento em que o iniciante quebra o repositório e trava. Nota editorial: o título e parte do texto contêm palavrão; a variante dangitgit.com, da mesma autora, é a versão a linkar em contexto institucional. A rota é case-sensitive: /pt_BR."
+    },
+    {
+      "name": "Learn Git Branching (interface pt-BR)",
+      "url": "https://learngitbranching.js.org/?locale=pt_BR",
+      "kind": "interativo",
+      "competencies": [
+        "version-control-git"
+      ],
+      "level_min": "L1",
+      "cost": "grátis",
+      "pt_br_status": "complete",
+      "license": "MIT",
+      "action_type": "PROVE",
+      "chapters": "níveis de commit/branch/merge são L1; rebase, cherry-pick e Remote são L2",
+      "why": "Domínio oficial do autor, 100% client-side, sem backend e sem cadastro; tradução pt_BR verificada no arquivo de strings (90 de 91 chaves). É o artefato PROVE de Git — usar como transição L1→L2, não como primeiro contato."
+    },
+    {
+      "name": "The Modern JavaScript Tutorial (javascript.info)",
+      "url": "https://javascript.info/",
+      "kind": "tutorial",
+      "competencies": [
+        "javascript-essentials",
+        "programming-fundamentals"
+      ],
+      "level_min": "L0",
+      "cost": "grátis",
+      "pt_br_status": "none",
+      "license": "não declarada no site; verificar LICENSE.md do repo antes de qualquer reuso",
+      "action_type": "LEARN",
+      "chapters": "usar por capítulo — Parte 1 (a linguagem) primeiro; Parte 2 (o navegador) depois",
+      "why": "Melhor material de JavaScript do lote: gratuito, sem cadastro, do autor e detentor desde 2007, atualizado em 10/09/2026. Marcar explicitamente 'sem versão em português': o seletor do site lista 15 idiomas e português não está entre eles; a tradução comunitária existe só como repositório sem site publicado — não linkar pt.javascript.info."
+    },
+    {
+      "name": "You Don't Know JS Yet — 2ª edição (Kyle Simpson)",
+      "url": "https://github.com/getify/You-Dont-Know-JS",
+      "kind": "book",
+      "competencies": [
+        "javascript-essentials"
+      ],
+      "level_min": "L2",
+      "cost": "grátis",
+      "pt_br_status": "none",
+      "license": "CC BY-NC-ND 4.0 — só linkar, não redistribuir nem derivar",
+      "action_type": "READ",
+      "chapters": "só 'Get Started' e 'Scope & Closures' estão completos; 'Objects & Classes' em draft, 'Types & Grammar' em rascunho, 'Sync & Async' e 'ES.Next & Beyond' cancelados",
+      "why": "Repositório oficial do próprio autor, leitura online gratuita. Entra com gate 'só depois de um projeto real' — é aprofundamento de linguagem, L2-L3. A ficha precisa declarar o status por volume para não prometer uma série completa que não existe. A tradução pt-BR em circulação é da 1ª edição e foi reprovada."
+    },
+    {
+      "name": "MDN — Aprenda desenvolvimento web (pt-BR)",
+      "url": "https://developer.mozilla.org/pt-BR/docs/Learn_web_development",
+      "kind": "curso/documentação",
+      "competencies": [
+        "html-semantics",
+        "css-layout",
+        "javascript-essentials",
+        "dom-and-browser",
+        "web-accessibility-basics"
+      ],
+      "level_min": "L0",
+      "cost": "grátis",
+      "pt_br_status": "partial",
+      "license": "Creative Commons (MDN) — confirmar a versão exata na página de atribuição antes de citar",
+      "action_type": "LEARN",
+      "chapters": "módulos centrais em pt-BR (Introdução à Web, HTML, CSS, JavaScript, Formulários, Acessibilidade); performance, testing e client-side tools caem em inglês",
+      "why": "Corpo verificado em português nos módulos centrais, com aviso explícito da própria página de que a tradução é comunitária. Parcial de verdade: vários links internos apontam para /en-US/. Espinha dorsal gratuita de web-platform em pt-BR."
+    },
+    {
+      "name": "MDN — Uma visão geral do HTTP (pt-BR)",
+      "url": "https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Guides/Overview",
+      "kind": "documentação",
+      "competencies": [
+        "http-fundamentals"
+      ],
+      "level_min": "L0",
+      "cost": "grátis",
+      "pt_br_status": "complete",
+      "license": "Creative Commons (MDN)",
+      "action_type": "READ",
+      "why": "Corpo integralmente em português, atualizada em jul/2025, URL canônica atual (o caminho já inclui /Guides/). Apresenta cliente-servidor, requisição/resposta, métodos, cabeçalhos, cache, CORS e status em uma leitura de 25 min. É a porta de entrada de http-fundamentals e desmente a suposição de que a competência não tinha material em pt-BR — o que faltava era aula em vídeo, não material."
+    },
+    {
+      "name": "web.dev — Aprenda CSS (pt-BR)",
+      "url": "https://web.dev/learn/css?hl=pt-br",
+      "kind": "curso",
+      "competencies": [
+        "css-layout"
+      ],
+      "level_min": "L1",
+      "cost": "grátis",
+      "pt_br_status": "complete",
+      "license": "CC BY 4.0 (texto) + Apache 2.0 (código)",
+      "action_type": "LEARN",
+      "chapters": "Box Model, Seletores, Cascata, Especificidade, Layout, Flexbox e Grade cobrem css-layout L1-L2",
+      "why": "Publicado pelo Google/Chrome, corpo verificado em português, licença permissiva declarada, sem cadastro. Substitui com folga os livros de CSS brasileiros de 2012 e é a razão pela qual nenhum material pago de CSS pode ser o recomendado padrão. O carimbo de data (2021) parece ser da página-índice: o sumário lista módulos pós-2023."
+    },
+    {
+      "name": "Google — Technical Writing One",
+      "url": "https://developers.google.com/tech-writing/one",
+      "kind": "curso",
+      "competencies": [
+        "technical-communication"
+      ],
+      "level_min": "L1",
+      "cost": "grátis",
+      "pt_br_status": "none",
+      "license": "CC BY 4.0 (texto) + Apache 2.0 (código)",
+      "action_type": "LEARN",
+      "chapters": "12 unidades pré-aula: voz ativa, frases claras, listas e tabelas, gramática, Markdown",
+      "why": "Recurso oficial do Google, gratuito, sem cadastro para a pré-aula, atualizado em mar/2025. Correção importante: o parâmetro ?hl=pt-br traduz apenas a interface — o corpo das lições abre em inglês. Cadastrar sem o parâmetro e marcar idioma como inglês, senão a pílula de idioma engana o usuário."
+    },
+    {
+      "name": "W3C WAI — Digital Accessibility Foundations (edX)",
+      "url": "https://www.w3.org/WAI/courses/foundations-course/",
+      "kind": "curso",
+      "competencies": [
+        "web-accessibility-basics"
+      ],
+      "level_min": "L1",
+      "cost": "grátis (certificado verificado opcional US$ 99); exige conta edX",
+      "pt_br_status": "none",
+      "license": "não declarada — conteúdo W3C/WAI; apenas linkar",
+      "action_type": "LEARN",
+      "why": "Página oficial do W3C WAI, auditoria gratuita de todo o conteúdo, 16-20h autoguiado. Nome corrigido: 'Introduction to Web Accessibility' é o título antigo. Sem qualquer menção a versão em português — tratar como recurso em inglês e manter o livro do Reinaldo Ferraz para o recorte brasileiro."
+    },
+    {
+      "name": "SQLBolt",
+      "url": "https://sqlbolt.com/",
+      "kind": "interativo",
+      "competencies": [
+        "sql-basics"
+      ],
+      "level_min": "L0",
+      "cost": "grátis",
+      "pt_br_status": "none",
+      "license": "não declarada — apenas © SQLBolt; só linkar",
+      "action_type": "PROVE",
+      "chapters": "lições 1-12 (SELECT, filtros, ORDER/LIMIT, JOINs, agregação) para L0-L1; DDL e tópicos intermediários depois",
+      "why": "18 lições interativas no navegador, sem paywall e sem cadastro. É o artefato PROVE de SQL. Só em inglês, mas o texto é curto e técnico; oferecer o Curso em Vídeo de MySQL como alternativa falada em português no mesmo nó."
+    },
+    {
+      "name": "Curso em Vídeo — HTML5 e CSS3 (módulos 1 a 5)",
+      "url": "https://www.cursoemvideo.com/cursos/",
+      "kind": "curso em vídeo",
+      "competencies": [
+        "html-semantics",
+        "css-layout",
+        "build-an-application"
+      ],
+      "level_min": "L0",
+      "cost": "grátis, certificado pago (exige cadastro)",
+      "pt_br_status": "n/a",
+      "license": "não declarada na plataforma",
+      "action_type": "WATCH",
+      "chapters": "módulo 1 (41 aulas, 40h) é a entrada; Flexbox, Grid e projeto final de portfólio estão no módulo 5",
+      "why": "Plataforma oficial do próprio autor, conteúdo 100% gratuito, material em PDF e exercícios. Duas correções obrigatórias: a plataforma EXIGE cadastro (a ficha anterior dizia que não), e a URL precisa apontar para a lista de cursos — cadastrada no módulo 1, o usuário nunca chega ao módulo que ensina layout moderno."
+    },
+    {
+      "name": "Curso em Vídeo — JavaScript (módulos A-F)",
+      "url": "https://www.cursoemvideo.com/curso/javascript/",
+      "kind": "curso em vídeo",
+      "competencies": [
+        "javascript-essentials",
+        "dom-and-browser"
+      ],
+      "level_min": "L0",
+      "cost": "grátis, certificado pago (exige cadastro)",
+      "pt_br_status": "n/a",
+      "license": "não declarada; autor permite uso didático mantendo referência",
+      "action_type": "WATCH",
+      "chapters": "módulo C (Entendendo o DOM)",
+      "why": "40h com estrutura confirmada, patrocínio Google, foco em ECMAScript 6, publicado em 2019 — no limite do corte. Não cobre fetch, async/await nem módulos ES6+: serve como porta de entrada falada em português e obriga javascript.info ou o Eloquente para L1-L2. Exige cadastro gratuito."
+    },
+    {
+      "name": "Curso em Vídeo — Git e GitHub",
+      "url": "https://www.cursoemvideo.com/curso/curso-de-git-e-github/",
+      "kind": "curso em vídeo",
+      "competencies": [
+        "version-control-git",
+        "deployment-basics"
+      ],
+      "level_min": "L0",
+      "cost": "grátis, certificado pago (exige cadastro)",
+      "pt_br_status": "n/a",
+      "license": "não declarada na plataforma",
+      "action_type": "WATCH",
+      "chapters": "aula de GitHub Pages (primeiro deploy)",
+      "why": "20h em 13 aulas sem pré-requisito de programação; cobre controle de versão, branches, Issues, Markdown e GitHub Pages. Exige cadastro. A página não data o curso — checar periodicamente se as demonstrações ainda batem com a interface atual do GitHub."
+    },
+    {
+      "name": "Curso em Vídeo — Algoritmos e Lógica de Programação",
+      "url": "https://www.cursoemvideo.com/curso/curso-de-algoritmo/",
+      "kind": "curso em vídeo",
+      "competencies": [
+        "programming-fundamentals",
+        "problem-decomposition"
+      ],
+      "level_min": "L0",
+      "cost": "grátis, certificado pago (exige cadastro)",
+      "pt_br_status": "n/a",
+      "license": "não declarada na plataforma",
+      "action_type": "WATCH",
+      "why": "40h em 16 aulas, sem pré-requisito, nó de entrada para quem nunca escreveu um algoritmo. Correção de fato: a ferramenta é Scratch mais pseudocódigo, não Visualg. Conceitos evergreen, mas não ensina a plataforma web — encadear obrigatoriamente com o curso de JavaScript. Exige cadastro."
+    },
+    {
+      "name": "Curso em Vídeo — MySQL / Banco de Dados",
+      "url": "https://www.cursoemvideo.com/curso/mysql/",
+      "kind": "curso em vídeo",
+      "competencies": [
+        "sql-basics",
+        "relational-data-modeling"
+      ],
+      "level_min": "L0",
+      "cost": "grátis, certificado pago (exige cadastro)",
+      "pt_br_status": "n/a",
+      "license": "não declarada na plataforma",
+      "action_type": "WATCH",
+      "chapters": "as três aulas de SELECT e as de chave estrangeira/INNER JOIN; PULAR as aulas de instalação",
+      "why": "40h em 18 aulas com SQL explicado em português falado. Ressalva forte e obrigatória na ficha: o ambiente ensinado é WAMP/XAMPP com phpMyAdmin, stack datada e hoje um obstáculo real — recomendar praticar no SQLBolt ou em MySQL/Postgres em container. Exige cadastro."
+    },
+    {
+      "name": "CC50 — CS50 de Harvard legendado em português (Fundação Estudar)",
+      "url": "https://www.estudarfora.org.br/cc50-v2/",
+      "kind": "curso",
+      "competencies": [
+        "programming-fundamentals",
+        "algorithms-and-complexity"
+      ],
+      "level_min": "L0",
+      "cost": "grátis, certificado gratuito (exige cadastro)",
+      "pt_br_status": "partial",
+      "license": "CC BY-NC-SA 4.0 (licença CS50/Harvard), licenciado à Fundação Estudar",
+      "action_type": "LEARN",
+      "chapters": "12 semanas, ~25h gravadas; começa em C — trilha pesada para quem só quer web",
+      "why": "Versão pt-BR oficial do CS50, produzida e licenciada por Harvard, com link de licença na própria página. Correção obrigatória: pt-BR é LEGENDA profissional, não dublagem nem tradução do corpo — as aulas são em inglês, e problem sets e textos seguem em inglês. Marcar como parcial e dizer isso ao usuário."
+    },
+    {
+      "name": "freeCodeCamp — currículo em português",
+      "url": "https://www.freecodecamp.org/portuguese/learn",
+      "kind": "curso interativo",
+      "competencies": [
+        "html-semantics",
+        "css-layout",
+        "javascript-essentials",
+        "algorithms-and-complexity",
+        "sql-basics"
+      ],
+      "level_min": "L0",
+      "cost": "grátis (cadastro para salvar progresso e certificar)",
+      "pt_br_status": "partial",
+      "license": "BSD-3-Clause (código) + CC BY-SA 4.0 (currículo)",
+      "action_type": "PROVE",
+      "chapters": "apontar para as certificações LEGADAS traduzidas: Design Web Responsivo, Algoritmos e Estruturas de Dados em JavaScript, Bancos de Dados Relacionais",
+      "why": "Fundação detentora, gratuito, tradução do currículo feita manualmente por voluntários. Alerta que muda o cadastro: as 11 certificações antigas viraram 'legadas' e há um novo currículo Certified Full Stack Developer sem evidência de tradução pt-BR — apontar para as legadas, não para a raiz. A SPA não permitiu inspecionar o corpo dos desafios: confiança rebaixada."
+    },
+    {
+      "name": "DIO — Bootcamp Primeiros Passos em Tecnologia",
+      "url": "https://www.dio.me/bootcamp/primeiros-passos-em-tecnologia",
+      "kind": "bootcamp",
+      "competencies": [
+        "programming-fundamentals",
+        "html-semantics",
+        "css-layout",
+        "javascript-essentials",
+        "version-control-git"
+      ],
+      "level_min": "L0",
+      "cost": "grátis (exige cadastro)",
+      "pt_br_status": "n/a",
+      "license": "proprietária (plataforma DIO) — apenas linkar",
+      "action_type": "LEARN",
+      "why": "72h com inscrição gratuita e ativa, conteúdo nativo em pt-BR cobrindo lógica, HTML/CSS/JS, versionamento e preparação para entrevista. Aviso obrigatório na ficha: a própria página declara que o cadastro deixa o perfil disponível para centenas de empresas — o preço real é o dado pessoal, e o usuário tem que saber antes de clicar."
+    },
+    {
+      "name": "Alura — 7 Days of Code",
+      "url": "https://7daysofcode.io/",
+      "kind": "desafio",
+      "competencies": [
+        "build-an-application",
+        "javascript-essentials",
+        "dom-and-browser",
+        "version-control-git"
+      ],
+      "level_min": "L0",
+      "cost": "grátis (só e-mail)",
+      "pt_br_status": "n/a",
+      "license": "proprietária (Alura)",
+      "action_type": "BUILD",
+      "chapters": "trilhas confirmadas: Lógica e JavaScript, HTML/CSS, JavaScript DOM, GitHub, Node.js, Python, Estruturas de Dados, React. A trilha de SQL está como 'em breve' — NÃO mapear para sql-basics",
+      "why": "Iniciativa perene, aberta a qualquer pessoa sem assinatura, com o único requisito de um e-mail para receber os desafios. Não ensina conteúdo novo, propõe prática — é artefato BUILD dependente de um curso anterior, e por isso encaixa exatamente na regra de um FAÇA a cada ~4 leituras."
+    },
+    {
+      "name": "Escola Virtual Fundação Bradesco — Crie um site simples usando HTML, CSS e JavaScript",
+      "url": "https://www.ev.org.br/cursos/crie-um-site-simples-usando-html-css-e-javascript",
+      "kind": "curso",
+      "competencies": [
+        "html-semantics",
+        "css-layout",
+        "build-an-application"
+      ],
+      "level_min": "L1",
+      "cost": "grátis, certificado gratuito (exige cadastro)",
+      "pt_br_status": "complete",
+      "license": "proprietária — conteúdo Microsoft cedido à Escola Virtual; apenas linkar",
+      "action_type": "BUILD",
+      "why": "2h, integralmente gratuito, com certificado digital gratuito e código de autenticação — raro no lote. Contradição a registrar: a própria página exige familiaridade prévia com uma linguagem de programação e marcação, e instalação do VS Code. Recurso secundário com certificado, NUNCA porta de entrada de html-semantics L0. Idade mínima 16 anos, prazo de 60 dias."
+    },
+    {
+      "name": "Escola Virtual Fundação Bradesco — Linguagem de Programação Python Básico",
+      "url": "https://www.ev.org.br/cursos/linguagem-de-programacao-python-basico",
+      "kind": "curso",
+      "competencies": [
+        "programming-fundamentals"
+      ],
+      "level_min": "L0",
+      "cost": "grátis, certificado gratuito (exige cadastro)",
+      "pt_br_status": "complete",
+      "license": "proprietária (Fundação Bradesco) — apenas linkar",
+      "action_type": "LEARN",
+      "why": "18h, nível iniciante, com certificado automático para aprovados: lógica, variáveis e tipos, estruturas lógicas e funções. Usa PyCharm e programas de console — só recomendar quando o usuário quer fundamentos agnósticos, nunca como caminho para a plataforma web. A página não declara ano de produção."
+    },
+    {
+      "name": "Full Stack Open — Universidade de Helsinque (pt-BR)",
+      "url": "https://fullstackopen.com/ptbr/",
+      "kind": "curso",
+      "competencies": [
+        "build-an-application",
+        "api-development",
+        "automated-testing-basics",
+        "authentication-basics"
+      ],
+      "level_min": "L2",
+      "cost": "grátis (cadastro só para submeter exercícios e certificar)",
+      "pt_br_status": "partial",
+      "license": "CC BY-NC-SA 3.0",
+      "action_type": "BUILD",
+      "chapters": "partes 0-5 e 13 em pt-BR (tradução humana de Cássio Gabriel e Maycon B. Lopes); partes 6-12 marcadas '(english only)'",
+      "why": "Única fonte estruturada e gratuita em português para API REST com Node/Express, testes e autenticação por token. Pré-requisito duro: javascript-essentials L1 e programação prévia, com React desde a parte 1 — aparece no fim da trilha, nunca antes. Correção de fato: a parte 13 também está traduzida, ao contrário do que o levantamento inicial dizia."
+    },
+    {
+      "name": "The Odin Project — Foundations",
+      "url": "https://www.theodinproject.com/paths/foundations/courses/foundations",
+      "kind": "curso",
+      "competencies": [
+        "html-semantics",
+        "css-layout",
+        "javascript-essentials",
+        "version-control-git",
+        "command-line-basics",
+        "problem-decomposition"
+      ],
+      "level_min": "L0",
+      "cost": "grátis (conta gratuita para progresso)",
+      "pt_br_status": "none",
+      "license": "CC BY-NC-SA 4.0 (currículo open source)",
+      "action_type": "LEARN",
+      "chapters": "Git Basics, HTML Foundations, CSS Foundations, Flexbox, JavaScript Basics — ~30 lições e 5 projetos",
+      "why": "Currículo vivo, mantido open source, com Flexbox como método de layout ensinado (sem risco pré-2019) e ritmo de ~1 projeto a cada 3-5 lições, que é a referência pedagógica do nosso marco. Correção: CSS Grid NÃO está em Foundations, fica no curso Intermediate — não prometer Grid. Só em inglês."
+    },
+    {
+      "name": "Lógica de Programação: Crie seus primeiros programas usando JavaScript e HTML (Paulo Silveira, Adriano Almeida)",
+      "url": "https://www.casadocodigo.com.br/products/livro-programacao",
+      "kind": "book",
+      "competencies": [
+        "programming-fundamentals",
+        "problem-decomposition",
+        "ai-assisted-development-basics"
+      ],
+      "level_min": "L0",
+      "cost": "R$ 39,90 e-book / R$ 69,90 impresso",
+      "pt_br_status": "n/a",
+      "license": "comercial — Casa do Código",
+      "action_type": "READ",
+      "chapters": "10 capítulos sem pré-requisito, incluindo uma seção sobre uso responsável de IA",
+      "why": "Único livro pago do lote com atualização recente confirmada (set/2025) e o único que trata explicitamente o uso responsável de ChatGPT/Gemini como complemento ao aprendizado. PAGO: nunca é o recomendado padrão enquanto existirem Curso em Vídeo e Pense em Python de graça no mesmo nível."
+    },
+    {
+      "name": "Aprenda JavaScript com Dashboards (Lucas Tauil)",
+      "url": "https://www.casadocodigo.com.br/products/livro-js-dashboards",
+      "kind": "book",
+      "competencies": [
+        "javascript-essentials",
+        "dom-and-browser",
+        "api-consumption"
+      ],
+      "level_min": "L0",
+      "cost": "R$ 39,90 e-book / R$ 64,90 impresso",
+      "pt_br_status": "n/a",
+      "license": "comercial — Casa do Código",
+      "action_type": "READ",
+      "chapters": "11 capítulos em 3 partes: fundamentos web; JS moderno (variáveis, funções, laços, estruturas, DOM, APIs); construção de dashboard com CSV, gráficos e mapa",
+      "why": "Publicado em set/2025, 252 páginas — o material pago de JavaScript mais recente do lote, e o único que não cai no corte pré-2019. A editora posiciona explicitamente para quem nunca teve contato com código. PAGO, e a profundidade real de api-consumption não foi verificada no miolo."
+    },
+    {
+      "name": "MySQL: Comece com o principal banco de dados open source do mercado (Vinícius Carvalho)",
+      "url": "https://www.casadocodigo.com.br/products/livro-banco-mysql",
+      "kind": "book",
+      "competencies": [
+        "sql-basics",
+        "relational-data-modeling"
+      ],
+      "level_min": "L0",
+      "cost": "R$ 39,90 e-book",
+      "pt_br_status": "n/a",
+      "license": "comercial — Casa do Código",
+      "action_type": "READ",
+      "chapters": "DDL/DML, consultas, JOINs e subqueries para L0-L2; PULAR procedures, triggers e backup até L3",
+      "why": "Publicado em 2015, atualizado em dez/2018 para MySQL 8.0 — a regra de corte de ~2019 vale para HTML/CSS/JS pré-flexbox, não para SQL, que segue atual. PAGO. Alerta menor: já existe MySQL 8.4 LTS, então detalhes de instalação estarão defasados."
+    },
+    {
+      "name": "Testes automatizados de software: um guia prático (Mauricio Aniche)",
+      "url": "https://www.casadocodigo.com.br/products/livro-testes-de-software",
+      "kind": "book",
+      "competencies": [
+        "automated-testing-basics"
+      ],
+      "level_min": "L1",
+      "cost": "R$ 39,90 e-book / R$ 59,90 impresso",
+      "pt_br_status": "n/a",
+      "license": "comercial — Casa do Código",
+      "action_type": "READ",
+      "chapters": "caps. 1 (testes de unidade), 2 (TDD) e 3 (mock objects) como leitura conceitual; os demais são de integração/serviços e fogem do nível",
+      "why": "Sumário confirmado na página da editora. Apoio conceitual pago para uma das competências mais mal servidas do catálogo — mas 11 anos sem atualização e nenhum capítulo sobre ferramentas JS (Jest/Vitest), então nunca como recurso principal. A linguagem dos exemplos não foi confirmada na página."
+    },
+    {
+      "name": "Acessibilidade na Web: Boas práticas para construir sites e aplicações acessíveis (Reinaldo Ferraz)",
+      "url": "https://www.casadocodigo.com.br/products/livro-acessibilidade",
+      "kind": "book",
+      "competencies": [
+        "web-accessibility-basics",
+        "html-semantics"
+      ],
+      "level_min": "L1",
+      "cost": "R$ 39,90 e-book / R$ 69,90 impresso",
+      "pt_br_status": "n/a",
+      "license": "comercial — Casa do Código, ISBN 978-65-86110-10-4",
+      "action_type": "READ",
+      "chapters": "15 capítulos; temas confirmados (estrutura semântica, navegação, design, multimídia, CMS/frameworks, conformidade) — corrigir a numeração exata antes de publicar, a página lista temas e não numeração",
+      "why": "Publicado em 04/2020, obra original em pt-BR (não é tradução), dentro do corte. É o recurso mais defensável para o recorte brasileiro de acessibilidade, ao lado do W3C WAI traduzido. PAGO, e a menção ao eMAG não pôde ser confirmada na página."
+    },
+    {
+      "name": "Construindo APIs REST com Node.js (Caio Ribeiro Pereira)",
+      "url": "https://www.casadocodigo.com.br/products/livro-apis-nodejs",
+      "kind": "book",
+      "competencies": [
+        "api-development"
+      ],
+      "level_min": "L2",
+      "cost": "R$ 39,90 e-book / R$ 69,90 impresso",
+      "pt_br_status": "n/a",
+      "license": "comercial — Casa do Código, ISBN 978-85-5519-150-3",
+      "action_type": "READ",
+      "chapters": "stack do livro: Express, Passport, Mocha, Sequelize e cliente SPA em JS puro",
+      "why": "Publicado em 2016, atualizado em out/2021 para Node.js 16. Ressalva obrigatória e séria na ficha: Node 16 está em EOL desde set/2023 e o livro não recebe atualização há ~5 anos — setup, dependências e padrões de Sequelize/Passport vão exigir ajuste. Topo do escopo (L2), nunca recurso principal sem complemento nas docs oficiais de Express/Node LTS."
+    },
+    {
+      "name": "Estruturas de Dados: Domine as práticas essenciais em C, Java, C#, Python e JavaScript (Thiago Leite e Carvalho)",
+      "url": "https://www.casadocodigo.com.br/products/livro-estruturas-de-dados",
+      "kind": "book",
+      "competencies": [
+        "algorithms-and-complexity"
+      ],
+      "level_min": "L2",
+      "cost": "R$ 49,90 e-book / R$ 89,90 impresso",
+      "pt_br_status": "n/a",
+      "license": "comercial — Casa do Código, ISBN 978-85-5519-338-5",
+      "action_type": "READ",
+      "chapters": "vetores, matrizes, pilhas, filas, listas, árvores, grafos, conjuntos, tabelas hash e heaps",
+      "why": "Publicado em jun/2023 com atualização em fev/2024 — o livro pago mais recente do lote. Implementações em JavaScript ao lado de C/Java/C#/Python confirmadas, o que resolve o problema de todo material brasileiro de algoritmos estar em Java. L2 legítimo: gate 'depois de programming-fundamentals L1 e de Entendendo Algoritmos'."
+    },
+    {
+      "name": "Entendendo Algoritmos — 2ª edição (Aditya Bhargava)",
+      "url": "https://novatec.com.br/livros/entendendo-algoritmos-2ed/",
+      "kind": "book",
+      "competencies": [
+        "algorithms-and-complexity",
+        "problem-decomposition"
+      ],
+      "level_min": "L1",
+      "cost": "R$ 96,00 impresso",
+      "pt_br_status": "complete",
+      "license": "comercial — Novatec (tradução autorizada de Grokking Algorithms 2e)",
+      "action_type": "READ",
+      "chapters": "busca, ordenação, grafos, estruturas de dados e problemas NP-completos; exemplos em Python 3",
+      "why": "2ª edição, 2026, 328 páginas, tradução pt-BR completa e impressa (não é tradução comunitária parcial). A própria editora declara que não exige conhecimento matemático avançado, o que é coerente com L1. Melhor item pago do lote para algorithms-and-complexity, competência em que o material gratuito brasileiro está todo em L2 e em Java."
+    },
+    {
+      "name": "Código Limpo: Habilidades Práticas do Agile Software (Robert C. Martin)",
+      "url": "https://altabooks.com.br/produto/codigo-limpo/",
+      "kind": "book",
+      "competencies": [
+        "code-readability"
+      ],
+      "level_min": "L2",
+      "cost": "R$ 138,50",
+      "pt_br_status": "complete",
+      "license": "comercial — Alta Books, ISBN 978-85-7608-267-5",
+      "action_type": "READ",
+      "chapters": "caps. 1-4 e 17 apenas; o livro inteiro é L2+ e os exemplos são em Java",
+      "why": "Página oficial da editora detentora dos direitos em pt-BR, tradução completa, conteúdo conceitual evergreen. Entra APENAS como aprofundamento opcional com o corte por capítulo: R$ 138,50 é alto para o público-alvo e a tradução é criticada, então o gratuito (Refactoring.Guru pt-BR parcial, guias de code review do Google) vem sempre primeiro na ficha."
+    },
+    {
+      "name": "Origamid — HTML e CSS para Iniciantes",
+      "url": "https://www.origamid.com/curso/html-e-css-para-iniciantes/",
+      "kind": "curso em vídeo",
+      "competencies": [
+        "html-semantics",
+        "css-layout",
+        "version-control-git",
+        "command-line-basics"
+      ],
+      "level_min": "L0",
+      "cost": "R$ 249 avulso ou assinatura",
+      "pt_br_status": "n/a",
+      "license": "proprietária (Origamid) — conteúdo pago, apenas linkar",
+      "action_type": "WATCH",
+      "chapters": "23h em 164 aulas, incluindo Flexbox, Grid Layout, layout responsivo, HTML semântico/acessibilidade, Git e linha de comando",
+      "why": "Conteúdo moderno e confirmado (Flexbox e Grid), sem o problema pré-flexbox dos livros brasileiros da mesma competência. Mas o paywall é sobre o conteúdo em si, não sobre certificado, e a Origamid não tem mais cursos gratuitos: a ficha deve sempre oferecer primeiro web.dev 'Aprenda CSS' e o Curso em Vídeo. A página não declara ano de produção."
+    },
+    {
+      "name": "Origamid — JavaScript Completo ES6",
+      "url": "https://www.origamid.com/curso/javascript-completo-es6/",
+      "kind": "curso em vídeo",
+      "competencies": [
+        "javascript-essentials",
+        "dom-and-browser",
+        "api-consumption"
+      ],
+      "level_min": "L1",
+      "cost": "R$ 249 avulso ou assinatura",
+      "pt_br_status": "n/a",
+      "license": "proprietária (Origamid) — conteúdo pago, apenas linkar",
+      "action_type": "WATCH",
+      "chapters": "37h em 156 aulas e 13 módulos; pré-requisito declarado de HTML/CSS; projeto 'Animais Fantásticos' do zero",
+      "why": "Cobre fundamentos de JS, manipulação de DOM, assíncrono com Promises e Fetch API e regex, atendendo dom-and-browser e api-consumption em português. Ressalva cética: a página não declara ano, o título 'ES6' indica material de ~2018, o toolchain final (Webpack/Babel) está datado frente a Vite e não há menção a async/await no programa. Sempre depois de javascript.info e do Curso em Vídeo na ordem."
+    }
+  ],
+  "rejeitados_detalhe": [
+    {
+      "name": "Dive Into HTML5 (tradução pt-BR, Zeno Rocha e comunidade)",
+      "notes": "REFUTADO. O domínio diveintohtml5.com.br NÃO entrega mais o livro: hoje exibe página de 'This domain may be for sale'. O item já registrava 'conteúdo mínimo no fetch' — confirmei que o recurso está morto. Sobrevive apenas como repositório GitHub (zenorocha/diveintohtml5, gh-pages), que é arquivo de um projeto de tradução comunitária de 2012, não página do detentor dos direitos (Mark Pilgrim / diveintohtml5.info). Além disso: material de 2012, integralmente pré-flexbox/grid, com capítulos de vídeo, canvas, geolocalização e storage obsoletos. Não serve nem como recurso principal nem como secundário para L0-L2. Remover do catálogo."
+    },
+    {
+      "name": "You Don't Know JS, 1ª edição (tradução pt-BR)",
+      "notes": "REFUTADO por três motivos somados. (1) Não é a página do detentor: é o repositório de um tradutor (Cezar Augusto). O README declara 'tradução autorizada pelo autor Kyle Simpson', mas NÃO CONSEGUI confirmar essa autorização de forma independente em canal do próprio Kyle Simpson; a licença CC BY-NC-ND, aliás, proíbe obras derivadas — e tradução é obra derivada, o que torna o status jurídico duvidoso sem a autorização documentada. (2) É a 1ª edição (2013-2015), superada pela 2ª edição oficial do autor (You Don't Know JS Yet), e o volume 'Async & Performance' é anterior a async/await. (3) O nível é aprofundamento de linguagem (escopo, closures, this, protótipos, coerção) — L3 na prática, fora do recorte L0-L2 de iniciante. A URL abre e o conteúdo está em português completo, mas na dúvida séria: keep=false. Se quiserem manter um YDKJS no acervo, usar o repositório oficial do autor (getify), em inglês, marcado como 'não agora'."
+    },
+    {
+      "name": "Controlando versões com Git e GitHub (Alexandre Aquiles, Rodrigo Ferreira — Casa do Código)",
+      "notes": "REFUTADO. A página da editora confirma publicação em agosto/2014, 220 páginas, 11 capítulos, e NÃO registra nenhuma atualização posterior (compare com 'Lógica de Programação', cuja página mostra 'atualizado set/2025' — aqui não há nada). São 12 anos sem revisão: toda a interface do GitHub descrita mudou, o capítulo 'GitHub para Windows' descreve um produto descontinuado, e o livro é anterior a GitHub Actions, Codespaces e à mudança de 'master' para 'main'. É PAGO (R$39,90 e-book) e concorre diretamente com o Pro Git pt-BR, que é gratuito, oficial e mantido. Sem ganho que justifique custo + desatualização: excluir. Não consegui verificar o miolo, apenas a ficha comercial."
+    },
+    {
+      "name": "Começando com o Linux: Comandos, serviços e administração (Daniel Romero — Casa do Código)",
+      "notes": "URL e dados CONFIRMADOS: 11/2013, 149 páginas, e-book R$39,90, à venda, 12 capítulos. REFUTADO como recurso do catálogo: o público declarado na própria página é 'administradores de sistemas, desenvolvedores web, DBAs e usuários vindos de Unix' — não iniciante em desenvolvimento web; e a maior parte do livro (instalação do Ubuntu, Apache, PHP, Java, MySQL, compilação de código-fonte, SSH, firewall) é de 2013 e está datada. Pedir a um iniciante que pague R$39,90 por dois ou três capítulos de shell é injustificável quando command-line-basics L0-L1 é coberto de graça e em pt-BR (MDN, The Odin Project, cursos gratuitos já no catálogo). Além disso, NÃO CONFIRMEI a numeração alegada ('cap. 2 Mão na massa: conhecendo o Shell', 'cap. 6 permissões') — a página lista os temas sem numeração. keep=false."
+    },
+    {
+      "name": "Cangaceiro JavaScript: Uma aventura no sertão da programação (Flávio Almeida — Casa do Código)",
+      "notes": "CONFIRMADO: 08/2017, 502 páginas, e-book R$39,90 / impresso R$99,90, à venda; escopo ES5→ES8 com IndexedDB, Babel e Webpack. REFUTADO: material de JavaScript de 2017, nove anos sem atualização, cai direto na regra de corte (~2019) — o tooling ensinado (Babel/Webpack da era 2017) não corresponde a nada que um iniciante encontre hoje (Vite, ESM nativo), e o padrão de módulos/promises do livro é anterior à normalização de async/await e ES modules no browser. Somado a isso, o próprio catálogo o classifica L2 e diz 'não é para L0-L1'. Para javascript-essentials L2 existe alternativa gratuita, atual e melhor já no catálogo (javascript.info, atualizado em set/2026). keep=false."
+    },
+    {
+      "name": "HTML5 e CSS3: Domine a web do futuro (Lucas Mazza — Casa do Código, 2012)",
+      "notes": "CONFIRMADO e a exclusão do catálogo está CORRETA: maio/2012, 228 páginas, e-book R$39,90, ainda à venda. A página menciona 'Grids — um padrão de estrutura para as suas páginas' e 'Posicionando elementos com CSS 3' — isto é grid de diagramação/framework da época, NÃO CSS Grid Layout (que só se tornou utilizável em 2017) nem Flexbox; confirma que o livro ensina layout por posicionamento e frameworks legados. Catorze anos, muito antes do corte de ~2019. keep=false. Recomendo manter o registro apenas como justificativa editorial da exclusão (com a URL correta), redirecionando para web.dev 'Aprenda CSS' (pt-BR, gratuito, CC BY 4.0) e para o curso do Guanabara."
+    },
+    {
+      "name": "Refatoração, 2ª edição (Martin Fowler — Novatec, 2020)",
+      "notes": "Dados CONFIRMADOS na página da editora: 2ª edição, 2020, 456 páginas, R$129,00 impresso, exemplos em JavaScript, à venda. Tradução pt-BR completa e editora legítima — não há problema de procedência nem de data. REFUTADO por nível: é livro de refatoração, categoricamente L2-L3, e só faz sentido para quem já mantém código próprio há tempo suficiente para sentir dor de design; o catálogo é de L0-L2 com foco em início de carreira. Um iniciante que ainda não concluiu build-an-application não extrai valor de um catálogo de refatorações de 400 páginas. keep=false como recurso recomendável. Sugestão: preservar a ficha apenas no estado 'not-now' do motor (razão explícita: 'volte após build-an-application L1 + code-readability L2'), que é exatamente o comportamento que o SYSTEM_SPEC pede, em vez de listá-lo como recomendação."
+    },
+    {
+      "name": "Arquitetura Limpa (Robert C. Martin — Alta Books)",
+      "notes": "CONFIRMADO e a avaliação 'NOT NOW' do catálogo está CORRETA, com a própria editora como prova: 432 páginas, R$125,50, em estoque, e público declarado literalmente como 'arquitetos de software, analistas de sistemas, designers de sistemas, gerentes de software e programadores'. A página NÃO declara o ano da edição brasileira — só pude inferir do original (2017). Livro de arquitetura é L3 por definição e está fora do escopo L0-L2. keep=false como recomendação. Manter a ficha apenas para alimentar o estado 'not-now' com razão explícita ('volte após api-development L3'), nunca na lista de recursos sugeridos."
+    },
+    {
+      "name": "Use The Index, Luke! (Markus Winand)",
+      "notes": "CONFIRMADO: é a edição web gratuita de 'SQL Performance Explained', do próprio autor (Markus Winand), sem cadastro, idiomas en/de/fr/es/ja — SEM português. REFUTADO como recurso do catálogo L0-L2: o tema é índices B-tree, planos de execução e tuning — pressupõe que o usuário já escreve JOINs e lê EXPLAIN. É L3 pelo próprio campo do item. keep=false porque o escopo declarado é público iniciante L0-L2; só faria sentido manter como registro explícito de 'não agora — volte após sql-basics L2', nunca como recomendação ativa. Licença proprietária: apenas linkar."
+    },
+    {
+      "name": "Alura — Imersão Dev (gratuita, por temporada)",
+      "notes": "REFUTADO NA PRÁTICA. CONFIRMADO: a página abre, é oficial da Alura e o evento é gratuito. Mas a página declara hoje 'as inscrições para esta Imersão já se encerraram' — não há edição aberta, e o conteúdo descrito no item (5 mini-projetos: conversor de moedas, pedra-papel-tesoura, ponte de vidro, cabo de guerra, quiz com IA) é o da edição de MARÇO/2025, que não está mais acessível sob demanda. CONFIRMADO por busca que as edições recentes mudaram de tema — a edição de set/2026 é 'Imersão Dev Agentes de IA', que NÃO cobre as competências catalogadas (programming-fundamentals / javascript-essentials L0). keep=false porque, como está, o catálogo prometeria a um iniciante um recurso que ele não consegue acessar e cujo conteúdo mudou. Se o produto quiser manter, deve ser modelado como 'evento/oportunidade' com data de janela e conteúdo por edição, nunca como recurso de estudo sob demanda."
+    },
+    {
+      "name": "{reprograma}",
+      "notes": "REFUTADO COMO RECURSO DE CATÁLOGO (mas a organização é legítima). CONFIRMADO: site oficial abre, cursos intensivos online/presenciais financiados por parceiros e 'completamente gratuitos', bolsa-auxílio de R$1.300/mês por 6 meses para estudantes de baixa renda, público prioritário mulheres cis e trans em vulnerabilidade social, com prioridade a mulheres negras e travestis, duração de 12 a 18 semanas (~20h/semana). REFUTADO o conteúdo catalogado: hoje o ÚNICO programa com inscrição aberta é 'Todas em Tech | Futuro + AI Aplicada' (presencial em São Paulo, foco em IA aplicada). As trilhas que o item promete — Front-end React, Back-end Node/Python, Imersão JavaScript — NÃO estão abertas, então o mapeamento para javascript-essentials / api-development / build-an-application não se sustenta agora. Somado ao acesso por processo seletivo, recorte de gênero e janela de inscrição, isto não é um recurso que o motor possa recomendar sob demanda a um usuário qualquer. keep=false como RECURSO; recomendo recriar como entidade separada 'oportunidade/programa social' com campos de elegibilidade e janela, fora do catálogo de estudo."
+    }
+  ]
+}

@@ -1,0 +1,1187 @@
+{
+  "gerado_em": "2026-09-11",
+  "metodo": "mapeamento em 4 fatias priorizando lacunas + verificação adversarial com checagem de tradução pt-BR",
+  "verificados": 57,
+  "entries": [
+    {
+      "source": "MDN Web Docs (Mozilla)",
+      "title": "Uma visão geral do HTTP",
+      "url": "https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Guides/Overview",
+      "kind": "doc",
+      "technology": "HTTP",
+      "competencies": [
+        "http-fundamentals"
+      ],
+      "level_min": "L0",
+      "license": "CC BY-SA 2.5",
+      "pt_br_status": "complete",
+      "pt_br_url": "https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Guides/Overview",
+      "requires_signup": false,
+      "estimated_time": "25 min",
+      "action_type": "READ",
+      "why": "Única página que apresenta cliente-servidor, requisição/resposta, métodos, cabeçalhos e status em uma leitura só, em pt-BR verificado. Porta de entrada da competência."
+    },
+    {
+      "source": "DNSimple",
+      "title": "Como HTTPS funciona",
+      "url": "https://howhttps.works/pt-br/",
+      "kind": "interactive",
+      "technology": "HTTPS/TLS",
+      "competencies": [
+        "http-fundamentals"
+      ],
+      "level_min": "L0",
+      "license": "não declarada — apenas linkar",
+      "pt_br_status": "complete",
+      "pt_br_url": "https://howhttps.works/pt-br/",
+      "requires_signup": false,
+      "estimated_time": "20 min",
+      "action_type": "READ",
+      "why": "Os 5 episódios em quadrinhos traduzidos cobrem o pedaço que mais trava iniciante (por que HTTPS, chaves, handshake, autoridades certificadoras) sem vocabulário de rede."
+    },
+    {
+      "source": "MDN Web Docs (Mozilla)",
+      "title": "Códigos de status de respostas HTTP",
+      "url": "https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Reference/Status",
+      "kind": "reference",
+      "technology": "HTTP",
+      "competencies": [
+        "http-fundamentals"
+      ],
+      "level_min": "L1",
+      "license": "CC BY-SA 2.5",
+      "pt_br_status": "complete",
+      "pt_br_url": "https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Reference/Status",
+      "requires_signup": false,
+      "estimated_time": "20 min",
+      "action_type": "READ",
+      "why": "Transforma 'deu erro' em diagnóstico (404 vs 401 vs 500). Verificação corrigiu o rótulo: as 5 classes e as descrições estão em português, só as páginas-filhas caem para inglês."
+    },
+    {
+      "source": "MDN Web Docs (Mozilla)",
+      "title": "Métodos de requisição HTTP",
+      "url": "https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Reference/Methods",
+      "kind": "reference",
+      "technology": "HTTP",
+      "competencies": [
+        "api-consumption"
+      ],
+      "level_min": "L1",
+      "license": "CC BY-SA 2.5",
+      "pt_br_status": "complete",
+      "pt_br_url": "https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Reference/Methods",
+      "requires_signup": false,
+      "estimated_time": "15 min",
+      "action_type": "READ",
+      "why": "Sustenta a diferença GET/POST/PUT/PATCH que a maioria dos iniciantes erra ao consumir API. Em pt-BR completo; só os rótulos safe/idempotent/cacheable ficam em inglês."
+    },
+    {
+      "source": "MDN Web Docs (Mozilla)",
+      "title": "Making network requests with JavaScript",
+      "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting/Network_requests",
+      "kind": "tutorial",
+      "technology": "JavaScript / Fetch",
+      "competencies": [
+        "api-consumption"
+      ],
+      "level_min": "L1",
+      "license": "CC BY-SA 2.5",
+      "pt_br_status": "none",
+      "requires_signup": false,
+      "estimated_time": "1 h 30 min",
+      "action_type": "LEARN",
+      "why": "Degrau certo da competência: fetch com response.ok, .json(), .blob() e erro de rede em exemplos executáveis. A rota pt-BR entrega a página legada 'AJAX', não este tutorial — exige inglês."
+    },
+    {
+      "source": "typicode",
+      "title": "JSONPlaceholder — Free Fake REST API",
+      "url": "https://jsonplaceholder.typicode.com/",
+      "kind": "exercise",
+      "technology": "REST",
+      "competencies": [
+        "api-consumption"
+      ],
+      "level_min": "L0",
+      "license": "serviço gratuito, sem licença de conteúdo declarada",
+      "pt_br_status": "none",
+      "requires_signup": false,
+      "estimated_time": "2 h (uso em exercício)",
+      "action_type": "BUILD",
+      "why": "API estável, sem chave e sem cadastro para praticar GET/POST e renderizar a resposta. Barreira de idioma quase nula: o uso são 6 endpoints."
+    },
+    {
+      "source": "W3C Web Accessibility Initiative (WAI)",
+      "title": "Introdução à acessibilidade web",
+      "url": "https://www.w3.org/WAI/fundamentals/accessibility-intro/pt-BR",
+      "kind": "guide",
+      "technology": "WCAG",
+      "competencies": [
+        "web-accessibility-basics"
+      ],
+      "level_min": "L0",
+      "license": "W3C Permissive Document License",
+      "pt_br_status": "complete",
+      "pt_br_url": "https://www.w3.org/WAI/fundamentals/accessibility-intro/pt-BR",
+      "requires_signup": false,
+      "estimated_time": "30 min",
+      "action_type": "READ",
+      "why": "Recurso canônico de quem define WCAG, em pt-BR integral (tradução de Adiel Cristo). Responde o quê/quem/por quê antes de qualquer checklist técnica."
+    },
+    {
+      "source": "web.dev (Google / Chrome team)",
+      "title": "Learn Accessibility — módulos 'Content structure' e 'Keyboard focus'",
+      "url": "https://web.dev/learn/accessibility",
+      "kind": "course",
+      "technology": "HTML / ARIA",
+      "competencies": [
+        "web-accessibility-basics"
+      ],
+      "level_min": "L1",
+      "license": "CC BY 4.0 (código Apache 2.0)",
+      "pt_br_status": "none",
+      "requires_signup": false,
+      "estimated_time": "~1 h (só os 2 módulos; curso inteiro tem 8 h)",
+      "action_type": "LEARN",
+      "why": "Ensina o 'como' depois do 'porquê' do W3C. Verificado: ?hl=pt-br volta 100% em inglês. Recomendar módulos isolados, nunca o curso inteiro."
+    },
+    {
+      "source": "The A11Y Project",
+      "title": "Checklist — The A11Y Project",
+      "url": "https://www.a11yproject.com/checklist/",
+      "kind": "reference",
+      "technology": "WCAG",
+      "competencies": [
+        "web-accessibility-basics"
+      ],
+      "level_min": "L1",
+      "license": "Apache License 2.0",
+      "pt_br_status": "none",
+      "requires_signup": false,
+      "estimated_time": "40 min (primeira passada no projeto próprio)",
+      "action_type": "PROVE",
+      "why": "Traduz WCAG em itens verificáveis um a um — é como o aluno prova que aplicou acessibilidade no portfólio. Licença Apache 2.0, a mais permissiva do conjunto."
+    },
+    {
+      "source": "MDN Web Docs (Mozilla)",
+      "title": "Introdução ao DOM",
+      "url": "https://developer.mozilla.org/pt-BR/docs/Web/API/Document_Object_Model/Introduction",
+      "kind": "doc",
+      "technology": "DOM",
+      "competencies": [
+        "dom-and-browser"
+      ],
+      "level_min": "L1",
+      "license": "CC BY-SA 2.5",
+      "pt_br_status": "complete",
+      "pt_br_url": "https://developer.mozilla.org/pt-BR/docs/Web/API/Document_Object_Model/Introduction",
+      "requires_signup": false,
+      "estimated_time": "30 min",
+      "action_type": "READ",
+      "why": "Modelo mental de documento como árvore de objetos, que o iniciante pula ao ir direto para querySelector. Exemplos ainda em 'var': avisar para usar const/let."
+    },
+    {
+      "source": "MDN Web Docs (Mozilla)",
+      "title": "Structuring content with HTML (pt-BR: Introdução ao HTML)",
+      "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content",
+      "kind": "course",
+      "technology": "HTML",
+      "competencies": [
+        "html-semantics"
+      ],
+      "level_min": "L0",
+      "license": "CC BY-SA 2.5",
+      "pt_br_status": "partial",
+      "pt_br_url": "https://developer.mozilla.org/pt-BR/docs/Learn_web_development/Core/Structuring_content",
+      "requires_signup": false,
+      "estimated_time": "~2 h (guias 'Fundamentos do texto HTML' e 'Estrutura dos documentos e do site'; módulo inteiro tem 10 h)",
+      "action_type": "LEARN",
+      "why": "Único material canônico de semântica com avaliações práticas em pt-BR. A rota pt-BR entrega o módulo antigo 'Introdução ao HTML' (7 guias + 2 avaliações); apontar guias, não o módulo."
+    },
+    {
+      "source": "web.dev (Google / Chrome team)",
+      "title": "Aprenda CSS — módulos Flexbox e Grid",
+      "url": "https://web.dev/learn/css?hl=pt-br",
+      "kind": "course",
+      "technology": "CSS",
+      "competencies": [
+        "css-layout"
+      ],
+      "level_min": "L1",
+      "license": "CC BY 4.0 (código Apache 2.0)",
+      "pt_br_status": "complete",
+      "pt_br_url": "https://web.dev/learn/css/flexbox?hl=pt-br",
+      "requires_signup": false,
+      "estimated_time": "~2 h (Flexbox + Grid; curso inteiro tem 12 h)",
+      "action_type": "LEARN",
+      "why": "Verificação refutou o rótulo 'parcial': índice e corpo do módulo Flexbox estão integralmente em português. Melhor combinação de qualidade, licença aberta e pt-BR para layout."
+    },
+    {
+      "source": "CSS-Tricks (publicado por Mediavine)",
+      "title": "A Complete CSS Flexbox Layout Guide",
+      "url": "https://css-tricks.com/snippets/css/a-guide-to-flexbox/",
+      "kind": "reference",
+      "technology": "CSS Flexbox",
+      "competencies": [
+        "css-layout"
+      ],
+      "level_min": "L1",
+      "license": "não declarada — apenas linkar, nunca copiar trechos",
+      "pt_br_status": "none",
+      "requires_signup": false,
+      "estimated_time": "40 min",
+      "action_type": "READ",
+      "why": "Referência visual de consulta durante o projeto (o web.dev ensina, esta se consulta). Título e editor corrigidos na verificação: não é mais 'A Complete Guide to CSS Flexbox' nem DigitalOcean."
+    },
+    {
+      "source": "Codepip (Thomas Park)",
+      "title": "Flexbox Froggy",
+      "url": "https://flexboxfroggy.com/#pt-br",
+      "kind": "interactive",
+      "technology": "CSS Flexbox",
+      "competencies": [
+        "css-layout"
+      ],
+      "level_min": "L0",
+      "license": "MIT (código, repo thomaspark/flexboxfroggy); arte/marca da Codepip",
+      "pt_br_status": "complete",
+      "pt_br_url": "https://flexboxfroggy.com/#pt-br",
+      "requires_signup": false,
+      "estimated_time": "45 min",
+      "action_type": "PROVE",
+      "why": "Tradução auditada no código-fonte: 24/24 níveis, 18/18 mensagens e 8/8 verbetes com chave pt-br, em português brasileiro real. Prática com feedback imediato no nível exato de L0."
+    },
+    {
+      "source": "Meta / Jest (OpenJS)",
+      "title": "Getting Started · Jest",
+      "url": "https://jestjs.io/docs/getting-started",
+      "kind": "doc",
+      "technology": "Jest",
+      "competencies": [
+        "automated-testing-basics"
+      ],
+      "level_min": "L1",
+      "license": "MIT",
+      "pt_br_status": "none",
+      "requires_signup": false,
+      "estimated_time": "30 min",
+      "action_type": "LEARN",
+      "why": "Menor passo possível para sair de L0 em testes: instalar, escrever sum.test.js, rodar, ver verde. ATENÇÃO: /pt-BR/ resolve mas só traduz o chrome do site — o corpo é inglês."
+    },
+    {
+      "source": "Testing Library (Kent C. Dodds e contribuidores)",
+      "title": "Guiding Principles | Testing Library",
+      "url": "https://testing-library.com/docs/guiding-principles/",
+      "kind": "doc",
+      "technology": "Testing Library",
+      "competencies": [
+        "automated-testing-basics"
+      ],
+      "level_min": "L1",
+      "license": "MIT (biblioteca)",
+      "pt_br_status": "none",
+      "requires_signup": false,
+      "estimated_time": "10 min",
+      "action_type": "READ",
+      "why": "Dez minutos que resolvem o erro nº1 de quem começa: testar detalhe de implementação em vez de comportamento. Critério aplicável sozinho, sem teoria de pirâmide."
+    },
+    {
+      "source": "Kent C. Dodds",
+      "title": "Write tests. Not too many. Mostly integration.",
+      "url": "https://kentcdodds.com/blog/write-tests",
+      "kind": "article",
+      "technology": "agnóstico",
+      "competencies": [
+        "automated-testing-basics"
+      ],
+      "level_min": "L1",
+      "license": "direitos reservados — apenas linkar",
+      "pt_br_status": "none",
+      "requires_signup": false,
+      "estimated_time": "15 min",
+      "action_type": "READ",
+      "why": "Responde 'quanto teste é suficiente?' (retorno decrescente acima de ~70% de cobertura) e evita o ciclo de culpa por 100%. Tradução em pt existe só no Medium de terceiro: não conta."
+    },
+    {
+      "source": "MDN Web Docs (Mozilla)",
+      "title": "O que deu errado? Resolvendo problemas no JavaScript",
+      "url": "https://developer.mozilla.org/pt-BR/docs/Learn_web_development/Core/Scripting/What_went_wrong",
+      "kind": "tutorial",
+      "technology": "JavaScript",
+      "competencies": [
+        "debugging"
+      ],
+      "level_min": "L0",
+      "license": "CC BY-SA 2.5",
+      "pt_br_status": "complete",
+      "pt_br_url": "https://developer.mozilla.org/pt-BR/docs/Learn_web_development/Core/Scripting/What_went_wrong",
+      "requires_signup": false,
+      "estimated_time": "1 h",
+      "action_type": "LEARN",
+      "why": "Melhor recurso do catálogo inteiro: jogo com bugs plantados, taxonomia sintaxe/lógica/runtime, tradução pt-BR completa e mantida (identificadores adaptados). Usar a URL pt-BR como primária."
+    },
+    {
+      "source": "Google / Chrome for Developers",
+      "title": "Depurar o JavaScript",
+      "url": "https://developer.chrome.com/docs/devtools/javascript/?hl=pt-br",
+      "kind": "tutorial",
+      "technology": "Chrome DevTools",
+      "competencies": [
+        "debugging"
+      ],
+      "level_min": "L1",
+      "license": "CC BY 4.0 (código Apache 2.0)",
+      "pt_br_status": "complete",
+      "pt_br_url": "https://developer.chrome.com/docs/devtools/javascript/?hl=pt-br",
+      "requires_signup": false,
+      "estimated_time": "1 h",
+      "action_type": "LEARN",
+      "why": "Faz a transição de console.log para breakpoint, passo a passo e em pt-BR. Tradução do pipeline do Google é literal ('painel Origens' = Sources): avisar o aluno sobre os termos."
+    },
+    {
+      "source": "Julia Evans (jvns.ca)",
+      "title": "A debugging manifesto",
+      "url": "https://jvns.ca/blog/2022/12/08/a-debugging-manifesto/",
+      "kind": "article",
+      "technology": "agnóstico",
+      "competencies": [
+        "debugging"
+      ],
+      "level_min": "L0",
+      "license": "não declarada — apenas linkar",
+      "pt_br_status": "none",
+      "requires_signup": false,
+      "estimated_time": "10 min",
+      "action_type": "READ",
+      "why": "Ataca a dimensão afetiva: 'estar preso é temporário', 'geralmente o bug é do seu código', 'construa seu kit de ferramentas'. Abre a trilha antes de qualquer ferramenta."
+    },
+    {
+      "source": "Google (google/eng-practices)",
+      "title": "The CL author's guide to getting through code review",
+      "url": "https://google.github.io/eng-practices/review/developer/",
+      "kind": "guide",
+      "technology": "agnóstico",
+      "competencies": [
+        "code-review-participation"
+      ],
+      "level_min": "L1",
+      "license": "CC BY 3.0 (alegada; não confirmada no rodapé renderizado)",
+      "pt_br_status": "none",
+      "requires_signup": false,
+      "estimated_time": "1 h",
+      "action_type": "READ",
+      "why": "É o lado que o júnior realmente ocupa: descrever bem o PR, mantê-lo pequeno e responder a comentários sem defensividade. Recomendar ANTES do guia do revisor."
+    },
+    {
+      "source": "Google (google/eng-practices)",
+      "title": "How to do a code review",
+      "url": "https://google.github.io/eng-practices/review/reviewer/",
+      "kind": "guide",
+      "technology": "agnóstico",
+      "competencies": [
+        "code-review-participation"
+      ],
+      "level_min": "L2",
+      "license": "CC BY 3.0 (alegada; não confirmada)",
+      "pt_br_status": "none",
+      "requires_signup": false,
+      "estimated_time": "2 h",
+      "action_type": "READ",
+      "why": "Leitura posterior. A peça acionável é 'The Standard of Code Review', onde está verificado o significado do prefixo 'Nit:' — decifrar esse jargão evita que o júnior leia comentário opcional como reprovação."
+    },
+    {
+      "source": "Simon Tatham",
+      "title": "Como Relatar Bugs De Maneira Eficaz",
+      "url": "https://www.chiark.greenend.org.uk/~sgtatham/bugs-br.html",
+      "kind": "article",
+      "technology": "agnóstico",
+      "competencies": [
+        "technical-communication"
+      ],
+      "level_min": "L0",
+      "license": "OpenContent Licence, © 1999 Simon Tatham",
+      "pt_br_status": "complete",
+      "pt_br_url": "https://www.chiark.greenend.org.uk/~sgtatham/bugs-br.html",
+      "requires_signup": false,
+      "estimated_time": "30 min",
+      "action_type": "READ",
+      "why": "Texto canônico sobre descrever sintoma em vez de diagnóstico, hospedado pelo próprio autor e traduzido por inteiro. Serve de rubrica para avaliar a competência. Exemplos datados (1999) pedem enquadramento."
+    },
+    {
+      "source": "Conventional Commits (projeto oficial)",
+      "title": "Conventional Commits 1.0.0",
+      "url": "https://www.conventionalcommits.org/pt-br/v1.0.0/",
+      "kind": "reference",
+      "technology": "Git",
+      "competencies": [
+        "technical-communication"
+      ],
+      "level_min": "L0",
+      "license": "CC BY 3.0",
+      "pt_br_status": "complete",
+      "pt_br_url": "https://www.conventionalcommits.org/pt-br/v1.0.0/",
+      "requires_signup": false,
+      "estimated_time": "20 min",
+      "action_type": "READ",
+      "why": "Regra mecânica e verificável (feat:, fix:, BREAKING CHANGE) aplicável já no primeiro commit do portfólio. Um dos dois únicos 'complete' que sobreviveram à verificação nesta fatia."
+    },
+    {
+      "source": "Google for Developers",
+      "title": "Technical Writing One",
+      "url": "https://developers.google.com/tech-writing/one",
+      "kind": "course",
+      "technology": "agnóstico",
+      "competencies": [
+        "technical-communication"
+      ],
+      "level_min": "L1",
+      "license": "CC BY 4.0 (código Apache 2.0)",
+      "pt_br_status": "none",
+      "requires_signup": false,
+      "estimated_time": "4 h",
+      "action_type": "LEARN",
+      "why": "Curso canônico de escrita técnica (voz ativa, clareza de frase, listas, público-alvo). ARMADILHA confirmada: ?hl=pt-br traduz só a interface, o curso é inglês — marcar inglês como pré-requisito."
+    },
+    {
+      "source": "Refactoring.Guru (Alexander Shvets)",
+      "title": "Code Smells",
+      "url": "https://refactoring.guru/pt-br/refactoring/smells",
+      "kind": "reference",
+      "technology": "agnóstico",
+      "competencies": [
+        "code-readability"
+      ],
+      "level_min": "L1",
+      "license": "Content Usage Policy restritiva — NÃO é Creative Commons; apenas linkar",
+      "pt_br_status": "partial",
+      "pt_br_url": "https://refactoring.guru/pt-br/refactoring/smells",
+      "requires_signup": false,
+      "estimated_time": "1 h",
+      "action_type": "READ",
+      "why": "Dá vocabulário nomeado (Long Method, Duplicate Code) ao desconforto que o aluno já sente. Verificação refutou 'complete': índice e categorias em pt-BR, mas o corpo de cada smell é inglês."
+    },
+    {
+      "source": "Martin Fowler / refactoring.com",
+      "title": "Catalog of Refactorings",
+      "url": "https://refactoring.com/catalog/",
+      "kind": "reference",
+      "technology": "agnóstico",
+      "competencies": [
+        "code-readability"
+      ],
+      "level_min": "L2",
+      "license": "sem licença aberta declarada",
+      "pt_br_status": "none",
+      "requires_signup": false,
+      "estimated_time": "10 min por refatoração (consulta)",
+      "action_type": "READ",
+      "why": "Consulta pontual quando o aluno percebe um método longo. Pressupõe código próprio e rede de testes — amarra code-readability a automated-testing-basics como pré-requisito."
+    },
+    {
+      "source": "Yoni Goldberg (GitHub)",
+      "title": "javascript-testing-best-practices (readme pt-BR)",
+      "url": "https://github.com/goldbergyoni/javascript-testing-best-practices/blob/master/readme-pt-br.md",
+      "kind": "reference",
+      "technology": "JavaScript",
+      "competencies": [
+        "code-readability"
+      ],
+      "level_min": "L2",
+      "license": "MIT",
+      "pt_br_status": "partial",
+      "pt_br_url": "https://github.com/goldbergyoni/javascript-testing-best-practices/blob/master/readme-pt-br.md",
+      "requires_signup": false,
+      "estimated_time": "20 min por seção",
+      "action_type": "READ",
+      "why": "Catálogo de consulta para nomear e estruturar teste (AAA, 3 partes no nome). Traduzidas as seções 0-2; as seções 3 (frontend), 4 e 5 continuam em inglês — justamente as mais úteis para front-end."
+    },
+    {
+      "source": "freeCodeCamp (Richard Reis; tradução de Afonso Branco)",
+      "title": "Como pensar como um programador — lições de resolução de problemas",
+      "url": "https://www.freecodecamp.org/portuguese/news/como-pensar-como-um-programador-licoes-de-resolucao-de-problemas/",
+      "kind": "article",
+      "technology": "agnóstico",
+      "competencies": [
+        "problem-decomposition"
+      ],
+      "level_min": "L0",
+      "license": "sem licença aberta declarada",
+      "pt_br_status": "complete",
+      "pt_br_url": "https://www.freecodecamp.org/portuguese/news/como-pensar-como-um-programador-licoes-de-resolucao-de-problemas/",
+      "requires_signup": false,
+      "estimated_time": "20 min",
+      "action_type": "READ",
+      "why": "Framework compreender-planejar-dividir-destravar em 20 min, sem pré-requisito de stack. A verificação achou tradução OFICIAL no próprio freeCodeCamp — variante em português europeu, não pt-BR."
+    },
+    {
+      "source": "Adam Wiggins / Heroku (Salesforce)",
+      "title": "The Twelve-Factor App (pt-BR)",
+      "url": "https://12factor.net/pt_br/",
+      "kind": "guide",
+      "technology": "agnóstico",
+      "competencies": [
+        "deployment-basics"
+      ],
+      "level_min": "L1",
+      "license": "não declarada (© Salesforce) — verificar antes de derivar",
+      "pt_br_status": "complete",
+      "pt_br_url": "https://12factor.net/pt_br/",
+      "requires_signup": false,
+      "estimated_time": "2 h (usar fatores I–V e XI, ~45 min)",
+      "action_type": "READ",
+      "why": "Dá o modelo mental que falta (config em variáveis de ambiente, build/release/run, paridade dev/prod, logs como stream). Texto denso: limitar aos fatores I–V e XI em L1."
+    },
+    {
+      "source": "MDN Web Docs (Mozilla)",
+      "title": "Publicando seu site",
+      "url": "https://developer.mozilla.org/pt-BR/docs/Learn_web_development/Getting_started/Your_first_website/Publishing_your_website",
+      "kind": "tutorial",
+      "technology": "web estática / GitHub Pages / FTP",
+      "competencies": [
+        "deployment-basics"
+      ],
+      "level_min": "L0",
+      "license": "CC BY-SA 2.5",
+      "pt_br_status": "complete",
+      "pt_br_url": "https://developer.mozilla.org/pt-BR/docs/Learn_web_development/Getting_started/Your_first_website/Publishing_your_website",
+      "requires_signup": false,
+      "estimated_time": "45 min",
+      "action_type": "LEARN",
+      "why": "Primeiro degrau real de deploy em L0: hospedagem, domínio, FTP e GitHub Pages sem build, CLI ou conta paga. Uma página, não um curso."
+    },
+    {
+      "source": "GitHub Docs",
+      "title": "Início Rápido para Páginas do GitHub",
+      "url": "https://docs.github.com/pt/pages/quickstart",
+      "kind": "guide",
+      "technology": "GitHub Pages",
+      "competencies": [
+        "deployment-basics"
+      ],
+      "level_min": "L1",
+      "license": "CC BY 4.0 (repo github/docs)",
+      "pt_br_status": "complete",
+      "pt_br_url": "https://docs.github.com/pt/pages/quickstart",
+      "requires_signup": true,
+      "estimated_time": "30 min",
+      "action_type": "BUILD",
+      "why": "Primeiro deploy versionado: o repositório vira a fonte da verdade e o push publica. Tradução oficial do GitHub. Exige conta gratuita (sem cartão)."
+    },
+    {
+      "source": "MDN Web Docs (Mozilla)",
+      "title": "Autenticação HTTP",
+      "url": "https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Guides/Authentication",
+      "kind": "doc",
+      "technology": "HTTP",
+      "competencies": [
+        "authentication-basics"
+      ],
+      "level_min": "L1",
+      "license": "CC BY-SA 2.5",
+      "pt_br_status": "partial",
+      "pt_br_url": "https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Guides/Authentication",
+      "requires_signup": false,
+      "estimated_time": "30 min",
+      "action_type": "READ",
+      "why": "Única ponte em português entre HTTP e autenticação: 401 vs 407, WWW-Authenticate, Authorization, Basic sem TLS é inseguro. Cobre Basic a fundo; Bearer/JWT fica raso."
+    },
+    {
+      "source": "OWASP Cheat Sheet Series",
+      "title": "Password Storage Cheat Sheet",
+      "url": "https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html",
+      "kind": "reference",
+      "technology": "hashing de senhas",
+      "competencies": [
+        "authentication-basics"
+      ],
+      "level_min": "L2",
+      "license": "CC BY-SA 4.0",
+      "pt_br_status": "none",
+      "requires_signup": false,
+      "estimated_time": "40 min",
+      "action_type": "READ",
+      "why": "Resolve o erro mais caro de iniciante (senha em texto puro ou MD5) com parâmetros concretos verificados: Argon2id 19 MiB/2/1, bcrypt custo 10+, PBKDF2-SHA256 600k."
+    },
+    {
+      "source": "OWASP Cheat Sheet Series",
+      "title": "Authentication Cheat Sheet",
+      "url": "https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html",
+      "kind": "reference",
+      "technology": "segurança de autenticação",
+      "competencies": [
+        "authentication-basics"
+      ],
+      "level_min": "L2",
+      "license": "CC BY-SA 4.0",
+      "pt_br_status": "none",
+      "requires_signup": false,
+      "estimated_time": "1 h 30 min (consulta por tópico)",
+      "action_type": "READ",
+      "why": "Maior autoridade sem paywall sobre política de senha, mensagens de erro genéricas, enumeração de usuário e bloqueio. Vai até OAuth/OIDC/FIDO: consultar por tópico, nunca ler linear."
+    },
+    {
+      "source": "MDN Web Docs (Mozilla)",
+      "title": "Research and learning",
+      "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Soft_skills/Research_and_learning",
+      "kind": "article",
+      "technology": "agnóstico",
+      "competencies": [
+        "reading-documentation"
+      ],
+      "level_min": "L0",
+      "license": "CC BY-SA 2.5",
+      "pt_br_status": "none",
+      "requires_signup": false,
+      "estimated_time": "45 min",
+      "action_type": "READ",
+      "why": "O mais próximo de uma aula sobre COMO ler documentação vindo de fonte canônica: escolher fonte, referência vs guia vs Stack Overflow, pesquisar antes de pedir ajuda. Rota pt-BR retorna 404."
+    },
+    {
+      "source": "MDN Web Docs (Mozilla)",
+      "title": "Guia JavaScript",
+      "url": "https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide",
+      "kind": "doc",
+      "technology": "JavaScript",
+      "competencies": [
+        "reading-documentation",
+        "javascript-essentials"
+      ],
+      "level_min": "L1",
+      "license": "CC BY-SA 2.5",
+      "pt_br_status": "complete",
+      "pt_br_url": "https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide",
+      "requires_signup": false,
+      "estimated_time": "10 h (usar por capítulo)",
+      "action_type": "READ",
+      "why": "Documentação canônica em pt-BR completo (19 capítulos básicos verificados): serve de objeto de prática para treinar leitura de fonte oficial em vez de blog aleatório."
+    },
+    {
+      "source": "MIT — The Missing Semester of Your CS Education",
+      "title": "Shell Tools and Scripting (seção 'Finding how to use commands')",
+      "url": "https://missing.csail.mit.edu/2020/shell-tools/",
+      "kind": "tutorial",
+      "technology": "shell / man / tldr",
+      "competencies": [
+        "reading-documentation",
+        "command-line-basics"
+      ],
+      "level_min": "L1",
+      "license": "CC BY-NC-SA (cláusula NC: não reaproveitar em produto pago)",
+      "pt_br_status": "none",
+      "requires_signup": false,
+      "estimated_time": "1 h 30 min",
+      "action_type": "LEARN",
+      "why": "Ensina o gesto concreto de ler documentação: -h/--help, man, tldr, find, grep, history. ATENÇÃO: a tradução pt tem só título e navegação em português — o corpo e os exercícios são inglês."
+    },
+    {
+      "source": "MIT — The Missing Semester of Your CS Education",
+      "title": "Course Overview + The Shell",
+      "url": "https://missing.csail.mit.edu/2020/course-shell/",
+      "kind": "tutorial",
+      "technology": "shell / bash",
+      "competencies": [
+        "command-line-basics"
+      ],
+      "level_min": "L0",
+      "license": "CC BY-NC-SA",
+      "pt_br_status": "partial",
+      "pt_br_url": "https://missing-semester-pt.github.io/2020/course-shell/",
+      "requires_signup": false,
+      "estimated_time": "1 h 30 min",
+      "action_type": "LEARN",
+      "why": "Constrói modelo mental (shell, PATH, streams, permissões) com 11 exercícios. A tradução começa em português e é abandonada por volta de 'Connecting programs'; os exercícios estão todos em inglês."
+    },
+    {
+      "source": "Khan Academy (Tom Cormen e Devin Balkcom, Dartmouth)",
+      "title": "Algoritmos | Teoria da Ciência da Computação",
+      "url": "https://pt.khanacademy.org/computing/computer-science/algorithms",
+      "kind": "course",
+      "technology": "agnóstico (JavaScript no ambiente da Khan)",
+      "competencies": [
+        "algorithms-and-complexity"
+      ],
+      "level_min": "L0",
+      "license": "CC BY-NC-SA 3.0 US",
+      "pt_br_status": "partial",
+      "pt_br_url": "https://pt.khanacademy.org/computing/computer-science/algorithms",
+      "requires_signup": false,
+      "estimated_time": "8 h (usar unidades de busca binária e notação assintótica, ~2 h)",
+      "action_type": "LEARN",
+      "why": "Único material canônico de algoritmos desenhado para quem nunca viu complexidade, em pt-BR e em JavaScript (não Java). Cobertura da tradução não auditável por fetch (SPA): verificar manualmente."
+    },
+    {
+      "source": "VisuAlgo — Steven Halim, National University of Singapore",
+      "title": "VisuAlgo — visualising data structures and algorithms through animation",
+      "url": "https://visualgo.net/en",
+      "kind": "interactive",
+      "technology": "agnóstico",
+      "competencies": [
+        "algorithms-and-complexity"
+      ],
+      "level_min": "L1",
+      "license": "uso gratuito, direitos do NUS (não é CC)",
+      "pt_br_status": "none",
+      "requires_signup": false,
+      "estimated_time": "2 h",
+      "action_type": "LEARN",
+      "why": "Permite 'ver' por que um algoritmo é O(n log n) em vez de decorar tabela. Vocabulário necessário é mínimo, então a barreira do inglês é baixa. Conta é opcional."
+    },
+    {
+      "source": "Eric Drowell e colaboradores",
+      "title": "Big-O Algorithm Complexity Cheat Sheet",
+      "url": "https://www.bigocheatsheet.com/",
+      "kind": "reference",
+      "technology": "agnóstico",
+      "competencies": [
+        "algorithms-and-complexity"
+      ],
+      "level_min": "L1",
+      "license": "não declarada — apenas linkar",
+      "pt_br_status": "none",
+      "requires_signup": false,
+      "estimated_time": "20 min",
+      "action_type": "READ",
+      "why": "Uma página que conecta estrutura/algoritmo a custo de tempo e espaço. Consulta depois da conceituação, evitando mandar iniciante para 40 h por causa de um gap pequeno."
+    },
+    {
+      "source": "Ilya Kantor (javascript.info)",
+      "title": "The Modern JavaScript Tutorial",
+      "url": "https://javascript.info/",
+      "kind": "tutorial",
+      "technology": "JavaScript",
+      "competencies": [
+        "javascript-essentials",
+        "programming-fundamentals"
+      ],
+      "level_min": "L0",
+      "license": "© Ilya Kantor, sem licença aberta — apenas linkar",
+      "pt_br_status": "none",
+      "requires_signup": false,
+      "estimated_time": "40 h (usar por capítulo)",
+      "action_type": "LEARN",
+      "why": "Tutorial mais bem estruturado por nível, de L0 em diante, com exercícios resolvidos. Verificado em /translate: português em 38% e SEM site publicado — barreira de idioma total."
+    },
+    {
+      "source": "Marijn Haverbeke",
+      "title": "Eloquent JavaScript, 4ª edição",
+      "url": "https://eloquentjavascript.net/",
+      "kind": "book",
+      "technology": "JavaScript",
+      "competencies": [
+        "javascript-essentials"
+      ],
+      "level_min": "L1",
+      "license": "CC BY-NC (prosa) + MIT (código)",
+      "pt_br_status": "complete",
+      "pt_br_url": "https://braziljs.github.io/eloquente-javascript/",
+      "requires_signup": false,
+      "estimated_time": "30 h (usar capítulos 1-5)",
+      "action_type": "READ",
+      "why": "Cobre a parte conceitual (funções de ordem superior, abstração) que tutorial de sintaxe não dá. A tradução BrazilJS hoje cobre a 4ª edição inteira, mas é comunitária e ASSISTIDA POR IA, sem revisão humana nem aval do autor."
+    },
+    {
+      "source": "SQLBolt",
+      "title": "SQLBolt — Learn SQL",
+      "url": "https://sqlbolt.com/",
+      "kind": "interactive",
+      "technology": "SQL",
+      "competencies": [
+        "sql-basics"
+      ],
+      "level_min": "L0",
+      "license": "não declarada",
+      "pt_br_status": "none",
+      "requires_signup": false,
+      "estimated_time": "4 h",
+      "action_type": "PROVE",
+      "why": "18 lições com validação no navegador, sem instalar banco nem criar conta. Vocabulário é quase só palavra-chave SQL: menor barreira de idioma da fatia."
+    },
+    {
+      "source": "Zi Chong Kao",
+      "title": "Select Star SQL",
+      "url": "https://selectstarsql.com/",
+      "kind": "interactive",
+      "technology": "SQL",
+      "competencies": [
+        "sql-basics"
+      ],
+      "level_min": "L1",
+      "license": "CC BY-SA 4.0 (texto) / CC0 (código e dados)",
+      "pt_br_status": "none",
+      "requires_signup": false,
+      "estimated_time": "6 h",
+      "action_type": "PROVE",
+      "why": "Passo seguinte ao SQLBolt: pensar a consulta a partir de pergunta real, com agregações, joins e subconsultas. Sem anúncio, sem cadastro, licença clara."
+    },
+    {
+      "source": "Adrienne Watt e Nelson Eng — BCcampus",
+      "title": "Database Design — 2nd Edition",
+      "url": "https://opentextbc.ca/dbdesign01/",
+      "kind": "book",
+      "technology": "modelagem relacional",
+      "competencies": [
+        "relational-data-modeling",
+        "sql-basics"
+      ],
+      "level_min": "L1",
+      "license": "CC BY 4.0 (a mais permissiva do catálogo)",
+      "pt_br_status": "none",
+      "requires_signup": false,
+      "estimated_time": "15 h (usar capítulos de MER e normalização)",
+      "action_type": "READ",
+      "why": "Modelo ER, dependências funcionais, normalização 1FN-3FN e integridade, com exercícios de fim de capítulo. Verificação só indireta: o domínio bloqueia fetch com HTTP 403."
+    },
+    {
+      "source": "Scott Chacon e Ben Straub / git-scm.com",
+      "title": "Pro Git — 2ª edição (pt-BR)",
+      "url": "https://git-scm.com/book/pt-br/v2",
+      "kind": "book",
+      "technology": "Git",
+      "competencies": [
+        "version-control-git"
+      ],
+      "level_min": "L1",
+      "license": "CC BY-NC-SA 3.0 (cláusula NC)",
+      "pt_br_status": "complete",
+      "pt_br_url": "https://git-scm.com/book/pt-br/v2",
+      "requires_signup": false,
+      "estimated_time": "12 h (usar capítulos 2 e 3)",
+      "action_type": "READ",
+      "why": "Referência canônica no site do detentor, com tradução pt-BR completa e PDF/EPUB. Apontar capítulos 2 (Fundamentos) e 3 (Ramificação), nunca o livro todo."
+    },
+    {
+      "source": "Peter Cottle",
+      "title": "Learn Git Branching",
+      "url": "https://learngitbranching.js.org/?locale=pt_BR",
+      "kind": "interactive",
+      "technology": "Git",
+      "competencies": [
+        "version-control-git"
+      ],
+      "level_min": "L1",
+      "license": "MIT",
+      "pt_br_status": "partial",
+      "pt_br_url": "https://learngitbranching.js.org/?locale=pt_BR",
+      "requires_signup": false,
+      "estimated_time": "3 h",
+      "action_type": "PROVE",
+      "why": "Faz o aluno entender o grafo de commits errando em ambiente seguro. O locale pt_BR existe, mas a cobertura não foi auditável por fetch (canvas/JS): verificar no navegador antes de publicar."
+    },
+    {
+      "source": "Katie Sylor-Miller",
+      "title": "Oh Shit, Git!?! (pt_BR)",
+      "url": "https://ohshitgit.com/pt_BR",
+      "kind": "reference",
+      "technology": "Git",
+      "competencies": [
+        "version-control-git"
+      ],
+      "level_min": "L1",
+      "license": "não declarada — apenas linkar",
+      "pt_br_status": "complete",
+      "pt_br_url": "https://ohshitgit.com/pt_BR",
+      "requires_signup": false,
+      "estimated_time": "20 min",
+      "action_type": "READ",
+      "why": "Resolve as situações em que o iniciante acha que 'quebrou o Git'. URL corrigida: o caminho é case-sensitive (/pt_BR funciona, /pt_br dá 404). Variante sem palavrão: dangitgit.com."
+    },
+    {
+      "source": "Universidade de Helsinque — Full Stack Open",
+      "title": "Full stack open (pt-BR)",
+      "url": "https://fullstackopen.com/ptbr/",
+      "kind": "course",
+      "technology": "React / Node / Express",
+      "competencies": [
+        "build-an-application",
+        "api-development"
+      ],
+      "level_min": "L2",
+      "license": "CC BY-NC-SA 3.0",
+      "pt_br_status": "partial",
+      "pt_br_url": "https://fullstackopen.com/ptbr/",
+      "requires_signup": false,
+      "estimated_time": "150 h (partes 0-5, ~60 h)",
+      "action_type": "BUILD",
+      "why": "Curso gratuito mais sério para construir aplicação, de universidade pública. Partes 0-5 e 13 em pt-BR; 6-12 marcadas '(english only)'. Exige JavaScript consolidado — nunca em L0/L1."
+    },
+    {
+      "source": "MDN Web Docs (Mozilla)",
+      "title": "Introdução Express/Node",
+      "url": "https://developer.mozilla.org/pt-BR/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Introduction",
+      "kind": "tutorial",
+      "technology": "Node.js / Express",
+      "competencies": [
+        "api-development"
+      ],
+      "level_min": "L1",
+      "license": "CC BY-SA 2.5",
+      "pt_br_status": "partial",
+      "pt_br_url": "https://developer.mozilla.org/pt-BR/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Introduction",
+      "requires_signup": false,
+      "estimated_time": "2 h",
+      "action_type": "LEARN",
+      "why": "Ponte barata antes do Full Stack Open: o que é Node, o que é Express, como uma rota vira resposta HTTP, em pt-BR. Os artigos seguintes do tutorial LocalLibrary caem para inglês."
+    },
+    {
+      "source": "MDN Web Docs (Mozilla)",
+      "title": "Express Tutorial Part 7: Deploying to production",
+      "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/deployment",
+      "kind": "tutorial",
+      "technology": "Node.js / Express / Railway",
+      "competencies": [
+        "api-development"
+      ],
+      "level_min": "L2",
+      "license": "CC BY-SA 2.5",
+      "pt_br_status": "none",
+      "requires_signup": false,
+      "estimated_time": "3 h",
+      "action_type": "BUILD",
+      "why": "Cobre o que GitHub Pages não cobre: deploy de app dinâmico com banco, variáveis de ambiente e checklist de produção. Rota pt-BR dá 404. O plano gratuito do Railway hoje é crédito de teste — avisar."
+    },
+    {
+      "source": "Harvard University / CS50 (David J. Malan)",
+      "title": "CS50x — CS50's Introduction to Computer Science",
+      "url": "https://cs50.harvard.edu/x/",
+      "kind": "course",
+      "technology": "C / Python / SQL",
+      "competencies": [
+        "programming-fundamentals"
+      ],
+      "level_min": "L0",
+      "license": "CC BY-NC-SA 4.0",
+      "pt_br_status": "none",
+      "requires_signup": false,
+      "estimated_time": "100 h",
+      "action_type": "LEARN",
+      "why": "Trilha longa opcional, só quando o diagnóstico apontar programming-fundamentals em L0 de fato. Correção: legenda automática de YouTube NÃO é tradução — site e problem sets são 100% inglês."
+    },
+    {
+      "source": "Simon Willison",
+      "title": "Here's how I use LLMs to help me write code",
+      "url": "https://simonwillison.net/2025/Mar/11/using-llms-for-code/",
+      "kind": "article",
+      "technology": "LLMs",
+      "competencies": [
+        "ai-assisted-development-basics"
+      ],
+      "level_min": "L1",
+      "license": "leitura livre, direitos reservados (não é CC)",
+      "pt_br_status": "none",
+      "requires_signup": false,
+      "estimated_time": "40 min",
+      "action_type": "READ",
+      "why": "Texto gratuito mais criterioso e não-hype: expectativas realistas, limite de data de treinamento, contexto e a obrigação de testar e entender o que foi gerado."
+    },
+    {
+      "source": "GitHub Docs",
+      "title": "Práticas recomendadas para usar GitHub Copilot",
+      "url": "https://docs.github.com/pt/copilot/get-started/best-practices",
+      "kind": "doc",
+      "technology": "GitHub Copilot",
+      "competencies": [
+        "ai-assisted-development-basics"
+      ],
+      "level_min": "L1",
+      "license": "CC BY 4.0 (alegada; não confirmada no LICENSE do repo)",
+      "pt_br_status": "complete",
+      "pt_br_url": "https://docs.github.com/pt/copilot/get-started/best-practices",
+      "requires_signup": false,
+      "estimated_time": "30 min",
+      "action_type": "READ",
+      "why": "Documentação do próprio fornecedor sobre entender pontos fracos, criar prompts e VERIFICAR o trabalho do Copilot. A verificação achou a página integralmente traduzida — o mapeamento dizia que não existia."
+    },
+    {
+      "source": "Thoughtworks / Martin Fowler",
+      "title": "Exploring Generative AI",
+      "url": "https://martinfowler.com/articles/exploring-gen-ai.html",
+      "kind": "article",
+      "technology": "LLMs",
+      "competencies": [
+        "ai-assisted-development-basics"
+      ],
+      "level_min": "L2",
+      "license": "leitura livre, direitos reservados",
+      "pt_br_status": "none",
+      "requires_signup": false,
+      "estimated_time": "20-30 min por memo (série viva, 25+ memos)",
+      "action_type": "READ",
+      "why": "Efeitos reais de assistentes de código sobre qualidade e revisão, por engenheiros que praticam. Pressupõe quem já produz e revisa código — em L0/L1 use o texto do Willison."
+    }
+  ],
+  "resolucao_das_lacunas": [
+    {
+      "competency": "http-fundamentals",
+      "resolved": true,
+      "by": "MDN 'Uma visão geral do HTTP' (L0) + howhttps.works/pt-br (L0) + MDN 'Códigos de status' (L1); complemento em MDN 'Métodos de requisição'",
+      "language": "pt-BR nos três (traduções verificadas, não presumidas)",
+      "residual_risk": "A premissa de 'zero material em pt-BR' era falsa: a lacuna é de DESCOBERTA, não de existência. Risco real é a navegação: links laterais e páginas-filhas da MDN caem para /en-US, o que faz o aluno abandonar a trilha no segundo clique. O roadmap precisa sequenciar as páginas, não entregar o índice."
+    },
+    {
+      "competency": "reading-documentation",
+      "resolved": true,
+      "by": "MDN 'Research and learning' (L0, a aula) + MDN 'Guia JavaScript' pt-BR (objeto de prática) + Missing Semester 'Shell Tools' seção 'Finding how to use commands'",
+      "language": "inglês na única aula; pt-BR só no objeto de prática",
+      "residual_risk": "O mais grave dos nove. A rota pt-BR do MDN 'Research and learning' retorna 404 confirmado, e a tradução do Missing Semester foi REFUTADA (título traduzido, corpo e exercícios em inglês). Ou seja: não existe nenhum material em português que ensine a LER documentação — só material em português para ser lido. Inglês instrumental vira pré-requisito explícito aqui."
+    },
+    {
+      "competency": "technical-communication",
+      "resolved": true,
+      "by": "Simon Tatham 'Como Relatar Bugs De Maneira Eficaz' (L0) + Conventional Commits 1.0.0 (L0) + Google Technical Writing One (L1)",
+      "language": "pt-BR completo em dois de três, ambos no site do detentor",
+      "residual_risk": "Só o curso do Google é inglês — e é armadilha: ?hl=pt-br traduz a interface e mantém o curso inteiro em inglês. O texto do Tatham é de 1999 e usa exemplos de e-mail da época, precisa de enquadramento. Ficaram de fora por limite de 3: Make a README e cbea.ms 'How to Write a Git Commit Message', ambos inglês."
+    },
+    {
+      "competency": "automated-testing-basics",
+      "resolved": true,
+      "by": "Sequência de três peças curtas: Kent C. Dodds 'Write tests. Not too many.' + Jest 'Getting Started' + Testing Library 'Guiding Principles' (~1 h no total)",
+      "language": "inglês nos três",
+      "residual_risk": "Alto. Nenhum recurso canônico tapa o gap inteiro sozinho, e a alegação de pt-BR do Jest foi REFUTADA (a rota /pt-BR/ traduz só o chrome do site; o corpo é inglês). Some o desempate por idioma entre Jest e Vitest: passa a ser técnico (projeto Vite → Vitest). O único material com pt-BR é o goldbergyoni, que é L2 e cuja seção de FRONT-END não está traduzida — justamente a parte útil para primeira vaga."
+    },
+    {
+      "competency": "deployment-basics",
+      "resolved": true,
+      "by": "MDN 'Publicando seu site' (L0) + GitHub Pages Quickstart pt (L1) + 12factor.net/pt_br (L1)",
+      "language": "pt-BR completo nos três",
+      "residual_risk": "A lacuna está tapada só para site estático. Deploy de aplicação DINÂMICA (banco, variáveis de ambiente) existe apenas em inglês: MDN Express Part 7, com rota pt-BR em 404 — e o exemplo usa Railway, cujo plano gratuito hoje é crédito de teste, podendo gerar cobrança. GitHub Pages exige conta (sem cartão). A doc da Vercel foi rebaixada: reescrita em torno de CLI e agentes, não é mais L1."
+    },
+    {
+      "competency": "authentication-basics",
+      "resolved": true,
+      "by": "MDN 'Autenticação HTTP' (L1, porta de entrada) + OWASP Password Storage (L2) + OWASP Authentication Cheat Sheet (L2)",
+      "language": "pt-BR parcial (~80%) na entrada; inglês em todo o resto",
+      "residual_risk": "O mais desequilibrado dos nove. O único item em português cobre Basic a fundo e deixa Bearer/JWT raso — que é o esquema que o aluno vai usar de fato. Todo o material de autoridade é inglês e L2. Tratar leitura técnica em inglês como pré-requisito declarado desta competência, em vez de fingir que o gap está fechado."
+    },
+    {
+      "competency": "algorithms-and-complexity",
+      "resolved": true,
+      "by": "Khan Academy 'Algoritmos' em pt.khanacademy.org (L0) + VisuAlgo (L1) + Big-O Cheat Sheet (L1)",
+      "language": "pt-BR parcial na entrada; inglês nos dois complementos",
+      "residual_risk": "A lacuna é menor do que o mapeamento supunha: a unidade da Khan existe em pt-BR e em JavaScript, não em Java. Mas a cobertura da tradução NÃO foi auditável (SPA que o fetch não renderiza) — 'partial' é prudência, não medição. Falta prática avaliada gratuita e sem cadastro em L0/L1: LeetCode é L2+ e Exercism não foi verificado (HTTP 403)."
+    },
+    {
+      "competency": "web-accessibility-basics",
+      "resolved": true,
+      "by": "W3C WAI 'Introdução à acessibilidade web' (L0) + web.dev Learn Accessibility, módulos Content structure e Keyboard focus (L1) + A11Y Project Checklist (L1, para provar no projeto)",
+      "language": "pt-BR completo só na porta de entrada; inglês em tudo depois",
+      "residual_risk": "Degrau íngreme: a introdução do W3C é excelente e traduzida, e o segundo passo já é inglês. Verificado que web.dev Learn Accessibility volta 100% em inglês mesmo com ?hl=pt-br — a localização do web.dev é decidida curso a curso (Learn CSS é traduzido, Accessibility não). Ficou de fora por limite de 3 o WebAIM Contrast Checker, que é L0 e praticamente não-verbal: vale como reserva."
+    },
+    {
+      "competency": "api-consumption",
+      "resolved": true,
+      "by": "MDN 'Métodos de requisição HTTP' (L1, pt-BR) + MDN 'Making network requests with JavaScript' (L1, inglês) + JSONPlaceholder (L0, prática)",
+      "language": "pt-BR na referência; inglês no tutorial que efetivamente ensina",
+      "residual_risk": "O degrau certo é justamente o que não existe em português: a rota pt-BR do tutorial de fetch entrega a página legada 'AJAX', sem os exemplos. Confirmado por inspeção, não suposto. Se houver orçamento para traduzir UMA coisa no catálogo inteiro, é este tutorial (CC BY-SA 2.5 permite, desde que o derivado use a mesma licença)."
+    }
+  ],
+  "correcoes_de_traducao": [
+    {
+      "resource": "MDN — Códigos de status de respostas HTTP (https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Reference/Status)",
+      "claimed": "partial",
+      "actual": "complete — as 5 classes e as descrições dos códigos estão em português; só páginas-filhas e links de cabeçalhos ficam em inglês"
+    },
+    {
+      "resource": "web.dev — Aprenda CSS (https://web.dev/learn/css?hl=pt-br)",
+      "claimed": "partial (supunha-se que só os títulos estavam traduzidos)",
+      "actual": "complete — índice E corpo do módulo Flexbox integralmente em português"
+    },
+    {
+      "resource": "Jest — Getting Started (https://jestjs.io/pt-BR/docs/getting-started)",
+      "claimed": "partial (~60-70%, com frases citadas em português)",
+      "actual": "none — a URL resolve, mas só o chrome do site é traduzido (~5-10%); o corpo começa em 'Install Jest using your favorite package manager'. As frases citadas no mapeamento não existem na página"
+    },
+    {
+      "resource": "Refactoring.Guru — Code Smells (https://refactoring.guru/pt-br/refactoring/smells)",
+      "claimed": "complete",
+      "actual": "partial — índice e páginas de categoria em pt-BR, mas as páginas de smell individual têm só os cabeçalhos traduzidos e todo o corpo explicativo em inglês"
+    },
+    {
+      "resource": "freeCodeCamp — How to think like a programmer",
+      "claimed": "none",
+      "actual": "complete — existe tradução OFICIAL no domínio do detentor (freecodecamp.org/portuguese/news/como-pensar-como-um-programador-...), em português europeu, não repost de terceiro"
+    },
+    {
+      "resource": "MIT Missing Semester — Shell Tools and Scripting (https://missing-semester-pt.github.io/2020/shell-tools/)",
+      "claimed": "complete",
+      "actual": "none — o corpo do artigo está inteiramente em inglês; só título e navegação em português. A citação em português atribuída à página não existe nela"
+    },
+    {
+      "resource": "MIT Missing Semester — Course Overview + The Shell (https://missing-semester-pt.github.io/2020/course-shell/)",
+      "claimed": "complete",
+      "actual": "partial — a tradução é abandonada por volta da seção 'Connecting programs' e TODOS os 11 exercícios estão em inglês"
+    },
+    {
+      "resource": "Harvard CS50x (https://cs50.harvard.edu/x/)",
+      "claimed": "partial (com base em legendas de YouTube)",
+      "actual": "none — site, problem sets e textos 100% em inglês; legenda automática/comunitária de vídeo não é tradução do recurso"
+    },
+    {
+      "resource": "Eloquent JavaScript, 4ª edição (https://braziljs.github.io/eloquente-javascript/)",
+      "claimed": "partial — 'a tradução BrazilJS cobre apenas a 2ª edição, duas edições atrás'",
+      "actual": "complete — a BrazilJS já traduziu os 21 capítulos da 4ª edição; PORÉM o próprio README declara tradução assistida por IA, aberta para revisão da comunidade e não endossada pelo autor"
+    },
+    {
+      "resource": "GitHub Docs — Best practices for using GitHub Copilot (https://docs.github.com/pt/copilot/get-started/best-practices)",
+      "claimed": "none",
+      "actual": "complete — a rota /pt/ entrega a página inteiramente traduzida, com os seis cabeçalhos em português correspondendo 1:1 ao original"
+    },
+    {
+      "resource": "Oh Shit, Git!?! — URL pt-BR",
+      "claimed": "link direto /pt_br retorna 404; usar o seletor de idioma da home",
+      "actual": "o caminho é case-sensitive: https://ohshitgit.com/pt_BR carrega e está integralmente em pt-BR. A ressalva pode ser removida do catálogo"
+    }
+  ],
+  "rejeitados": [
+    {
+      "candidate": "Julia Evans — zine 'HTTP: Learn your browser's language!' e 'The Pocket Guide to Debugging' (Wizard Zines)",
+      "reason": "Pagos (US$ 12). Substituídos pelo post gratuito 'A debugging manifesto' da mesma autora."
+    },
+    {
+      "candidate": "RFC 9110 (HTTP Semantics) e WCAG 2.2 Quick Reference",
+      "reason": "Documentos normativos escritos para implementadores. L3+ efetivo; recomendar a quem está entre L0 e L2 produz reversão de expertise. Servem como citação na metodologia do TCC, não como recurso de roadmap."
+    },
+    {
+      "candidate": "'HTTP: The Definitive Guide' (O'Reilly), 'How to Solve It' (Pólya), resumos de Clean Code, Grokking Algorithms",
+      "reason": "Livros comerciais sem edição gratuita legítima do detentor. Os PDFs e resumos em circulação são cópias não autorizadas."
+    },
+    {
+      "candidate": "Traduções brasileiras do guia de Flexbox do CSS-Tricks, do bliki Test Pyramid e de cbea.ms em blogs e Medium",
+      "reason": "Republicações de terceiros sem autorização do detentor dos direitos. Só a página do detentor entra no catálogo."
+    },
+    {
+      "candidate": "Testing JavaScript (testingjavascript.com)",
+      "reason": "Paywall confirmado, compra única com três níveis. Os posts gratuitos do mesmo autor entraram no lugar."
+    },
+    {
+      "candidate": "LeetCode e Playwright docs",
+      "reason": "Nível. LeetCode é preparação para entrevista competitiva (L2/L3) com parte premium; E2E pressupõe app rodando, seletores e CI. Ambos produzem frustração em L0/L1."
+    },
+    {
+      "candidate": "Airbnb/Google JavaScript Style Guides e Write the Docs como resposta a reading-documentation",
+      "reason": "São documentos normativos ou voltados a quem ESCREVE documentação, não a quem lê. Não resolvem gap de fundamentos."
+    },
+    {
+      "candidate": "Exercism, First Contributions, OWASP Top 10 A07, DevDocs, Stack Overflow 'How do I ask a good question?'",
+      "reason": "Não verificáveis nesta rodada (HTTP 403, 308 sem corpo, ou bloqueio de fetch). Regra de não registrar URL que não foi aberta. First Contributions continua o candidato mais promissor que ficou de fora."
+    },
+    {
+      "candidate": "The Copenhagen Book e postgresqltutorial.com",
+      "reason": "Instabilidade de titularidade: o primeiro virou 'Pilcrow's auth book' em outro domínio e subiu de nível; o segundo foi absorvido pela Neon e virou doc de produto comercial."
+    },
+    {
+      "candidate": "'How To Ask Questions The Smart Way' (Eric S. Raymond)",
+      "reason": "Tom hostil com iniciantes. Para estudante brasileiro buscando primeira vaga, o custo afetivo supera o ganho; Simon Tatham entrega a mesma lição sem afastar."
+    },
+    {
+      "candidate": "Cursos e vídeos de 'vibe coding'",
+      "reason": "Sem detentor de direitos identificável e com incentivo oposto ao da competência, que é conferir e entender o código gerado."
+    },
+    {
+      "candidate": "Cortados pelo limite de 3 por competência (não reprovados): WebAIM Contrast Checker, Make a README, cbea.ms 'How to Write a Git Commit Message', Testing Library 'About Queries', Testing Trophy, Fowler 'Test Pyramid', MDN 'Using the Fetch API', javascript.info/fetch, Vitest, Rubber Duck Debugging, Missing Semester 'Debugging and Profiling', Write the Docs, docs da Vercel, freeCodeCamp 'JavaScript Algorithms and Data Structures'",
+      "reason": "Verificados e válidos, mas perderam a disputa por vaga na competência para recursos com pt-BR, nível mais adequado ou escopo mais justo. Missing Semester 'Debugging and Profiling' e Vercel saíram também por nível refutado (level_appropriate=false); freeCodeCamp saiu por exigir cadastro e não ter sido verificável (SPA)."
+    }
+  ],
+  "sem_cobertura_em_nenhum_idioma": [
+    "automated-testing-basics em L0 estrito: todo recurso verificado pressupõe L1 (Node/npm instalados, JS básico). Não existe, em NENHUM idioma, um material canônico que leve alguém de 'nunca escrevi teste' a 'teste rodando' sem essa bagagem — a cobertura atual é uma montagem de três peças.",
+    "algorithms-and-complexity com prática AVALIADA gratuita e sem cadastro em L0/L1: em nenhum idioma. Khan cobre a teoria, VisuAlgo visualiza, Big-O consulta; LeetCode é L2+ e parcialmente premium, e Exercism não pôde ser verificado. Falta o artefato PROVE desta competência."
+  ]
+}

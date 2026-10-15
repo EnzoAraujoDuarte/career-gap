@@ -1,0 +1,47 @@
+'use server';
+
+import { headers } from 'next/headers';
+import { CATALOG } from '@/catalog';
+import { getDb } from '@/db/client';
+import { loadUserState, saveUserState } from '@/db/user-state';
+import { getAuth } from '@/lib/auth';
+import {
+  assertGoals,
+  assertProfile,
+  assertProgress,
+  InvalidUserState,
+  type UserState,
+  type UserStatePatch,
+} from '@/lib/user-state';
+
+/**
+ * As duas portas do estado da pessoa no servidor. O `userId` sai SEMPRE da sessão, nunca do
+ * navegador; e tudo o que chega é validado contra o catálogo antes de tocar o banco.
+ */
+
+async function currentUser() {
+  const db = getDb();
+  const auth = getAuth();
+  if (!db || !auth) return undefined;
+  const session = await auth.api.getSession({ headers: await headers() });
+  return session ? { db, userId: session.user.id } : undefined;
+}
+
+/** `null` sem banco ou sem sessão: o navegador segue sozinho. */
+export async function pullUserState(): Promise<UserState | null> {
+  const current = await currentUser();
+  return current ? loadUserState(current.db, current.userId) : null;
+}
+
+export async function pushUserState(patch: UserStatePatch): Promise<void> {
+  const current = await currentUser();
+  if (!current) return;
+
+  if (patch.profile !== undefined) assertProfile(patch.profile);
+  if (patch.goals !== undefined) assertGoals(patch.goals);
+  const progress = Object.entries(patch.progress ?? {});
+  if (progress.length > CATALOG.resources.length) throw new InvalidUserState('progresso grande demais');
+  for (const [resourceId, entry] of progress) assertProgress(resourceId, entry);
+
+  await saveUserState(current.db, current.userId, patch);
+}

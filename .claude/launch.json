@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "career-gap",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": ["--dir", "career-gap", "dev"],
+      "port": 3000
+    }
+  ]
+}

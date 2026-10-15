@@ -1,0 +1,148 @@
+import { describe, expect, it } from 'vitest';
+import { CATALOG, COMPETENCIES, FIRST_WEB_ROLE, PREREQUISITES } from '@/catalog';
+import { validateCatalog } from '@/catalog/validate';
+import { PrerequisiteGraph } from '@/domain/graph';
+
+describe('invariantes do catálogo', () => {
+  it('não viola nenhuma regra estrutural nem de proveniência', () => {
+    // Falha aqui significa catálogo indefensável, não teste quebrado.
+    expect(validateCatalog(CATALOG)).toEqual([]);
+  });
+});
+
+/**
+ * As regras abaixo passam no catálogo real; estes testes provam que elas FALHAM quando
+ * deveriam. Sem isso, uma regra que nunca dispara é indistinguível de uma regra correta.
+ */
+describe('regras de suficiência e de hábitos', () => {
+  const rulesOf = (catalog: typeof CATALOG) =>
+    validateCatalog(catalog).map((problem) => `${problem.rule} ${problem.subject}`);
+
+  it('rejeita competência core sem prática no nível-alvo', () => {
+    const withoutPractice = {
+      ...CATALOG,
+      resources: CATALOG.resources.filter(
+        (resource) =>
+          !(resource.competencies.includes('debugging') && resource.actionType === 'BUILD'),
+      ),
+    };
+    expect(rulesOf(withoutPractice)).toContain('practice-coverage first-web-role:debugging');
+  });
+
+  it('rejeita trilha que põe um pré-requisito depois do que ele destrava', () => {
+    const [first, second, ...rest] = FIRST_WEB_ROLE.path;
+    const swapped = {
+      ...CATALOG,
+      tracks: new Map([[FIRST_WEB_ROLE.id, { ...FIRST_WEB_ROLE, path: [second, first, ...rest] }]]),
+    };
+    expect(rulesOf(swapped)).toContain(
+      'path-order first-web-role:programming-fundamentals -> javascript-essentials',
+    );
+  });
+
+  it('rejeita trilha que deixa exigência do track de fora', () => {
+    const [first, ...rest] = FIRST_WEB_ROLE.path;
+    const shortened = {
+      ...CATALOG,
+      tracks: new Map([
+        [
+          FIRST_WEB_ROLE.id,
+          {
+            ...FIRST_WEB_ROLE,
+            path: [{ ...first, competencies: first.competencies.slice(1) }, ...rest],
+          },
+        ],
+      ]),
+    };
+    expect(rulesOf(shortened)).toContain('path-coverage first-web-role:programming-fundamentals');
+  });
+
+  it('rejeita nota de curador com código interno em texto exibido', () => {
+    const [first, ...rest] = CATALOG.resources;
+    const leaked = {
+      ...CATALOG,
+      resources: [{ ...first, chapters: 'módulo C atende dom-and-browser L1' }, ...rest],
+    };
+    expect(rulesOf(leaked)).toContain(`resource-text ${first.id}`);
+  });
+
+  it('exige enunciado em toda missão', () => {
+    const mission = CATALOG.resources.find((resource) => resource.origin === 'mission')!;
+    const broken = {
+      ...CATALOG,
+      resources: CATALOG.resources.map((resource) =>
+        resource === mission ? { ...resource, task: undefined } : resource,
+      ),
+    };
+    expect(rulesOf(broken)).toContain(`mission-task ${mission.id}`);
+  });
+
+  it('rejeita mais de três hábitos na mesma ficha', () => {
+    const extra = { ...CATALOG.habits[0], id: 'extra', competencies: ['debugging'] };
+    expect(rulesOf({ ...CATALOG, habits: [...CATALOG.habits, extra] })).toContain(
+      'habit-limit debugging',
+    );
+  });
+
+  it('rejeita hábito apoiado numa só classe de fonte', () => {
+    const habit = CATALOG.habits[0];
+    const weak = { ...habit, sources: habit.sources.slice(0, 1) };
+    const catalog = {
+      ...CATALOG,
+      habits: CATALOG.habits.map((item) => (item === habit ? weak : item)),
+    };
+    expect(rulesOf(catalog)).toContain(`provenance ${habit.id}`);
+  });
+
+  it('põe a IA como tutora já na primeira competência do mapa', () => {
+    // Decisão de 2026-10-15: IA desde o começo, mas pedindo explicação, não solução.
+    const tutor = CATALOG.habits.find((habit) => habit.id === 'ai-as-tutor');
+    expect(tutor?.competencies).toContain('programming-fundamentals');
+  });
+});
+
+describe('invariantes do catálogo — estrutura', () => {
+
+  it('mantém ids únicos', () => {
+    const ids = COMPETENCIES.map((competency) => competency.id);
+    expect(new Set(ids).size).toBe(ids.length);
+  });
+
+  it('exige exatamente as competências do track e mantém as de horizonte fora dele', () => {
+    const required = new Set(FIRST_WEB_ROLE.requirements.map((item) => item.competency));
+    const horizon = COMPETENCIES.filter((competency) => competency.domain === 'horizon');
+
+    expect(required.size).toBe(25);
+    expect(horizon.length).toBeGreaterThanOrEqual(3);
+    for (const competency of horizon) {
+      expect(required.has(competency.id)).toBe(false);
+    }
+  });
+
+  it('mantém o grafo de pré-requisitos acíclico e esparso', () => {
+    const graph = new PrerequisiteGraph(PREREQUISITES);
+    expect(graph.findCycle()).toBeUndefined();
+
+    // Um grafo dense seria opinião disfarçada de estrutura (ADR-0001).
+    const requiredCount = FIRST_WEB_ROLE.requirements.length;
+    expect(PREREQUISITES.length).toBeLessThan(requiredCount * 2);
+  });
+
+  it('registra justificativa em toda aresta', () => {
+    for (const edge of PREREQUISITES) {
+      expect(edge.rationale.length).toBeGreaterThan(20);
+    }
+  });
+
+  it('escreve todo descritor de nível como frase observável em primeira pessoa', () => {
+    const forbidden = /\b(conhece|sabe sobre|tem conhecimento|entende bem)\b/i;
+    for (const competency of COMPETENCIES) {
+      for (const [level, descriptor] of Object.entries(competency.levels)) {
+        expect(
+          forbidden.test(descriptor.canDo),
+          `${competency.id}@${level} usa formulação vaga: "${descriptor.canDo}"`,
+        ).toBe(false);
+      }
+    }
+  });
+});

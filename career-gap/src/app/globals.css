@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+/**
+ * Identidade visual do Career Gap: quadro branco técnico anotado por um mentor.
+ * Não é dashboard SaaS. Cor carrega significado — nunca é decoração.
+ */
+:root {
+  /* Um único papel para todo o produto. Antes havia dois — #faf7f1 no onboarding e
+     #fdfbf7 no mapa — e o usuário atravessava os dois na mesma tarefa. */
+  --paper: #fdfbf7;
+  --paper-edge: #f4efe4;
+  --ink: #1c1b19;
+  --ink-soft: #6b675f;
+  /* Era #a8a299, que dava 2,45:1 sobre o papel e reprovava em WCAG AA. Um produto que
+     ensina acessibilidade não pode falhar em contraste de texto. */
+  --ink-faint: #77736c;
+  --rule: #e2d9c8;
+
+  /* Tintas de fundo dos estados. Só fundo — a cor do texto vem dos tokens de tinta. */
+  --tint-now: #eaf0f8;
+  --tint-done: #eef3ec;
+
+  /* Semântica de estado. Sempre acompanhada de forma ou anotação: cor sozinha não
+     comunica para quem não a distingue. */
+  --state-done: #4a7c59;
+  --state-now: #2c5aa0;
+  --state-critical: #b33a3a;
+  --state-attention: #c07b26;
+  --state-future: #9a948a;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-paper-edge: var(--paper-edge);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-faint: var(--ink-faint);
+  --color-rule: var(--rule);
+  --color-tint-now: var(--tint-now);
+  --color-tint-done: var(--tint-done);
+  --color-done: var(--state-done);
+  --color-now: var(--state-now);
+  --color-critical: var(--state-critical);
+  --color-attention: var(--state-attention);
+  --color-future: var(--state-future);
+  --font-sans: var(--font-ui);
+  --font-hand: var(--font-hand);
+  --font-serif: var(--font-serif);
+  /* Só a página /estilos usa; declaradas no layout daquela rota. */
+  --font-grotesk: var(--font-grotesk);
+  --font-mono: var(--font-plex-mono);
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-ui), system-ui, sans-serif;
+}
+
+/* Manuscrita é para rótulo e anotação. Texto longo permanece na fonte de leitura. */
+.hand {
+  font-family: var(--font-hand), var(--font-ui), cursive;
+}
+
+/* Face original do projeto, preservada só para a variante A de /estilos. */
+.font-original-hand {
+  font-family: var(--font-original-hand), var(--font-ui), cursive;
+}
+
+/* Papel milimetrado discreto. Dá profundidade de quadro sem competir com o conteúdo. */
+.paper-grid {
+  background-color: var(--paper);
+  background-image: radial-gradient(var(--rule) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
