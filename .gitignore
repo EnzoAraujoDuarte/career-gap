@@ -24,3 +24,6 @@ tcc/plagio/corpus/
 
 # Páginas renderizadas pelo conferir.py
 tcc/.paginas/
+
+# Ligação local com o projeto na Vercel
+.vercel
