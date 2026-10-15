@@ -57,6 +57,7 @@ export function ToolsTab() {
               className="text-ink focus-visible:outline-attention text-[15px] underline decoration-[var(--rule)] underline-offset-2 hover:decoration-[var(--ink)] focus-visible:outline-2"
             >
               {tool.name}
+              <span className="sr-only"> (abre em nova aba)</span>
             </a>
             <span className="text-ink-faint ml-2 text-[12px]">{CATEGORY_LABEL[tool.category]}</span>
             <p className="text-ink mt-1 text-[13.5px] leading-snug">{tool.use}</p>

@@ -158,10 +158,10 @@ function ContentsTab() {
 
       <div className="mt-3 flex flex-wrap gap-2">
         <Toggle on={filters.ptBr} onChange={(on) => update({ ptbr: on ? '1' : undefined })}>
-          Só em português <span className="text-ink-faint">{explore.facets.ptBr}</span>
+          Só em português <span className="text-ink-soft">{explore.facets.ptBr}</span>
         </Toggle>
         <Toggle on={filters.free} onChange={(on) => update({ gratis: on ? '1' : undefined })}>
-          Só grátis <span className="text-ink-faint">{explore.facets.free}</span>
+          Só grátis <span className="text-ink-soft">{explore.facets.free}</span>
         </Toggle>
       </div>
 
@@ -275,7 +275,7 @@ function ChipRow<T extends string>({
                 on ? 'border-now bg-tint-now text-ink' : 'border-rule text-ink hover:border-ink-faint'
               }`}
             >
-              {facet.label} <span className="text-ink-faint">{facet.count}</span>
+              {facet.label} <span className="text-ink-soft">{facet.count}</span>
             </button>
           );
         })}

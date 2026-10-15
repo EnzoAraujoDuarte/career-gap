@@ -86,6 +86,9 @@ export function SelfAssessment({ track }: { track: CareerTrack }) {
   }
 
   const selected = answeredStatement(track, levels, question);
+  const answeredNo = question.statements
+    .flatMap((statement) => statement.competencies)
+    .every((competency) => levels[competency] === 'L0');
   return (
     <Shell
       step={`${index + 1} de ${questions.length}`}
@@ -98,7 +101,7 @@ export function SelfAssessment({ track }: { track: CareerTrack }) {
       <p className="text-ink-soft mt-1.5 text-[13.5px] leading-snug">{question.summary}</p>
 
       <div className="mt-6 space-y-2.5">
-        <Option onSelect={() => answer(undefined)} label="Ainda não" muted />
+        <Option onSelect={() => answer(undefined)} label="Ainda não" muted selected={answeredNo} />
         {question.statements.map((statement, statementIndex) => (
           <Option
             key={statement.level}
@@ -130,10 +133,11 @@ function Shell({
   return (
     <main className="bg-paper flex min-h-dvh flex-col px-5 py-7">
       <div className="mx-auto flex w-full max-w-[520px] flex-1 flex-col">
-        <div className="bg-rule h-1 overflow-hidden rounded-full">
+        {/* Decorativa: o "1 de 6" logo abaixo já diz o progresso em texto. */}
+        <div className="bg-rule h-1 overflow-hidden rounded-full" aria-hidden>
           <div
-            className="bg-done h-full transition-[width] duration-300"
-            style={{ width: `${Math.round(progress * 100)}%` }}
+            className="bg-done h-full origin-left transition-transform duration-300 motion-reduce:transition-none"
+            style={{ transform: `scaleX(${progress})` }}
           />
         </div>
         <div className="mt-2 flex items-baseline justify-between">
@@ -186,6 +190,7 @@ function Option({
   return (
     <button
       onClick={onSelect}
+      aria-pressed={selected}
       className={`focus-visible:outline-attention block w-full rounded-sm border px-3.5 py-3 text-left transition-colors focus-visible:outline-2 ${
         selected ? 'border-now bg-tint-now' : 'border-rule hover:border-ink-faint'
       }`}

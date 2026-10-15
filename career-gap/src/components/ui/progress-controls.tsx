@@ -12,11 +12,12 @@ export function ProgressControls({ resourceId }: { resourceId: string }) {
   const completed = Boolean(entry?.completedAt);
 
   return (
-    <span className="mt-1.5 flex flex-wrap gap-x-4 gap-y-1">
+    // 44 px de área de toque: o produto é usado sobretudo no celular.
+    <span className="mt-0.5 flex flex-wrap gap-x-5">
       <button
         aria-pressed={saved}
         onClick={() => toggleSaved(resourceId)}
-        className={`focus-visible:outline-attention -my-1 py-1 text-[12.5px] focus-visible:outline-2 ${
+        className={`focus-visible:outline-attention inline-flex min-h-11 items-center text-[12.5px] focus-visible:outline-2 ${
           saved ? 'text-now' : 'text-ink-soft hover:text-ink'
         }`}
       >
@@ -25,7 +26,7 @@ export function ProgressControls({ resourceId }: { resourceId: string }) {
       <button
         aria-pressed={completed}
         onClick={() => toggleCompleted(resourceId)}
-        className={`focus-visible:outline-attention -my-1 py-1 text-[12.5px] focus-visible:outline-2 ${
+        className={`focus-visible:outline-attention inline-flex min-h-11 items-center text-[12.5px] focus-visible:outline-2 ${
           completed ? 'text-done' : 'text-ink-soft hover:text-ink'
         }`}
       >

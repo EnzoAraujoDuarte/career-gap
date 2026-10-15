@@ -32,6 +32,7 @@ export function ResourceLine({
         className="text-ink focus-visible:outline-attention -my-1 inline-block py-1 text-[14.5px] leading-snug underline decoration-[var(--rule)] underline-offset-2 hover:decoration-[var(--ink)] focus-visible:outline-2"
       >
         {resource.title}
+        <span className="sr-only"> (abre em nova aba)</span>
       </a>
       {startHere && (
         <span className="hand text-done ml-1.5 whitespace-nowrap text-[13px]">← comece aqui</span>

@@ -6,6 +6,7 @@ import { CATALOG, FIRST_WEB_ROLE } from '@/catalog';
 import { generateRoadmap } from '@/domain/roadmap';
 import { useCurrentProfile, useProfileSuffix } from '@/lib/current-profile';
 import { useCriteria } from '@/lib/criteria-storage';
+import { markStarted } from '@/lib/progress-storage';
 import { buildPathView, type PathLevelView, type PathStop } from '@/lib/path-view';
 import { criteriaKey } from '@/lib/user-state';
 import { formatDuration } from '@/lib/resource-duration';
@@ -44,8 +45,7 @@ export function PathScreen() {
         <EcosystemNav current="trilha" />
 
         <header className="mt-7">
-          <p className="font-serif text-[12.5px] tracking-[0.12em] text-ink-soft">TRILHA</p>
-          <h1 className="font-serif text-ink mt-1 text-[26px] leading-tight">{track.name}</h1>
+          <h1 className="font-serif text-ink text-[26px] leading-tight">{track.name}</h1>
           <p className="text-ink-soft mt-2 text-[14px] leading-relaxed">
             A trilha é a mesma para todos e nada nela é trancado: estude o que quiser, na ordem
             que quiser. As marcas são suas — o que você já sabe, o que vale agora e o que pode
@@ -137,19 +137,15 @@ function Level({ level, here, suffix }: { level: PathLevelView; here: boolean; s
   const personal = level.stops.some((stop) => stop.advice);
   return (
     <section className="mt-12" aria-labelledby={`nivel-${level.level.id}`}>
-      <div className="flex items-baseline gap-3">
+      <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
         <span className="font-serif text-ink-faint text-[34px] leading-none" aria-hidden>
           {level.number}
         </span>
-        <div>
-          <p className="font-serif text-[12px] tracking-[0.12em] text-ink-soft">
-            NÍVEL {level.number}
-            {here && <span className="hand text-now ml-2 text-[14px] tracking-normal">← você está aqui</span>}
-          </p>
-          <h2 id={`nivel-${level.level.id}`} className="font-serif text-ink text-[22px] leading-tight">
-            {level.level.title}
-          </h2>
-        </div>
+        <h2 id={`nivel-${level.level.id}`} className="font-serif text-ink text-[22px] leading-tight">
+          <span className="sr-only">Nível {level.number}: </span>
+          {level.level.title}
+        </h2>
+        {here && <span className="hand text-now text-[14px]">← você está aqui</span>}
       </div>
       <p className="text-ink-soft mt-2 text-[12.5px]">
         {level.stops.length} competências · {formatDuration(level.minutes)} no caminho mínimo ·
@@ -247,9 +243,11 @@ function Stop({ stop, suffix }: { stop: PathStop; suffix: string }) {
             href={stop.practice.url}
             target="_blank"
             rel="noreferrer noopener"
-            className="text-ink underline decoration-[var(--rule)] underline-offset-2 hover:decoration-[var(--ink)]"
+            onClick={() => markStarted(stop.practice!.id)}
+            className="text-ink focus-visible:outline-attention underline decoration-[var(--rule)] underline-offset-2 hover:decoration-[var(--ink)] focus-visible:outline-2"
           >
             {stop.practice.title}
+            <span className="sr-only"> (abre em nova aba)</span>
           </a>
         </p>
       )}

@@ -58,6 +58,11 @@ export function MyAreaScreen() {
           />
           {/* A chave remonta o formulário quando as metas mudam de fora (outra aba, sincronização). */}
           <GoalsForm key={goals?.updatedAt ?? 'new'} initial={goals ?? undefined} />
+          {/* Fora do formulário de propósito: ele é recriado a cada gravação, e um aviso dentro
+              dele sumiria antes de ser lido ou anunciado. */}
+          <p className="text-done mt-2 text-[13px]" aria-live="polite">
+            {goals && `Guardado às ${new Date(goals.updatedAt).toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}.`}
+          </p>
         </>
       )}
 
