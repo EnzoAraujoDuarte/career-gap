@@ -319,9 +319,26 @@ mais é trancado, e o ajuste por competência entra na Minha área (§9).
 - **Banco pronto para conectar** (§5).
 - 104 testes; tipos, lint e build limpos.
 
+**Feito (2026-10-15, terceira rodada):**
+
+- **Git.** Repositório na raiz do `TCC_ROADMAP`, com commit de base. Ficam fora: dependências,
+  builds, segredos, configuração local, a skill instalada e o documento de terceiro usado como
+  referência de formato.
+- **Entrada:** `/` leva à trilha; o mapa genérico antigo saiu. As 6 perguntas terminam na
+  trilha, com "para você agora" já preenchido.
+- **Critérios de saída guardados** (antes sumiam ao recarregar), no navegador e no banco
+  (`criteria_check`, migração `0001`). A trilha mostra "✓ x de y critérios" e "x de y já no seu
+  nível" por nível. O botão desabilitado "Verificar em 3 perguntas" — texto provisório de uma
+  função que não existe — virou "Ajustar meu nível".
+- **LGPD:** `/privacidade` (o que guardamos, para quê, com quem, por quanto tempo, quem
+  responde) e "Apagar meus dados" na Minha área, em dois passos, apagando em cascata no
+  servidor. O IP da sessão fica, para limitar abuso no login, e está declarado.
+- **Seletor de perfis de demonstração** no rodapé da trilha, para apresentar ao orientador.
+- **ADR-0009** (orientar sem prender) e **ADR-0010** (persistência e login).
+- 105 testes; tipos, lint e build limpos.
+
 **Próximo:**
 
-1. Conectar o Neon e conferir o fluxo no navegador (§5, "não verificado").
+1. Conectar o Neon e conferir o fluxo no navegador (§5, "não verificado"). Preencher
+   `NEXT_PUBLIC_CONTACT_EMAIL` — a página de privacidade mostra o contato só quando ele existe.
 2. Condição A do experimento como trilha sem anotação, depois de falar com o orientador.
-3. Decidir o que fazer com a página inicial: ela ainda mostra o mapa genérico antigo; a trilha
-   sem perfil já cumpre esse papel.

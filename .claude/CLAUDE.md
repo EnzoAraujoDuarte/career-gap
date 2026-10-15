@@ -17,6 +17,10 @@ Always read these files before planning significant work:
 - `docs/adr/0008-fluxo-vertical-sem-canvas.md` — current visual direction. **Supersedes
   ADR-0006 and the whiteboard/canvas rules in this file.**
 - `docs/TCC-ORIENTACAO.md` — the seven fronts the advisor asked for, written as academic text.
+- `docs/PLANO-FASE4.md` + `docs/adr/0009-orientar-sem-prender.md` +
+  `docs/adr/0010-persistencia-e-login.md` — **current direction**: the engine annotates, never
+  locks (trail, Explorar, Minha área); catalog in code, user state in Postgres. Supersedes the
+  single focus, the locked nodes and the generated daily schedule.
 
 If the files conflict, use this priority:
 
