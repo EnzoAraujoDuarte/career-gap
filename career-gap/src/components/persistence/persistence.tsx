@@ -36,7 +36,7 @@ export function PersistenceProvider({
   useEffect(() => {
     if (!enabled) return;
     let cancelled = false;
-    connect()
+    connectOnce()
       .then(() => !cancelled && setStatus('on'))
       .catch(() => !cancelled && setStatus('error'));
     return () => {
@@ -45,6 +45,20 @@ export function PersistenceProvider({
   }, [enabled]);
 
   return <PersistenceContext value={{ status, providers }}>{children}</PersistenceContext>;
+}
+
+/**
+ * Uma conexão por página. Em desenvolvimento o React roda o efeito duas vezes; sem isso, as duas
+ * execuções criavam dois usuários anônimos e gravavam o perfil duas vezes (visto no Neon).
+ */
+let connection: Promise<void> | undefined;
+
+function connectOnce(): Promise<void> {
+  connection ??= connect().catch((error: unknown) => {
+    connection = undefined;
+    throw error;
+  });
+  return connection;
 }
 
 /** Sem sessão, cria uma anônima: a pessoa não precisa de cadastro para ter o progresso salvo. */

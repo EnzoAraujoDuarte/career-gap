@@ -1,4 +1,4 @@
-import { and, eq } from 'drizzle-orm';
+import { and, eq, sql } from 'drizzle-orm';
 import { CATALOG } from '@/catalog';
 import type { Level } from '@/domain/model';
 import { generateRoadmap } from '@/domain/roadmap';
@@ -26,6 +26,14 @@ import { competencyLevel, criteriaCheck, learner, resourceProgress, roadmapSnaps
  */
 
 const iso = (date: Date | null | undefined) => date?.toISOString();
+
+/**
+ * Serializa as gravações de uma mesma pessoa dentro da transação. Sem isso, duas abas (ou o
+ * efeito duplo do React em desenvolvimento) leem "nada gravado" ao mesmo tempo, as duas passam
+ * pela checagem de `updatedAt` e o motor grava dois snapshots da mesma mudança.
+ */
+const lockUser = (tx: Pick<Db, 'execute'>, userId: string) =>
+  tx.execute(sql`select pg_advisory_xact_lock(hashtext(${userId}))`);
 const date = (value: string | undefined) => (value ? new Date(value) : null);
 
 export async function loadUserState(db: Db, userId: string): Promise<UserState> {
@@ -75,6 +83,7 @@ export async function loadUserState(db: Db, userId: string): Promise<UserState> 
 export async function saveProfile(db: Db, userId: string, profile: StoredProfile): Promise<void> {
   const updatedAt = date(profile.updatedAt) ?? new Date();
   await db.transaction(async (tx) => {
+    await lockUser(tx, userId);
     const [current] = await tx
       .select({ profileUpdatedAt: learner.profileUpdatedAt })
       .from(learner)
@@ -115,6 +124,7 @@ export async function saveProfile(db: Db, userId: string, profile: StoredProfile
 export async function saveGoals(db: Db, userId: string, goals: Goals): Promise<void> {
   const updatedAt = new Date(goals.updatedAt);
   await db.transaction(async (tx) => {
+    await lockUser(tx, userId);
     const [current] = await tx
       .select({ goalsUpdatedAt: learner.goalsUpdatedAt })
       .from(learner)
