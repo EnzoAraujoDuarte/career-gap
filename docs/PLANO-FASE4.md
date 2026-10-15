@@ -234,6 +234,18 @@ PGlite local; `pnpm build` passa. **Não verificado:** o fluxo dentro do navegad
 ligado (sessão anônima → sincronização → Minha área "salvo só neste aparelho") e o login
 Google/GitHub, que precisam das credenciais. Primeira coisa a conferir depois de conectar.
 
+**Conectado em 2026-10-15 e verificado no Neon real.** Banco criado pelo CLI oficial
+(`npx neon@latest claim create --file .env.local`), sem conta, e **reivindicado pelo Enzo para a
+conta dele no mesmo dia** (projeto `old-leaf-70133653`, branch `main`). A transferência troca a
+senha: as URLs foram atualizadas com `neon env pull`, e a pasta foi religada com `neon link`.
+Skills `neon` e `neon-postgres` instaladas em `.claude/skills/` (versões em `skills-lock.json`) e o
+MCP do Neon em `.mcp.json`, por OAuth e preso a esse projeto — nenhuma chave em arquivo. Verificado: as 9 tabelas, a sessão anônima, a subida do perfil com o registro
+do motor, e o envio de "minha lista" e de critério marcado a cada ação. O teste achou um defeito
+que o PGlite não pegava — o efeito duplo do React em desenvolvimento criava dois usuários
+anônimos e dois snapshots — corrigido com conexão única por página e trava por usuário nas
+gravações. Migrações usam a conexão direta (`DATABASE_URL_UNPOOLED`). Ainda não verificado: login
+Google/GitHub, que precisa das credenciais OAuth.
+
 **Fica para depois:** `study_event` (medida de aderência) espera o orientador (§8.4);
 `criterion_check` (critérios de saída marcados) não é persistido ainda.
 
