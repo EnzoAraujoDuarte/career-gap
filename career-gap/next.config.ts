@@ -16,6 +16,21 @@ const nextConfig: NextConfig = {
     { source: '/comportamental', destination: '/explorar?aba=habitos', permanent: false },
     { source: '/plano', destination: '/minha-area', permanent: false },
   ],
+  // Antes de ter gente real logada: ninguém embute o site num iframe para induzir clique (o
+  // "Apagar meus dados" é um botão), o navegador não adivinha tipo de arquivo, e o endereço
+  // completo não vaza para os sites dos recursos. CSP fica de fora: o Next injeta scripts
+  // inline, e uma política mal feita quebraria a página sem ganho proporcional neste estágio.
+  headers: async () => [
+    {
+      source: '/:path*',
+      headers: [
+        { key: 'X-Frame-Options', value: 'DENY' },
+        { key: 'X-Content-Type-Options', value: 'nosniff' },
+        { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
+        { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=()' },
+      ],
+    },
+  ],
 };
 
 export default nextConfig;
