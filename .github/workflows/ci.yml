@@ -1,0 +1,36 @@
+# Cada envio passa pelas mesmas checagens que rodam localmente antes de um commit.
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  verificar:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: career-gap
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: pnpm/action-setup@v6
+        with:
+          package_json_file: career-gap/package.json
+          cache: true
+          cache_dependency_path: career-gap/pnpm-lock.yaml
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm lint
+      # Inclui os testes de banco: rodam num Postgres em memória (PGlite), sem segredo nenhum.
+      - run: pnpm test
+      # Sem DATABASE_URL, o build gera o site no modo "tudo no navegador".
+      - run: pnpm build
