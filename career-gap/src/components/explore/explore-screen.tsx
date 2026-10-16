@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import { useMemo, useState } from 'react';
+import { useId, useMemo, useState } from 'react';
 import { CATALOG, FIRST_WEB_ROLE } from '@/catalog';
 import type { AdviceKind } from '@/lib/advice';
 import { useCurrentProfile, useCurrentRoadmapView, useProfileSuffix } from '@/lib/current-profile';
@@ -77,7 +77,8 @@ function TabLink({ id, active, children }: { id: TabId; active: boolean; childre
   return (
     <Link
       href={`/explorar${query ? `?${query}` : ''}`}
-      aria-current={active ? 'page' : undefined}
+      // "page" já é do link Explorar na navegação principal; a aba é o item atual dentro dela.
+      aria-current={active ? 'true' : undefined}
       className={`focus-visible:outline-attention -mb-px border-b-2 py-2 text-[14px] focus-visible:outline-2 ${
         active ? 'border-[var(--ink)] text-ink' : 'border-transparent text-ink-soft hover:text-ink'
       }`}
@@ -125,11 +126,22 @@ function ContentsTab() {
     () => buildExplore(CATALOG, FIRST_WEB_ROLE, view ?? undefined, { ...filters, query }),
     [view, query, filters],
   );
-  const active =
-    filters.type || filters.competency || filters.creator || filters.advice || filters.ptBr || filters.free || query;
+  const filtered = Boolean(
+    filters.type || filters.competency || filters.creator || filters.advice || filters.ptBr || filters.free,
+  );
+  const active = filtered || Boolean(query);
 
   return (
     <section className="mt-5">
+      {profile === null && (
+        <p className="text-ink-soft mb-4 text-[13px] leading-relaxed">
+          Sem as suas respostas, o catálogo aparece sem marcas.{' '}
+          <Link href="/avaliacao" className="text-now underline underline-offset-2">
+            Responda 6 perguntas
+          </Link>{' '}
+          e ele passa a dizer o que vale agora e o que pode esperar.
+        </p>
+      )}
       <label className="block">
         <span className="sr-only">Buscar por título, criador ou competência</span>
         <input
@@ -192,7 +204,7 @@ function ContentsTab() {
               setQuery('');
               update({ tipo: undefined, competencia: undefined, criador: undefined, direcao: undefined, ptbr: undefined, gratis: undefined });
             }}
-            className="text-now focus-visible:outline-attention text-[13px] focus-visible:outline-2"
+            className="text-now focus-visible:outline-attention -my-3 py-3 text-[13px] focus-visible:outline-2"
           >
             limpar filtros
           </button>
@@ -201,7 +213,9 @@ function ContentsTab() {
 
       {explore.items.length === 0 ? (
         <p className="text-ink-soft mt-6 text-[14px]">
-          Nada com esses filtros. Tire um deles — a contagem ao lado de cada opção mostra quantos aparecem.
+          {query.trim()
+            ? `Nada encontrado para “${query.trim()}”${filtered ? ' com esses filtros' : ''}. Tente outra palavra${filtered ? ' ou tire um filtro' : ''}.`
+            : 'Nada com esses filtros. Tire um deles — a contagem ao lado de cada opção mostra quantos aparecem.'}
         </p>
       ) : (
         <ul className="mt-4 space-y-6">
@@ -241,7 +255,7 @@ function CompetencyLink({ id, children }: { id: string; children: React.ReactNod
   return (
     <Link
       href={`/competencias/${id}${suffix}`}
-      className="underline decoration-[var(--rule)] underline-offset-2 hover:text-ink hover:decoration-[var(--ink)]"
+      className="focus-visible:outline-attention underline decoration-[var(--rule)] underline-offset-2 hover:text-ink hover:decoration-[var(--ink)] focus-visible:outline-2"
     >
       {children}
     </Link>
@@ -259,9 +273,12 @@ function ChipRow<T extends string>({
   selected?: T;
   onSelect: (value: T | undefined) => void;
 }) {
+  const labelId = useId();
   return (
-    <div className="mt-3">
-      <p className="text-ink-soft text-[12px]">{label}</p>
+    <div className="mt-3" role="group" aria-labelledby={labelId}>
+      <p id={labelId} className="text-ink-soft text-[12px]">
+        {label}
+      </p>
       <div className="mt-1 flex flex-wrap gap-1.5">
         {facets.map((facet) => {
           const on = facet.value === selected;

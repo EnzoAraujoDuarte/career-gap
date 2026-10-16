@@ -7,7 +7,7 @@ import type { Resource } from '@/domain/model';
 import { generateRoadmap } from '@/domain/roadmap';
 import { buildCompetencyView, type Neighbor } from '@/lib/competency-view';
 import { useCurrentProfile, useProfileSuffix } from '@/lib/current-profile';
-import { LEVEL_SHORT } from '@/lib/reason-text';
+import { LEVEL_ASKED, LEVEL_SHORT } from '@/lib/reason-text';
 import { buildRoadmapView } from '@/lib/roadmap-view';
 import { EcosystemNav } from '@/components/ecosystem/ecosystem-nav';
 import { SectionLabel } from '@/components/ecosystem/page-shell';
@@ -45,7 +45,7 @@ export function CompetencyScreen({ id }: { id: string }) {
         </Link>
         <h1 className="font-serif text-ink mt-1 text-[28px] leading-tight">{competency.name}</h1>
         <p className="text-ink-soft mt-1 text-[12.5px]">
-          a vaga pede: {LEVEL_SHORT[competency.targetLevel]} ·{' '}
+          a vaga pede que você {LEVEL_ASKED[competency.targetLevel]} ·{' '}
           {competency.learn.length + competency.practice.length + competency.prove.length} recursos
         </p>
         <p className="text-ink mt-3 text-[14.5px] leading-relaxed">{competency.summary}</p>

@@ -49,6 +49,24 @@ export const LEVEL_SHORT: Record<Level, string> = {
   L4: 'na organização',
 };
 
+/** O mesmo nível em frase, para o motivo de uma recomendação: "Hoje você ainda não faz isso;
+ *  a vaga pede que faça sozinho." A seta com rótulo ("Hoje: não sei ainda → a vaga pede:
+ *  sozinho") era fiel ao motor, mas soava como saída de máquina. */
+export const LEVEL_NOW: Record<Level, string> = {
+  L0: 'ainda não faz isso',
+  L1: 'faz com apoio',
+  L2: 'já faz sozinho',
+  L3: 'atua no nível do sistema',
+  L4: 'atua no nível da organização',
+};
+export const LEVEL_ASKED: Record<Level, string> = {
+  L0: 'conheça o básico',
+  L1: 'faça com apoio',
+  L2: 'faça sozinho',
+  L3: 'atue no nível do sistema',
+  L4: 'atue no nível da organização',
+};
+
 /** Por que ESTE recurso e não outro. Código estruturado, nunca prosa (ADR-0004). */
 export const PICK_REASON_TEXT: Record<ResourcePickReason, string> = {
   PT_BR: 'em português',

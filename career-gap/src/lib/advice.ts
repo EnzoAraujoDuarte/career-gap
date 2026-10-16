@@ -1,6 +1,6 @@
 import type { CompetencyId } from '@/domain/model';
 import type { RoadmapView } from './roadmap-view';
-import { LEVEL_SHORT } from './reason-text';
+import { LEVEL_ASKED, LEVEL_NOW } from './reason-text';
 
 /**
  * A camada de direção: o que o motor diz vira ANOTAÇÃO sobre um catálogo aberto, nunca
@@ -64,7 +64,7 @@ export function adviseCompetencies(view: RoadmapView): ReadonlyMap<CompetencyId,
           : 'Ajuda na vaga, sem ser condição para ela.';
     advice.set(node.id, {
       kind: 'recommended',
-      reason: `${why} Hoje: ${LEVEL_SHORT[node.currentLevel]} → a vaga pede: ${LEVEL_SHORT[node.targetLevel]}.`,
+      reason: `${why} Hoje você ${LEVEL_NOW[node.currentLevel]}; a vaga pede que ${LEVEL_ASKED[node.targetLevel]}.`,
     });
   }
 

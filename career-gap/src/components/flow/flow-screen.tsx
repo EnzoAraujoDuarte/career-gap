@@ -51,7 +51,7 @@ export function FlowScreen() {
   return (
     <Shell>
       <header>
-        <p className="font-serif text-[12.5px] tracking-[0.12em] text-ink-soft">
+        <p className="font-serif text-[13.5px] text-ink-soft">
           {track?.name}
         </p>
         <p className="text-ink-soft mt-1.5 text-[13px]">
@@ -96,7 +96,7 @@ export function FlowScreen() {
 
       {waves.map(([wave, nodes]) => (
         <section key={wave} className="mt-8">
-          <h2 className="font-serif border-b border-rule pb-1.5 text-[12.5px] tracking-[0.1em] text-ink-soft">
+          <h2 className="font-serif border-b border-rule pb-1.5 text-[13.5px] text-ink-soft">
             {WAVE_TITLE(wave)} <span className="normal-case tracking-normal">· {nodes.length}</span>
           </h2>
           <ol className="mt-3">

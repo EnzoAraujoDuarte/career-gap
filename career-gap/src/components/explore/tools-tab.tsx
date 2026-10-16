@@ -1,10 +1,15 @@
 'use client';
 
+import Link from 'next/link';
 import { CATALOG } from '@/catalog';
 import type { ToolCategory, ToolGate } from '@/domain/model';
 import { assessTools } from '@/domain/tools';
 import { useCurrentProfile } from '@/lib/current-profile';
 import { COST_LABEL, LEVEL_SHORT, PT_BR_LABEL } from '@/lib/reason-text';
+
+/** "2026-10-15" vira "out. de 2026": a data serve para dizer se a informação é recente. */
+const formatMonth = (isoDate: string) =>
+  new Date(`${isoDate}T12:00:00`).toLocaleDateString('pt-BR', { month: 'short', year: 'numeric' });
 import { AdviceMark } from '@/components/ui/advice-mark';
 import { Tag } from '@/components/ui/tag';
 
@@ -36,7 +41,15 @@ export function ToolsTab() {
     <section className="mt-5">
       <p className="text-ink-soft text-[13px] leading-relaxed">
         Cada uma no momento em que deixa de ser muleta e passa a ser alavanca.
-        {!profile && ' Diga o que você já sabe e esta lista marca o que já serve para você.'}
+        {profile === null && (
+          <>
+            {' '}
+            <Link href="/avaliacao" className="text-now underline underline-offset-2">
+              Diga o que você já sabe
+            </Link>{' '}
+            e esta lista marca o que já serve para você.
+          </>
+        )}
       </p>
       <ul className="mt-4 space-y-6">
         {items.map(({ tool, gates }) => (
@@ -72,7 +85,7 @@ export function ToolsTab() {
             <span className="mt-1.5 flex flex-wrap gap-1.5">
               <Tag warn={tool.ptBrStatus === 'none'}>docs {PT_BR_LABEL[tool.ptBrStatus]}</Tag>
               <Tag warn={tool.cost === 'paid'}>{tool.costNote ?? COST_LABEL[tool.cost]}</Tag>
-              {tool.stability === 'volatile' && <Tag warn>muda rápido · conferido em {tool.verifiedAt}</Tag>}
+              {tool.stability === 'volatile' && <Tag warn>muda rápido · conferido em {formatMonth(tool.verifiedAt)}</Tag>}
             </span>
           </li>
         ))}

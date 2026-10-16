@@ -1,14 +1,14 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { CATALOG } from '@/catalog';
 import type { Resource } from '@/domain/model';
 import type { SocialProvider } from '@/lib/auth';
 import { authClient } from '@/lib/auth-client';
 import { clearCriteria } from '@/lib/criteria-storage';
 import { clearGoals, saveGoals, useGoals } from '@/lib/goals-storage';
-import { clearDraft } from '@/lib/profile-storage';
+import { clearDraft, useStoredDraft } from '@/lib/profile-storage';
 import { clearProgress, useProgress } from '@/lib/progress-storage';
 import { disableRemote } from '@/lib/remote-push';
 import type { Goals, ResourceProgress } from '@/lib/user-state';
@@ -28,6 +28,7 @@ const PROVIDER_LABEL: Record<SocialProvider, string> = { google: 'Google', githu
 export function MyAreaScreen() {
   const progress = useProgress();
   const goals = useGoals();
+  const answered = Boolean(useStoredDraft());
 
   return (
     <PageShell
@@ -76,7 +77,7 @@ export function MyAreaScreen() {
           Ajustar competência por competência
         </Link>
         <Link href="/avaliacao" className="text-now underline underline-offset-2">
-          Refazer as 6 perguntas
+          {answered ? 'Refazer as 6 perguntas' : 'Responder as 6 perguntas'}
         </Link>
       </p>
 
@@ -124,14 +125,14 @@ function Account() {
 
   if (status === 'off') {
     return (
-      <p className="text-ink-soft mt-6 border-l-2 border-[var(--rule)] pl-3 text-[13px] leading-relaxed">
+      <p className="text-ink-soft mt-6 border-l border-[var(--rule)] pl-3 text-[13px] leading-relaxed">
         Seu progresso fica salvo neste navegador.
       </p>
     );
   }
   if (status === 'error') {
     return (
-      <p className="text-attention mt-6 border-l-2 border-[var(--state-attention)] pl-3 text-[13px] leading-relaxed">
+      <p className="text-attention mt-6 border-l border-[var(--state-attention)] pl-3 text-[13px] leading-relaxed">
         Não conseguimos falar com o servidor agora. Seu progresso continua salvo neste navegador e
         sobe quando a conexão voltar.
       </p>
@@ -140,7 +141,7 @@ function Account() {
 
   if (status === 'idle') {
     return (
-      <div className="mt-6 border-l-2 border-[var(--rule)] pl-3">
+      <div className="mt-6 border-l border-[var(--rule)] pl-3">
         <p className="text-ink-soft text-[13.5px] leading-relaxed">
           Nada guardado ainda. Quando você responder as perguntas ou marcar um recurso, seu
           progresso também fica salvo no servidor.
@@ -155,10 +156,12 @@ function Account() {
 
   if (user.isAnonymous) {
     return (
-      <div className="mt-6 border-l-2 border-[var(--state-now)] pl-3">
+      <div className="mt-6 border-l border-[var(--state-now)] pl-3">
         <p className="text-ink text-[13.5px] leading-relaxed">
-          Seu progresso está salvo, mas só neste aparelho.
-          {providers.length > 0 && ' Entre para levá-lo junto — o que você já fez vai junto também.'}
+          Seu progresso está salvo neste navegador e no servidor, numa sessão sem nome nem e-mail.
+          {providers.length > 0
+            ? ' Entre com uma conta para levá-lo a outro aparelho — o que você já fez vai junto.'
+            : ' Ele continua aqui enquanto você não apagar os dados do navegador.'}
         </p>
         <SocialSignIn providers={providers} />
       </div>
@@ -166,7 +169,7 @@ function Account() {
   }
 
   return (
-    <div className="mt-6 flex flex-wrap items-baseline justify-between gap-2 border-l-2 border-[var(--state-done)] pl-3">
+    <div className="mt-6 flex flex-wrap items-baseline justify-between gap-2 border-l border-[var(--state-done)] pl-3">
       <p className="text-ink text-[13.5px]">
         Conectado como <strong className="font-medium">{user.name || user.email}</strong>. Seu
         progresso vai com você para qualquer aparelho.
@@ -231,7 +234,7 @@ function GoalsForm({ initial }: { initial?: Goals }) {
     <section>
       <SectionLabel>Seu porquê e sua meta</SectionLabel>
       {initial?.purpose && (
-        <p className="text-ink mt-3 border-l-2 border-[var(--state-now)] pl-3 text-[15px] leading-relaxed">
+        <p className="text-ink mt-3 border-l border-[var(--state-now)] pl-3 text-[15px] leading-relaxed">
           {initial.purpose}
         </p>
       )}
@@ -271,6 +274,24 @@ function YourData() {
   const [confirming, setConfirming] = useState(false);
   const [deleting, setDeleting] = useState(false);
   const [failed, setFailed] = useState(false);
+  // O foco acompanha a troca: ao abrir, vai para a confirmação (senão cai no body, com o
+  // aviso abaixo da dobra); ao cancelar, volta para o botão que a abriu.
+  const opener = useRef<HTMLButtonElement>(null);
+  const confirmation = useRef<HTMLDivElement>(null);
+  const toggled = useRef(false);
+  useEffect(() => {
+    if (!toggled.current) return;
+    if (confirming) {
+      confirmation.current?.focus();
+      confirmation.current?.scrollIntoView({ block: 'nearest' });
+    } else {
+      opener.current?.focus();
+    }
+  }, [confirming]);
+  const toggle = (next: boolean) => {
+    toggled.current = true;
+    setConfirming(next);
+  };
 
   async function erase() {
     setDeleting(true);
@@ -301,13 +322,20 @@ function YourData() {
       </p>
       {!confirming ? (
         <button
-          onClick={() => setConfirming(true)}
+          ref={opener}
+          onClick={() => toggle(true)}
           className="text-critical focus-visible:outline-attention mt-2 py-1 text-[13.5px] underline underline-offset-2 focus-visible:outline-2"
         >
           Apagar meus dados
         </button>
       ) : (
-        <div className="mt-3 border-l-2 border-[var(--state-critical)] pl-3">
+        <div
+          ref={confirmation}
+          tabIndex={-1}
+          role="group"
+          aria-label="Confirmar: apagar meus dados"
+          className="mt-3 border-l border-[var(--state-critical)] pl-3 focus:outline-none"
+        >
           <p className="text-ink text-[13.5px] leading-relaxed">
             Isso apaga o que você respondeu, suas metas, sua lista, o que concluiu e os critérios
             marcados{status === 'on' ? ', neste navegador e no servidor' : ' neste navegador'}. Não
@@ -327,7 +355,7 @@ function YourData() {
               {deleting ? 'Apagando…' : 'Apagar tudo'}
             </button>
             <button
-              onClick={() => setConfirming(false)}
+              onClick={() => toggle(false)}
               disabled={deleting}
               className="text-ink-soft hover:text-ink focus-visible:outline-attention text-[13.5px] focus-visible:outline-2"
             >

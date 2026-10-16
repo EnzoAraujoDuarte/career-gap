@@ -4,6 +4,7 @@ import type { Resource } from '@/domain/model';
 import { ACTION_VERB } from '@/domain/model';
 import { markStarted } from '@/lib/progress-storage';
 import { COST_LABEL, PT_BR_LABEL } from '@/lib/reason-text';
+import { technologyName } from '@/lib/tech-badge';
 import { ProgressControls } from './progress-controls';
 import { Tag } from './tag';
 
@@ -22,6 +23,9 @@ export function ResourceLine({
   detailed?: boolean;
 }) {
   const time = resource.estimatedTime?.split('(')[0].trim();
+  // A linguagem do recurso: sem ela, o "comece aqui" de autenticação era um vídeo de Java
+  // ao lado de práticas em Node e Django, e nada na linha avisava.
+  const technology = resource.technology === 'agnostic' ? undefined : technologyName(resource.technology);
   return (
     <div className="min-w-0">
       <a
@@ -42,6 +46,7 @@ export function ResourceLine({
       </span>
       <span className="mt-1 flex flex-wrap gap-1.5">
         <Tag warn={resource.ptBrStatus === 'none'}>{PT_BR_LABEL[resource.ptBrStatus]}</Tag>
+        {technology && <Tag>{technology}</Tag>}
         <Tag warn={resource.cost === 'paid'}>{COST_LABEL[resource.cost]}</Tag>
         {time && <Tag>{time}</Tag>}
         {resource.requiresSignup && <Tag warn>exige cadastro</Tag>}
@@ -52,12 +57,12 @@ export function ResourceLine({
         </span>
       )}
       {detailed && resource.task && (
-        <span className="text-ink mt-2 block border-l-2 border-[var(--rule)] pl-2.5 text-[13px] leading-relaxed">
+        <span className="text-ink mt-2 block max-w-[65ch] border-l border-[var(--rule)] pl-2.5 text-[13px] leading-relaxed">
           <span className="text-ink-soft">Sua missão: </span>
           {resource.task}
         </span>
       )}
-      <ProgressControls resourceId={resource.id} />
+      <ProgressControls resourceId={resource.id} title={resource.title} />
     </div>
   );
 }

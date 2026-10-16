@@ -6,7 +6,7 @@ import { toggleCompleted, toggleSaved, useProgress } from '@/lib/progress-storag
  * Guardar para depois e marcar como concluído. Concluir não muda o nível da competência —
  * consumir não é saber fazer; o nível muda pela autoavaliação.
  */
-export function ProgressControls({ resourceId }: { resourceId: string }) {
+export function ProgressControls({ resourceId, title }: { resourceId: string; title: string }) {
   const entry = useProgress()?.[resourceId];
   const saved = Boolean(entry?.savedAt);
   const completed = Boolean(entry?.completedAt);
@@ -22,6 +22,8 @@ export function ProgressControls({ resourceId }: { resourceId: string }) {
         }`}
       >
         {saved ? '✓ na minha lista' : '+ minha lista'}
+        {/* Sem o título, o leitor de tela ouve "+ minha lista" repetido sem saber de quê. */}
+        <span className="sr-only">: {title}</span>
       </button>
       <button
         aria-pressed={completed}
@@ -31,6 +33,7 @@ export function ProgressControls({ resourceId }: { resourceId: string }) {
         }`}
       >
         {completed ? '✓ concluído' : 'marcar como concluído'}
+        <span className="sr-only">: {title}</span>
       </button>
     </span>
   );

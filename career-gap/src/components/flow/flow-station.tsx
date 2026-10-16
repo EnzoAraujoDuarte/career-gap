@@ -111,11 +111,11 @@ export function FlowStation({
 
             {node.resources.length > 0 && (
               <>
-                <p className="font-serif mt-5 text-[12.5px] tracking-[0.1em] text-ink-soft">
+                <p className="font-serif mt-5 text-[13.5px] text-ink-soft">
                   O que fazer
                 </p>
                 {onlyEnglish && (
-                  <p className="text-attention mt-1.5 border-l-2 border-[var(--state-attention)] pl-2 text-[12px] leading-snug">
+                  <p className="text-attention mt-1.5 border-l border-[var(--state-attention)] pl-2 text-[12px] leading-snug">
                     {ENGLISH_ONLY_NOTE}
                   </p>
                 )}
@@ -175,7 +175,7 @@ export function FlowStation({
 
             {node.habits.length > 0 && (
               <>
-                <p className="font-serif mt-6 text-[12.5px] tracking-[0.1em] text-ink-soft">
+                <p className="font-serif mt-6 text-[13.5px] text-ink-soft">
                   Como profissionais fazem
                 </p>
                 <ul className="mt-2.5 space-y-3">

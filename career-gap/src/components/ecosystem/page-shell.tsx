@@ -17,7 +17,7 @@ export function PageShell({
       <div className="mx-auto max-w-[640px]">
         <EcosystemNav current={current} />
         <h1 className="font-serif text-ink mt-7 text-[26px] leading-tight">{title}</h1>
-        <p className="text-ink-soft mt-2 text-[14px] leading-relaxed">{intro}</p>
+        <p className="text-ink-soft mt-2 max-w-[65ch] text-[14px] leading-relaxed">{intro}</p>
         {children}
       </div>
     </main>
@@ -26,7 +26,7 @@ export function PageShell({
 
 export function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
-    <h2 className="font-serif mt-9 text-[12.5px] tracking-[0.12em] text-ink-soft">{children}</h2>
+    <h2 className="font-serif mt-9 text-[13.5px] text-ink-soft">{children}</h2>
   );
 }
 

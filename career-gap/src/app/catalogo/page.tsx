@@ -24,7 +24,7 @@ export default function CatalogoPage() {
     <main className="min-h-dvh bg-paper px-4 py-8 sm:px-6">
       <div className="mx-auto max-w-[640px]">
         <header>
-          <p className="font-serif text-[12.5px] tracking-[0.12em] text-ink-soft">
+          <p className="font-serif text-[13.5px] text-ink-soft">
             {FIRST_WEB_ROLE.name}
           </p>
           <p className="text-ink-soft mt-1.5 text-[13px] leading-snug">

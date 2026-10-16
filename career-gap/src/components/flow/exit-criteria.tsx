@@ -35,7 +35,7 @@ export function ExitCriteria({
 
   return (
     <section>
-      <h3 className="font-serif text-[12.5px] tracking-[0.1em] text-ink-soft">
+      <h3 className="font-serif text-[13.5px] text-ink-soft">
         Você terminou quando
         {checked.size > 0 && (
           <span className="text-done ml-2 normal-case tracking-normal">
@@ -54,7 +54,7 @@ export function ExitCriteria({
                 disabled={readOnly}
                 className="accent-done mt-[3px] h-4 w-4 shrink-0"
               />
-              <span className={checked.has(index) ? 'text-ink-faint line-through' : undefined}>
+              <span className={checked.has(index) ? 'text-ink-soft line-through' : undefined}>
                 {criterion}
               </span>
             </label>
