@@ -3,6 +3,8 @@
 Trabalho de Conclusão de Curso em Sistemas de Informação — UNESC Colatina.
 Autor: Enzo Araujo Duarte · Orientador: Prof. Riciere Massariol.
 
+**No ar:** https://career-gap-tcc.vercel.app
+
 Quem começa em desenvolvimento web não sofre de falta de conteúdo, mas de falta de direção: não
 sabe o que estudar agora, em que ordem, e o que pode deixar para depois. O Career Gap estima o
 que a pessoa já sabe, calcula as lacunas em relação à primeira vaga e orienta o estudo — **sem
@@ -50,6 +52,6 @@ que pode esperar, sempre com o motivo.
 ## Estado
 
 105 testes (motor, catálogo, trilha, explorar, banco em Postgres em memória); tipos, lint e
-build verificados a cada envio pela integração contínua. Banco no Neon, login anônimo por
-padrão. Ainda falta: login com Google e GitHub (credenciais), a condição de controle do
+build verificados a cada envio pela integração contínua; cada envio à `main` publica na Vercel.
+Banco no Neon, login anônimo por padrão. Ainda falta: login com Google e GitHub (credenciais), a condição de controle do
 experimento e a reforma visual.

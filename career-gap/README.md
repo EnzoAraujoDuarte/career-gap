@@ -22,6 +22,14 @@ Abre em http://localhost:3000. **Funciona sem banco**: tudo fica no navegador.
 Login com Google ou GitHub é opcional: o botão aparece só para o provedor com as duas
 credenciais no `.env.local`. Passo a passo completo em `../docs/PLANO-FASE4.md` §5.
 
+## Publicação (Vercel)
+
+Cada envio à `main` publica em https://career-gap-tcc.vercel.app; as prévias de outros envios
+ficam protegidas pelo login da Vercel e rodam sem banco. O `vercel.json` fixa o pnpm 12 — a
+Vercel só escolhe sozinha até o 10. As variáveis de produção ficam no painel do projeto
+(`DATABASE_URL`, `BETTER_AUTH_SECRET`, `BETTER_AUTH_URL`, `NEXT_PUBLIC_CONTACT_EMAIL`); migração
+nova se aplica a partir da máquina, com `pnpm db:migrate`, antes do envio que depende dela.
+
 ## Comandos
 
 | Comando | O que faz |
