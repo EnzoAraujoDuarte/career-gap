@@ -15,6 +15,7 @@ import type {
   Roadmap,
   RoadmapItem,
   UserProfile,
+  Person,
 } from './model';
 import { PrerequisiteGraph, computeWaves } from './graph';
 import { computeGaps, resolveRequirements } from './gap';
@@ -33,6 +34,8 @@ export interface Catalog {
   readonly tools: readonly Tool[];
   /** O que se constrói com as competências. Avaliado contra o perfil, como as ferramentas. */
   readonly builds: readonly Build[];
+  /** Quem vale seguir. Fora do motor, como as ferramentas: só o portão é avaliado. */
+  readonly people: readonly Person[];
   readonly tracks: ReadonlyMap<string, CareerTrack>;
 }
 

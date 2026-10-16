@@ -160,6 +160,7 @@ export function validateCatalog(catalog: Catalog): readonly CatalogProblem[] {
   }
 
   validateBuilds(catalog, report);
+  validatePeople(catalog, report);
 
   const cycle = new PrerequisiteGraph(catalog.prerequisites).findCycle();
   if (cycle) {
@@ -445,4 +446,35 @@ export function assertCatalogIsValid(catalog: Catalog): void {
 
   const lines = problems.map((p) => `  [${p.rule}] ${p.subject}: ${p.detail}`);
   throw new Error(`Catálogo inválido (${problems.length} problemas):\n${lines.join('\n')}`);
+}
+
+/** Curadoria, não diretório: poucos nomes, cada um com página oficial e motivo. */
+const MAX_PEOPLE = 15;
+
+function validatePeople(
+  catalog: Catalog,
+  report: (rule: string, subject: string, detail: string) => void,
+): void {
+  const ids = new Set<string>();
+  const urls = new Set<string>();
+  if (catalog.people.length > MAX_PEOPLE) {
+    report('person-limit', 'people', `${catalog.people.length} pessoas; o teto é ${MAX_PEOPLE}`);
+  }
+  for (const person of catalog.people) {
+    if (ids.has(person.id)) report('person-unique', person.id, 'id repetido');
+    ids.add(person.id);
+    if (!person.url.startsWith('https://')) report('person-url', person.id, 'página oficial precisa ser https');
+    if (urls.has(person.url)) report('person-url', person.id, 'página repetida');
+    urls.add(person.url);
+    if (!person.name.trim() || !person.publishes.trim() || !person.why.trim() || !person.verifiedAt.trim()) {
+      report('person-text', person.id, 'pessoa precisa de nome, o que publica, por quê e data de verificação');
+    }
+    if (person.competencies.length === 0) report('person-competency', person.id, 'pessoa sem competência');
+    for (const competency of person.competencies) {
+      if (!catalog.competencies.has(competency)) report('person-competency', person.id, `competência inexistente: ${competency}`);
+    }
+    for (const gate of person.unlockedBy) {
+      if (!catalog.competencies.has(gate.competency)) report('person-gate', person.id, `portão inexistente: ${gate.competency}`);
+    }
+  }
 }

@@ -415,6 +415,31 @@ export interface Tool {
 }
 
 // ---------------------------------------------------------------------------
+// Pessoas — quem vale seguir
+// ---------------------------------------------------------------------------
+
+/**
+ * Uma pessoa, ou um canal com rosto, que publica em português para quem está começando. Escolha
+ * editorial do autor, com a página oficial conferida (ADR-0005: só link). O portão diz quando
+ * acompanhar passa a render, pela mesma régua das ferramentas; nada é trancado (ADR-0009).
+ */
+export interface Person {
+  readonly id: string;
+  readonly name: string;
+  /** Página oficial da pessoa ou do canal. */
+  readonly url: string;
+  /** O que publica, numa linha. */
+  readonly publishes: string;
+  /** Por que vale seguir para quem está começando, e por onde começar. */
+  readonly why: string;
+  /** Competências em que ajuda. */
+  readonly competencies: readonly CompetencyId[];
+  /** Vazio = desde o primeiro dia. */
+  readonly unlockedBy: readonly ToolGate[];
+  readonly verifiedAt: string;
+}
+
+// ---------------------------------------------------------------------------
 // Estado do usuário
 // ---------------------------------------------------------------------------
 

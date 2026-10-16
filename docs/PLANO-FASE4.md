@@ -427,6 +427,10 @@ mais é trancado, e o ajuste por competência entra na Minha área (§9).
   ferramentas, na seção do kit na trilha e na página `/kit`, como memória entre sessões e entre
   agentes (Claude Code, Codex, Cursor, Gemini CLI), com portão de Git e de IA. 19 ferramentas;
   catálogo `2026.10.16-2`.
+- **Pessoas que valem seguir** (pedido do Enzo, a partir do Fabio Akita): aba nova no Explorar
+  com 13 nomes brasileiros, página oficial conferida, o que publicam, por onde começar e o
+  portão que diz quando rende (mesma régua das ferramentas, `missingGates`). Teto de 15 no
+  validador: curadoria, não diretório. Catálogo `2026.10.16-3`.
 - **Questionário, bloco "O Career Gap para você"** (pedido do Enzo): dez itens que perguntam direto
   o que a tese afirma (caminho claro, lacunas que não conhecia, onde estou, o que já construo,
   próximo passo, o que ignorar, melhor que antes), mais "qual lacuna você descobriu" e "qual vai

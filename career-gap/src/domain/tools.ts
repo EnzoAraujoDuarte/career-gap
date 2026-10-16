@@ -17,13 +17,13 @@ export function assessTools(
   tools: readonly Tool[],
   profile: UserProfile | undefined,
 ): readonly ToolReadiness[] {
+  return tools.map((tool) => ({ tool, missing: missingGates(tool.unlockedBy, profile) }));
+}
+
+/** Os portões que o perfil ainda não cumpre. A mesma régua para ferramentas e pessoas. */
+export function missingGates(gates: readonly ToolGate[], profile: UserProfile | undefined): readonly ToolGate[] {
   const levels = new Map<CompetencyId, Level>(
     (profile?.competencies ?? []).map((item) => [item.competency, item.level]),
   );
-  return tools.map((tool) => ({
-    tool,
-    missing: tool.unlockedBy.filter(
-      (gate) => !levelAtLeast(levels.get(gate.competency) ?? 'L0', gate.atLevel),
-    ),
-  }));
+  return gates.filter((gate) => !levelAtLeast(levels.get(gate.competency) ?? 'L0', gate.atLevel));
 }

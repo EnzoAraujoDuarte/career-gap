@@ -6,6 +6,7 @@ import { RESOURCES } from './resources';
 import { HABITS } from './habits';
 import { TOOLS } from './tools';
 import { BUILDS } from './builds';
+import { PEOPLE } from './people';
 
 /**
  * Versão do catálogo. Gravada em todo roadmap gerado.
@@ -14,7 +15,7 @@ import { BUILDS } from './builds';
  * assim que uma competência muda de nível-alvo — e o TCC perde a rastreabilidade que
  * justamente promete (DISCOVERY.md §3).
  */
-export const CATALOG_VERSION = '2026.10.16-2';
+export const CATALOG_VERSION = '2026.10.16-3';
 
 export const CATALOG: Catalog = {
   version: CATALOG_VERSION,
@@ -24,9 +25,10 @@ export const CATALOG: Catalog = {
   habits: HABITS,
   tools: TOOLS,
   builds: BUILDS,
+  people: PEOPLE,
   tracks: new Map(TRACKS.map((track) => [track.id, track])),
 };
 
-export { COMPETENCIES, PREREQUISITES, TRACKS, RESOURCES, HABITS, TOOLS, BUILDS };
+export { COMPETENCIES, PREREQUISITES, TRACKS, RESOURCES, HABITS, TOOLS, BUILDS, PEOPLE };
 export { TECHNOLOGIES } from './technologies';
 export { FIRST_WEB_ROLE } from './tracks';
