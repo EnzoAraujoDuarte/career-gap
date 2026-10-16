@@ -142,6 +142,14 @@ export function validateCatalog(catalog: Catalog): readonly CatalogProblem[] {
     if (!/^\d{4}-\d{2}-\d{2}$/.test(tool.verifiedAt)) {
       report('tool-verified', tool.id, 'data de verificação ausente ou fora de AAAA-MM-DD');
     }
+    // Quem começa precisa saber se é algo que já tem, que cria, que instala ou que adiciona ao
+    // projeto; plugin e dependência sem comando viram "procure por aí".
+    if (!tool.setup?.note.trim()) {
+      report('tool-setup', tool.id, 'ferramenta precisa dizer como se passa a tê-la');
+    }
+    if (['claude-plugin', 'project-dependency'].includes(tool.setup?.kind) && !tool.setup.command?.trim()) {
+      report('tool-setup', tool.id, 'plugin e dependência de projeto precisam do comando');
+    }
     for (const gate of tool.unlockedBy) {
       const label = `${tool.id} <- ${gate.competency}@${gate.atLevel}`;
       if (!competencies.has(gate.competency)) {
