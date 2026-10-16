@@ -260,10 +260,28 @@ export const TOOLS: readonly Tool[] = [
     verifiedAt: VERIFIED,
   },
   {
-    id: 'agent-skills',
-    name: 'Skills de agente',
+    id: 'superpowers',
+    name: 'superpowers (skills e método)',
     category: 'ai',
-    use: 'Instruções reutilizáveis que ensinam o agente a fazer uma tarefa recorrente do seu jeito.',
+    use: 'Biblioteca de skills e um método de trabalho para o agente: brainstorming antes de codar, teste primeiro, depuração sistemática, planos.',
+    why:
+      'É o método que torna o assistente previsível: ele pergunta, planeja e testa antes de ' +
+      'escrever. Só faz sentido para quem já sabe o que é um bom teste e já depura sozinho.',
+    url: 'https://github.com/obra/superpowers',
+    cost: 'free',
+    ptBrStatus: 'none',
+    stability: 'volatile',
+    unlockedBy: [
+      { competency: 'ai-assisted-development-basics', atLevel: 'L1' },
+      { competency: 'automated-testing-basics', atLevel: 'L1' },
+    ],
+    verifiedAt: '2026-10-16',
+  },
+  {
+    id: 'agent-skills',
+    name: 'Skills da Anthropic',
+    category: 'ai',
+    use: 'Instruções reutilizáveis que ensinam o agente a fazer uma tarefa do seu jeito: frontend-design para interface com personalidade, skill-creator para escrever as suas, e as de documento.',
     why:
       'Uma skill de teste ou de revisão só presta se você sabe como é um bom teste e uma boa ' +
       'revisão. Por isso vem depois de testes — e é o passo para o seu kit pessoal.',
