@@ -15,60 +15,58 @@ explica o desenho. Decisão: ADR-0013. Desenho do estudo: ADR-0007 e `docs/DECIS
 
 ## O que se pergunta
 
+Cabe em uns cinco minutos, e isso é regra verificada por teste (no máximo 30 itens de escala, 6 de
+escolha, 2 abertos; frases de até 80 caracteres). Quem testa responde de boa vontade uma vez; um
+questionário longo perde a segunda metade das respostas. Cada item que entra tira outro.
+
 | Bloco | Itens | Tipo | Fonte |
 |---|---|---|---|
-| Sobre você | faixa etária, situação, tempo programando, uso de outro roadmap | escolha única | perfil do participante |
-| Como foi usar | tempo de uso, tempo até entender o próximo passo, itens irrelevantes | escolha única | medidas objetivas baratas da ADR-0007, autodeclaradas |
-| O Career Gap para você | 10 itens: o que a tese afirma, perguntado direto | concordância 1 a 5 | AGENTS.md (as cinco perguntas do produto); pedido do autor em 2026-10-16 |
-| O que você leva | primeiro passo depois de responder | escolha única | intenção de comportamento |
-| A trilha que você recebeu | 3 itens de qualidade do roadmap, 12 do ResQue, 2 de checagem da manipulação | concordância 1 a 5 | INITIAL_SCOPE §19; Pu, Chen e Hu (2011); DECISOES §1 |
+| Sobre você | idade, situação, tempo programando | escolha única | perfil do participante |
+| Como foi | tempo de uso, tempo até entender o próximo passo | escolha única | medida objetiva barata da ADR-0007, autodeclarada |
+| O Career Gap para você | 7 itens: o que a tese afirma, perguntado direto | concordância 1 a 5 | AGENTS.md (as perguntas do produto); pedido do autor em 2026-10-16 |
+| O que você leva | primeiro passo agora | escolha única | intenção de comportamento |
+| A trilha que você recebeu | 2 itens sobre a trilha, 8 do ResQue, 2 de checagem da manipulação | concordância 1 a 5 | INITIAL_SCOPE §19; Pu, Chen e Hu (2011); DECISOES §1 |
 | O site | 10 itens | concordância 1 a 5 | SUS (Brooke, 1996) |
-| Com suas palavras | a lacuna descoberta, o que ajudou, o que faltou, algo mais | texto livre, opcional | — |
+| Com suas palavras | a lacuna descoberta, o que faltou ou atrapalhou | texto livre, opcional | — |
 
 ### O Career Gap para você (`source: 'career-gap'`)
 
 A tese é avaliação → lacuna → caminho priorizado → recomendação útil, e o produto promete
-responder, a qualquer momento, onde estou, o que já consigo construir, o que vem depois, por quê
-e o que posso ignorar. Cada item cobre um elo; é o bloco que o texto do TCC reporta primeiro.
+responder, a qualquer momento, onde estou, o que já consigo construir, o que vem depois e o que
+posso ignorar. Um item por elo; é o bloco que o texto do TCC reporta primeiro.
 
 | id | construto | item |
 |---|---|---|
-| `caminho-claro` | clareza do caminho | No Career Gap, consegui identificar claramente o caminho que tenho de seguir. |
-| `lacunas-novas` | descoberta de lacunas | Encontrei lacunas técnicas que eu não conhecia. |
-| `gaps-fazem-sentido` | coerência das lacunas | As lacunas que a trilha apontou fazem sentido para mim. |
-| `avaliacao-representou` | adequação da avaliação | As 6 perguntas representaram bem o que eu sei e o que ainda não sei. |
-| `onde-estou` | onde estou | Entendi em que ponto do caminho eu estou hoje. |
-| `construir-agora` | o que já construo | Sei o que já consigo construir com o que sei hoje. |
-| `proximo-passo` | próximo passo | Depois de usar a trilha, sei dizer qual é o meu próximo passo. |
-| `ordem-clara` | clareza da ordem | A ordem sugerida, o que vem antes e o que vem depois, ficou clara. |
-| `o-que-ignorar` | o que posso ignorar | Sei o que posso deixar para depois sem prejuízo. |
-| `melhor-que-antes` | melhora sobre o método anterior | Comparado com o jeito como eu decidia o que estudar antes, com o Career Gap ficou mais fácil decidir. |
+| `caminho-claro` | clareza do caminho | Consegui ver claramente o caminho que preciso seguir. |
+| `lacunas-novas` | descoberta de lacunas | Descobri lacunas técnicas que eu não conhecia. |
+| `onde-estou` | onde estou | Entendi em que ponto do caminho eu estou. |
+| `construir-agora` | o que já construo | Sei o que já consigo construir hoje. |
+| `proximo-passo` | próximo passo | Sei qual é o meu próximo passo. |
+| `o-que-ignorar` | o que posso ignorar | Sei o que posso deixar para depois. |
+| `melhor-que-antes` | melhora sobre o método anterior | Ficou mais fácil decidir o que estudar do que antes. |
 
 A pergunta aberta `lacuna-descoberta` ("Qual lacuna técnica você descobriu que não conhecia?") é
-a evidência qualitativa do item `lacunas-novas`; a escolha `next-action` registra o que a pessoa
-diz que vai fazer primeiro (começar uma construção, estudar o recomendado, ajustar o que sabe,
-procurar fora, nada).
+a evidência qualitativa de `lacunas-novas`; a escolha `next-action` registra o que a pessoa diz
+que vai fazer primeiro (começar uma construção, estudar o recomendado, ajustar o que sabe, nada).
 
-### Qualidade do roadmap (`source: 'roadmap'`)
+### A trilha (`source: 'roadmap'`)
 
 | id | construto | item |
 |---|---|---|
-| `materiais-adequados` | adequação dos recursos | Os materiais indicados parecem adequados para o meu nível. |
 | `construcoes-motivam` | construções (ADR-0012) | As construções me deram vontade de começar algo hoje. |
-| `topicos-desnecessarios` | tópicos desnecessários (invertido) | Havia tópicos na trilha que considerei desnecessários para mim. |
+| `topicos-desnecessarios` | tópicos desnecessários (invertido) | Havia tópicos desnecessários para mim. |
 
-### ResQue (`source: 'ResQue'`), subconjunto de 12 itens
+### ResQue (`source: 'ResQue'`), subconjunto de 8 itens
 
 | construto | ids |
 |---|---|
 | acurácia percebida | `recomendado-corresponde`, `ja-sabe-bate` |
 | transparência | `entendi-motivos` |
-| controle | `eu-decidia`, `facil-corrigir` |
-| suficiência de informação | `informacao-suficiente` |
-| utilidade percebida | `ajudou-decidir`, `menos-tempo-perdido` |
+| controle | `eu-decidia` |
+| utilidade percebida | `ajudou-decidir` |
 | confiança | `confio` |
 | satisfação | `satisfeito` |
-| intenção de uso | `voltaria`, `indicaria` |
+| intenção de uso | `indicaria` |
 
 ### Checagem da manipulação (`source: 'manipulation-check'`)
 
@@ -78,8 +76,16 @@ motor (`docs/DECISOES.md` §1).
 
 ### SUS (`source: 'SUS'`)
 
-Dez itens, `sus-01` a `sus-10`, os pares invertidos, com "o site" no lugar de "o sistema". A
-tradução é do projeto; a versão validada em português pode substituir o texto sem mudar o id.
+Dez itens, `sus-01` a `sus-10`, os pares invertidos, com "o site" no lugar de "o sistema" e frases
+encurtadas. A tradução é do projeto; a versão validada em português pode substituir o texto sem
+mudar o id.
+
+### Histórico do instrumento
+
+- `2026.10.16-1`: 31 itens de escala, 7 de escolha, 3 abertos.
+- `2026.10.16-2`: bloco "O Career Gap para você" (10 itens), `next-action`, `lacuna-descoberta`.
+- `2026.10.16-3`: enxugado para 29 itens de escala, 6 de escolha, 2 abertos, frases curtas. Os
+  ids que ficaram não mudaram de sentido; os que saíram não voltam com o mesmo id.
 
 ## O que mais é gravado
 
@@ -112,7 +118,7 @@ vai para a saída de erro, fora do arquivo.
   não respondeu (`context.hasProfile`), e perfis com mais e menos "já no nível".
 - **O Career Gap para você:** item a item, média e distribuição; é a tabela que responde à tese.
   Cruze `lacunas-novas` com a resposta aberta `lacuna-descoberta` e com `context.recommended`.
-- **Qualidade do roadmap:** item a item; `topicos-desnecessarios` é invertido, concordar é ruim.
+- **A trilha:** item a item; `topicos-desnecessarios` é invertido, concordar é ruim.
 - **Medidas autodeclaradas:** distribuição de `time-to-next-step` e `irrelevant-items`.
 - **Texto livre:** codificação temática simples (o que ajudou, o que faltou), com trechos citados
   sem nada que identifique a pessoa.

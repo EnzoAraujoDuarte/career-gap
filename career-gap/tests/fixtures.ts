@@ -9,5 +9,5 @@ export const sampleEvaluation = (value = 4): EvaluationAnswers => ({
   consent: true,
   participant: Object.fromEntries(CHOICE_QUESTIONS.map((question) => [question.id, question.choices[0].value])),
   answers: Object.fromEntries(LIKERT_ITEMS.map((item) => [item.id, value])),
-  comments: { ajudou: 'as construções' },
+  comments: { 'lacuna-descoberta': 'acessibilidade' },
 });

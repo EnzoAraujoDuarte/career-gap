@@ -101,7 +101,7 @@ export function EvaluationScreen() {
     <PageShell
       current="minha-area"
       title="Conte como foi"
-      intro="Um questionário de uns 10 minutos sobre a trilha que você recebeu e sobre o site. É o que vira dado no TCC. Sem nome nem e-mail."
+      intro="Uns 5 minutos: como foi usar o Career Gap e o que você leva dele. É o que vira dado no TCC. Sem nome nem e-mail."
     >
       {persistence.status === 'off' ? (
         <p className="text-ink-soft mt-6 border-l border-[var(--rule)] pl-3 text-[13.5px] leading-relaxed">
@@ -164,7 +164,7 @@ export function EvaluationScreen() {
 
           <LikertSection
             title="O Career Gap para você"
-            intro="O que o site promete responder: onde você está, o que já consegue construir, o que vem depois, por quê e o que pode esperar."
+            intro="Depois de usar o site, o quanto cada frase vale para você."
             items={CAREER_GAP_ITEMS}
             answers={existing?.answers}
           />
@@ -180,14 +180,14 @@ export function EvaluationScreen() {
 
           <LikertSection
             title="A trilha que você recebeu"
-            intro="Pense nas marcas da trilha: o que apareceu como recomendado agora, como você já sabe e como não agora."
+            intro="Sobre as marcas da trilha: recomendado agora, você já sabe, não agora."
             items={PATH_ITEMS}
             answers={existing?.answers}
           />
 
           <LikertSection
             title="O site"
-            intro="Agora sobre usar o site em si, não sobre o conteúdo."
+            intro="Sobre usar o site, não sobre o conteúdo."
             items={SUS_ITEMS}
             answers={existing?.answers}
           />
