@@ -18,7 +18,11 @@ export const clearCriteria = (): void => store.clear();
 export const replaceCriteria = (criteria: CriteriaMap): void => store.save(criteria);
 
 export function toggleCriterion(competency: string, level: Level, index: number): void {
-  const key = criteriaKey(competency, level);
+  toggleCriterionKey(criteriaKey(competency, level), index);
+}
+
+/** A mesma marcação para qualquer lista do catálogo: critérios de saída ou passos de construção. */
+export function toggleCriterionKey(key: string, index: number): void {
   const current = loadCriteria();
   const checked = new Set(current[key]?.checked ?? []);
   if (checked.has(index)) checked.delete(index);

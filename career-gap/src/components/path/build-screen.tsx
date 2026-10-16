@@ -3,21 +3,34 @@
 import Link from 'next/link';
 import { useMemo } from 'react';
 import { CATALOG, FIRST_WEB_ROLE } from '@/catalog';
+import type { ToolSetupKind } from '@/domain/model';
 import { buildPrompt } from '@/lib/ai-prompt';
 import { buildBuildsView } from '@/lib/builds-view';
+import { toggleCriterionKey, useCriteria } from '@/lib/criteria-storage';
 import { useCurrentProfile, useProfileSuffix } from '@/lib/current-profile';
 import { toggleCompleted, useProgress } from '@/lib/progress-storage';
 import { LEVEL_SHORT } from '@/lib/reason-text';
 import { formatDuration } from '@/lib/resource-duration';
-import { buildProgressKey } from '@/lib/user-state';
+import { buildProgressKey, buildStepsKey } from '@/lib/user-state';
 import { EcosystemNav } from '@/components/ecosystem/ecosystem-nav';
 import { Loading, SectionLabel } from '@/components/ecosystem/page-shell';
 import { BuildGlyph } from '@/components/ui/build-glyph';
+import { CopyCommand } from '@/components/ui/copy-command';
 import { CopyPrompt } from '@/components/ui/copy-prompt';
 import { ResourceLine } from '@/components/ui/resource-line';
 import { BuildMark } from './build-mark';
 
 const RESOURCES = new Map(CATALOG.resources.map((resource) => [resource.id, resource]));
+const TOOLS = new Map(CATALOG.tools.map((tool) => [tool.id, tool]));
+
+const SETUP_LABEL: Record<ToolSetupKind, string> = {
+  'built-in': 'já vem no computador',
+  account: 'conta gratuita',
+  install: 'programa para instalar',
+  'project-dependency': 'dependência do projeto',
+  'repository-file': 'arquivo no repositório',
+  'claude-plugin': 'plugin do Claude Code',
+};
 
 /**
  * A página de uma construção: o que você vai ter na mão, o que precisa, o passo a passo e o
@@ -27,6 +40,7 @@ export function BuildScreen({ id }: { id: string }) {
   const { profile } = useCurrentProfile();
   const suffix = useProfileSuffix();
   const progress = useProgress();
+  const criteria = useCriteria();
   const track = (profile && CATALOG.tracks.get(profile.trackId)) || FIRST_WEB_ROLE;
   const view = useMemo(() => buildBuildsView(CATALOG, track, profile, progress), [track, profile, progress]);
   const item = view.all.find((candidate) => candidate.build.id === id);
@@ -39,6 +53,10 @@ export function BuildScreen({ id }: { id: string }) {
     name: CATALOG.competencies.get(competency)?.name ?? competency,
   }));
   const missing = new Set(item.missing.map((requirement) => requirement.competency));
+  const stepsKey = buildStepsKey(build.id);
+  const doneSteps = new Set(criteria?.[stepsKey]?.checked ?? []);
+  const allStepsDone = doneSteps.size === build.steps.length;
+  const tools = build.tools.map((id) => TOOLS.get(id)).filter((tool) => tool !== undefined);
 
   return (
     <main className="min-h-dvh bg-paper px-4 py-6 sm:px-6">
@@ -107,12 +125,59 @@ export function BuildScreen({ id }: { id: string }) {
             </section>
 
             <section>
-              <SectionLabel>Passo a passo</SectionLabel>
-              <ol className="mt-2 space-y-2.5">
+              <SectionLabel>Você vai precisar de</SectionLabel>
+              <ul className="mt-2 space-y-2.5">
+                {tools.map((tool) => (
+                  <li key={tool.id} className="text-[14px] leading-snug">
+                    <p className="flex flex-wrap items-baseline gap-x-2">
+                      <a
+                        href={tool.url}
+                        target="_blank"
+                        rel="noreferrer noopener"
+                        className="text-ink focus-visible:outline-attention underline decoration-[var(--rule)] underline-offset-2 hover:decoration-[var(--ink)] focus-visible:outline-2"
+                      >
+                        {tool.name}
+                        <span className="sr-only"> (abre em nova aba)</span>
+                      </a>
+                      <span className="text-ink-soft text-[12.5px]">{SETUP_LABEL[tool.setup.kind]}</span>
+                    </p>
+                    <p className="text-ink-soft mt-0.5 text-[12.5px] leading-snug">{tool.setup.note}</p>
+                    {tool.setup.command && tool.setup.kind !== 'built-in' && (
+                      <div className="mt-1">
+                        <CopyCommand command={tool.setup.command} compact />
+                      </div>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </section>
+
+            <section>
+              <SectionLabel>
+                Passo a passo
+                {doneSteps.size > 0 && ' '}
+                {doneSteps.size > 0 && (
+                  <span className="text-done ml-2 normal-case tracking-normal">
+                    {doneSteps.size} de {build.steps.length}
+                  </span>
+                )}
+              </SectionLabel>
+              <p className="text-ink-soft mt-1 text-[12.5px] leading-snug">
+                Marque conforme avança; fica guardado para você voltar depois.
+              </p>
+              <ol className="mt-2 space-y-1">
                 {build.steps.map((step, index) => (
-                  <li key={step} className="flex gap-3 text-[14px] leading-relaxed">
-                    <span className="font-serif text-ink-faint w-5 shrink-0 tabular-nums">{index + 1}</span>
-                    <span className="text-ink">{step}</span>
+                  <li key={step}>
+                    <label className="text-ink -mx-1 flex cursor-pointer items-start gap-3 rounded-sm px-1 py-1.5 text-[14px] leading-relaxed hover:bg-paper-edge">
+                      <input
+                        type="checkbox"
+                        checked={doneSteps.has(index)}
+                        onChange={() => toggleCriterionKey(stepsKey, index)}
+                        className="accent-done mt-[5px] h-4 w-4 shrink-0"
+                      />
+                      <span className="font-serif text-ink-faint w-4 shrink-0 tabular-nums">{index + 1}</span>
+                      <span className={doneSteps.has(index) ? 'text-ink-soft line-through' : undefined}>{step}</span>
+                    </label>
                   </li>
                 ))}
               </ol>
@@ -138,7 +203,9 @@ export function BuildScreen({ id }: { id: string }) {
                 <p className="text-ink-soft mt-1.5 max-w-[34ch] text-[12.5px] leading-snug">
                   {built
                     ? 'Fica na sua área. Marcar não muda o seu nível: quem muda é você, na avaliação.'
-                    : 'Quando o critério de pronto estiver cumprido. Vai para a sua área.'}
+                    : allStepsDone
+                      ? 'Todos os passos marcados. Se o critério de pronto está cumprido, é só dizer.'
+                      : 'Quando o critério de pronto estiver cumprido. Vai para a sua área.'}
                 </p>
               </div>
               <CopyPrompt

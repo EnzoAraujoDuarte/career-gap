@@ -338,6 +338,7 @@ function validateBuilds(
   report: (rule: string, subject: string, detail: string) => void,
 ): void {
   const resourceIds = new Set(catalog.resources.map((resource) => resource.id));
+  const toolIds = new Set(catalog.tools.map((tool) => tool.id));
   const buildIds = new Set<string>();
   const competencyIds = [...catalog.competencies.keys()];
 
@@ -388,6 +389,10 @@ function validateBuilds(
       for (const resource of build.resources) {
         if (!resourceIds.has(resource)) report('build-resource', build.id, `recurso inexistente: ${resource}`);
       }
+      for (const tool of build.tools) {
+        if (!toolIds.has(tool)) report('build-tool', build.id, `ferramenta inexistente: ${tool}`);
+      }
+      if (build.tools.length === 0) report('build-tool', build.id, 'construção precisa dizer o que a pessoa precisa ter em mãos');
       if (build.steps.length < BUILD_STEPS.min || build.steps.length > BUILD_STEPS.max) {
         report('build-steps', build.id, `${build.steps.length} passos; o intervalo é ${BUILD_STEPS.min} a ${BUILD_STEPS.max}`);
       }

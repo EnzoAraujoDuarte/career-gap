@@ -3,7 +3,7 @@ import { BUILDS, CATALOG, FIRST_WEB_ROLE } from '@/catalog';
 import { assessBuilds, buildsInvolving, buildsUnlockedBy } from '@/domain/builds';
 import type { Level } from '@/domain/model';
 import { buildPrompt, studyPrompt } from '@/lib/ai-prompt';
-import { buildProgressKey, assertProgress } from '@/lib/user-state';
+import { assertCriteria, assertProgress, buildProgressKey, buildStepsKey } from '@/lib/user-state';
 import { ALL_FIXTURES, absoluteBeginner, almostReady } from './fixtures';
 
 const levelsOf = (profile: (typeof ALL_FIXTURES)[number]) => (competency: string): Level =>
@@ -74,6 +74,23 @@ describe('construções', () => {
         );
       }
     }
+  });
+
+  it('cada construção diz as ferramentas que a pessoa precisa ter, e todas existem no kit', () => {
+    const tools = new Set(CATALOG.tools.map((tool) => tool.id));
+    for (const build of BUILDS) {
+      expect(build.tools.length, build.id).toBeGreaterThan(0);
+      for (const tool of build.tools) expect(tools.has(tool), `${build.id}: ${tool}`).toBe(true);
+    }
+  });
+
+  it('os passos marcados de uma construção passam pela mesma validação dos critérios', () => {
+    const at = '2026-10-16T12:00:00.000Z';
+    const build = BUILDS.find((item) => item.id === 'pagina-sobre-voce')!;
+    expect(() => assertCriteria(buildStepsKey(build.id), { checked: [0, build.steps.length - 1], updatedAt: at })).not.toThrow();
+    expect(() => assertCriteria(buildStepsKey(build.id), { checked: [build.steps.length], updatedAt: at })).toThrow();
+    expect(() => assertCriteria(buildStepsKey('inventada'), { checked: [0], updatedAt: at })).toThrow();
+    expect(() => assertCriteria(`build:${build.id}@L1`, { checked: [0], updatedAt: at })).toThrow();
   });
 
   it('o progresso aceita uma construção concluída e recusa uma inventada', () => {

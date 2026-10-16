@@ -58,6 +58,27 @@ export const TOOLS: readonly Tool[] = [
     verifiedAt: VERIFIED,
   },
 
+  {
+    id: 'node',
+    name: 'Node.js',
+    category: 'editor',
+    use: 'Roda JavaScript fora do navegador e traz o npm, que instala as dependências de um projeto.',
+    why:
+      'Quase todo comando "npm install" e "npx" desta lista precisa dele. Faz sentido quando você ' +
+      'já escreve JavaScript; antes disso, o navegador basta.',
+    url: 'https://nodejs.org/pt',
+    cost: 'free',
+    ptBrStatus: 'partial',
+    stability: 'evergreen',
+    unlockedBy: [{ competency: 'javascript-essentials', atLevel: 'L1' }],
+    setup: {
+      kind: 'install',
+      note: 'Baixe a versão LTS em nodejs.org e instale com as opções padrão. Depois, num terminal novo, confira.',
+      command: 'node --version && npm --version',
+    },
+    verifiedAt: '2026-10-16',
+  },
+
   // --------------------------------------------------------------- plataforma web
   {
     id: 'browser-devtools',
@@ -209,6 +230,30 @@ export const TOOLS: readonly Tool[] = [
 
   // ------------------------------------------------------------------------- IA
   {
+    id: 'claude-code',
+    name: 'Claude Code',
+    category: 'ai',
+    use: 'O agente de IA no terminal que lê o seu projeto, edita arquivos e roda comandos; é onde os plugins e as skills desta lista entram.',
+    why:
+      'É o que o autor usa no trabalho. Depois de fundamentos e depuração, pelo mesmo motivo do ' +
+      'assistente no editor: quem não depura não confere o que a IA fez. Exige assinatura paga.',
+    url: 'https://code.claude.com/docs/en/quickstart',
+    cost: 'paid',
+    costNote: 'assinatura Claude (Pro ou acima) ou créditos de API',
+    ptBrStatus: 'none',
+    stability: 'volatile',
+    unlockedBy: [
+      { competency: 'programming-fundamentals', atLevel: 'L1' },
+      { competency: 'debugging', atLevel: 'L1' },
+    ],
+    setup: {
+      kind: 'install',
+      note: 'No macOS, Linux e WSL, o comando abaixo instala; no Windows sem WSL, use o PowerShell: irm https://claude.ai/install.ps1 | iex. Depois, abra um terminal novo e rode claude para entrar.',
+      command: 'curl -fsSL https://claude.ai/install.sh | bash',
+    },
+    verifiedAt: '2026-10-16',
+  },
+  {
     id: 'ai-code-assistant',
     name: 'Assistente de código no editor',
     category: 'ai',
@@ -296,7 +341,7 @@ export const TOOLS: readonly Tool[] = [
     ],
     setup: {
       kind: 'claude-plugin',
-      note: 'Um comando no terminal lista o kit e as skills, pergunta o que você quer e instala só isso. Precisa do Claude Code.',
+      note: 'Um comando no terminal lista o kit e as skills, pergunta o que você quer e instala só isso. Precisa do Claude Code; no Windows, rode no WSL ou no Git Bash.',
       command: 'bash <(curl -fsSL https://raw.githubusercontent.com/EnzoAraujoDuarte/kit-career-gap/main/install.sh)',
     },
     verifiedAt: '2026-10-16',

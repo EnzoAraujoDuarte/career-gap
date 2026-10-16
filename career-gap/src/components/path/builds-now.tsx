@@ -99,7 +99,8 @@ function FirstAccess({ doorway, suffix }: { doorway: BuildView; suffix: string }
           <h3 className="font-serif text-ink text-[24px] leading-tight text-balance">{doorway.build.title}</h3>
           <p className="text-ink mt-2 text-[14.5px] leading-relaxed">{doorway.build.result}</p>
           <p className="text-ink-soft mt-1.5 text-[13px]">
-            {formatDuration(doorway.build.estimatedMinutes)} · não precisa saber nada antes
+            {formatDuration(doorway.build.estimatedMinutes)} · não precisa saber nada antes · só um editor
+            de texto gratuito e o navegador
           </p>
           <Link
             href={`/construir/${doorway.build.id}${suffix}`}

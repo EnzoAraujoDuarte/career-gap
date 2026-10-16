@@ -48,9 +48,9 @@ export function KitScreen() {
           <section className="mt-7">
             <h2 className="font-serif text-ink text-[20px] leading-tight">Um comando no terminal</h2>
             <p className="text-ink-soft mt-1 max-w-[62ch] text-[13.5px] leading-relaxed">
-              Cole no terminal (macOS, Linux ou WSL) e aperte Enter. Ele lista o que existe, pergunta
-              os números que você quer e roda só os comandos do Claude Code correspondentes. Sem
-              senha, sem mexer nos seus arquivos.
+              Cole no terminal e aperte Enter. Ele lista o que existe, pergunta os números que você
+              quer e roda só os comandos do Claude Code correspondentes. Sem senha, sem mexer nos
+              seus arquivos. No Windows, rode no WSL ou no Git Bash.
             </p>
             <div className="mt-3">
               <CopyCommand command={INSTALL_COMMAND} />
@@ -66,9 +66,10 @@ export function KitScreen() {
                 Claude Code
                 <span className="sr-only"> (abre em nova aba)</span>
               </a>{' '}
-              instalado; se não estiver, o instalador para e diz o comando oficial. Quer ver o que ele
-              faria sem instalar nada? Acrescente <code className="text-ink">--simular</code> no fim. O
-              código do instalador é aberto, no{' '}
+              instalado, que exige uma assinatura Claude (Pro ou acima) ou créditos de API; se não
+              estiver, o instalador para e diz o comando oficial. Quer ver o que ele faria sem instalar
+              nada? Acrescente <code className="text-ink">--simular</code> no fim. O código do instalador
+              é aberto, no{' '}
               <a
                 href="https://github.com/EnzoAraujoDuarte/kit-career-gap/blob/main/install.sh"
                 target="_blank"

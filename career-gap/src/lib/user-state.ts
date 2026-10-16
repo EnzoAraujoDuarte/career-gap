@@ -64,6 +64,10 @@ export type CriteriaMap = Readonly<Record<string, CriteriaChecks>>;
 
 export const criteriaKey = (competency: string, level: Level) => `${competency}@${level}`;
 
+/** Os passos marcados de uma construção moram no mesmo mapa, com a chave `build:<id>@steps`:
+ *  a tabela guarda "índices marcados numa lista do catálogo", e é isso que um passo é. */
+export const buildStepsKey = (buildId: string) => `${BUILD_PROGRESS_PREFIX}${buildId}@steps`;
+
 export interface UserState {
   readonly profile?: StoredProfile;
   readonly goals?: Goals;
@@ -179,9 +183,19 @@ export function assertProgress(resourceId: unknown, value: unknown): asserts val
   if (!isDate(entry.updatedAt)) throw new InvalidUserState('data inválida');
 }
 
+/** A lista do catálogo que uma chave de critério aponta: critérios de saída ou passos. */
+function criteriaListOf(key: unknown): readonly string[] | undefined {
+  if (typeof key !== 'string') return undefined;
+  const [subject, level] = key.split('@');
+  if (subject.startsWith(BUILD_PROGRESS_PREFIX)) {
+    const build = CATALOG.builds.find((candidate) => candidate.id === subject.slice(BUILD_PROGRESS_PREFIX.length));
+    return level === 'steps' ? build?.steps : undefined;
+  }
+  return CATALOG.competencies.get(subject)?.levels[level as Level]?.exitCriteria;
+}
+
 export function assertCriteria(key: unknown, value: unknown): asserts value is CriteriaChecks {
-  const [competency, level] = typeof key === 'string' ? key.split('@') : [];
-  const criteria = CATALOG.competencies.get(competency)?.levels[level as Level]?.exitCriteria;
+  const criteria = criteriaListOf(key);
   if (!criteria) throw new InvalidUserState('critério desconhecido');
   const entry = value as CriteriaChecks;
   const checked = Array.isArray(entry?.checked) ? entry.checked : undefined;

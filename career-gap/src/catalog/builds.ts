@@ -29,6 +29,7 @@ export const BUILDS: readonly Build[] = [
     ],
     doneWhen: 'A página abre no navegador e cada link leva aonde você queria.',
     resources: ['curso-de-html-e-css-com-projeto-html-e-css-para-iniciantes', 'freecodecamp-curriculo-em-portugues'],
+    tools: ['vscode', 'browser-devtools'],
     estimatedMinutes: 90,
   },
   {
@@ -48,6 +49,7 @@ export const BUILDS: readonly Build[] = [
     ],
     doneWhen: 'Os três casos de teste batem com a calculadora, e o programa avisa quando alguém digita letra no lugar de número.',
     resources: ['neps-academy-exercicios-com-correcao-automatica', 'obi-problemas-das-edicoes-anteriores'],
+    tools: ['vscode', 'node'],
     estimatedMinutes: 120,
   },
   {
@@ -66,6 +68,7 @@ export const BUILDS: readonly Build[] = [
     ],
     doneWhen: 'Outra pessoa abre o link no celular dela e vê a sua página.',
     resources: ['inicio-rapido-para-paginas-do-github'],
+    tools: ['vscode', 'git', 'github'],
     estimatedMinutes: 60,
   },
   {
@@ -89,6 +92,7 @@ export const BUILDS: readonly Build[] = [
       'flexbox-froggy',
       'freecodecamp-curriculo-em-portugues',
     ],
+    tools: ['vscode', 'browser-devtools'],
     estimatedMinutes: 360,
   },
   {
@@ -108,6 +112,7 @@ export const BUILDS: readonly Build[] = [
     ],
     doneWhen: 'O resultado muda a cada tecla e nenhum valor estranho quebra a página.',
     resources: ['alura-7-days-of-code', 'the-odin-project-project-etch-a-sketch', 'depurar-o-javascript-tutorial-do-chrome-devtools'],
+    tools: ['vscode', 'browser-devtools'],
     estimatedMinutes: 180,
   },
   {
@@ -127,6 +132,7 @@ export const BUILDS: readonly Build[] = [
     ],
     doneWhen: 'Dá para preencher e enviar só pelo teclado, e o verificador não aponta nenhum erro.',
     resources: ['freecodecamp-depure-um-formulario-de-doacao', 'checklist-the-a11y-project'],
+    tools: ['vscode', 'browser-devtools'],
     estimatedMinutes: 120,
   },
   {
@@ -151,6 +157,7 @@ export const BUILDS: readonly Build[] = [
     ],
     doneWhen: 'Os três testes mostram algo útil na tela, e o painel Network explica cada resposta.',
     resources: ['missao-consulte-cnpjs-e-leia-o-que-a-resposta-diz', 'freecodecamp-construir-um-aplicativo-de-clima'],
+    tools: ['vscode', 'browser-devtools', 'curl'],
     estimatedMinutes: 180,
   },
   {
@@ -174,6 +181,7 @@ export const BUILDS: readonly Build[] = [
       'express-tutorial-part-7-deploying-to-production',
       'full-stack-open-pt-br',
     ],
+    tools: ['vscode', 'node', 'curl', 'git', 'github'],
     estimatedMinutes: 480,
   },
   {
@@ -202,6 +210,7 @@ export const BUILDS: readonly Build[] = [
       'desafio-tecnico-de-empresa-brasileira-back-end',
       'full-stack-open-pt-br',
     ],
+    tools: ['vscode', 'node', 'git', 'github'],
     estimatedMinutes: 1200,
   },
   {
@@ -220,6 +229,7 @@ export const BUILDS: readonly Build[] = [
     ],
     doneWhen: 'O pull request foi aceito, ou você recebeu uma revisão e respondeu a cada comentário.',
     resources: ['primeira-contribuicao-querido-diario', 'gilded-rose-kata-de-refatoracao'],
+    tools: ['git', 'github', 'vscode'],
     estimatedMinutes: 360,
   },
   {
@@ -239,6 +249,7 @@ export const BUILDS: readonly Build[] = [
     ],
     doneWhen: 'Todos os testes passam e você explica cada linha da função final.',
     resources: ['missao-peca-a-ia-uma-funcao-de-preco-e-prove-que-ela-esta-certa'],
+    tools: ['vscode', 'node'],
     estimatedMinutes: 90,
   },
 ];

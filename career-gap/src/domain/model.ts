@@ -308,6 +308,8 @@ export interface Build {
   readonly doneWhen: string;
   /** Recursos do catálogo que apoiam a construção. */
   readonly resources: readonly string[];
+  /** Ferramentas do kit que a pessoa precisa ter em mãos antes do passo 1. */
+  readonly tools: readonly string[];
   readonly estimatedMinutes: number;
 }
 
