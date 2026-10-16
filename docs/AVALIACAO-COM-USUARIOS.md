@@ -19,27 +19,49 @@ explica o desenho. Decisão: ADR-0013. Desenho do estudo: ADR-0007 e `docs/DECIS
 |---|---|---|---|
 | Sobre você | faixa etária, situação, tempo programando, uso de outro roadmap | escolha única | perfil do participante |
 | Como foi usar | tempo de uso, tempo até entender o próximo passo, itens irrelevantes | escolha única | medidas objetivas baratas da ADR-0007, autodeclaradas |
-| A trilha que você recebeu | 6 itens de qualidade do roadmap, 13 do ResQue, 2 de checagem da manipulação | concordância 1 a 5 | INITIAL_SCOPE §19; Pu, Chen e Hu (2011); DECISOES §1 |
+| O Career Gap para você | 10 itens: o que a tese afirma, perguntado direto | concordância 1 a 5 | AGENTS.md (as cinco perguntas do produto); pedido do autor em 2026-10-16 |
+| O que você leva | primeiro passo depois de responder | escolha única | intenção de comportamento |
+| A trilha que você recebeu | 3 itens de qualidade do roadmap, 12 do ResQue, 2 de checagem da manipulação | concordância 1 a 5 | INITIAL_SCOPE §19; Pu, Chen e Hu (2011); DECISOES §1 |
 | O site | 10 itens | concordância 1 a 5 | SUS (Brooke, 1996) |
-| Com suas palavras | o que ajudou, o que faltou, algo mais | texto livre, opcional | — |
+| Com suas palavras | a lacuna descoberta, o que ajudou, o que faltou, algo mais | texto livre, opcional | — |
+
+### O Career Gap para você (`source: 'career-gap'`)
+
+A tese é avaliação → lacuna → caminho priorizado → recomendação útil, e o produto promete
+responder, a qualquer momento, onde estou, o que já consigo construir, o que vem depois, por quê
+e o que posso ignorar. Cada item cobre um elo; é o bloco que o texto do TCC reporta primeiro.
+
+| id | construto | item |
+|---|---|---|
+| `caminho-claro` | clareza do caminho | No Career Gap, consegui identificar claramente o caminho que tenho de seguir. |
+| `lacunas-novas` | descoberta de lacunas | Encontrei lacunas técnicas que eu não conhecia. |
+| `gaps-fazem-sentido` | coerência das lacunas | As lacunas que a trilha apontou fazem sentido para mim. |
+| `avaliacao-representou` | adequação da avaliação | As 6 perguntas representaram bem o que eu sei e o que ainda não sei. |
+| `onde-estou` | onde estou | Entendi em que ponto do caminho eu estou hoje. |
+| `construir-agora` | o que já construo | Sei o que já consigo construir com o que sei hoje. |
+| `proximo-passo` | próximo passo | Depois de usar a trilha, sei dizer qual é o meu próximo passo. |
+| `ordem-clara` | clareza da ordem | A ordem sugerida, o que vem antes e o que vem depois, ficou clara. |
+| `o-que-ignorar` | o que posso ignorar | Sei o que posso deixar para depois sem prejuízo. |
+| `melhor-que-antes` | melhora sobre o método anterior | Comparado com o jeito como eu decidia o que estudar antes, com o Career Gap ficou mais fácil decidir. |
+
+A pergunta aberta `lacuna-descoberta` ("Qual lacuna técnica você descobriu que não conhecia?") é
+a evidência qualitativa do item `lacunas-novas`; a escolha `next-action` registra o que a pessoa
+diz que vai fazer primeiro (começar uma construção, estudar o recomendado, ajustar o que sabe,
+procurar fora, nada).
 
 ### Qualidade do roadmap (`source: 'roadmap'`)
 
 | id | construto | item |
 |---|---|---|
-| `gaps-fazem-sentido` | coerência das lacunas | As lacunas que a trilha apontou fazem sentido para mim. |
-| `ordem-clara` | clareza da ordem | A ordem sugerida, o que vem antes e o que vem depois, ficou clara. |
-| `proximo-passo` | clareza do próximo passo | Depois de usar a trilha, sei dizer qual é o meu próximo passo. |
 | `materiais-adequados` | adequação dos recursos | Os materiais indicados parecem adequados para o meu nível. |
 | `construcoes-motivam` | construções (ADR-0012) | As construções me deram vontade de começar algo hoje. |
 | `topicos-desnecessarios` | tópicos desnecessários (invertido) | Havia tópicos na trilha que considerei desnecessários para mim. |
 
-### ResQue (`source: 'ResQue'`), subconjunto de 13 itens
+### ResQue (`source: 'ResQue'`), subconjunto de 12 itens
 
 | construto | ids |
 |---|---|
 | acurácia percebida | `recomendado-corresponde`, `ja-sabe-bate` |
-| novidade | `mostrou-novidade` |
 | transparência | `entendi-motivos` |
 | controle | `eu-decidia`, `facil-corrigir` |
 | suficiência de informação | `informacao-suficiente` |
@@ -88,6 +110,8 @@ vai para a saída de erro, fora do arquivo.
 - **ResQue:** média por construto (1 a 5); reporte cada construto separado, não uma soma.
 - **Checagem da manipulação:** média dos dois itens; compare quem respondeu as 6 perguntas com quem
   não respondeu (`context.hasProfile`), e perfis com mais e menos "já no nível".
+- **O Career Gap para você:** item a item, média e distribuição; é a tabela que responde à tese.
+  Cruze `lacunas-novas` com a resposta aberta `lacuna-descoberta` e com `context.recommended`.
 - **Qualidade do roadmap:** item a item; `topicos-desnecessarios` é invertido, concordar é ruim.
 - **Medidas autodeclaradas:** distribuição de `time-to-next-step` e `irrelevant-items`.
 - **Texto livre:** codificação temática simples (o que ajudou, o que faltou), com trechos citados

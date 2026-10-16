@@ -6,13 +6,15 @@
  * validado aqui antes de tocar o banco. Mudar um item muda a versão, e uma resposta coletada
  * continua interpretável depois.
  *
- * Itens de escala: SUS (Brooke, 1996), um subconjunto do ResQue (Pu, Chen e Hu, RecSys 2011),
- * dois itens de checagem da manipulação e itens sobre a qualidade do roadmap (INITIAL_SCOPE §19).
+ * Itens de escala: as perguntas que o produto promete responder (onde estou, o que já construo, o
+ * que vem depois, por quê, o que pode esperar; AGENTS.md) e o que a pessoa descobriu com ele; SUS
+ * (Brooke, 1996); um subconjunto do ResQue (Pu, Chen e Hu, RecSys 2011); dois itens de checagem da
+ * manipulação; e itens sobre a qualidade do roadmap (INITIAL_SCOPE §19).
  * As traduções são do projeto; a versão validada em português do SUS, se o orientador exigir,
  * substitui o texto sem mudar o id.
  */
 
-export const INSTRUMENT_VERSION = '2026.10.16-1';
+export const INSTRUMENT_VERSION = '2026.10.16-2';
 
 export interface Choice {
   readonly value: string;
@@ -25,7 +27,7 @@ export interface ChoiceQuestion {
   readonly choices: readonly Choice[];
 }
 
-export type LikertSource = 'SUS' | 'ResQue' | 'manipulation-check' | 'roadmap';
+export type LikertSource = 'career-gap' | 'SUS' | 'ResQue' | 'manipulation-check' | 'roadmap';
 
 export interface LikertItem {
   readonly id: string;
@@ -139,21 +141,35 @@ const item = (
 ): LikertItem => ({ id, text, source, construct, ...(reverse ? { reverse } : {}) });
 
 /**
+ * O que o TCC afirma, perguntado direto: a tese é avaliação → lacuna → caminho priorizado →
+ * recomendação útil, e o produto promete responder onde estou, o que já consigo construir, o que
+ * vem depois, por quê e o que posso ignorar. Cada item cobre um desses elos.
+ */
+export const CAREER_GAP_ITEMS: readonly LikertItem[] = [
+  item('career-gap', 'path-clarity', 'caminho-claro', 'No Career Gap, consegui identificar claramente o caminho que tenho de seguir.'),
+  item('career-gap', 'gap-discovery', 'lacunas-novas', 'Encontrei lacunas técnicas que eu não conhecia.'),
+  item('career-gap', 'gap-coherence', 'gaps-fazem-sentido', 'As lacunas que a trilha apontou fazem sentido para mim.'),
+  item('career-gap', 'assessment-fit', 'avaliacao-representou', 'As 6 perguntas representaram bem o que eu sei e o que ainda não sei.'),
+  item('career-gap', 'where-am-i', 'onde-estou', 'Entendi em que ponto do caminho eu estou hoje.'),
+  item('career-gap', 'can-build-now', 'construir-agora', 'Sei o que já consigo construir com o que sei hoje.'),
+  item('career-gap', 'next-step-clarity', 'proximo-passo', 'Depois de usar a trilha, sei dizer qual é o meu próximo passo.'),
+  item('career-gap', 'order-clarity', 'ordem-clara', 'A ordem sugerida, o que vem antes e o que vem depois, ficou clara.'),
+  item('career-gap', 'what-to-ignore', 'o-que-ignorar', 'Sei o que posso deixar para depois sem prejuízo.'),
+  item('career-gap', 'better-than-before', 'melhor-que-antes', 'Comparado com o jeito como eu decidia o que estudar antes, com o Career Gap ficou mais fácil decidir.'),
+];
+
+/**
  * Sobre a trilha recebida: qualidade do roadmap, ResQue e a checagem da manipulação por último.
  * Se a percepção de personalização não se mover, nada no ResQue é efeito do motor
  * (docs/DECISOES.md §1).
  */
 export const PATH_ITEMS: readonly LikertItem[] = [
-  item('roadmap', 'gap-coherence', 'gaps-fazem-sentido', 'As lacunas que a trilha apontou fazem sentido para mim.'),
-  item('roadmap', 'order-clarity', 'ordem-clara', 'A ordem sugerida, o que vem antes e o que vem depois, ficou clara.'),
-  item('roadmap', 'next-step-clarity', 'proximo-passo', 'Depois de usar a trilha, sei dizer qual é o meu próximo passo.'),
   item('roadmap', 'resource-fit', 'materiais-adequados', 'Os materiais indicados (vídeos, textos, exercícios) parecem adequados para o meu nível.'),
   item('roadmap', 'builds', 'construcoes-motivam', 'As construções ("você já consegue construir") me deram vontade de começar algo hoje.'),
   item('roadmap', 'unnecessary-topics', 'topicos-desnecessarios', 'Havia tópicos na trilha que considerei desnecessários para mim.', true),
 
   item('ResQue', 'perceived-accuracy', 'recomendado-corresponde', 'As competências marcadas como "recomendado agora" correspondem ao que eu preciso estudar.'),
   item('ResQue', 'perceived-accuracy', 'ja-sabe-bate', 'O que apareceu como "você já sabe" bate com o que eu realmente sei.'),
-  item('ResQue', 'novelty', 'mostrou-novidade', 'A trilha me mostrou coisas que eu não sabia que precisava estudar.'),
   item('ResQue', 'transparency', 'entendi-motivos', 'Entendi por que cada competência foi marcada como recomendada, "não agora" ou "falta base".'),
   item('ResQue', 'control', 'eu-decidia', 'Senti que eu decidia o que estudar; a trilha só sugeria.'),
   item('ResQue', 'control', 'facil-corrigir', 'Foi fácil corrigir o que o site achou que eu sabia.'),
@@ -183,15 +199,35 @@ export const SUS_ITEMS: readonly LikertItem[] = [
   item('SUS', 'usability', 'sus-10', 'Precisei aprender várias coisas antes de conseguir usar o site.', true),
 ];
 
-export const LIKERT_ITEMS: readonly LikertItem[] = [...PATH_ITEMS, ...SUS_ITEMS];
+export const LIKERT_ITEMS: readonly LikertItem[] = [...CAREER_GAP_ITEMS, ...PATH_ITEMS, ...SUS_ITEMS];
+
+/** O que a pessoa leva: a intenção depois de usar, que é o que a recomendação existe para mudar. */
+export const OUTCOME_QUESTIONS: readonly ChoiceQuestion[] = [
+  {
+    id: 'next-action',
+    label: 'Qual vai ser o seu primeiro passo depois de responder?',
+    choices: choices(
+      ['comecar-construcao', 'começar uma construção da trilha'],
+      ['estudar-recomendado', 'estudar a competência marcada como "recomendado agora"'],
+      ['ajustar-o-que-sei', 'ajustar o que eu disse que sei'],
+      ['procurar-fora', 'procurar outro material fora do site'],
+      ['nada-por-enquanto', 'nada por enquanto'],
+    ),
+  },
+];
 
 export const OPEN_QUESTIONS: readonly OpenQuestion[] = [
+  {
+    id: 'lacuna-descoberta',
+    label: 'Qual lacuna técnica você descobriu que não conhecia?',
+    hint: 'Em uma frase. Se não descobriu nenhuma, pode deixar em branco.',
+  },
   { id: 'ajudou', label: 'O que mais ajudou você?' },
   { id: 'faltou', label: 'O que faltou, confundiu ou atrapalhou?' },
   { id: 'mais', label: 'Algo mais que queira dizer?', hint: 'Opcional.' },
 ];
 
-export const CHOICE_QUESTIONS: readonly ChoiceQuestion[] = [...PARTICIPANT_QUESTIONS, ...USAGE_QUESTIONS];
+export const CHOICE_QUESTIONS: readonly ChoiceQuestion[] = [...PARTICIPANT_QUESTIONS, ...USAGE_QUESTIONS, ...OUTCOME_QUESTIONS];
 
 /** O que chega do navegador. `consent` precisa ser `true`: sem termo aceito, nada é gravado. */
 export interface EvaluationAnswers {
