@@ -300,6 +300,35 @@ export const TOOLS: readonly Tool[] = [
     verifiedAt: VERIFIED,
   },
   {
+    id: 'ai-memory',
+    name: 'ai-memory (memória entre sessões e agentes)',
+    category: 'ai',
+    use:
+      'Guarda o que você e o assistente fizeram em cada sessão e abre a próxima com um "de onde ' +
+      'paramos", no Claude Code, Codex, Cursor, Gemini CLI e outros.',
+    why:
+      'Projeto aberto do Fabio Akita (MIT). Hooks capturam a sessão, um servidor compila tudo em ' +
+      'páginas Markdown versionadas no Git do projeto e indexa em SQLite, sem chamar modelo nenhum ' +
+      'por padrão. Resolve o chat que esquece tudo e a troca de agente no meio da tarefa. Rende para ' +
+      'quem já versiona com Git e já usa assistente com critério.',
+    url: 'https://github.com/akitaonrails/ai-memory',
+    cost: 'free',
+    ptBrStatus: 'partial',
+    stability: 'volatile',
+    unlockedBy: [
+      { competency: 'version-control-git', atLevel: 'L1' },
+      { competency: 'ai-assisted-development-basics', atLevel: 'L1' },
+    ],
+    setup: {
+      kind: 'install',
+      note:
+        'Linux e macOS: o instalador oficial e depois "ai-memory setup", que liga os hooks nos agentes ' +
+        'que você usa. Windows: PowerShell com o install.ps1 da mesma página. Também há AUR e Docker.',
+      command: 'curl -fsSL https://github.com/akitaonrails/ai-memory/releases/latest/download/install.sh | sh && ai-memory setup',
+    },
+    verifiedAt: '2026-10-16',
+  },
+  {
     id: 'impeccable',
     name: 'Impeccable (skill de design)',
     category: 'ai',

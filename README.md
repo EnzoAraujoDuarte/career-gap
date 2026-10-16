@@ -29,7 +29,7 @@ de base e o que pode esperar, sempre com o motivo.
    que destrava. O trecho já percorrido fica em tinta, até o *você está aqui*
    ([ADR-0011](docs/adr/0011-trilha-como-estrada.md)).
 5. **Explorar**: o catálogo inteiro com filtros: 157 recursos verificados um a um (104 em
-   português, 146 gratuitos, 43 de prática ou prova, 15 livros), 18 ferramentas com portão de
+   português, 146 gratuitos, 43 de prática ou prova, 15 livros), 19 ferramentas com portão de
    competência e com "como ter" (já vem no computador, conta, programa, dependência do projeto ou
    plugin do Claude Code, com o comando) e 29 hábitos profissionais, inclusive os de carreira:
    publicar o que aprendeu, conviver com outros devs, manter currículo e LinkedIn em dia.
@@ -44,8 +44,9 @@ de base e o que pode esperar, sempre com o motivo.
 8. **[Kit de desenvolvimento profissional](https://career-gap-tcc.vercel.app/kit)**: as regras de
    código, testes, git e trabalho com IA que o autor usa, reescritas para qualquer stack, como
    marketplace de plugins do Claude Code
-   ([repositório](https://github.com/EnzoAraujoDuarte/kit-career-gap)), mais as skills que ele usa
-   e os sites para calibrar o olho. Um comando no terminal pergunta o que instalar.
+   ([repositório](https://github.com/EnzoAraujoDuarte/kit-career-gap)), mais as skills que ele usa,
+   o ai-memory do Fabio Akita para memória entre sessões e entre agentes, e os sites para calibrar
+   o olho. Um comando no terminal pergunta o que instalar.
 
 ## Princípios
 

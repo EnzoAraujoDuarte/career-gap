@@ -19,6 +19,11 @@ import { CopyCommand } from '@/components/ui/copy-command';
 const INSTALL_COMMAND =
   'bash <(curl -fsSL https://raw.githubusercontent.com/EnzoAraujoDuarte/kit-career-gap/main/install.sh)';
 
+/** Fora do instalador, porque não é plugin do Claude Code: a memória entre sessões e agentes. */
+const BESIDES: readonly { id: string; installs: string }[] = [
+  { id: 'ai-memory', installs: 'o servidor ai-memory e, com "ai-memory setup", os hooks nos agentes que você usa' },
+];
+
 /** O que o instalador oferece, na ordem em que pergunta. Ids do catálogo de ferramentas. */
 const OFFERED: readonly { id: string; installs: string }[] = [
   { id: 'kit-career-gap', installs: 'o plugin essencial, com as regras, as skills pr, depurar, decisao e passagem, o agente revisor e o Context7' },
@@ -30,10 +35,12 @@ const OFFERED: readonly { id: string; installs: string }[] = [
 export function KitScreen() {
   const { profile } = useCurrentProfile();
   const suffix = useProfileSuffix();
-  const tools = OFFERED.map((item) => ({
-    ...item,
-    tool: CATALOG.tools.find((tool) => tool.id === item.id),
-  })).filter((item): item is typeof item & { tool: Tool } => Boolean(item.tool));
+  const withTool = (list: readonly { id: string; installs: string }[]) =>
+    list
+      .map((item) => ({ ...item, tool: CATALOG.tools.find((tool) => tool.id === item.id) }))
+      .filter((item): item is typeof item & { tool: Tool } => Boolean(item.tool));
+  const tools = withTool(OFFERED);
+  const besides = withTool(BESIDES);
 
   return (
     <PageShell
@@ -83,7 +90,22 @@ export function KitScreen() {
             </p>
           </section>
 
-          <Offered items={tools} profile={profile} suffix={suffix} />
+          <Offered
+            title="O que ele oferece"
+            intro="Cada item em uma linha, para você escolher sem visitar site por site. O “rende depois de” vem do mesmo motor da trilha: é conselho, não cadeado."
+            items={tools}
+            profile={profile}
+            suffix={suffix}
+            footer
+          />
+
+          <Offered
+            title="Fora do instalador: memória entre sessões e agentes"
+            intro="Não é plugin do Claude Code, então o instalador não o inclui. É o que faz o assistente lembrar do que vocês fizeram ontem, mesmo trocando de agente no meio."
+            items={besides}
+            profile={profile}
+            suffix={suffix}
+          />
 
           <Sites />
         </>
@@ -93,13 +115,20 @@ export function KitScreen() {
 }
 
 function Offered({
+  title,
+  intro,
   items,
   profile,
   suffix,
+  footer = false,
 }: {
+  title: string;
+  intro: string;
   items: readonly { id: string; installs: string; tool: Tool }[];
   profile: UserProfile | null;
   suffix: string;
+  /** O link para as demais ferramentas, uma vez só na página. */
+  footer?: boolean;
 }) {
   const assessed = new Map(
     assessTools(
@@ -111,11 +140,8 @@ function Offered({
 
   return (
     <section>
-      <SectionLabel>O que ele oferece</SectionLabel>
-      <p className="text-ink-soft mt-1 max-w-[62ch] text-[13px] leading-relaxed">
-        Cada item em uma linha, para você escolher sem visitar site por site. O “rende depois de”
-        vem do mesmo motor da trilha: é conselho, não cadeado.
-      </p>
+      <SectionLabel>{title}</SectionLabel>
+      <p className="text-ink-soft mt-1 max-w-[62ch] text-[13px] leading-relaxed">{intro}</p>
       <ol className="mt-4 space-y-5">
         {items.map((item, index) => {
           const missing = profile ? (assessed.get(item.id) ?? []) : [];
@@ -172,13 +198,15 @@ function Offered({
           );
         })}
       </ol>
-      <p className="text-ink-soft mt-5 text-[13px]">
-        As outras ferramentas do dia a dia, com o mesmo portão, estão em{' '}
-        <Link href={`/explorar?aba=ferramentas${suffix ? `&${suffix.slice(1)}` : ''}`} className="text-now underline underline-offset-2">
-          Explorar · Ferramentas
-        </Link>
-        .
-      </p>
+      {footer && (
+        <p className="text-ink-soft mt-5 text-[13px]">
+          As outras ferramentas do dia a dia, com o mesmo portão, estão em{' '}
+          <Link href={`/explorar?aba=ferramentas${suffix ? `&${suffix.slice(1)}` : ''}`} className="text-now underline underline-offset-2">
+            Explorar · Ferramentas
+          </Link>
+          .
+        </p>
+      )}
     </section>
   );
 }

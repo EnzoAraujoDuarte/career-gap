@@ -423,6 +423,10 @@ mais é trancado, e o ajuste por competência entra na Minha área (§9).
   com outros devs em eventos e comunidades, manter currículo, LinkedIn e conhecimento em dia.
   Ligados a comunicação técnica, participação em code review e leitura de documentação. O
   sistema indica o hábito; não analisa currículo nem perfil, que segue fora do escopo. 131 testes.
+- **ai-memory no kit** (pedido do Enzo): o projeto aberto do Fabio Akita entra no catálogo de
+  ferramentas, na seção do kit na trilha e na página `/kit`, como memória entre sessões e entre
+  agentes (Claude Code, Codex, Cursor, Gemini CLI), com portão de Git e de IA. 19 ferramentas;
+  catálogo `2026.10.16-2`.
 - **Questionário, bloco "O Career Gap para você"** (pedido do Enzo): dez itens que perguntam direto
   o que a tese afirma (caminho claro, lacunas que não conhecia, onde estou, o que já construo,
   próximo passo, o que ignorar, melhor que antes), mais "qual lacuna você descobriu" e "qual vai

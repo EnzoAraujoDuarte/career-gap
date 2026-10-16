@@ -14,7 +14,7 @@ import { AdviceMark } from '@/components/ui/advice-mark';
  * ferramenta vira alavanca em vez de muleta (ADR-0009). A seleção é editorial; a avaliação vem
  * do motor.
  */
-const TOOL_IDS = ['kit-career-gap', 'context7', 'impeccable', 'superpowers', 'agent-skills'] as const;
+const TOOL_IDS = ['kit-career-gap', 'context7', 'ai-memory', 'impeccable', 'superpowers', 'agent-skills'] as const;
 const SITE_IDS = ['awwwards-sites-premiados-por-design-e-desenvolvimento-front-end', 'mobbin-biblioteca-de-padroes-de-interface-de-produtos-reais'] as const;
 
 const TOOLS = TOOL_IDS.map((id) => CATALOG.tools.find((tool) => tool.id === id)).filter((tool): tool is Tool => Boolean(tool));
