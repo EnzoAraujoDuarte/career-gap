@@ -43,3 +43,11 @@ export function answeredStatement(
   }
   return undefined;
 }
+
+/**
+ * A ênfase depois de uma resposta. `undefined` é "não mexi na ênfase" (uma pergunta comum) e
+ * mantém a salva; `null` é "ainda não sei" e volta ao caminho equilibrado. Antes os dois eram
+ * `undefined`, e quem trocava frontend por "ainda não sei" continuava com frontend.
+ */
+export const nextEmphasis = (chosen: string | null | undefined, saved?: string): string | undefined =>
+  chosen === undefined ? saved : (chosen ?? undefined);

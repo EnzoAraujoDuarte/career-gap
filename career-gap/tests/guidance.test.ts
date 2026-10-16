@@ -3,7 +3,7 @@ import { CATALOG, FIRST_WEB_ROLE } from '@/catalog';
 import { generateRoadmap } from '@/domain/roadmap';
 import { levelIndex, type Level } from '@/domain/model';
 import { validateCatalog } from '@/catalog/validate';
-import { answeredStatement, applyAnswer } from '@/lib/quick-assessment';
+import { answeredStatement, applyAnswer, nextEmphasis } from '@/lib/quick-assessment';
 import { adviseCompetencies, RECOMMENDED_LIMIT } from '@/lib/advice';
 import { buildCompetencyView } from '@/lib/competency-view';
 import { buildPathView } from '@/lib/path-view';
@@ -116,6 +116,12 @@ describe('trilha', () => {
 });
 
 describe('avaliação rápida', () => {
+  it('"ainda não sei" tira a ênfase escolhida antes; responder uma pergunta comum a mantém', () => {
+    expect(nextEmphasis(null, 'frontend')).toBeUndefined();
+    expect(nextEmphasis(undefined, 'frontend')).toBe('frontend');
+    expect(nextEmphasis('backend', 'frontend')).toBe('backend');
+  });
+
   const questions = FIRST_WEB_ROLE.quickAssessment;
   const answerAll = (pick: (question: (typeof questions)[number]) => number | undefined) =>
     questions.reduce<Record<string, Level>>(
