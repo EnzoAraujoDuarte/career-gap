@@ -383,10 +383,10 @@ mais é trancado, e o ajuste por competência entra na Minha área (§9).
 - **Desenhos a traço** por construção; **modo escuro** pelos tokens, seguindo o sistema.
 - **Catálogo:** Context7 e impeccable no kit de ferramentas; Awwwards e Mobbin como referências
   de teto para CSS e componentes.
-- **Kit de trabalho com IA** (`kit/`): o marketplace pessoal do Enzo reescrito em português,
-  para qualquer stack, com as regras, `pr`, `depurar`, `decisao`, `passagem` e o agente
-  `revisor`. Validado com `claude plugin validate`. Publicar como repositório público depende
-  dele.
+- **Kit de trabalho com IA** (github.com/EnzoAraujoDuarte/kit-career-gap, público, MIT): o
+  marketplace pessoal do Enzo reescrito em português, para qualquer stack, com as regras, `pr`,
+  `depurar`, `decisao`, `passagem` e o agente `revisor`. Validado com `claude plugin validate`;
+  cadastrado no catálogo como ferramenta, com portão de Git e de IA.
 - 116 testes; referências em `docs/REFERENCIAS-UX.md`.
 
 **Próximo:**
