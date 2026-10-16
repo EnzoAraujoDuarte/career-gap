@@ -1760,8 +1760,8 @@ export const RESOURCES: readonly Resource[] = [
     ptBrStatus: "partial",
     requiresSignup: false,
     license: "CC BY-NC-SA 3.0",
-    estimatedTime: "150 h (partes 0-5, ~60 h)",
-    why: "Curso gratuito mais sério para construir aplicação, de universidade pública. Partes 0-5 e 13 em pt-BR; 6-12 marcadas '(english only)'. Exige JavaScript consolidado — nunca em L0/L1.",
+    estimatedTime: "~90 h nas partes 0-5 (médias de 2026 do painel do curso)",
+    why: "Curso gratuito mais sério para construir aplicação, de universidade pública. Partes 0-5 em pt-BR, numa tradução anterior à versão atual (usa create-react-app, Jest e Cypress; a versão em inglês já usa Vite, node:test e Playwright). As partes 6 a 14 existem só em inglês. Exige JavaScript consolidado; para começar no nível 1, os exercícios de cada parte estão catalogados separadamente.",
     origin: "canonical"
   },
   {
@@ -1885,9 +1885,69 @@ export const RESOURCES: readonly Resource[] = [
     origin: "canonical"
   },
   {
+    id: "pensando-em-react",
+    title: "Pensando em React",
+    sourceName: "React (documentação oficial)",
+    url: "https://pt-br.react.dev/learn/thinking-in-react",
+    kind: "doc",
+    actionType: "READ",
+    competencies: [
+      "ui-components-and-state"
+    ],
+    levelMin: "L0",
+    technology: "react",
+    cost: "free",
+    ptBrStatus: "complete",
+    requiresSignup: false,
+    license: "CC BY 4.0",
+    estimatedTime: "40 min",
+    why: "O método em cinco passos da própria equipe do React: quebrar a tela em componentes, montar a versão estática e só então decidir o estado mínimo e onde ele mora. É o critério de saída da competência explicado pela fonte.",
+    origin: "canonical"
+  },
+  {
+    id: "gerenciando-o-estado",
+    title: "Gerenciando o Estado",
+    sourceName: "React (documentação oficial)",
+    url: "https://pt-br.react.dev/learn/managing-state",
+    kind: "doc",
+    actionType: "READ",
+    competencies: [
+      "ui-components-and-state"
+    ],
+    levelMin: "L1",
+    technology: "react",
+    cost: "free",
+    ptBrStatus: "complete",
+    requiresSignup: false,
+    license: "CC BY 4.0",
+    estimatedTime: "2 h (7 páginas)",
+    why: "Capítulo sobre a decisão difícil da competência: que estado guardar, como compartilhá-lo entre componentes e quando ele deve ser preservado ou reiniciado.",
+    origin: "canonical"
+  },
+  {
+    id: "package-management-basics",
+    title: "Package management basics",
+    sourceName: "MDN Web Docs (Mozilla)",
+    url: "https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Client-side_tools/Package_management",
+    kind: "doc",
+    actionType: "READ",
+    competencies: [
+      "command-line-basics"
+    ],
+    levelMin: "L0",
+    technology: "shell",
+    cost: "free",
+    ptBrStatus: "none",
+    requiresSignup: false,
+    license: "CC BY-SA 2.5",
+    estimatedTime: "30 min",
+    why: "npm init, npm install, npx e scripts do package.json, no terminal: o \"instalo dependências e subo o projeto\" que toda vaga pressupõe. Sem versão em português no MDN.",
+    origin: "canonical"
+  },
+  {
     id: "pense-em-python-2-edicao-allen-downey-trad-sheila-gomes",
     title: "Pense em Python — 2ª edição (Allen Downey, trad. Sheila Gomes)",
-    sourceName: "penseallen.github.io",
+    sourceName: "Allen Downey (trad. Sheila Gomes)",
     url: "https://penseallen.github.io/PensePython2e/",
     kind: "book",
     actionType: "READ",
@@ -1908,7 +1968,7 @@ export const RESOURCES: readonly Resource[] = [
   {
     id: "apostila-caelum-alura-desenvolvimento-web-com-html-css-e-javascript",
     title: "Apostila Caelum/Alura — Desenvolvimento Web com HTML, CSS e JavaScript",
-    sourceName: "alura.com.br",
+    sourceName: "Alura",
     url: "https://www.alura.com.br/apostila-html-css-javascript",
     kind: "book",
     actionType: "READ",
@@ -1929,7 +1989,7 @@ export const RESOURCES: readonly Resource[] = [
   {
     id: "e-book-e-material-do-curso-html5-e-css3-gustavo-guanabara",
     title: "E-book e material do curso HTML5 e CSS3 (Gustavo Guanabara)",
-    sourceName: "github.com",
+    sourceName: "Gustavo Guanabara (GitHub)",
     url: "https://github.com/gustavoguanabara/html-css",
     kind: "course",
     actionType: "READ",
@@ -1949,7 +2009,7 @@ export const RESOURCES: readonly Resource[] = [
   {
     id: "git-guia-pratico-pt-br",
     title: "git — guia prático (pt-BR)",
-    sourceName: "rogerdudler.github.io",
+    sourceName: "Roger Dudler",
     url: "https://rogerdudler.github.io/git-guide/index.pt_BR.html",
     kind: "guide",
     actionType: "READ",
@@ -1968,7 +2028,7 @@ export const RESOURCES: readonly Resource[] = [
   {
     id: "you-don-t-know-js-yet-2-edicao-kyle-simpson",
     title: "You Don't Know JS Yet — 2ª edição (Kyle Simpson)",
-    sourceName: "github.com",
+    sourceName: "Kyle Simpson (GitHub)",
     url: "https://github.com/getify/You-Dont-Know-JS",
     kind: "book",
     actionType: "READ",
@@ -1987,7 +2047,7 @@ export const RESOURCES: readonly Resource[] = [
   {
     id: "mdn-aprenda-desenvolvimento-web-pt-br",
     title: "MDN — Aprenda desenvolvimento web (pt-BR)",
-    sourceName: "developer.mozilla.org",
+    sourceName: "MDN (Mozilla)",
     url: "https://developer.mozilla.org/pt-BR/docs/Learn_web_development",
     kind: "course",
     actionType: "LEARN",
@@ -2010,7 +2070,7 @@ export const RESOURCES: readonly Resource[] = [
   {
     id: "web-dev-aprenda-css-pt-br",
     title: "web.dev — Aprenda CSS (pt-BR)",
-    sourceName: "web.dev",
+    sourceName: "Google (web.dev)",
     url: "https://web.dev/learn/css?hl=pt-br",
     kind: "course",
     actionType: "LEARN",
@@ -2029,7 +2089,7 @@ export const RESOURCES: readonly Resource[] = [
   {
     id: "w3c-wai-digital-accessibility-foundations-edx",
     title: "W3C WAI — Digital Accessibility Foundations (edX)",
-    sourceName: "w3.org",
+    sourceName: "W3C",
     url: "https://www.w3.org/WAI/courses/foundations-course/",
     kind: "course",
     actionType: "LEARN",
@@ -2048,7 +2108,7 @@ export const RESOURCES: readonly Resource[] = [
   {
     id: "curso-em-video-html5-e-css3-modulos-1-a-5",
     title: "Curso em Vídeo — HTML5 e CSS3 (módulos 1 a 5)",
-    sourceName: "cursoemvideo.com",
+    sourceName: "Curso em Vídeo · Gustavo Guanabara",
     url: "https://www.cursoemvideo.com/cursos/",
     kind: "course",
     actionType: "WATCH",
@@ -2070,7 +2130,7 @@ export const RESOURCES: readonly Resource[] = [
   {
     id: "curso-em-video-javascript-modulos-a-f",
     title: "Curso em Vídeo — JavaScript (módulos A-F)",
-    sourceName: "cursoemvideo.com",
+    sourceName: "Curso em Vídeo · Gustavo Guanabara",
     url: "https://www.cursoemvideo.com/curso/javascript/",
     kind: "course",
     actionType: "WATCH",
@@ -2091,7 +2151,7 @@ export const RESOURCES: readonly Resource[] = [
   {
     id: "curso-em-video-git-e-github",
     title: "Curso em Vídeo — Git e GitHub",
-    sourceName: "cursoemvideo.com",
+    sourceName: "Curso em Vídeo · Gustavo Guanabara",
     url: "https://www.cursoemvideo.com/curso/curso-de-git-e-github/",
     kind: "course",
     actionType: "WATCH",
@@ -2112,7 +2172,7 @@ export const RESOURCES: readonly Resource[] = [
   {
     id: "curso-em-video-mysql-banco-de-dados",
     title: "Curso em Vídeo — MySQL / Banco de Dados",
-    sourceName: "cursoemvideo.com",
+    sourceName: "Curso em Vídeo · Gustavo Guanabara",
     url: "https://www.cursoemvideo.com/curso/mysql/",
     kind: "course",
     actionType: "WATCH",
@@ -2132,7 +2192,7 @@ export const RESOURCES: readonly Resource[] = [
   {
     id: "cc50-cs50-de-harvard-legendado-em-portugues-fundacao-estudar",
     title: "CC50 — CS50 de Harvard legendado em português (Fundação Estudar)",
-    sourceName: "estudarfora.org.br",
+    sourceName: "Fundação Estudar",
     url: "https://www.estudarfora.org.br/cc50-v2/",
     kind: "course",
     actionType: "LEARN",
@@ -2152,7 +2212,7 @@ export const RESOURCES: readonly Resource[] = [
   {
     id: "freecodecamp-curriculo-em-portugues",
     title: "freeCodeCamp — currículo em português",
-    sourceName: "freecodecamp.org",
+    sourceName: "freeCodeCamp",
     url: "https://www.freecodecamp.org/portuguese/learn",
     kind: "interactive",
     actionType: "PROVE",
@@ -2175,7 +2235,7 @@ export const RESOURCES: readonly Resource[] = [
   {
     id: "dio-bootcamp-primeiros-passos-em-tecnologia",
     title: "DIO — Bootcamp Primeiros Passos em Tecnologia",
-    sourceName: "dio.me",
+    sourceName: "DIO",
     url: "https://www.dio.me/bootcamp/primeiros-passos-em-tecnologia",
     kind: "course",
     actionType: "LEARN",
@@ -2198,7 +2258,7 @@ export const RESOURCES: readonly Resource[] = [
   {
     id: "alura-7-days-of-code",
     title: "Alura — 7 Days of Code",
-    sourceName: "7daysofcode.io",
+    sourceName: "Alura",
     url: "https://7daysofcode.io/",
     kind: "exercise",
     actionType: "BUILD",
@@ -2220,7 +2280,7 @@ export const RESOURCES: readonly Resource[] = [
   {
     id: "escola-virtual-fundacao-bradesco-crie-um-site-simples-usando-html-css-",
     title: "Escola Virtual Fundação Bradesco — Crie um site simples usando HTML, CSS e JavaScript",
-    sourceName: "ev.org.br",
+    sourceName: "Fundação Bradesco · Escola Virtual",
     url: "https://www.ev.org.br/cursos/crie-um-site-simples-usando-html-css-e-javascript",
     kind: "course",
     actionType: "BUILD",
@@ -2241,7 +2301,7 @@ export const RESOURCES: readonly Resource[] = [
   {
     id: "escola-virtual-fundacao-bradesco-linguagem-de-programacao-python-basic",
     title: "Escola Virtual Fundação Bradesco — Linguagem de Programação Python Básico",
-    sourceName: "ev.org.br",
+    sourceName: "Fundação Bradesco · Escola Virtual",
     url: "https://www.ev.org.br/cursos/linguagem-de-programacao-python-basico",
     kind: "course",
     actionType: "LEARN",
@@ -2260,7 +2320,7 @@ export const RESOURCES: readonly Resource[] = [
   {
     id: "the-odin-project-foundations",
     title: "The Odin Project — Foundations",
-    sourceName: "theodinproject.com",
+    sourceName: "The Odin Project",
     url: "https://www.theodinproject.com/paths/foundations/courses/foundations",
     kind: "course",
     actionType: "LEARN",
@@ -2284,7 +2344,7 @@ export const RESOURCES: readonly Resource[] = [
   {
     id: "logica-de-programacao-crie-seus-primeiros-programas-usando-javascript-",
     title: "Lógica de Programação: Crie seus primeiros programas usando JavaScript e HTML (Paulo Silveira, Adriano Almeida)",
-    sourceName: "casadocodigo.com.br",
+    sourceName: "Casa do Código",
     url: "https://www.casadocodigo.com.br/products/livro-programacao",
     kind: "book",
     actionType: "READ",
@@ -2307,7 +2367,7 @@ export const RESOURCES: readonly Resource[] = [
   {
     id: "aprenda-javascript-com-dashboards-lucas-tauil",
     title: "Aprenda JavaScript com Dashboards (Lucas Tauil)",
-    sourceName: "casadocodigo.com.br",
+    sourceName: "Casa do Código",
     url: "https://www.casadocodigo.com.br/products/livro-js-dashboards",
     kind: "book",
     actionType: "READ",
@@ -2329,7 +2389,7 @@ export const RESOURCES: readonly Resource[] = [
   {
     id: "mysql-comece-com-o-principal-banco-de-dados-open-source-do-mercado-vin",
     title: "MySQL: Comece com o principal banco de dados open source do mercado (Vinícius Carvalho)",
-    sourceName: "casadocodigo.com.br",
+    sourceName: "Casa do Código",
     url: "https://www.casadocodigo.com.br/products/livro-banco-mysql",
     kind: "book",
     actionType: "READ",
@@ -2350,7 +2410,7 @@ export const RESOURCES: readonly Resource[] = [
   {
     id: "testes-automatizados-de-software-um-guia-pratico-mauricio-aniche",
     title: "Testes automatizados de software: um guia prático (Mauricio Aniche)",
-    sourceName: "casadocodigo.com.br",
+    sourceName: "Casa do Código",
     url: "https://www.casadocodigo.com.br/products/livro-testes-de-software",
     kind: "book",
     actionType: "READ",
@@ -2371,7 +2431,7 @@ export const RESOURCES: readonly Resource[] = [
   {
     id: "acessibilidade-na-web-boas-praticas-para-construir-sites-e-aplicacoes-",
     title: "Acessibilidade na Web: Boas práticas para construir sites e aplicações acessíveis (Reinaldo Ferraz)",
-    sourceName: "casadocodigo.com.br",
+    sourceName: "Casa do Código",
     url: "https://www.casadocodigo.com.br/products/livro-acessibilidade",
     kind: "book",
     actionType: "READ",
@@ -2392,7 +2452,7 @@ export const RESOURCES: readonly Resource[] = [
   {
     id: "construindo-apis-rest-com-node-js-caio-ribeiro-pereira",
     title: "Construindo APIs REST com Node.js (Caio Ribeiro Pereira)",
-    sourceName: "casadocodigo.com.br",
+    sourceName: "Casa do Código",
     url: "https://www.casadocodigo.com.br/products/livro-apis-nodejs",
     kind: "book",
     actionType: "READ",
@@ -2412,7 +2472,7 @@ export const RESOURCES: readonly Resource[] = [
   {
     id: "estruturas-de-dados-domine-as-praticas-essenciais-em-c-java-c-python-e",
     title: "Estruturas de Dados: Domine as práticas essenciais em C, Java, C#, Python e JavaScript (Thiago Leite e Carvalho)",
-    sourceName: "casadocodigo.com.br",
+    sourceName: "Casa do Código",
     url: "https://www.casadocodigo.com.br/products/livro-estruturas-de-dados",
     kind: "book",
     actionType: "READ",
@@ -2432,7 +2492,7 @@ export const RESOURCES: readonly Resource[] = [
   {
     id: "entendendo-algoritmos-2-edicao-aditya-bhargava",
     title: "Entendendo Algoritmos — 2ª edição (Aditya Bhargava)",
-    sourceName: "novatec.com.br",
+    sourceName: "Novatec",
     url: "https://novatec.com.br/livros/entendendo-algoritmos-2ed/",
     kind: "book",
     actionType: "READ",
@@ -2453,7 +2513,7 @@ export const RESOURCES: readonly Resource[] = [
   {
     id: "codigo-limpo-habilidades-praticas-do-agile-software-robert-c-martin",
     title: "Código Limpo: Habilidades Práticas do Agile Software (Robert C. Martin)",
-    sourceName: "altabooks.com.br",
+    sourceName: "Alta Books",
     url: "https://altabooks.com.br/produto/codigo-limpo/",
     kind: "book",
     actionType: "READ",
@@ -2473,7 +2533,7 @@ export const RESOURCES: readonly Resource[] = [
   {
     id: "origamid-html-e-css-para-iniciantes",
     title: "Origamid — HTML e CSS para Iniciantes",
-    sourceName: "origamid.com",
+    sourceName: "Origamid",
     url: "https://www.origamid.com/curso/html-e-css-para-iniciantes/",
     kind: "course",
     actionType: "WATCH",
@@ -2496,7 +2556,7 @@ export const RESOURCES: readonly Resource[] = [
   {
     id: "origamid-javascript-completo-es6",
     title: "Origamid — JavaScript Completo ES6",
-    sourceName: "origamid.com",
+    sourceName: "Origamid",
     url: "https://www.origamid.com/curso/javascript-completo-es6/",
     kind: "course",
     actionType: "WATCH",
@@ -2754,5 +2814,294 @@ export const RESOURCES: readonly Resource[] = [
     license: "MIT",
     why: "Projeto brasileiro de dados abertos com 25 issues marcadas para quem está começando (15/10/2026). Um pull request aceito passa por revisão de verdade — é evidência pública de Git, de revisão e de comunicação.",
     origin: "practice"
+  },
+  {
+    id: "full-stack-open-exercicios-1-1-a-1-14-componentes-props-e-estado",
+    title: "Full Stack Open — exercícios 1.1 a 1.14: componentes, props e estado",
+    sourceName: "Universidade de Helsinque — Full Stack Open",
+    url: "https://fullstackopen.com/ptbr/part1/introducao_a_biblioteca_react",
+    kind: "exercise",
+    actionType: "BUILD",
+    competencies: [
+      "ui-components-and-state"
+    ],
+    levelMin: "L1",
+    technology: "react",
+    cost: "free",
+    ptBrStatus: "complete",
+    requiresSignup: false,
+    license: "CC BY-NC-SA 3.0 — apenas linkar",
+    estimatedTime: "7 h (média de 2026 da parte 1)",
+    why: "Três aplicações pequenas que obrigam a separar a tela em componentes e decidir onde o estado mora. A tradução em pt-BR ainda manda criar o projeto com create-react-app, que o React não recomenda mais: crie com Vite, como a versão em inglês do curso já faz.",
+    origin: "practice"
+  },
+  {
+    id: "full-stack-open-exercicios-2-1-a-2-10-listas-e-formulario-controlado",
+    title: "Full Stack Open — exercícios 2.1 a 2.10: listas e formulário controlado",
+    sourceName: "Universidade de Helsinque — Full Stack Open",
+    url: "https://fullstackopen.com/ptbr/part2/formularios",
+    kind: "exercise",
+    actionType: "BUILD",
+    competencies: [
+      "ui-components-and-state"
+    ],
+    levelMin: "L1",
+    technology: "react",
+    cost: "free",
+    ptBrStatus: "complete",
+    requiresSignup: false,
+    license: "CC BY-NC-SA 3.0 — apenas linkar",
+    why: "Renderizar uma coleção com chave estável e montar um formulário controlado que valida antes de adicionar: os dois critérios da competência, em exercícios curtos e em português.",
+    origin: "practice"
+  },
+  {
+    id: "full-stack-open-exercicios-0-4-a-0-6-diagrame-as-requisicoes",
+    title: "Full Stack Open — exercícios 0.4 a 0.6: diagrame as requisições",
+    sourceName: "Universidade de Helsinque — Full Stack Open",
+    url: "https://fullstackopen.com/ptbr/part0/fundamentos_de_aplicacoes_web",
+    kind: "exercise",
+    actionType: "BUILD",
+    competencies: [
+      "http-fundamentals"
+    ],
+    levelMin: "L1",
+    technology: "http",
+    cost: "free",
+    ptBrStatus: "complete",
+    requiresSignup: false,
+    license: "CC BY-NC-SA 3.0 — apenas linkar",
+    estimatedTime: "4 h (média de 2026 da parte 0)",
+    why: "Desenhar o fluxo exige ler cada requisição na aba Network e comparar o POST de formulário, que redireciona, com o POST em JSON da aplicação de página única. É escolher entre GET e POST sabendo o porquê.",
+    origin: "practice"
+  },
+  {
+    id: "full-stack-open-exercicios-2-11-a-2-17-lista-telefonica-com-api-rest",
+    title: "Full Stack Open — exercícios 2.11 a 2.17: lista telefônica com API REST",
+    sourceName: "Universidade de Helsinque — Full Stack Open",
+    url: "https://fullstackopen.com/ptbr/part2/obtendo_dados_do_servidor",
+    kind: "exercise",
+    actionType: "BUILD",
+    competencies: [
+      "api-consumption"
+    ],
+    levelMin: "L1",
+    technology: "react",
+    cost: "free",
+    ptBrStatus: "complete",
+    requiresSignup: false,
+    license: "CC BY-NC-SA 3.0 — apenas linkar",
+    why: "Buscar, criar, alterar e apagar por uma API REST local. O exercício 2.17 pede uma mensagem útil quando a operação falha (o contato já foi apagado em outra aba e a API devolve 404).",
+    origin: "practice"
+  },
+  {
+    id: "full-stack-open-exercicios-4-15-a-4-23-senha-com-bcrypt-e-login-por-to",
+    title: "Full Stack Open — exercícios 4.15 a 4.23: senha com bcrypt e login por token",
+    sourceName: "Universidade de Helsinque — Full Stack Open",
+    url: "https://fullstackopen.com/ptbr/part4/autenticacao_por_token",
+    kind: "exercise",
+    actionType: "BUILD",
+    competencies: [
+      "authentication-basics"
+    ],
+    levelMin: "L1",
+    technology: "node",
+    cost: "free",
+    ptBrStatus: "complete",
+    requiresSignup: false,
+    license: "CC BY-NC-SA 3.0 — apenas linkar",
+    why: "Guarda a senha com bcrypt em vez de criptografia própria e só deixa o autor apagar o que criou (401 para quem não pode). O texto não nomeia a diferença entre autenticação e autorização; leia junto o tutorial do MDN.",
+    origin: "practice"
+  },
+  {
+    id: "tutorial-django-parte-8-autenticacao-de-usuario-e-permissoes",
+    title: "Tutorial Django Parte 8: Autenticação de usuário e permissões",
+    sourceName: "MDN Web Docs (Mozilla)",
+    url: "https://developer.mozilla.org/pt-BR/docs/Learn_web_development/Extensions/Server-side/Django/Authentication",
+    kind: "tutorial",
+    actionType: "BUILD",
+    competencies: [
+      "authentication-basics"
+    ],
+    levelMin: "L1",
+    technology: "python-django",
+    cost: "free",
+    ptBrStatus: "complete",
+    requiresSignup: false,
+    license: "CC BY-SA 2.5",
+    why: "Login e permissões em seções separadas, que é a diferença entre autenticação e autorização posta em prática. Continua o projeto LocalLibrary das partes anteriores, que também estão em pt-BR.",
+    origin: "practice"
+  },
+  {
+    id: "freecodecamp-criar-uma-api-de-lista-de-filmes-para-a-familia",
+    title: "freeCodeCamp — Criar uma API de lista de filmes para a família",
+    sourceName: "freeCodeCamp",
+    url: "https://www.freecodecamp.org/portuguese/learn/back-end-development-and-apis-v9/lab-family-movie-watchlist-api/build-a-family-movie-watchlist-api",
+    kind: "exercise",
+    actionType: "PROVE",
+    competencies: [
+      "authentication-basics"
+    ],
+    levelMin: "L1",
+    technology: "node",
+    cost: "free",
+    ptBrStatus: "partial",
+    requiresSignup: true,
+    license: "direitos reservados — apenas linkar (a BSD-3 do freeCodeCamp cobre só o software)",
+    why: "Os testes automáticos distinguem 401 de 403 por papel (quem pode ver e quem pode alterar a lista), e a entrega é um repositório público com os testes passando. Enunciado traduzido; o ambiente roda no GitHub Codespaces, com instruções do editor em inglês.",
+    origin: "practice"
+  },
+  {
+    id: "freecodecamp-criar-um-banco-de-dados-de-corpos-celestiais",
+    title: "freeCodeCamp — Criar um banco de dados de corpos celestiais",
+    sourceName: "freeCodeCamp",
+    url: "https://www.freecodecamp.org/portuguese/learn/relational-databases-v9/lab-celestial-bodies-database/lab-celestial-bodies-database",
+    kind: "exercise",
+    actionType: "PROVE",
+    competencies: [
+      "relational-data-modeling"
+    ],
+    levelMin: "L0",
+    technology: "sql",
+    cost: "free",
+    ptBrStatus: "partial",
+    requiresSignup: true,
+    license: "direitos reservados — apenas linkar (a BSD-3 do freeCodeCamp cobre só o software)",
+    why: "Modelar cinco tabelas ligadas por chave primária e estrangeira, com testes que conferem a estrutura. Primeira prática verificável da competência no catálogo. Enunciado traduzido; o tutorial dentro do ambiente está em inglês.",
+    origin: "practice"
+  },
+  {
+    id: "the-odin-project-project-inventory-application",
+    title: "The Odin Project — Project: Inventory Application",
+    sourceName: "The Odin Project",
+    url: "https://www.theodinproject.com/lessons/node-path-nodejs-inventory-application",
+    kind: "exercise",
+    actionType: "BUILD",
+    competencies: [
+      "relational-data-modeling"
+    ],
+    levelMin: "L1",
+    technology: "node",
+    cost: "free",
+    ptBrStatus: "none",
+    requiresSignup: false,
+    license: "CC BY-NC-SA 4.0 — apenas linkar",
+    why: "Antes de escrever código, o projeto pede o desenho das tabelas e uma decisão: o que acontece com os itens quando a categoria é apagada. É chave estrangeira com consequência, não só sintaxe.",
+    origin: "practice"
+  },
+  {
+    id: "freecodecamp-construir-um-aplicativo-de-clima",
+    title: "freeCodeCamp — Construir um Aplicativo de Clima",
+    sourceName: "freeCodeCamp",
+    url: "https://www.freecodecamp.org/portuguese/learn/javascript-v9/lab-weather-app/lab-weather-app",
+    kind: "exercise",
+    actionType: "PROVE",
+    competencies: [
+      "api-consumption"
+    ],
+    levelMin: "L1",
+    technology: "javascript",
+    cost: "free",
+    ptBrStatus: "complete",
+    requiresSignup: false,
+    license: "direitos reservados — apenas linkar (a BSD-3 do freeCodeCamp cobre só o software)",
+    why: "Os testes forçam a falha da API e exigem um aviso ao usuário: prova \"minha tela mostra algo útil quando a requisição falha\". Roda no navegador; a conta só guarda o progresso.",
+    origin: "practice"
+  },
+  {
+    id: "freecodecamp-faca-a-depuracao-do-modificador-de-cor-de-fundo-aleatorio",
+    title: "freeCodeCamp — Faça a depuração do modificador de cor de fundo aleatório",
+    sourceName: "freeCodeCamp",
+    url: "https://www.freecodecamp.org/portuguese/learn/javascript-v9/lab-random-background-color-changer/debug-a-random-background-color-changer",
+    kind: "exercise",
+    actionType: "BUILD",
+    competencies: [
+      "debugging"
+    ],
+    levelMin: "L0",
+    technology: "javascript",
+    cost: "free",
+    ptBrStatus: "complete",
+    requiresSignup: false,
+    license: "direitos reservados — apenas linkar (a BSD-3 do freeCodeCamp cobre só o software)",
+    why: "Um programa quebrado de propósito, em que cada história nomeia o tipo de erro (de sintaxe, de referência, de tipo). Treina explicar a causa, não só aplicar a correção.",
+    origin: "practice"
+  },
+  {
+    id: "freecodecamp-depure-um-formulario-de-doacao",
+    title: "freeCodeCamp — Depure um formulário de doação",
+    sourceName: "freeCodeCamp",
+    url: "https://www.freecodecamp.org/portuguese/learn/responsive-web-design-v9/lab-debug-donation-form/debug-donation-form",
+    kind: "exercise",
+    actionType: "BUILD",
+    competencies: [
+      "web-accessibility-basics"
+    ],
+    levelMin: "L0",
+    technology: "html",
+    cost: "free",
+    ptBrStatus: "complete",
+    requiresSignup: false,
+    license: "direitos reservados — apenas linkar (a BSD-3 do freeCodeCamp cobre só o software)",
+    why: "Um formulário inacessível para consertar até os testes passarem: rótulos associados, agrupamento e controles usáveis pelo teclado. Roda no navegador.",
+    origin: "practice"
+  },
+  {
+    id: "the-odin-project-project-etch-a-sketch",
+    title: "The Odin Project — Project: Etch-a-Sketch",
+    sourceName: "The Odin Project",
+    url: "https://www.theodinproject.com/lessons/foundations-etch-a-sketch",
+    kind: "exercise",
+    actionType: "BUILD",
+    competencies: [
+      "dom-and-browser"
+    ],
+    levelMin: "L0",
+    technology: "javascript",
+    cost: "free",
+    ptBrStatus: "none",
+    requiresSignup: false,
+    license: "CC BY-NC-SA 4.0 — apenas linkar",
+    why: "Uma grade gerada toda pelo DOM que reage ao mouse, com um roteiro de diagnóstico pelo console e pelo inspetor quando nada aparece. Pede usar as ferramentas do navegador sem tutorial.",
+    origin: "practice"
+  },
+  {
+    id: "freecodecamp-criar-um-boilerplate-so-pelo-terminal",
+    title: "freeCodeCamp — Criar um boilerplate (só pelo terminal)",
+    sourceName: "freeCodeCamp",
+    url: "https://www.freecodecamp.org/portuguese/learn/relational-databases-v9/workshop-bash-boilerplate/build-a-boilerplate",
+    kind: "exercise",
+    actionType: "BUILD",
+    competencies: [
+      "command-line-basics"
+    ],
+    levelMin: "L0",
+    technology: "shell",
+    cost: "free",
+    ptBrStatus: "partial",
+    requiresSignup: true,
+    license: "direitos reservados — apenas linkar (a BSD-3 do freeCodeCamp cobre só o software)",
+    why: "Monta a estrutura de um site inteiro só com comandos: criar, mover, renomear e apagar pastas e arquivos. Exige conta no GitHub para o ambiente; as instruções do editor estão em inglês.",
+    origin: "practice"
+  },
+  {
+    id: "missao-peca-a-ia-uma-funcao-de-preco-e-prove-que-ela-esta-certa",
+    title: "Missão: peça à IA uma função de preço e prove que ela está certa",
+    sourceName: "Missão Career Gap · MDN",
+    url: "https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat",
+    kind: "exercise",
+    actionType: "BUILD",
+    competencies: [
+      "ai-assisted-development-basics"
+    ],
+    levelMin: "L1",
+    technology: "javascript",
+    cost: "free",
+    ptBrStatus: "complete",
+    requiresSignup: false,
+    license: "missão do projeto; a página do MDN é CC BY-SA 2.5",
+    estimatedTime: "45 min",
+    why: "Formatar preço em reais é tarefa de todo sistema brasileiro, e a armadilha é real: o Intl.NumberFormat põe um espaço não separável (U+00A0) entre R$ e o número, então o teste escrito com espaço comum falha mesmo com o código certo. Conferido no Node 22: 1234.56 vira \"R$ 1.234,56\" com U+00A0, e -10 vira \"-R$ 10,00\". Obriga a verificar a saída em vez de confiar nela, que é o critério da competência.",
+    task: "Antes de abrir o assistente, escreva quatro testes para uma função formatarPreco(valor): 1234.56 vira R$ 1.234,56; 0.5 vira R$ 0,50; -10 vira -R$ 10,00; e um valor que não é número, como \"abc\", gera erro. Depois peça a função ao assistente que você já usa, colando os testes e dizendo a linguagem. Rode os testes. Se algum falhar, descubra se o erro é da IA ou do teste comparando a saída caractere por caractere com o esperado: o espaço depois de R$ não é um espaço comum. Anote o que a IA errou, o que faltou no seu pedido e o que você teria aceitado sem os testes. Feche explicando cada linha da função final; a linha que você não souber explicar, reescreva.",
+    origin: "mission"
   }
 ];

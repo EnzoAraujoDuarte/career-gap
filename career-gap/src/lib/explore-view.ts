@@ -47,34 +47,27 @@ export const contentTypeOf = (resource: Resource): ContentType =>
         : 'learn';
 
 /**
- * A mesma pessoa ou casa aparece com nomes diferentes no catálogo ("cursoemvideo.com" e
- * "Gustavo Guanabara (Curso em Vídeo)"). Sem unificar, o filtro por criador mostraria a mesma
+ * A mesma pessoa ou casa aparece com nomes diferentes no catálogo ("Gustavo Guanabara
+ * (GitHub)" e "Gustavo Guanabara (Curso em Vídeo)"). Sem unificar, o filtro por criador mostraria a mesma
  * gente duas vezes com contagens erradas.
  */
 const CREATOR_ALIASES: Readonly<Record<string, string>> = {
-  'cursoemvideo.com': 'Curso em Vídeo · Gustavo Guanabara',
   'Gustavo Guanabara (Curso em Vídeo)': 'Curso em Vídeo · Gustavo Guanabara',
+  'Gustavo Guanabara (GitHub)': 'Curso em Vídeo · Gustavo Guanabara',
   'MDN Web Docs (Mozilla)': 'MDN (Mozilla)',
-  'developer.mozilla.org': 'MDN (Mozilla)',
-  'casadocodigo.com.br': 'Casa do Código',
   'web.dev (Google / Chrome team)': 'Google',
-  'web.dev': 'Google',
+  'Google (web.dev)': 'Google',
   'Google / Chrome for Developers': 'Google',
   'Chrome for Developers (Google)': 'Google',
   'Google for Developers': 'Google',
   'Google (google/eng-practices)': 'Google',
-  'origamid.com': 'Origamid',
-  'ev.org.br': 'Fundação Bradesco · Escola Virtual',
   'Missão Career Gap · BrasilAPI': 'Missões Career Gap',
   'Missão Career Gap · Receita Federal': 'Missões Career Gap',
-  'freecodecamp.org': 'freeCodeCamp',
   'freeCodeCamp (Richard Reis; tradução de Afonso Branco)': 'freeCodeCamp',
   'Martin Fowler / refactoring.com': 'Martin Fowler',
   'Thoughtworks / Martin Fowler': 'Martin Fowler',
   'Kent C. Dodds': 'Kent C. Dodds',
   'Testing Library (Kent C. Dodds e contribuidores)': 'Kent C. Dodds',
-  'alura.com.br': 'Alura',
-  '7daysofcode.io': 'Alura',
 };
 
 export const creatorOf = (resource: Resource): string =>

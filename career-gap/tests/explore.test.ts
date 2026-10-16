@@ -54,8 +54,12 @@ describe('explorar', () => {
 
   it('junta o mesmo criador escrito de dois jeitos', () => {
     const named = (sourceName: string) => creatorOf({ sourceName } as never);
-    expect(named('cursoemvideo.com')).toBe(named('Gustavo Guanabara (Curso em Vídeo)'));
-    const guanabara = explore().facets.creator.find((facet) => facet.value === named('cursoemvideo.com'));
+    // O e-book no GitHub e os cursos do site são do mesmo criador; o host cru ("cursoemvideo.com")
+    // deixou de aparecer quando o gerador passou a dar o nome de quem publica.
+    expect(named('Gustavo Guanabara (GitHub)')).toBe(named('Gustavo Guanabara (Curso em Vídeo)'));
+    const guanabara = explore().facets.creator.find(
+      (facet) => facet.value === named('Gustavo Guanabara (Curso em Vídeo)'),
+    );
     expect(guanabara?.count).toBeGreaterThanOrEqual(10);
   });
 });

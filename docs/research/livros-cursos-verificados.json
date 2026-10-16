@@ -446,8 +446,8 @@
       "pt_br_status": "partial",
       "license": "CC BY-NC-SA 3.0",
       "action_type": "BUILD",
-      "chapters": "partes 0-5 e 13 em pt-BR (tradução humana de Cássio Gabriel e Maycon B. Lopes); partes 6-12 marcadas '(english only)'",
-      "why": "Única fonte estruturada e gratuita em português para API REST com Node/Express, testes e autenticação por token. Pré-requisito duro: javascript-essentials L1 e programação prévia, com React desde a parte 1 — aparece no fim da trilha, nunca antes. Correção de fato: a parte 13 também está traduzida, ao contrário do que o levantamento inicial dizia."
+      "chapters": "partes 0-5 em pt-BR (tradução humana de Cássio Gabriel e Maycon B. Lopes); partes 6-14 só em inglês",
+      "why": "Única fonte estruturada e gratuita em português para API REST com Node/Express, testes e autenticação por token. Pré-requisito duro: javascript-essentials L1 e programação prévia, com React desde a parte 1 — aparece no fim da trilha, nunca antes. Correção de fato (2026-10-15): o índice em pt-BR leva a parte 13 para a versão em inglês, marcada \"english only\", e /ptbr/part13 não existe."
     },
     {
       "name": "The Odin Project — Foundations",

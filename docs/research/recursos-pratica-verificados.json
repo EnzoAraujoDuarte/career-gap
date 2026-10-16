@@ -1,6 +1,6 @@
 {
   "verified_at": "2026-10-15",
-  "method": "Cada URL respondeu HTTP 200 em 2026-10-15. Custo, cadastro e idioma lidos na página do detentor; idioma conferido no CORPO do texto, não no título. Comportamento das APIs das missões testado com requisição real (CNPJ real -> 200, dígito inválido -> 400, CNPJ bem formado inexistente -> 404; estado inexistente no IBGE -> 200 com lista vazia). Cálculo do dígito verificador conferido contra o exemplo resolvido no documento da Receita e contra o CNPJ real do Banco do Brasil.",
+  "method": "Cada URL respondeu HTTP 200 em 2026-10-15. Custo, cadastro e idioma lidos na página do detentor; idioma conferido no CORPO do texto, não no título. Comportamento das APIs das missões testado com requisição real (CNPJ real -> 200, dígito inválido -> 400, CNPJ bem formado inexistente -> 404; estado inexistente no IBGE -> 200 com lista vazia). Cálculo do dígito verificador conferido contra o exemplo resolvido no documento da Receita e contra o CNPJ real do Banco do Brasil. Lote de 2026-10-15 (docs/COMPARACAO-CURRICULOS.md §6): URLs com HTTP 200; páginas do freeCodeCamp conferidas pelo page-data (título em português, translationPending=false); idioma do Full Stack Open conferido no corpo; tempos do Full Stack Open são as médias de 2026 do painel do curso.",
   "purpose": "Preencher a lacuna medida na auditoria de 2026-10-15: 7 competências core sem nenhuma prática. Missões são texto do projeto (permitido pela ADR-0005); a URL aponta para a documentação pública que a missão usa.",
   "entries": [
     {
@@ -230,6 +230,280 @@
       "license": "MIT",
       "why": "Projeto brasileiro de dados abertos com 25 issues marcadas para quem está começando (15/10/2026). Um pull request aceito passa por revisão de verdade — é evidência pública de Git, de revisão e de comunicação.",
       "origin": "practice"
+    },
+    {
+      "title": "Full Stack Open — exercícios 1.1 a 1.14: componentes, props e estado",
+      "source": "Universidade de Helsinque — Full Stack Open",
+      "url": "https://fullstackopen.com/ptbr/part1/introducao_a_biblioteca_react",
+      "kind": "exercise",
+      "action_type": "BUILD",
+      "competencies": [
+        "ui-components-and-state"
+      ],
+      "level_min": "L1",
+      "technology": "React",
+      "cost": "free",
+      "pt_br_status": "complete",
+      "requires_signup": false,
+      "license": "CC BY-NC-SA 3.0 — apenas linkar",
+      "estimated_time": "7 h (média de 2026 da parte 1)",
+      "why": "Três aplicações pequenas que obrigam a separar a tela em componentes e decidir onde o estado mora. A tradução em pt-BR ainda manda criar o projeto com create-react-app, que o React não recomenda mais: crie com Vite, como a versão em inglês do curso já faz.",
+      "origin": "practice"
+    },
+    {
+      "title": "Full Stack Open — exercícios 2.1 a 2.10: listas e formulário controlado",
+      "source": "Universidade de Helsinque — Full Stack Open",
+      "url": "https://fullstackopen.com/ptbr/part2/formularios",
+      "kind": "exercise",
+      "action_type": "BUILD",
+      "competencies": [
+        "ui-components-and-state"
+      ],
+      "level_min": "L1",
+      "technology": "React",
+      "cost": "free",
+      "pt_br_status": "complete",
+      "requires_signup": false,
+      "license": "CC BY-NC-SA 3.0 — apenas linkar",
+      "why": "Renderizar uma coleção com chave estável e montar um formulário controlado que valida antes de adicionar: os dois critérios da competência, em exercícios curtos e em português.",
+      "origin": "practice"
+    },
+    {
+      "title": "Full Stack Open — exercícios 0.4 a 0.6: diagrame as requisições",
+      "source": "Universidade de Helsinque — Full Stack Open",
+      "url": "https://fullstackopen.com/ptbr/part0/fundamentos_de_aplicacoes_web",
+      "kind": "exercise",
+      "action_type": "BUILD",
+      "competencies": [
+        "http-fundamentals"
+      ],
+      "level_min": "L1",
+      "technology": "HTTP",
+      "cost": "free",
+      "pt_br_status": "complete",
+      "requires_signup": false,
+      "license": "CC BY-NC-SA 3.0 — apenas linkar",
+      "estimated_time": "4 h (média de 2026 da parte 0)",
+      "why": "Desenhar o fluxo exige ler cada requisição na aba Network e comparar o POST de formulário, que redireciona, com o POST em JSON da aplicação de página única. É escolher entre GET e POST sabendo o porquê.",
+      "origin": "practice"
+    },
+    {
+      "title": "Full Stack Open — exercícios 2.11 a 2.17: lista telefônica com API REST",
+      "source": "Universidade de Helsinque — Full Stack Open",
+      "url": "https://fullstackopen.com/ptbr/part2/obtendo_dados_do_servidor",
+      "kind": "exercise",
+      "action_type": "BUILD",
+      "competencies": [
+        "api-consumption"
+      ],
+      "level_min": "L1",
+      "technology": "React",
+      "cost": "free",
+      "pt_br_status": "complete",
+      "requires_signup": false,
+      "license": "CC BY-NC-SA 3.0 — apenas linkar",
+      "why": "Buscar, criar, alterar e apagar por uma API REST local. O exercício 2.17 pede uma mensagem útil quando a operação falha (o contato já foi apagado em outra aba e a API devolve 404).",
+      "origin": "practice"
+    },
+    {
+      "title": "Full Stack Open — exercícios 4.15 a 4.23: senha com bcrypt e login por token",
+      "source": "Universidade de Helsinque — Full Stack Open",
+      "url": "https://fullstackopen.com/ptbr/part4/autenticacao_por_token",
+      "kind": "exercise",
+      "action_type": "BUILD",
+      "competencies": [
+        "authentication-basics"
+      ],
+      "level_min": "L1",
+      "technology": "Node.js / Express",
+      "cost": "free",
+      "pt_br_status": "complete",
+      "requires_signup": false,
+      "license": "CC BY-NC-SA 3.0 — apenas linkar",
+      "why": "Guarda a senha com bcrypt em vez de criptografia própria e só deixa o autor apagar o que criou (401 para quem não pode). O texto não nomeia a diferença entre autenticação e autorização; leia junto o tutorial do MDN.",
+      "origin": "practice"
+    },
+    {
+      "title": "Tutorial Django Parte 8: Autenticação de usuário e permissões",
+      "source": "MDN Web Docs (Mozilla)",
+      "url": "https://developer.mozilla.org/pt-BR/docs/Learn_web_development/Extensions/Server-side/Django/Authentication",
+      "kind": "tutorial",
+      "action_type": "BUILD",
+      "competencies": [
+        "authentication-basics"
+      ],
+      "level_min": "L1",
+      "technology": "Python / Django",
+      "cost": "free",
+      "pt_br_status": "complete",
+      "requires_signup": false,
+      "license": "CC BY-SA 2.5",
+      "why": "Login e permissões em seções separadas, que é a diferença entre autenticação e autorização posta em prática. Continua o projeto LocalLibrary das partes anteriores, que também estão em pt-BR.",
+      "origin": "practice"
+    },
+    {
+      "title": "freeCodeCamp — Criar uma API de lista de filmes para a família",
+      "source": "freeCodeCamp",
+      "url": "https://www.freecodecamp.org/portuguese/learn/back-end-development-and-apis-v9/lab-family-movie-watchlist-api/build-a-family-movie-watchlist-api",
+      "kind": "exercise",
+      "action_type": "PROVE",
+      "competencies": [
+        "authentication-basics"
+      ],
+      "level_min": "L1",
+      "technology": "Node.js / Express",
+      "cost": "free",
+      "pt_br_status": "partial",
+      "requires_signup": true,
+      "license": "direitos reservados — apenas linkar (a BSD-3 do freeCodeCamp cobre só o software)",
+      "why": "Os testes automáticos distinguem 401 de 403 por papel (quem pode ver e quem pode alterar a lista), e a entrega é um repositório público com os testes passando. Enunciado traduzido; o ambiente roda no GitHub Codespaces, com instruções do editor em inglês.",
+      "origin": "practice"
+    },
+    {
+      "title": "freeCodeCamp — Criar um banco de dados de corpos celestiais",
+      "source": "freeCodeCamp",
+      "url": "https://www.freecodecamp.org/portuguese/learn/relational-databases-v9/lab-celestial-bodies-database/lab-celestial-bodies-database",
+      "kind": "exercise",
+      "action_type": "PROVE",
+      "competencies": [
+        "relational-data-modeling"
+      ],
+      "level_min": "L0",
+      "technology": "SQL",
+      "cost": "free",
+      "pt_br_status": "partial",
+      "requires_signup": true,
+      "license": "direitos reservados — apenas linkar (a BSD-3 do freeCodeCamp cobre só o software)",
+      "why": "Modelar cinco tabelas ligadas por chave primária e estrangeira, com testes que conferem a estrutura. Primeira prática verificável da competência no catálogo. Enunciado traduzido; o tutorial dentro do ambiente está em inglês.",
+      "origin": "practice"
+    },
+    {
+      "title": "The Odin Project — Project: Inventory Application",
+      "source": "The Odin Project",
+      "url": "https://www.theodinproject.com/lessons/node-path-nodejs-inventory-application",
+      "kind": "exercise",
+      "action_type": "BUILD",
+      "competencies": [
+        "relational-data-modeling"
+      ],
+      "level_min": "L1",
+      "technology": "Node.js / Express",
+      "cost": "free",
+      "pt_br_status": "none",
+      "requires_signup": false,
+      "license": "CC BY-NC-SA 4.0 — apenas linkar",
+      "why": "Antes de escrever código, o projeto pede o desenho das tabelas e uma decisão: o que acontece com os itens quando a categoria é apagada. É chave estrangeira com consequência, não só sintaxe.",
+      "origin": "practice"
+    },
+    {
+      "title": "freeCodeCamp — Construir um Aplicativo de Clima",
+      "source": "freeCodeCamp",
+      "url": "https://www.freecodecamp.org/portuguese/learn/javascript-v9/lab-weather-app/lab-weather-app",
+      "kind": "exercise",
+      "action_type": "PROVE",
+      "competencies": [
+        "api-consumption"
+      ],
+      "level_min": "L1",
+      "technology": "JavaScript",
+      "cost": "free",
+      "pt_br_status": "complete",
+      "requires_signup": false,
+      "license": "direitos reservados — apenas linkar (a BSD-3 do freeCodeCamp cobre só o software)",
+      "why": "Os testes forçam a falha da API e exigem um aviso ao usuário: prova \"minha tela mostra algo útil quando a requisição falha\". Roda no navegador; a conta só guarda o progresso.",
+      "origin": "practice"
+    },
+    {
+      "title": "freeCodeCamp — Faça a depuração do modificador de cor de fundo aleatório",
+      "source": "freeCodeCamp",
+      "url": "https://www.freecodecamp.org/portuguese/learn/javascript-v9/lab-random-background-color-changer/debug-a-random-background-color-changer",
+      "kind": "exercise",
+      "action_type": "BUILD",
+      "competencies": [
+        "debugging"
+      ],
+      "level_min": "L0",
+      "technology": "JavaScript",
+      "cost": "free",
+      "pt_br_status": "complete",
+      "requires_signup": false,
+      "license": "direitos reservados — apenas linkar (a BSD-3 do freeCodeCamp cobre só o software)",
+      "why": "Um programa quebrado de propósito, em que cada história nomeia o tipo de erro (de sintaxe, de referência, de tipo). Treina explicar a causa, não só aplicar a correção.",
+      "origin": "practice"
+    },
+    {
+      "title": "freeCodeCamp — Depure um formulário de doação",
+      "source": "freeCodeCamp",
+      "url": "https://www.freecodecamp.org/portuguese/learn/responsive-web-design-v9/lab-debug-donation-form/debug-donation-form",
+      "kind": "exercise",
+      "action_type": "BUILD",
+      "competencies": [
+        "web-accessibility-basics"
+      ],
+      "level_min": "L0",
+      "technology": "HTML",
+      "cost": "free",
+      "pt_br_status": "complete",
+      "requires_signup": false,
+      "license": "direitos reservados — apenas linkar (a BSD-3 do freeCodeCamp cobre só o software)",
+      "why": "Um formulário inacessível para consertar até os testes passarem: rótulos associados, agrupamento e controles usáveis pelo teclado. Roda no navegador.",
+      "origin": "practice"
+    },
+    {
+      "title": "The Odin Project — Project: Etch-a-Sketch",
+      "source": "The Odin Project",
+      "url": "https://www.theodinproject.com/lessons/foundations-etch-a-sketch",
+      "kind": "exercise",
+      "action_type": "BUILD",
+      "competencies": [
+        "dom-and-browser"
+      ],
+      "level_min": "L0",
+      "technology": "JavaScript",
+      "cost": "free",
+      "pt_br_status": "none",
+      "requires_signup": false,
+      "license": "CC BY-NC-SA 4.0 — apenas linkar",
+      "why": "Uma grade gerada toda pelo DOM que reage ao mouse, com um roteiro de diagnóstico pelo console e pelo inspetor quando nada aparece. Pede usar as ferramentas do navegador sem tutorial.",
+      "origin": "practice"
+    },
+    {
+      "title": "freeCodeCamp — Criar um boilerplate (só pelo terminal)",
+      "source": "freeCodeCamp",
+      "url": "https://www.freecodecamp.org/portuguese/learn/relational-databases-v9/workshop-bash-boilerplate/build-a-boilerplate",
+      "kind": "exercise",
+      "action_type": "BUILD",
+      "competencies": [
+        "command-line-basics"
+      ],
+      "level_min": "L0",
+      "technology": "Shell / Bash",
+      "cost": "free",
+      "pt_br_status": "partial",
+      "requires_signup": true,
+      "license": "direitos reservados — apenas linkar (a BSD-3 do freeCodeCamp cobre só o software)",
+      "why": "Monta a estrutura de um site inteiro só com comandos: criar, mover, renomear e apagar pastas e arquivos. Exige conta no GitHub para o ambiente; as instruções do editor estão em inglês.",
+      "origin": "practice"
+    },
+    {
+      "title": "Missão: peça à IA uma função de preço e prove que ela está certa",
+      "source": "Missão Career Gap · MDN",
+      "url": "https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat",
+      "kind": "exercise",
+      "action_type": "BUILD",
+      "competencies": [
+        "ai-assisted-development-basics"
+      ],
+      "level_min": "L1",
+      "technology": "JavaScript",
+      "cost": "free",
+      "pt_br_status": "complete",
+      "requires_signup": false,
+      "license": "missão do projeto; a página do MDN é CC BY-SA 2.5",
+      "estimated_time": "45 min",
+      "task": "Antes de abrir o assistente, escreva quatro testes para uma função formatarPreco(valor): 1234.56 vira R$ 1.234,56; 0.5 vira R$ 0,50; -10 vira -R$ 10,00; e um valor que não é número, como \"abc\", gera erro. Depois peça a função ao assistente que você já usa, colando os testes e dizendo a linguagem. Rode os testes. Se algum falhar, descubra se o erro é da IA ou do teste comparando a saída caractere por caractere com o esperado: o espaço depois de R$ não é um espaço comum. Anote o que a IA errou, o que faltou no seu pedido e o que você teria aceitado sem os testes. Feche explicando cada linha da função final; a linha que você não souber explicar, reescreva.",
+      "why": "Formatar preço em reais é tarefa de todo sistema brasileiro, e a armadilha é real: o Intl.NumberFormat põe um espaço não separável (U+00A0) entre R$ e o número, então o teste escrito com espaço comum falha mesmo com o código certo. Conferido no Node 22: 1234.56 vira \"R$ 1.234,56\" com U+00A0, e -10 vira \"-R$ 10,00\". Obriga a verificar a saída em vez de confiar nela, que é o critério da competência.",
+      "origin": "mission"
     }
   ]
 }

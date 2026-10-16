@@ -113,15 +113,20 @@ export const COMPETENCIES: readonly Competency[] = [
   },
   {
     id: 'css-layout',
-    name: 'Layout com CSS',
+    name: 'CSS: estilo e layout',
     domain: 'web-platform',
-    summary: 'Posicionar e dimensionar elementos, incluindo comportamento responsivo.',
+    summary:
+      'Seletores, cascata e especificidade; posicionar e dimensionar elementos, incluindo ' +
+      'comportamento responsivo.',
     stability: 'evergreen',
     technologies: ['css'],
     levels: {
       L1: {
         canDo: 'Aplico estilos e uso flexbox a partir de um exemplo para alinhar elementos.',
-        exitCriteria: ['Consigo centralizar e distribuir elementos sem tentativa e erro'],
+        exitCriteria: [
+          'Consigo centralizar e distribuir elementos sem tentativa e erro',
+          'Mostro no inspetor por que uma regra venceu a outra',
+        ],
       },
       L2: {
         canDo:
@@ -154,6 +159,7 @@ export const COMPETENCIES: readonly Competency[] = [
         exitCriteria: [
           'Explico a diferença entre síncrono e assíncrono com um exemplo meu',
           'Trato o erro de uma chamada assíncrona',
+          'Organizo o código em módulos com import e export',
         ],
       },
     },
@@ -178,6 +184,43 @@ export const COMPETENCIES: readonly Competency[] = [
       },
     },
     sources: [canonical('MDN — Document Object Model'), sfia('PROG')],
+  },
+  {
+    // As seis referências comparadas em docs/COMPARACAO-CURRICULOS.md ensinam interface por
+    // componentes e nenhuma das outras competências cobria. Fica agnóstica: React é o selo da
+    // stack JavaScript, não o nome da competência.
+    id: 'ui-components-and-state',
+    name: 'Interface com componentes',
+    domain: 'web-platform',
+    summary:
+      'Montar a tela com componentes, decidir onde o estado mora e deixar a interface ' +
+      'reagir aos dados, sem alterar o DOM à mão.',
+    stability: 'evergreen',
+    levels: {
+      L1: {
+        canDo:
+          'Monto uma tela com componentes que recebem dados e guardam estado, seguindo a ' +
+          'documentação do framework.',
+        exitCriteria: [
+          'Separo a tela em componentes e explico onde o estado mora',
+          'Mostro uma lista a partir de um array, com uma chave estável em cada item',
+        ],
+      },
+      L2: {
+        canDo:
+          'Construo uma interface com formulário controlado e dados de uma API, tratando ' +
+          'carregamento e erro, sem manipular o DOM diretamente.',
+        exitCriteria: [
+          'Meu formulário controlado valida antes de enviar',
+          'Busco dados quando a tela abre sem disparar a mesma requisição em laço',
+        ],
+      },
+    },
+    sources: [
+      cs2023('SPD', 'Specialized Platform Development — plataformas web'),
+      canonical('react.dev — Pensando em React'),
+      sfia('PROG'),
+    ],
   },
   {
     id: 'http-fundamentals',
@@ -227,7 +270,7 @@ export const COMPETENCIES: readonly Competency[] = [
     id: 'command-line-basics',
     name: 'Linha de comando',
     domain: 'construction',
-    summary: 'Navegar diretórios, rodar comandos e ler a saída de um terminal.',
+    summary: 'Navegar diretórios, instalar dependências, rodar scripts e ler a saída de um terminal.',
     stability: 'evergreen',
     levels: {
       L1: {
@@ -285,6 +328,7 @@ export const COMPETENCIES: readonly Competency[] = [
         exitCriteria: [
           'Resolvo uma dúvida de API só pela doc, sem tutorial',
           'Identifico a versão da doc que corresponde ao meu projeto',
+          'Leio documentação em inglês, com tradutor só como apoio',
         ],
       },
     },
@@ -306,6 +350,7 @@ export const COMPETENCIES: readonly Competency[] = [
         exitCriteria: [
           'Meus nomes não precisam de comentário para serem entendidos',
           'Consigo apontar a parte mais confusa do meu próprio código',
+          'Rodo o linter e o formatador do projeto e corrijo o que apontam antes de pedir revisão',
         ],
       },
     },
@@ -427,6 +472,7 @@ export const COMPETENCIES: readonly Competency[] = [
         exitCriteria: [
           'Minha tela mostra algo útil quando a requisição falha',
           'Não deixo o usuário sem resposta enquanto carrega',
+          'Explico um erro de CORS: quem bloqueia e quem precisa liberar',
         ],
       },
     },
@@ -441,7 +487,10 @@ export const COMPETENCIES: readonly Competency[] = [
     levels: {
       L1: {
         canDo: 'Crio um endpoint que devolve dados em JSON seguindo um exemplo.',
-        exitCriteria: ['Meu endpoint responde com o status adequado'],
+        exitCriteria: [
+          'Meu endpoint responde com o status adequado',
+          'Uso consulta parametrizada: nunca concateno entrada do usuário no SQL',
+        ],
       },
       L2: {
         canDo:
@@ -515,6 +564,7 @@ export const COMPETENCIES: readonly Competency[] = [
         exitCriteria: [
           'Meu comentário aponta um problema concreto, não gosto pessoal',
           'Abro PR pequeno o suficiente para alguém revisar',
+          'Leio a verificação automática do meu PR e corrijo antes de pedir revisão',
         ],
       },
     },
@@ -561,6 +611,7 @@ export const COMPETENCIES: readonly Competency[] = [
         exitCriteria: [
           'Meu README diz o que é, como rodar e por que existe',
           'Descrevo um projeto sem depender de jargão',
+          'Apresento um projeto meu em poucos minutos: o problema, uma decisão e o resultado',
         ],
       },
     },

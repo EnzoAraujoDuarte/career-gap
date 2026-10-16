@@ -84,7 +84,7 @@ const SCREENS: Record<string, (cans: readonly CanDo[]) => ReactNode> = {
         Primeira vaga em desenvolvimento web
       </p>
       <ol className="mt-4 flex-1 space-y-3.5">
-        {['Fundamentos de programação', 'HTML semântico', 'Layout com CSS', 'JavaScript essencial', 'Fundamentos de HTTP', 'Controle de versão com Git'].map(
+        {['Fundamentos de programação', 'HTML semântico', 'CSS: estilo e layout', 'JavaScript essencial', 'Fundamentos de HTTP', 'Controle de versão com Git'].map(
           (name) => (
             <li key={name} className="relative pl-5">
               <span className="absolute left-0 top-[5px] h-2.5 w-2.5 rounded-full border-2 border-[#c9bda6]" />

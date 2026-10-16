@@ -13,7 +13,7 @@ import { TOOLS } from './tools';
  * assim que uma competência muda de nível-alvo — e o TCC perde a rastreabilidade que
  * justamente promete (DISCOVERY.md §3).
  */
-export const CATALOG_VERSION = '2026.10.15-2';
+export const CATALOG_VERSION = '2026.10.15-3';
 
 export const CATALOG: Catalog = {
   version: CATALOG_VERSION,

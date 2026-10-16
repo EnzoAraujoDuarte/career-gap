@@ -37,6 +37,7 @@ const TECH_ALIASES: Record<string, string> = {
   'css': 'css', 'css flexbox': 'css',
   'sql': 'sql', 'modelagem relacional': 'sql',
   'git': 'git', 'java': 'java', 'http': 'http', 'https/tls': 'http', 'rest': 'http',
+  'react': 'react', 'python / django': 'python-django',
   'linux': 'shell', 'shell / man / tldr': 'shell', 'shell / bash': 'shell', 'shell': 'shell',
 };
 
@@ -115,10 +116,41 @@ interface Built {
 }
 
 /** O nome do detentor não existe de forma confiável no JSON de livros — o host da URL é o
- *  dado mais honesto que temos, e é exatamente a página que o ADR-0005 manda linkar. */
+ *  dado mais honesto que temos, e é exatamente a página que o ADR-0005 manda linkar. Na tela,
+ *  porém, "dio.me" ou "github.com" não dizem quem fez: o mapa abaixo dá o nome de quem publica,
+ *  conferido em cada página. No GitHub, quem publica é o dono do repositório. */
+const PUBLISHER: Readonly<Record<string, string>> = {
+  '7daysofcode.io': 'Alura',
+  'altabooks.com.br': 'Alta Books',
+  'alura.com.br': 'Alura',
+  'casadocodigo.com.br': 'Casa do Código',
+  'cursoemvideo.com': 'Curso em Vídeo · Gustavo Guanabara',
+  'developer.mozilla.org': 'MDN (Mozilla)',
+  'dio.me': 'DIO',
+  'estudarfora.org.br': 'Fundação Estudar',
+  'ev.org.br': 'Fundação Bradesco · Escola Virtual',
+  'freecodecamp.org': 'freeCodeCamp',
+  'novatec.com.br': 'Novatec',
+  'origamid.com': 'Origamid',
+  'penseallen.github.io': 'Allen Downey (trad. Sheila Gomes)',
+  'rogerdudler.github.io': 'Roger Dudler',
+  'theodinproject.com': 'The Odin Project',
+  'w3.org': 'W3C',
+  'web.dev': 'Google (web.dev)',
+};
+const GITHUB_OWNER: Readonly<Record<string, string>> = {
+  gustavoguanabara: 'Gustavo Guanabara (GitHub)',
+  getify: 'Kyle Simpson (GitHub)',
+};
 const hostOf = (url: string): string => {
   try {
-    return new URL(url).hostname.replace(/^www\./, '');
+    const { hostname, pathname } = new URL(url);
+    const host = hostname.replace(/^www\./, '');
+    if (host === 'github.com') {
+      const owner = pathname.split('/')[1] ?? '';
+      return GITHUB_OWNER[owner] ?? `${owner} (GitHub)`;
+    }
+    return PUBLISHER[host] ?? host;
   } catch {
     return 'fonte não identificada';
   }

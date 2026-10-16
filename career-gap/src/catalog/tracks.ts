@@ -57,8 +57,13 @@ export const FIRST_WEB_ROLE: CareerTrack = {
     requirement('sql-basics', 'L1', 'supporting', [cs2023('DM'), sfia('DBDS')]),
 
     requirement('api-consumption', 'L2', 'core', [cs2023('NC'), sfia('PROG')]),
+    // De apoio no track geral: do lado da oferta, Java e C# lideram e Spring e .NET aparecem à
+    // frente de React (PLANO-DIRECAO §3). A ênfase em frontend a torna central.
+    requirement('ui-components-and-state', 'L1', 'supporting', [cs2023('SPD'), entryLevelBar]),
     requirement('api-development', 'L1', 'supporting', [swebok('Software Design'), sfia('SWDN')]),
-    requirement('authentication-basics', 'L1', 'optional', [
+    // De apoio, e não opcional: cinco dos seis currículos comparados tratam login e senha como
+    // parte do núcleo do backend (docs/COMPARACAO-CURRICULOS.md §4).
+    requirement('authentication-basics', 'L1', 'supporting', [
       swebok('Software Security'),
       sfia('SCTY'),
     ]),
@@ -94,6 +99,7 @@ export const FIRST_WEB_ROLE: CareerTrack = {
       description: 'Prioriza interface, navegador e consumo de API; dados e servidor recuam.',
       adjustments: [
         { competency: 'dom-and-browser', targetLevel: 'L2', criticality: 'core' },
+        { competency: 'ui-components-and-state', targetLevel: 'L2', criticality: 'core' },
         { competency: 'web-accessibility-basics', criticality: 'core' },
         { competency: 'relational-data-modeling', criticality: 'optional' },
         { competency: 'sql-basics', criticality: 'optional' },
@@ -108,9 +114,10 @@ export const FIRST_WEB_ROLE: CareerTrack = {
         { competency: 'api-development', targetLevel: 'L2', criticality: 'core' },
         { competency: 'sql-basics', targetLevel: 'L2', criticality: 'core' },
         { competency: 'relational-data-modeling', targetLevel: 'L2', criticality: 'core' },
-        { competency: 'authentication-basics', criticality: 'supporting' },
+        { competency: 'authentication-basics', criticality: 'core' },
         { competency: 'css-layout', targetLevel: 'L1', criticality: 'supporting' },
         { competency: 'dom-and-browser', criticality: 'supporting' },
+        { competency: 'ui-components-and-state', criticality: 'optional' },
         { competency: 'web-accessibility-basics', criticality: 'optional' },
       ],
     },
@@ -167,12 +174,14 @@ export const FIRST_WEB_ROLE: CareerTrack = {
       outcomes: [
         'Modelar e consultar dados com SQL',
         'Consumir e construir APIs HTTP',
+        'Montar a interface com componentes que reagem aos dados',
         'Juntar tudo numa aplicação completa e colocá-la no ar',
       ],
       competencies: [
         'sql-basics',
         'relational-data-modeling',
         'api-consumption',
+        'ui-components-and-state',
         'api-development',
         'build-an-application',
         'authentication-basics',
@@ -202,8 +211,10 @@ export const FIRST_WEB_ROLE: CareerTrack = {
   ],
   // Seis temas em vez de 25 telas. Cada frase lista o que ela afirma; a frase menor afirma
   // menos de propósito — "seguindo um tutorial" não diz nada sobre depurar, então depuração
-  // só entra na frase de quem programa sozinho. Ficam sem pergunta algoritmos, autenticação e
-  // IA: começam em "ainda não" e a pessoa ajusta na página da competência.
+  // só entra na frase de quem programa sozinho. Ficam sem pergunta algoritmos, autenticação,
+  // IA e interface com componentes: começam em "ainda não" e a pessoa ajusta na página da
+  // competência. Componentes não cabem na pergunta de JavaScript sem uma terceira frase, e a
+  // regra das frases (cada uma sobe de nível) não deixa.
   quickAssessment: [
     {
       id: 'programming',

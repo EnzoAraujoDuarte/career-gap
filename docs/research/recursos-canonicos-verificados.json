@@ -899,9 +899,9 @@
       "pt_br_status": "partial",
       "pt_br_url": "https://fullstackopen.com/ptbr/",
       "requires_signup": false,
-      "estimated_time": "150 h (partes 0-5, ~60 h)",
+      "estimated_time": "~90 h nas partes 0-5 (médias de 2026 do painel do curso)",
       "action_type": "BUILD",
-      "why": "Curso gratuito mais sério para construir aplicação, de universidade pública. Partes 0-5 e 13 em pt-BR; 6-12 marcadas '(english only)'. Exige JavaScript consolidado — nunca em L0/L1."
+      "why": "Curso gratuito mais sério para construir aplicação, de universidade pública. Partes 0-5 em pt-BR, numa tradução anterior à versão atual (usa create-react-app, Jest e Cypress; a versão em inglês já usa Vite, node:test e Playwright). As partes 6 a 14 existem só em inglês. Exige JavaScript consolidado; para começar no nível 1, os exercícios de cada parte estão catalogados separadamente."
     },
     {
       "source": "MDN Web Docs (Mozilla)",
@@ -1006,6 +1006,59 @@
       "estimated_time": "20-30 min por memo (série viva, 25+ memos)",
       "action_type": "READ",
       "why": "Efeitos reais de assistentes de código sobre qualidade e revisão, por engenheiros que praticam. Pressupõe quem já produz e revisa código — em L0/L1 use o texto do Willison."
+    },
+    {
+      "source": "React (documentação oficial)",
+      "title": "Pensando em React",
+      "url": "https://pt-br.react.dev/learn/thinking-in-react",
+      "kind": "doc",
+      "technology": "React",
+      "competencies": [
+        "ui-components-and-state"
+      ],
+      "level_min": "L0",
+      "license": "CC BY 4.0",
+      "pt_br_status": "complete",
+      "pt_br_url": "https://pt-br.react.dev/learn/thinking-in-react",
+      "requires_signup": false,
+      "estimated_time": "40 min",
+      "action_type": "READ",
+      "why": "O método em cinco passos da própria equipe do React: quebrar a tela em componentes, montar a versão estática e só então decidir o estado mínimo e onde ele mora. É o critério de saída da competência explicado pela fonte."
+    },
+    {
+      "source": "React (documentação oficial)",
+      "title": "Gerenciando o Estado",
+      "url": "https://pt-br.react.dev/learn/managing-state",
+      "kind": "doc",
+      "technology": "React",
+      "competencies": [
+        "ui-components-and-state"
+      ],
+      "level_min": "L1",
+      "license": "CC BY 4.0",
+      "pt_br_status": "complete",
+      "pt_br_url": "https://pt-br.react.dev/learn/managing-state",
+      "requires_signup": false,
+      "estimated_time": "2 h (7 páginas)",
+      "action_type": "READ",
+      "why": "Capítulo sobre a decisão difícil da competência: que estado guardar, como compartilhá-lo entre componentes e quando ele deve ser preservado ou reiniciado."
+    },
+    {
+      "source": "MDN Web Docs (Mozilla)",
+      "title": "Package management basics",
+      "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Client-side_tools/Package_management",
+      "kind": "doc",
+      "technology": "Shell",
+      "competencies": [
+        "command-line-basics"
+      ],
+      "level_min": "L0",
+      "license": "CC BY-SA 2.5",
+      "pt_br_status": "none",
+      "requires_signup": false,
+      "estimated_time": "30 min",
+      "action_type": "READ",
+      "why": "npm init, npm install, npx e scripts do package.json, no terminal: o \"instalo dependências e subo o projeto\" que toda vaga pressupõe. Sem versão em português no MDN."
     }
   ],
   "resolucao_das_lacunas": [

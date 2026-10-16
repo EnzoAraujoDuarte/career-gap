@@ -8,7 +8,7 @@ import { canonical, cs2023, sfia, swebok } from './sources';
  * incompreensível sem a origem naquele nível? Se a afirmação honesta for apenas
  * "é melhor aprender antes", a aresta não entra — isso é peso no escore.
  *
- * O grafo esparso é intencional: 21 arestas para 25 competências. Um grafo denso
+ * O grafo esparso é intencional: 24 arestas para 26 competências. Um grafo denso
  * seria opinião com aparência de estrutura, e nenhuma banca conseguiria auditá-lo.
  */
 export const PREREQUISITES: readonly Prerequisite[] = [
@@ -109,6 +109,24 @@ export const PREREQUISITES: readonly Prerequisite[] = [
     unlocks: 'dom-and-browser',
     rationale: 'Eventos e manipulação do DOM são escritos em JavaScript.',
     sources: [canonical('MDN — Document Object Model'), sfia('PROG')],
+  },
+  {
+    requires: 'javascript-essentials',
+    atLevel: 'L2',
+    unlocks: 'ui-components-and-state',
+    rationale:
+      'Componente é função JavaScript: props desestruturadas, map sobre arrays, estado que não ' +
+      'se altera no lugar e módulos são a linguagem, não o framework.',
+    sources: [canonical('react.dev — Pensando em React'), sfia('PROG')],
+  },
+  {
+    requires: 'dom-and-browser',
+    atLevel: 'L1',
+    unlocks: 'ui-components-and-state',
+    rationale:
+      'O framework gera elementos e trata eventos por você; sem saber o que é a árvore do DOM ' +
+      'e um evento, o que ele faz parece mágica e o defeito fica impossível de achar.',
+    sources: [canonical('MDN — Introduction to client-side frameworks'), cs2023('SPD')],
   },
   {
     requires: 'javascript-essentials',
