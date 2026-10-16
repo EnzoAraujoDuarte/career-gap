@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   assertEvaluation,
+  CAREER_GAP_ITEMS,
   CHOICE_QUESTIONS,
   LIKERT_ITEMS,
   OPEN_QUESTIONS,
@@ -32,6 +33,16 @@ describe('questionário: instrumento', () => {
       expect(constructs.has(construct), construct).toBe(true);
     }
     expect(PATH_ITEMS.filter((item) => item.source === 'manipulation-check')).toHaveLength(2);
+  });
+
+  it('pergunta direto o que a tese afirma: as cinco perguntas do produto e a descoberta de lacunas', () => {
+    const constructs = new Set(CAREER_GAP_ITEMS.map((item) => item.construct));
+    for (const construct of ['where-am-i', 'can-build-now', 'next-step-clarity', 'what-to-ignore', 'path-clarity', 'gap-discovery']) {
+      expect(constructs.has(construct), construct).toBe(true);
+    }
+    expect(CAREER_GAP_ITEMS.every((item) => item.source === 'career-gap')).toBe(true);
+    expect(OPEN_QUESTIONS.map((question) => question.id)).toContain('lacuna-descoberta');
+    expect(CHOICE_QUESTIONS.map((question) => question.id)).toContain('next-action');
   });
 });
 

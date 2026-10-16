@@ -557,7 +557,7 @@ o que você constrói ao fim de cada nível
         >
           Conte como foi
         </Link>
-        : uns 8 minutos de perguntas, que viram dado no TCC.
+        : uns 10 minutos de perguntas, que viram dado no TCC.
       </p>
     </aside>
   );

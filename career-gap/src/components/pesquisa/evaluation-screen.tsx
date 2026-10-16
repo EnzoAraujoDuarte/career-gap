@@ -5,11 +5,13 @@ import { useEffect, useRef, useState } from 'react';
 import type { StoredEvaluation } from '@/db/evaluation';
 import { authClient } from '@/lib/auth-client';
 import {
+  CAREER_GAP_ITEMS,
   CHOICE_QUESTIONS,
   LIKERT_ITEMS,
   LIKERT_SCALE,
   MAX_COMMENT,
   OPEN_QUESTIONS,
+  OUTCOME_QUESTIONS,
   PARTICIPANT_QUESTIONS,
   PATH_ITEMS,
   SUS_ITEMS,
@@ -99,7 +101,7 @@ export function EvaluationScreen() {
     <PageShell
       current="minha-area"
       title="Conte como foi"
-      intro="Um questionário de uns 8 minutos sobre a trilha que você recebeu e sobre o site. É o que vira dado no TCC. Sem nome nem e-mail."
+      intro="Um questionário de uns 10 minutos sobre a trilha que você recebeu e sobre o site. É o que vira dado no TCC. Sem nome nem e-mail."
     >
       {persistence.status === 'off' ? (
         <p className="text-ink-soft mt-6 border-l border-[var(--rule)] pl-3 text-[13.5px] leading-relaxed">
@@ -155,6 +157,22 @@ export function EvaluationScreen() {
             <SectionLabel>Como foi usar</SectionLabel>
             <div className="mt-2 space-y-6">
               {USAGE_QUESTIONS.map((question) => (
+                <ChoiceField key={question.id} question={question} value={existing?.participant[question.id]} />
+              ))}
+            </div>
+          </section>
+
+          <LikertSection
+            title="O Career Gap para você"
+            intro="O que o site promete responder: onde você está, o que já consegue construir, o que vem depois, por quê e o que pode esperar."
+            items={CAREER_GAP_ITEMS}
+            answers={existing?.answers}
+          />
+
+          <section>
+            <SectionLabel>O que você leva</SectionLabel>
+            <div className="mt-2 space-y-6">
+              {OUTCOME_QUESTIONS.map((question) => (
                 <ChoiceField key={question.id} question={question} value={existing?.participant[question.id]} />
               ))}
             </div>
