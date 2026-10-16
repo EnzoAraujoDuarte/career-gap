@@ -21,23 +21,27 @@ de base e o que pode esperar, sempre com o motivo.
 3. **Construções**: 11 coisas concretas para fazer e mostrar, de "uma página sobre você" (sem
    exigir nada) a "uma contribuição aceita num projeto de verdade". O motor avalia cada uma contra
    o perfil e anota: dá para fazer agora, falta só uma, mais adiante
-   ([ADR-0012](docs/adr/0012-construcoes.md)). É por elas que a trilha começa.
+   ([ADR-0012](docs/adr/0012-construcoes.md)). É por elas que a trilha começa. Cada uma diz o que
+   você precisa ter em mãos e tem o passo a passo marcável.
 4. **Trilha em 4 níveis, desenhada como uma estrada**, a mesma para todos, com conteúdo concreto
    (quem ensina, quanto tempo leva) e as marcas pessoais: *você já sabe*, *recomendado agora* (no
    máximo 3), *falta base*, *não agora*. Cada nível fecha nas suas construções; cada estação diz o
    que destrava. O trecho já percorrido fica em tinta, até o *você está aqui*
    ([ADR-0011](docs/adr/0011-trilha-como-estrada.md)).
 5. **Explorar**: o catálogo inteiro com filtros: 157 recursos verificados um a um (104 em
-   português, 146 gratuitos, 43 de prática ou prova, 15 livros), 15 ferramentas com portão de
-   competência (inclusive Context7, impeccable e o kit) e 26 hábitos profissionais.
+   português, 146 gratuitos, 43 de prática ou prova, 15 livros), 18 ferramentas com portão de
+   competência e com "como ter" (já vem no computador, conta, programa, dependência do projeto ou
+   plugin do Claude Code, com o comando) e 26 hábitos profissionais.
 6. **Minha área**: o que você construiu, continuar, minha lista, concluídos, critérios de saída
    marcados, propósito e meta. Fica no navegador e, com o banco ligado, no Postgres.
 7. **Prompt para o seu assistente de IA**, em cada competência e construção: montado a partir
    dos critérios, pede um tutor que pergunta e confere, não uma solução pronta. Não há IA dentro
    do produto.
-8. **[Kit de trabalho com IA](https://github.com/EnzoAraujoDuarte/kit-career-gap)**: as regras de
+8. **[Kit de desenvolvimento profissional](https://career-gap-tcc.vercel.app/kit)**: as regras de
    código, testes, git e trabalho com IA que o autor usa, reescritas para qualquer stack, como
-   marketplace de plugins do Claude Code. Repositório próprio; entra no catálogo como ferramenta.
+   marketplace de plugins do Claude Code
+   ([repositório](https://github.com/EnzoAraujoDuarte/kit-career-gap)), mais as skills que ele usa
+   e os sites para calibrar o olho. Um comando no terminal pergunta o que instalar.
 
 ## Princípios
 
