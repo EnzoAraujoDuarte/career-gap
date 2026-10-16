@@ -27,3 +27,4 @@ tcc/.paginas/
 
 # Ligação local com o projeto na Vercel
 .vercel
+.neon

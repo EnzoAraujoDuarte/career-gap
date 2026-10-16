@@ -22,6 +22,17 @@ Abre em http://localhost:3000. **Funciona sem banco**: tudo fica no navegador.
 Login com Google ou GitHub é opcional: o botão aparece só para o provedor com as duas
 credenciais no `.env.local`. Passo a passo completo em `../docs/PLANO-FASE4.md` §5.
 
+**Dois branches no Neon.** O ambiente local usa o branch `dev`, criado só com a estrutura das
+tabelas (nenhum dado de produção); o site publicado usa o `main`. Migração nova: aplique no `dev`
+com `pnpm db:migrate`, depois no `main` antes do envio que depende dela — sempre de dentro de
+`career-gap/`, onde estão o `.neon` e o `package.json`:
+
+```bash
+cd career-gap && npx neon@latest checkout main && pnpm db:migrate && npx neon@latest checkout dev
+```
+
+O `checkout` troca só as variáveis do Neon no `.env.local`.
+
 ## Publicação (Vercel)
 
 Cada envio à `main` publica em https://career-gap-tcc.vercel.app; as prévias de outros envios
