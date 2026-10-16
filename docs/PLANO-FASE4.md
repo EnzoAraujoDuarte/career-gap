@@ -428,8 +428,8 @@ mais é trancado, e o ajuste por competência entra na Minha área (§9).
   próximo passo, o que ignorar, melhor que antes), mais "qual lacuna você descobriu" e "qual vai
   ser o seu primeiro passo". Instrumento `2026.10.16-2`.
 - **Questionário enxugado** (pedido do Enzo: menos perguntas, mais claras): 29 itens de escala,
-  6 de escolha, 2 abertos, frases de até 80 caracteres, uns 5 minutos; o SUS fica inteiro. Teto
-  verificado por teste. Instrumento `2026.10.16-3`.
+  6 de escolha, 1 aberto (a lacuna descoberta), frases de até 80 caracteres, uns 5 minutos; o SUS
+  fica inteiro. Teto verificado por teste. Instrumento `2026.10.16-4`.
 
 **Próximo:**
 

@@ -193,7 +193,7 @@ export function EvaluationScreen() {
           />
 
           <section>
-            <SectionLabel>Com suas palavras</SectionLabel>
+            <SectionLabel>Com as suas palavras</SectionLabel>
             <div className="mt-2 space-y-5">
               {OPEN_QUESTIONS.map((question) => (
                 <label key={question.id} className="text-ink block text-[14px]">

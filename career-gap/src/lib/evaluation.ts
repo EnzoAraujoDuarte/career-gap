@@ -18,7 +18,7 @@
  * substitui o texto sem mudar o id.
  */
 
-export const INSTRUMENT_VERSION = '2026.10.16-3';
+export const INSTRUMENT_VERSION = '2026.10.16-4';
 
 export interface Choice {
   readonly value: string;
@@ -197,13 +197,14 @@ export const OUTCOME_QUESTIONS: readonly ChoiceQuestion[] = [
   },
 ];
 
+/** Uma só, e opcional: a frase da pessoa sobre a lacuna que descobriu é a única evidência que uma
+ *  escala não captura. O resto do método sai das escalas. */
 export const OPEN_QUESTIONS: readonly OpenQuestion[] = [
   {
     id: 'lacuna-descoberta',
     label: 'Qual lacuna técnica você descobriu que não conhecia?',
     hint: 'Opcional, em uma frase.',
   },
-  { id: 'faltou', label: 'O que faltou ou atrapalhou?', hint: 'Opcional.' },
 ];
 
 export const CHOICE_QUESTIONS: readonly ChoiceQuestion[] = [...PARTICIPANT_QUESTIONS, ...USAGE_QUESTIONS, ...OUTCOME_QUESTIONS];

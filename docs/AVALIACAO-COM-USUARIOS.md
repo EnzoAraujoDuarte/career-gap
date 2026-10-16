@@ -16,7 +16,7 @@ explica o desenho. Decisão: ADR-0013. Desenho do estudo: ADR-0007 e `docs/DECIS
 ## O que se pergunta
 
 Cabe em uns cinco minutos, e isso é regra verificada por teste (no máximo 30 itens de escala, 6 de
-escolha, 2 abertos; frases de até 80 caracteres). Quem testa responde de boa vontade uma vez; um
+escolha, 1 aberto; frases de até 80 caracteres). Quem testa responde de boa vontade uma vez; um
 questionário longo perde a segunda metade das respostas. Cada item que entra tira outro.
 
 | Bloco | Itens | Tipo | Fonte |
@@ -27,7 +27,7 @@ questionário longo perde a segunda metade das respostas. Cada item que entra ti
 | O que você leva | primeiro passo agora | escolha única | intenção de comportamento |
 | A trilha que você recebeu | 2 itens sobre a trilha, 8 do ResQue, 2 de checagem da manipulação | concordância 1 a 5 | INITIAL_SCOPE §19; Pu, Chen e Hu (2011); DECISOES §1 |
 | O site | 10 itens | concordância 1 a 5 | SUS (Brooke, 1996) |
-| Com suas palavras | a lacuna descoberta, o que faltou ou atrapalhou | texto livre, opcional | — |
+| Com as suas palavras | a lacuna descoberta | texto livre, opcional | — |
 
 ### O Career Gap para você (`source: 'career-gap'`)
 
@@ -86,6 +86,8 @@ mudar o id.
 - `2026.10.16-2`: bloco "O Career Gap para você" (10 itens), `next-action`, `lacuna-descoberta`.
 - `2026.10.16-3`: enxugado para 29 itens de escala, 6 de escolha, 2 abertos, frases curtas. Os
   ids que ficaram não mudaram de sentido; os que saíram não voltam com o mesmo id.
+- `2026.10.16-4`: uma aberta só, a lacuna descoberta. Tudo o que o método mede sai das escalas; a
+  frase da pessoa é a única evidência que uma escala não captura.
 
 ## O que mais é gravado
 
