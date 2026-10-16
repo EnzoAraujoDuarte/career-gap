@@ -12,7 +12,6 @@ const nextConfig: NextConfig = {
     { source: '/', destination: '/trilha', permanent: false },
     { source: '/projetos', destination: '/explorar?tipo=praticar', permanent: false },
     { source: '/biblioteca', destination: '/explorar?tipo=livros', permanent: false },
-    { source: '/kit', destination: '/explorar?aba=ferramentas', permanent: false },
     { source: '/comportamental', destination: '/explorar?aba=habitos', permanent: false },
     { source: '/plano', destination: '/minha-area', permanent: false },
   ],

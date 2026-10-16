@@ -98,12 +98,14 @@ export function ProKit({ profile, suffix }: { profile: UserProfile | null; suffi
             </a>
           </span>
         ))}
-        , o que o front-end de nível alto faz e como os produtos de verdade resolvem cada tela.{' '}
+        , o que o front-end de nível alto faz e como os produtos de verdade resolvem cada tela.
+      </p>
+      <p className="mt-4">
         <Link
-          href={`/explorar?aba=ferramentas${suffix ? `&${suffix.slice(1)}` : ''}`}
-          className="text-now focus-visible:outline-attention underline underline-offset-2 focus-visible:outline-2"
+          href={`/kit${suffix}`}
+          className="focus-visible:outline-attention inline-flex min-h-11 items-center rounded-sm bg-[var(--ink)] px-4 text-[14px] text-[var(--paper)] hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2"
         >
-          Todas as ferramentas →
+          Instalar o kit com um comando →
         </Link>
       </p>
     </section>
