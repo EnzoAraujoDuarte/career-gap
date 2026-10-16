@@ -1,0 +1,244 @@
+import type { Build, BuildRequirement, Level } from '@/domain/model';
+
+/**
+ * O que a pessoa constrói ao longo da trilha da primeira vaga.
+ *
+ * Pequeno, concreto e mostrável: cada construção cabe em horas, não em semanas, e termina em
+ * algo que dá para abrir no navegador ou mandar para alguém (Frontend Mentor começa todo
+ * mundo por um componente de poucas horas; roadmap.sh lista projetos de uma página). A primeira
+ * não exige nada: é a prova de que dá para começar a criar antes de saber tudo. Texto nosso;
+ * os recursos são links do catálogo.
+ */
+
+const needs = (competency: string, level: Level): BuildRequirement => ({ competency, level });
+
+export const BUILDS: readonly Build[] = [
+  {
+    id: 'pagina-sobre-voce',
+    title: 'Uma página sobre você',
+    result: 'Uma página com o seu nome, uma foto e três links seus, aberta no seu navegador.',
+    kind: 'page',
+    levelId: 'fundamentals',
+    requires: [],
+    exercises: ['html-semantics'],
+    steps: [
+      'Crie uma pasta e, dentro dela, um arquivo chamado index.html.',
+      'Escreva o esqueleto da página e um título com o seu nome.',
+      'Acrescente uma foto e três links para coisas suas: um perfil, um vídeo de que gosta, um lugar.',
+      'Abra o arquivo no navegador com dois cliques e ajuste até ficar do seu jeito.',
+    ],
+    doneWhen: 'A página abre no navegador e cada link leva aonde você queria.',
+    resources: ['curso-de-html-e-css-com-projeto-html-e-css-para-iniciantes', 'freecodecamp-curriculo-em-portugues'],
+    estimatedMinutes: 90,
+  },
+  {
+    id: 'calculadora-de-parcelas',
+    title: 'Uma calculadora de parcelas',
+    result:
+      'Um programa que recebe o valor de uma compra, o número de parcelas e os juros, e mostra o valor de cada parcela e o total pago.',
+    kind: 'terminal',
+    levelId: 'fundamentals',
+    requires: [needs('programming-fundamentals', 'L1')],
+    exercises: ['programming-fundamentals', 'problem-decomposition'],
+    steps: [
+      'Antes de escrever código, liste os passos em português: o que entra, o que sai, o que acontece no meio.',
+      'Leia os três valores e guarde em variáveis com nomes que digam o que são.',
+      'Calcule a parcela e o total. Comece sem juros; depois acrescente os juros.',
+      'Teste com três casos: sem juros, com juros, e uma parcela só. Confira na calculadora do celular.',
+    ],
+    doneWhen: 'Os três casos de teste batem com a calculadora, e o programa avisa quando alguém digita letra no lugar de número.',
+    resources: ['neps-academy-exercicios-com-correcao-automatica', 'obi-problemas-das-edicoes-anteriores'],
+    estimatedMinutes: 120,
+  },
+  {
+    id: 'sua-pagina-no-ar',
+    title: 'Sua página no ar, com um link para mandar',
+    result: 'A página sobre você publicada num endereço público, que abre no celular de quem você mandar.',
+    kind: 'link',
+    levelId: 'fundamentals',
+    requires: [needs('html-semantics', 'L1'), needs('command-line-basics', 'L1'), needs('version-control-git', 'L1')],
+    exercises: ['version-control-git', 'deployment-basics'],
+    steps: [
+      'Crie um repositório no GitHub e envie a pasta da sua página com git.',
+      'Nas configurações do repositório, ligue o GitHub Pages na branch principal.',
+      'Espere o endereço aparecer e abra no celular.',
+      'Mude uma linha da página, envie de novo e veja o site atualizar.',
+    ],
+    doneWhen: 'Outra pessoa abre o link no celular dela e vê a sua página.',
+    resources: ['inicio-rapido-para-paginas-do-github'],
+    estimatedMinutes: 60,
+  },
+  {
+    id: 'pagina-de-um-negocio',
+    title: 'Uma página para um negócio de verdade',
+    result:
+      'Uma página responsiva para um negócio que existe (o salão da esquina, a banda do amigo), com serviços, contato e horário, boa no celular e no computador.',
+    kind: 'page',
+    levelId: 'browser',
+    requires: [needs('html-semantics', 'L1'), needs('css-layout', 'L1')],
+    exercises: ['css-layout', 'html-semantics', 'web-accessibility-basics'],
+    steps: [
+      'Escolha um negócio real e anote o que a página precisa dizer: o que faz, onde fica, como falar.',
+      'Monte a estrutura com as tags certas antes de qualquer estilo: cabeçalho, seções, rodapé.',
+      'Estilize para o celular primeiro; depois use flexbox ou grid para aproveitar a tela grande.',
+      'Mostre para a pessoa dona do negócio e ajuste uma coisa que ela pedir.',
+    ],
+    doneWhen: 'A página se lê bem em 375 px e em 1280 px, e a pessoa dona do negócio reconheceu o negócio dela.',
+    resources: [
+      'escola-virtual-fundacao-bradesco-crie-um-site-simples-usando-html-css-',
+      'flexbox-froggy',
+      'freecodecamp-curriculo-em-portugues',
+    ],
+    estimatedMinutes: 360,
+  },
+  {
+    id: 'conversor-que-reage',
+    title: 'Um conversor que reage enquanto a pessoa digita',
+    result:
+      'Um conversor (real para dólar, quilômetros para milhas, ou IMC) que atualiza o resultado a cada tecla, sem recarregar a página.',
+    kind: 'widget',
+    levelId: 'browser',
+    requires: [needs('javascript-essentials', 'L1'), needs('dom-and-browser', 'L1')],
+    exercises: ['dom-and-browser', 'javascript-essentials', 'debugging'],
+    steps: [
+      'Monte o HTML: um campo de entrada, um lugar para o resultado e nada mais.',
+      'Escreva a função que converte um número e teste no console do navegador.',
+      'Ligue a função ao evento de digitação do campo e mostre o resultado na página.',
+      'Digite letras, nada e números gigantes: faça o conversor responder a cada caso.',
+    ],
+    doneWhen: 'O resultado muda a cada tecla e nenhum valor estranho quebra a página.',
+    resources: ['alura-7-days-of-code', 'the-odin-project-project-etch-a-sketch', 'depurar-o-javascript-tutorial-do-chrome-devtools'],
+    estimatedMinutes: 180,
+  },
+  {
+    id: 'formulario-que-todos-usam',
+    title: 'Um formulário que todo mundo consegue usar',
+    result:
+      'Um formulário de inscrição com rótulos, validação e navegação pelo teclado, aprovado por um verificador de acessibilidade.',
+    kind: 'form',
+    levelId: 'browser',
+    requires: [needs('html-semantics', 'L2'), needs('web-accessibility-basics', 'L1')],
+    exercises: ['web-accessibility-basics', 'html-semantics'],
+    steps: [
+      'Monte um formulário de inscrição com nome, e-mail, uma escolha e um envio.',
+      'Associe um rótulo a cada campo e agrupe as opções que andam juntas.',
+      'Preencha tudo só com o teclado, sem tocar no mouse, e conserte o que travar.',
+      'Rode um verificador automático de acessibilidade e zere os avisos.',
+    ],
+    doneWhen: 'Dá para preencher e enviar só pelo teclado, e o verificador não aponta nenhum erro.',
+    resources: ['freecodecamp-depure-um-formulario-de-doacao', 'checklist-the-a11y-project'],
+    estimatedMinutes: 120,
+  },
+  {
+    id: 'busca-de-cep',
+    title: 'Uma busca de CEP com dados de verdade',
+    result:
+      'A pessoa digita um CEP e o endereço aparece, vindo de uma API pública brasileira, com aviso enquanto carrega e quando o CEP não existe.',
+    kind: 'widget',
+    levelId: 'build-and-ship',
+    requires: [
+      needs('javascript-essentials', 'L2'),
+      needs('dom-and-browser', 'L1'),
+      needs('http-fundamentals', 'L1'),
+      needs('api-consumption', 'L1'),
+    ],
+    exercises: ['api-consumption', 'http-fundamentals', 'dom-and-browser'],
+    steps: [
+      'Abra a documentação da API de CEP da BrasilAPI e monte a URL de um CEP seu no navegador.',
+      'Na sua página, busque o CEP digitado com fetch e mostre a rua e a cidade.',
+      'Mostre "buscando…" enquanto espera e uma mensagem clara quando a resposta vier com erro.',
+      'Teste com um CEP real, um inventado e um com letras.',
+    ],
+    doneWhen: 'Os três testes mostram algo útil na tela, e o painel Network explica cada resposta.',
+    resources: ['missao-consulte-cnpjs-e-leia-o-que-a-resposta-diz', 'freecodecamp-construir-um-aplicativo-de-clima'],
+    estimatedMinutes: 180,
+  },
+  {
+    id: 'sua-propria-api',
+    title: 'Sua própria API, com banco e no ar',
+    result:
+      'Uma API de lista de tarefas (criar, listar, concluir, apagar) que guarda tudo num banco e responde num endereço público.',
+    kind: 'server',
+    levelId: 'build-and-ship',
+    requires: [needs('api-development', 'L1'), needs('sql-basics', 'L1'), needs('http-fundamentals', 'L2')],
+    exercises: ['api-development', 'relational-data-modeling', 'deployment-basics'],
+    steps: [
+      'Desenhe a tabela de tarefas antes de codar: quais colunas, qual é a chave.',
+      'Crie os quatro endpoints e teste cada um pelo terminal ou por um cliente HTTP.',
+      'Devolva o status certo para cada caso: criado, não encontrado, entrada inválida.',
+      'Publique num serviço gratuito, com a senha do banco fora do código.',
+    ],
+    doneWhen: 'Outra pessoa cria e lista uma tarefa pelo endereço público, e nenhuma senha está no repositório.',
+    resources: [
+      'crie-uma-api-restful-com-node-js-e-mongodb-crud-com-node-express-e-mon',
+      'express-tutorial-part-7-deploying-to-production',
+      'full-stack-open-pt-br',
+    ],
+    estimatedMinutes: 480,
+  },
+  {
+    id: 'aplicacao-completa',
+    title: 'Uma aplicação completa, do formulário ao banco',
+    result:
+      'Um sistema pequeno e seu, com login, cadastro e listagem, publicado e com README: a peça do portfólio.',
+    kind: 'app',
+    levelId: 'build-and-ship',
+    requires: [
+      needs('api-consumption', 'L1'),
+      needs('api-development', 'L1'),
+      needs('ui-components-and-state', 'L1'),
+      needs('build-an-application', 'L1'),
+    ],
+    exercises: ['build-an-application', 'ui-components-and-state', 'authentication-basics', 'deployment-basics'],
+    steps: [
+      'Escolha um problema pequeno de alguém que você conhece e escreva em três linhas o que o sistema faz.',
+      'Faça a versão mais simples que funciona de ponta a ponta, feia mesmo, e publique.',
+      'Acrescente login com uma biblioteca consolidada e separe o que cada pessoa vê.',
+      'Escreva o README: o que é, como rodar, por que existe, e uma captura de tela.',
+    ],
+    doneWhen: 'A pessoa para quem você fez usa o sistema no celular dela, e o README deixa qualquer um rodar o projeto.',
+    resources: [
+      'desafio-tecnico-de-empresa-brasileira-front-end',
+      'desafio-tecnico-de-empresa-brasileira-back-end',
+      'full-stack-open-pt-br',
+    ],
+    estimatedMinutes: 1200,
+  },
+  {
+    id: 'contribuicao-aceita',
+    title: 'Uma contribuição aceita num projeto de verdade',
+    result: 'Um pull request seu, com teste, revisado e aceito num projeto aberto brasileiro.',
+    kind: 'pull-request',
+    levelId: 'job-ready',
+    requires: [needs('version-control-git', 'L2'), needs('code-readability', 'L1'), needs('automated-testing-basics', 'L1')],
+    exercises: ['code-review-participation', 'automated-testing-basics', 'technical-communication'],
+    steps: [
+      'Escolha um projeto aberto com issues marcadas para quem começa e leia o guia de contribuição.',
+      'Reproduza o problema localmente antes de mexer em qualquer linha.',
+      'Faça a correção com um teste que falha antes e passa depois.',
+      'Abra o pull request explicando o problema e a correção, e responda à revisão.',
+    ],
+    doneWhen: 'O pull request foi aceito, ou você recebeu uma revisão e respondeu a cada comentário.',
+    resources: ['primeira-contribuicao-querido-diario', 'gilded-rose-kata-de-refatoracao'],
+    estimatedMinutes: 360,
+  },
+  {
+    id: 'funcao-pedida-a-ia-e-provada',
+    title: 'Uma função pedida à IA e provada por você',
+    result:
+      'Uma função gerada por um assistente de IA, coberta por testes que você escreveu antes de pedir, com o que a IA errou anotado.',
+    kind: 'terminal',
+    levelId: 'job-ready',
+    requires: [needs('debugging', 'L2'), needs('automated-testing-basics', 'L1'), needs('ai-assisted-development-basics', 'L1')],
+    exercises: ['ai-assisted-development-basics', 'automated-testing-basics'],
+    steps: [
+      'Escreva os testes antes de abrir o assistente: os casos normais e um caso que quebra.',
+      'Peça a função colando os testes e dizendo a linguagem.',
+      'Rode os testes e, para cada falha, descubra se o erro é da IA ou do seu teste.',
+      'Anote o que a IA errou e o que faltou no seu pedido; reescreva a linha que você não souber explicar.',
+    ],
+    doneWhen: 'Todos os testes passam e você explica cada linha da função final.',
+    resources: ['missao-peca-a-ia-uma-funcao-de-preco-e-prove-que-ela-esta-certa'],
+    estimatedMinutes: 90,
+  },
+];

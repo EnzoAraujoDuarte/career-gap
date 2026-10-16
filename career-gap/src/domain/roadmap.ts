@@ -1,4 +1,5 @@
 import type {
+  Build,
   CareerTrack,
   Competency,
   CompetencyId,
@@ -30,6 +31,8 @@ export interface Catalog {
   readonly habits: readonly ProfessionalHabit[];
   /** Kit de ferramentas. Também fora do motor: só é avaliado contra o perfil, nunca ordenado. */
   readonly tools: readonly Tool[];
+  /** O que se constrói com as competências. Avaliado contra o perfil, como as ferramentas. */
+  readonly builds: readonly Build[];
   readonly tracks: ReadonlyMap<string, CareerTrack>;
 }
 

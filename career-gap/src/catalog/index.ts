@@ -5,6 +5,7 @@ import { TRACKS } from './tracks';
 import { RESOURCES } from './resources';
 import { HABITS } from './habits';
 import { TOOLS } from './tools';
+import { BUILDS } from './builds';
 
 /**
  * Versão do catálogo. Gravada em todo roadmap gerado.
@@ -22,9 +23,10 @@ export const CATALOG: Catalog = {
   resources: RESOURCES,
   habits: HABITS,
   tools: TOOLS,
+  builds: BUILDS,
   tracks: new Map(TRACKS.map((track) => [track.id, track])),
 };
 
-export { COMPETENCIES, PREREQUISITES, TRACKS, RESOURCES, HABITS, TOOLS };
+export { COMPETENCIES, PREREQUISITES, TRACKS, RESOURCES, HABITS, TOOLS, BUILDS };
 export { TECHNOLOGIES } from './technologies';
 export { FIRST_WEB_ROLE } from './tracks';

@@ -14,6 +14,7 @@ import {
   assertProfile,
   assertProgress,
   InvalidUserState,
+  PROGRESS_ID_COUNT,
   type UserState,
   type UserStatePatch,
 } from '@/lib/user-state';
@@ -44,7 +45,7 @@ export async function pushUserState(patch: UserStatePatch): Promise<void> {
   if (patch.profile !== undefined) assertProfile(patch.profile);
   if (patch.goals !== undefined) assertGoals(patch.goals);
   const progress = Object.entries(patch.progress ?? {});
-  if (progress.length > CATALOG.resources.length) throw new InvalidUserState('progresso grande demais');
+  if (progress.length > PROGRESS_ID_COUNT) throw new InvalidUserState('progresso grande demais');
   for (const [resourceId, entry] of progress) assertProgress(resourceId, entry);
   const criteria = Object.entries(patch.criteria ?? {});
   if (criteria.length > CATALOG.competencies.size * LEVELS.length) throw new InvalidUserState('critérios demais');
