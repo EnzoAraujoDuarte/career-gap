@@ -548,6 +548,17 @@ o que você constrói ao fim de cada nível
           </li>
         </ul>
       </details>
+
+      <p className="text-ink-soft mt-6 text-[12.5px] leading-snug">
+        Testando o Career Gap?{' '}
+        <Link
+          href={`/pesquisa${suffix}`}
+          className="text-ink focus-visible:outline-attention underline decoration-[var(--rule)] underline-offset-2 hover:decoration-[var(--ink)] focus-visible:outline-2"
+        >
+          Conte como foi
+        </Link>
+        : uns 8 minutos de perguntas, que viram dado no TCC.
+      </p>
     </aside>
   );
 }

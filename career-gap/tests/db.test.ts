@@ -5,6 +5,7 @@ import { migrate } from 'drizzle-orm/pglite/migrator';
 import { beforeAll, describe, expect, it } from 'vitest';
 import { CATALOG } from '@/catalog';
 import type { Db } from '@/db/client';
+import { listEvaluations, loadEvaluation, saveEvaluation, type StoredEvaluation } from '@/db/evaluation';
 import * as schema from '@/db/schema';
 import { loadUserState, moveUserData, saveCriteria, saveGoals, saveProfile, saveProgress } from '@/db/user-state';
 import { buildAuth, configuredProviders } from '@/lib/auth';
@@ -16,6 +17,7 @@ import {
   mergeUserState,
   type StoredProfile,
 } from '@/lib/user-state';
+import { sampleEvaluation } from './fixtures';
 
 /**
  * Postgres de verdade, em memória (PGlite), rodando a MESMA migração que vai para o Neon. É o
@@ -151,6 +153,41 @@ describe('banco: estado da pessoa', () => {
       progress: {},
       criteria: {},
     });
+  });
+});
+
+describe('banco: questionário', () => {
+  const response = (minute: number, value: number): StoredEvaluation => {
+    const sample = sampleEvaluation(value);
+    return {
+      instrumentVersion: 'teste',
+      catalogVersion: CATALOG.version,
+      consentAt: at(minute),
+      submittedAt: at(minute),
+      participant: sample.participant,
+      answers: sample.answers,
+      comments: sample.comments,
+      context: { hasProfile: false, levels: {}, recommended: [], built: 0, completedResources: 0 },
+    };
+  };
+
+  it('guarda uma resposta por pessoa; reenviar substitui', async () => {
+    await createUser('carla');
+    await saveEvaluation(db, 'carla', response(1, 4));
+    await saveEvaluation(db, 'carla', response(2, 5));
+
+    const stored = await loadEvaluation(db, 'carla');
+    expect(stored?.submittedAt).toBe(at(2));
+    expect(stored?.answers['sus-01']).toBe(5);
+    expect(stored?.comments).toEqual({ ajudou: 'as construções' });
+    expect((await listEvaluations(db)).filter((item) => item.consentAt === at(2))).toHaveLength(1);
+  });
+
+  it('sai em cascata quando a pessoa apaga os dados', async () => {
+    await createUser('dani');
+    await saveEvaluation(db, 'dani', response(3, 3));
+    await db.delete(schema.user).where(eq(schema.user.id, 'dani'));
+    expect(await loadEvaluation(db, 'dani')).toBeUndefined();
   });
 });
 
