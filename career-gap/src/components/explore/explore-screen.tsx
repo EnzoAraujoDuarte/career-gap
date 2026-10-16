@@ -17,12 +17,14 @@ import { PageShell } from '@/components/ecosystem/page-shell';
 import { AdviceMark } from '@/components/ui/advice-mark';
 import { ResourceLine } from '@/components/ui/resource-line';
 import { HabitsTab } from './habits-tab';
+import { PeopleTab } from './people-tab';
 import { ToolsTab } from './tools-tab';
 
 const TABS = [
   { id: 'conteudos', label: 'Conteúdos', count: CATALOG.resources.length },
   { id: 'ferramentas', label: 'Ferramentas', count: CATALOG.tools.length },
   { id: 'habitos', label: 'Hábitos', count: CATALOG.habits.length },
+  { id: 'pessoas', label: 'Pessoas', count: CATALOG.people.length },
 ] as const;
 
 type TabId = (typeof TABS)[number]['id'];
@@ -63,6 +65,7 @@ export function ExploreScreen() {
       {tab === 'conteudos' && <ContentsTab />}
       {tab === 'ferramentas' && <ToolsTab />}
       {tab === 'habitos' && <HabitsTab />}
+      {tab === 'pessoas' && <PeopleTab />}
     </PageShell>
   );
 }

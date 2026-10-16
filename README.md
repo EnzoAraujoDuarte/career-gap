@@ -31,8 +31,9 @@ de base e o que pode esperar, sempre com o motivo.
 5. **Explorar**: o catálogo inteiro com filtros: 157 recursos verificados um a um (104 em
    português, 146 gratuitos, 43 de prática ou prova, 15 livros), 19 ferramentas com portão de
    competência e com "como ter" (já vem no computador, conta, programa, dependência do projeto ou
-   plugin do Claude Code, com o comando) e 29 hábitos profissionais, inclusive os de carreira:
-   publicar o que aprendeu, conviver com outros devs, manter currículo e LinkedIn em dia.
+   plugin do Claude Code, com o comando), 29 hábitos profissionais, inclusive os de carreira
+   (publicar o que aprendeu, conviver com outros devs, manter currículo e LinkedIn em dia), e 13
+   pessoas que valem seguir, com a página oficial conferida e o momento em que cada uma rende.
 6. **Minha área**: o que você construiu, continuar, minha lista, concluídos, critérios de saída
    marcados, propósito e meta. Fica no navegador e, com o banco ligado, no Postgres. Para quem
    testa, o questionário da pesquisa do TCC (`/pesquisa`): termo de consentimento, SUS, ResQue e
