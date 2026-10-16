@@ -1,12 +1,15 @@
 import type { Metadata } from 'next';
-import { Fraunces, Inter, Shantell_Sans } from 'next/font/google';
+import { Atkinson_Hyperlegible_Next, Fraunces, Shantell_Sans } from 'next/font/google';
 import { PersistenceProvider } from '@/components/persistence/persistence';
 import { configuredProviders } from '@/lib/auth';
 import { SITE_URL } from '@/lib/site-url';
 import './globals.css';
 
-/** Leitura: formulários, textos e detalhes. */
-const ui = Inter({ variable: '--font-ui', subsets: ['latin'] });
+/** Leitura: formulários, textos e detalhes. Atkinson Hyperlegible foi desenhada pelo Braille
+ *  Institute para quem lê com baixa visão — letras que não se confundem (I, l e 1; O e 0). Um
+ *  produto que ensina acessibilidade lê melhor nela do que na Inter, a face padrão de toda
+ *  interface gerada (auditoria impeccable, docs/AUDITORIA-UI-2026-10-15.md). Licença OFL. */
+const ui = Atkinson_Hyperlegible_Next({ variable: '--font-ui', subsets: ['latin', 'latin-ext'] });
 
 /** Anotação: "você está aqui", "comece aqui", "não agora". Shantell Sans tem altura-x maior
  *  que as manuscritas usuais e foi desenhada para permanecer legível — e agora é a ÚNICA
