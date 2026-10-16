@@ -129,8 +129,9 @@ describe('avaliação rápida', () => {
       {},
     );
 
-  it('cabe em seis perguntas e nunca passa do alvo do track', () => {
+  it('cabe em seis perguntas de três frases e nunca passa do alvo do track', () => {
     expect(questions).toHaveLength(6);
+    for (const question of questions) expect(question.statements, question.id).toHaveLength(3);
     const target = new Map(FIRST_WEB_ROLE.requirements.map((item) => [item.competency, item.targetLevel]));
     const all = answerAll((question) => question.statements.length - 1);
     for (const [competency, level] of Object.entries(all)) {
@@ -150,12 +151,51 @@ describe('avaliação rápida', () => {
 
   it('reescreve a resposta anterior em vez de acumular', () => {
     const programming = questions.find((question) => question.id === 'programming')!;
-    const high = applyAnswer(FIRST_WEB_ROLE, {}, programming, 1);
+    const high = applyAnswer(FIRST_WEB_ROLE, {}, programming, 2);
     const lowered = applyAnswer(FIRST_WEB_ROLE, high, programming, 0);
     expect(lowered['debugging']).toBe('L0');
     expect(lowered['programming-fundamentals']).toBe('L1');
     expect(answeredStatement(FIRST_WEB_ROLE, lowered, programming)).toBe(0);
-    expect(answeredStatement(FIRST_WEB_ROLE, high, programming)).toBe(1);
+    expect(answeredStatement(FIRST_WEB_ROLE, high, programming)).toBe(2);
+  });
+
+  it('a frase do meio dá crédito parcial: mais competências, no mesmo nível', () => {
+    const programming = questions.find((question) => question.id === 'programming')!;
+    const middle = applyAnswer(FIRST_WEB_ROLE, {}, programming, 1);
+    expect(middle['programming-fundamentals']).toBe('L1');
+    expect(middle['debugging']).toBe('L1');
+    expect(middle['problem-decomposition']).toBe('L1');
+    expect(middle['code-readability']).toBe('L0');
+    expect(middle['ai-assisted-development-basics']).toBe('L0');
+    expect(answeredStatement(FIRST_WEB_ROLE, middle, programming)).toBe(1);
+  });
+
+  it('cobre o que antes ficava sem pergunta, menos algoritmos, e só credita IA junto com depuração sozinho', () => {
+    const asked = new Set(questions.flatMap((question) => question.statements.flatMap((s) => s.competencies)));
+    for (const id of ['ui-components-and-state', 'authentication-basics', 'ai-assisted-development-basics']) {
+      expect(asked.has(id), id).toBe(true);
+    }
+    expect(asked.has('algorithms-and-complexity')).toBe(false);
+    const top = answerAll((question) => question.statements.length - 1);
+    expect(top['ai-assisted-development-basics']).toBe('L1');
+    expect(top['debugging']).toBe('L2');
+    const middle = answerAll(() => 1);
+    expect(middle['ai-assisted-development-basics']).toBe('L0');
+  });
+
+  it('rejeita frase que desce de nível ou que, no mesmo nível, não afirma mais', () => {
+    const [first, ...rest] = questions;
+    const withQuestion = (statements: typeof first.statements) => ({
+      ...CATALOG,
+      tracks: new Map([[FIRST_WEB_ROLE.id, { ...FIRST_WEB_ROLE, quickAssessment: [{ ...first, statements }, ...rest] }]]),
+    });
+    const [low, middle, high] = first.statements;
+    const rules = (statements: typeof first.statements) =>
+      validateCatalog(withQuestion(statements)).map((problem) => problem.rule);
+    expect(rules([low, middle, high])).not.toContain('quick-monotonic');
+    expect(rules([middle, { ...low, level: 'L1' }, high])).toContain('quick-monotonic');
+    expect(rules([low, { ...low, canDo: 'outra frase' }, high])).toContain('quick-monotonic');
+    expect(rules([high, middle])).toContain('quick-monotonic');
   });
 
   it('rejeita competência declarada em duas perguntas', () => {

@@ -317,10 +317,10 @@ export interface Build {
 // Hábitos profissionais
 // ---------------------------------------------------------------------------
 
-export type HabitTradition = 'pragmatic-programmer' | 'extreme-programming' | 'ai-tutor';
+export type HabitTradition = 'pragmatic-programmer' | 'extreme-programming' | 'ai-tutor' | 'apprenticeship-patterns';
 
 /** Agrupamento do espaço comportamental. É organização para leitura, não taxonomia teórica. */
-export type HabitTheme = 'learn' | 'verify' | 'craft' | 'deliver' | 'collaborate' | 'attitude';
+export type HabitTheme = 'learn' | 'verify' | 'craft' | 'deliver' | 'collaborate' | 'attitude' | 'career';
 
 /**
  * Forma de trabalhar que acompanha a técnica.

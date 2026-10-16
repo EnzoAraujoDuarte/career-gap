@@ -52,3 +52,11 @@ export const pragmaticProgrammer = (tip: number, title: string): Source =>
  */
 export const extremeProgramming = (name: string, kind: 'prática' | 'valor' = 'prática'): Source =>
   canonical(`Beck, Programação Extrema (XP) Explicada (Bookman, 2004), ${kind} "${name}"`);
+
+/**
+ * HOOVER, D.; OSHINEYE, A. Apprenticeship Patterns: guidance for the aspiring software
+ * craftsman. Sebastopol: O'Reilly, 2009 (ISBN 978-0-596-51838-7). Nomes dos padrões conferidos
+ * no sumário da edição em 2026-10-16; os autores liberaram o texto sob Creative Commons em 2010.
+ */
+export const apprenticeshipPatterns = (pattern: string, note?: string): Source =>
+  canonical(`Hoover e Oshineye, Apprenticeship Patterns (O'Reilly, 2009), padrão "${pattern}"`, note);

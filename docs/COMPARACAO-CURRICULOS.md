@@ -220,7 +220,7 @@ não trata o tema.
 | Segurança básica (XSS, SQL injection) e CORS | a | a | — | c | — | ● guias | (a) um critério em `api-development` (nunca concatenar entrada) e CORS em `api-consumption` |
 | Autenticação como parte do núcleo | ● | ● | ● 2 projetos | ● parte 4 | ● | ● | Reavaliar `optional` em `authentication-basics` |
 | Inglês técnico para ler documentação | — | b/a | — | — | ● | — | (a) critério em `reading-documentation` |
-| Portfólio e candidatura | a | — | c / a (site pessoal) | — | — | ● etapa e trilha Entrevistas | (a) README e site em `technical-communication`; currículo continua fora do escopo |
+| Portfólio e candidatura | a | — | c / a (site pessoal) | — | — | ● etapa e trilha Entrevistas | (a) README e site em `technical-communication`; currículo e LinkedIn entram como hábitos de carreira (manter em dia, publicar o que aprendeu) desde 2026-10-16; analisar currículo continua fora do escopo |
 | CI simples (ler o check do PR) | — | a | — | c | ● | ● | (a) em `code-review-participation`; montar pipeline fica em (c) |
 | SEO, Figma | — | — | — | — | ● | — | (c) |
 | Estado global, GraphQL, React Native, Next.js, contêineres, WebSockets, performance web, árvores, grafos e programação dinâmica, design, animação | c | c | c | c | — | ● alguns como desvio | (c), consenso |
@@ -287,9 +287,9 @@ O Enzo aprovou as cinco recomendações. Ficou assim:
    - Na trilha: nível "Construir e publicar", logo depois de consumo de API. No track geral é
      de apoio, com alvo L1. Na ênfase em frontend vira central, com alvo L2; na ênfase em
      backend, opcional.
-   - Fica **sem pergunta** na avaliação de 6 perguntas. A regra das frases (cada uma sobe de
-     nível e afirma tudo o que a anterior afirma) não aceita uma terceira frase em JavaScript.
-     Começa em "ainda não" e se ajusta na página da competência.
+   - Entrou na avaliação de 6 perguntas em 2026-10-16, na frase maior de JavaScript, quando a
+     regra das frases passou a aceitar frase no mesmo nível que afirma mais competências
+     (`PLANO-FASE4.md` §6). Antes ficava sem pergunta e começava em "ainda não".
 2. **Critérios acrescentados no fim de cada lista**, para não deslocar o que as pessoas já
    marcaram, que é guardado por posição:
    - CSS (cascata no inspetor; o nome passou a "CSS: estilo e layout");

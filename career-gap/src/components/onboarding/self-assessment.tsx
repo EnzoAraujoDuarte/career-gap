@@ -10,9 +10,10 @@ import { answeredStatement, applyAnswer, nextEmphasis } from '@/lib/quick-assess
 /**
  * Autoavaliação em seis temas, um por tela.
  *
- * Eram 25 telas, uma por competência — o custo vinha antes do valor. Agora cada tema tem duas
- * frases "consigo…" e cada frase declara quais competências afirma (`quickAssessment` no
- * track). O que não é perguntado começa em "ainda não" e se ajusta na página da competência.
+ * Eram 25 telas, uma por competência — o custo vinha antes do valor. Agora cada tema tem três
+ * frases "consigo…", da menor para a maior, e cada frase declara quais competências afirma
+ * (`quickAssessment` no track). O que não é perguntado começa em "ainda não" e se ajusta na
+ * página da competência.
  *
  * As frases continuam ancoradas em tarefa. Nunca se pergunta "dê uma nota de 1 a 5": item
  * abstrato é o menos confiável que existe, e o ancorado em tarefa leva a pessoa a subestimar
@@ -126,8 +127,9 @@ export function SelfAssessment({ track }: { track: CareerTrack }) {
       <div className="mt-6 space-y-2.5">
         <Option onSelect={() => answer(undefined)} label="Ainda não" muted selected={answeredNo} />
         {question.statements.map((statement, statementIndex) => (
+          // Pela posição: duas frases podem ter o mesmo nível, e a lista de cada pergunta é fixa.
           <Option
-            key={statement.level}
+            key={statementIndex}
             onSelect={() => answer(statementIndex)}
             label={statement.canDo}
             selected={selected === statementIndex}

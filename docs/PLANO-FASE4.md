@@ -254,18 +254,26 @@ Google/GitHub, que precisa das credenciais OAuth.
 Pedido do Enzo, no meio desta fase: as 25 telas de autoavaliação "poderiam ser umas 6 só".
 
 Seis temas — Programar; Páginas com HTML e CSS; JavaScript no navegador; Terminal, Git e
-documentação; Servidor e dados; Projeto de ponta a ponta. Cada um tem "ainda não" e duas frases
-"consigo…", e **cada frase lista explicitamente as competências que afirma** (`quickAssessment`
-no track). Escolher a frase põe essas competências no nível dela, limitado ao alvo.
+documentação; Servidor e dados; Projeto de ponta a ponta. Cada um tem "ainda não" e três frases
+"consigo…", da menor para a maior (eram duas até 2026-10-16), e **cada frase lista
+explicitamente as competências que afirma** (`quickAssessment` no track). Escolher a frase põe
+essas competências no nível dela, limitado ao alvo.
 
 - **A frase menor afirma menos, de propósito.** "Escrevo funções… seguindo um exemplo" não diz
-  nada sobre depurar; depuração só entra na frase de quem programa sozinho. Como depuração é o
-  que aproxima a IA, quem segue tutorial continua com IA em "não agora" (teste).
-- **Sem pergunta:** algoritmos, autenticação e IA. Começam em "ainda não". Num catálogo aberto,
-  subestimar custa um item a mais marcado como recomendado; superestimar esconde conteúdo e
-  libera o que vem depois (ADR-0003).
-- **Validador:** cada competência responde a uma pergunta só; a frase maior afirma tudo o que a
-  menor afirma; só exigências do track.
+  nada sobre depurar; depuração só entra a partir da frase do meio. Como depuração é o que
+  aproxima a IA, quem segue tutorial continua com IA em "não agora" (teste).
+- **A frase do meio dá crédito parcial.** Fica no mesmo nível da menor e afirma mais
+  competências: quem lê a mensagem de erro até a linha, quem já fez um fetch seguindo exemplo,
+  quem consulta a documentação quando lhe indicam a página. Antes essas pessoas tinham de
+  escolher entre subestimar (frase menor) e inflar (frase maior).
+- **Cobertura:** as frases maiores passaram a afirmar interface com componentes (JavaScript),
+  autenticação (Servidor e dados) e IA com verificação (Programar, junto com depurar sozinho,
+  que é o que a competência exige). **Sem pergunta** fica só algoritmos e custo: começa em
+  "ainda não". Num catálogo aberto, subestimar custa um item a mais marcado como recomendado;
+  superestimar esconde conteúdo e libera o que vem depois (ADR-0003).
+- **Validador:** cada competência responde a uma pergunta só; cada frase afirma mais que a
+  anterior (sobe de nível ou, no mesmo nível, afirma mais competências) e nunca deixa de afirmar
+  o que a anterior afirma; só exigências do track.
 - **Ênfase** (front-end, back-end, ainda não sei) virou tela opcional no fim.
 
 Custo assumido: a frase composta é menos precisa que 25 frases separadas. Compensa porque nada
@@ -408,6 +416,13 @@ mais é trancado, e o ajuste por competência entra na Minha área (§9).
   pessoa; o servidor grava junto o retrato da trilha que a pessoa via. `pnpm db:respostas` exporta
   em CSV sem identificador, com o escore SUS. Migração `0002_respostas_da_pesquisa`.
 - 127 testes.
+- **Três frases por pergunta** (§6): a do meio dá crédito parcial no mesmo nível; as maiores
+  passaram a cobrir componentes, autenticação e IA. Catálogo `2026.10.16-1`; 130 testes.
+- **Hábitos de carreira**, tema novo "Ser visto e seguir aprendendo", tradição Apprenticeship
+  Patterns (Hoover e Oshineye, 2009): publicar toda semana o que aprendeu (LinkedIn), conviver
+  com outros devs em eventos e comunidades, manter currículo, LinkedIn e conhecimento em dia.
+  Ligados a comunicação técnica, participação em code review e leitura de documentação. O
+  sistema indica o hábito; não analisa currículo nem perfil, que segue fora do escopo. 131 testes.
 
 **Próximo:**
 
