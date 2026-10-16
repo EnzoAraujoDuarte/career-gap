@@ -4,7 +4,7 @@
   "purpose": "Preencher a lacuna medida na auditoria de 2026-10-15: 7 competências core sem nenhuma prática. Missões são texto do projeto (permitido pela ADR-0005); a URL aponta para a documentação pública que a missão usa.",
   "entries": [
     {
-      "title": "Neps Academy — exercícios com correção automática",
+      "title": "Neps Academy: exercícios com correção automática",
       "source": "Neps Academy",
       "url": "https://neps.academy/br/exercises",
       "kind": "exercise",
@@ -23,7 +23,7 @@
       "origin": "practice"
     },
     {
-      "title": "OBI — problemas das edições anteriores",
+      "title": "OBI: problemas das edições anteriores",
       "source": "Olimpíada Brasileira de Informática (Unicamp)",
       "url": "https://olimpiada.ic.unicamp.br/pratique/",
       "kind": "exercise",
@@ -42,7 +42,7 @@
       "origin": "practice"
     },
     {
-      "title": "Exercism — trilha de JavaScript",
+      "title": "Exercism: trilha de JavaScript",
       "source": "Exercism",
       "url": "https://exercism.org/tracks/javascript",
       "kind": "exercise",
@@ -61,7 +61,7 @@
       "origin": "practice"
     },
     {
-      "title": "Depurar o JavaScript — tutorial do Chrome DevTools",
+      "title": "Depurar o JavaScript: tutorial do Chrome DevTools",
       "source": "Chrome for Developers (Google)",
       "url": "https://developer.chrome.com/docs/devtools/javascript?hl=pt-br",
       "kind": "tutorial",
@@ -80,7 +80,7 @@
       "origin": "practice"
     },
     {
-      "title": "Gilded Rose — kata de refatoração",
+      "title": "Gilded Rose: kata de refatoração",
       "source": "Emily Bache (GitHub)",
       "url": "https://github.com/emilybache/GildedRose-Refactoring-Kata",
       "kind": "exercise",
@@ -99,7 +99,7 @@
       "origin": "practice"
     },
     {
-      "title": "OverTheWire — Bandit",
+      "title": "OverTheWire: Bandit",
       "source": "OverTheWire",
       "url": "https://overthewire.org/wargames/bandit/",
       "kind": "exercise",
@@ -157,7 +157,7 @@
       "origin": "mission"
     },
     {
-      "title": "Missão: valide o CNPJ — inclusive o novo, com letras",
+      "title": "Missão: valide o CNPJ, inclusive o novo, com letras",
       "source": "Missão Career Gap · Receita Federal",
       "url": "https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/perguntas-e-respostas/cnpj/cnpj-alfanumerico.pdf",
       "kind": "exercise",
@@ -177,7 +177,7 @@
       "origin": "mission"
     },
     {
-      "title": "Desafio técnico de empresa brasileira — front-end",
+      "title": "Desafio técnico de empresa brasileira: front-end",
       "source": "felipefialho/frontend-challenges (GitHub)",
       "url": "https://github.com/felipefialho/frontend-challenges",
       "kind": "exercise",
@@ -195,7 +195,7 @@
       "origin": "practice"
     },
     {
-      "title": "Desafio técnico de empresa brasileira — back-end",
+      "title": "Desafio técnico de empresa brasileira: back-end",
       "source": "backend-br/desafios (GitHub)",
       "url": "https://github.com/backend-br/desafios",
       "kind": "exercise",
@@ -232,7 +232,7 @@
       "origin": "practice"
     },
     {
-      "title": "Full Stack Open — exercícios 1.1 a 1.14: componentes, props e estado",
+      "title": "Full Stack Open, exercícios 1.1 a 1.14: componentes, props e estado",
       "source": "Universidade de Helsinque — Full Stack Open",
       "url": "https://fullstackopen.com/ptbr/part1/introducao_a_biblioteca_react",
       "kind": "exercise",
@@ -251,7 +251,7 @@
       "origin": "practice"
     },
     {
-      "title": "Full Stack Open — exercícios 2.1 a 2.10: listas e formulário controlado",
+      "title": "Full Stack Open, exercícios 2.1 a 2.10: listas e formulário controlado",
       "source": "Universidade de Helsinque — Full Stack Open",
       "url": "https://fullstackopen.com/ptbr/part2/formularios",
       "kind": "exercise",
@@ -269,7 +269,7 @@
       "origin": "practice"
     },
     {
-      "title": "Full Stack Open — exercícios 0.4 a 0.6: diagrame as requisições",
+      "title": "Full Stack Open, exercícios 0.4 a 0.6: diagrame as requisições",
       "source": "Universidade de Helsinque — Full Stack Open",
       "url": "https://fullstackopen.com/ptbr/part0/fundamentos_de_aplicacoes_web",
       "kind": "exercise",
@@ -288,7 +288,7 @@
       "origin": "practice"
     },
     {
-      "title": "Full Stack Open — exercícios 2.11 a 2.17: lista telefônica com API REST",
+      "title": "Full Stack Open, exercícios 2.11 a 2.17: lista telefônica com API REST",
       "source": "Universidade de Helsinque — Full Stack Open",
       "url": "https://fullstackopen.com/ptbr/part2/obtendo_dados_do_servidor",
       "kind": "exercise",
@@ -306,7 +306,7 @@
       "origin": "practice"
     },
     {
-      "title": "Full Stack Open — exercícios 4.15 a 4.23: senha com bcrypt e login por token",
+      "title": "Full Stack Open, exercícios 4.15 a 4.23: senha com bcrypt e login por token",
       "source": "Universidade de Helsinque — Full Stack Open",
       "url": "https://fullstackopen.com/ptbr/part4/autenticacao_por_token",
       "kind": "exercise",
@@ -342,7 +342,7 @@
       "origin": "practice"
     },
     {
-      "title": "freeCodeCamp — Criar uma API de lista de filmes para a família",
+      "title": "freeCodeCamp: Criar uma API de lista de filmes para a família",
       "source": "freeCodeCamp",
       "url": "https://www.freecodecamp.org/portuguese/learn/back-end-development-and-apis-v9/lab-family-movie-watchlist-api/build-a-family-movie-watchlist-api",
       "kind": "exercise",
@@ -360,7 +360,7 @@
       "origin": "practice"
     },
     {
-      "title": "freeCodeCamp — Criar um banco de dados de corpos celestiais",
+      "title": "freeCodeCamp: Criar um banco de dados de corpos celestiais",
       "source": "freeCodeCamp",
       "url": "https://www.freecodecamp.org/portuguese/learn/relational-databases-v9/lab-celestial-bodies-database/lab-celestial-bodies-database",
       "kind": "exercise",
@@ -378,7 +378,7 @@
       "origin": "practice"
     },
     {
-      "title": "The Odin Project — Project: Inventory Application",
+      "title": "The Odin Project, Project: Inventory Application",
       "source": "The Odin Project",
       "url": "https://www.theodinproject.com/lessons/node-path-nodejs-inventory-application",
       "kind": "exercise",
@@ -396,7 +396,7 @@
       "origin": "practice"
     },
     {
-      "title": "freeCodeCamp — Construir um Aplicativo de Clima",
+      "title": "freeCodeCamp: Construir um Aplicativo de Clima",
       "source": "freeCodeCamp",
       "url": "https://www.freecodecamp.org/portuguese/learn/javascript-v9/lab-weather-app/lab-weather-app",
       "kind": "exercise",
@@ -414,7 +414,7 @@
       "origin": "practice"
     },
     {
-      "title": "freeCodeCamp — Faça a depuração do modificador de cor de fundo aleatório",
+      "title": "freeCodeCamp: Faça a depuração do modificador de cor de fundo aleatório",
       "source": "freeCodeCamp",
       "url": "https://www.freecodecamp.org/portuguese/learn/javascript-v9/lab-random-background-color-changer/debug-a-random-background-color-changer",
       "kind": "exercise",
@@ -432,7 +432,7 @@
       "origin": "practice"
     },
     {
-      "title": "freeCodeCamp — Depure um formulário de doação",
+      "title": "freeCodeCamp: Depure um formulário de doação",
       "source": "freeCodeCamp",
       "url": "https://www.freecodecamp.org/portuguese/learn/responsive-web-design-v9/lab-debug-donation-form/debug-donation-form",
       "kind": "exercise",
@@ -450,7 +450,7 @@
       "origin": "practice"
     },
     {
-      "title": "The Odin Project — Project: Etch-a-Sketch",
+      "title": "The Odin Project, Project: Etch-a-Sketch",
       "source": "The Odin Project",
       "url": "https://www.theodinproject.com/lessons/foundations-etch-a-sketch",
       "kind": "exercise",
@@ -468,7 +468,7 @@
       "origin": "practice"
     },
     {
-      "title": "freeCodeCamp — Criar um boilerplate (só pelo terminal)",
+      "title": "freeCodeCamp: Criar um boilerplate (só pelo terminal)",
       "source": "freeCodeCamp",
       "url": "https://www.freecodecamp.org/portuguese/learn/relational-databases-v9/workshop-bash-boilerplate/build-a-boilerplate",
       "kind": "exercise",

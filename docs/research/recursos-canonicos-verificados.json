@@ -94,7 +94,7 @@
     },
     {
       "source": "typicode",
-      "title": "JSONPlaceholder — Free Fake REST API",
+      "title": "JSONPlaceholder: Free Fake REST API",
       "url": "https://jsonplaceholder.typicode.com/",
       "kind": "exercise",
       "technology": "REST",
@@ -129,7 +129,7 @@
     },
     {
       "source": "web.dev (Google / Chrome team)",
-      "title": "Learn Accessibility — módulos 'Content structure' e 'Keyboard focus'",
+      "title": "Learn Accessibility: módulos 'Content structure' e 'Keyboard focus'",
       "url": "https://web.dev/learn/accessibility",
       "kind": "course",
       "technology": "HTML / ARIA",
@@ -146,7 +146,7 @@
     },
     {
       "source": "The A11Y Project",
-      "title": "Checklist — The A11Y Project",
+      "title": "Checklist: The A11Y Project",
       "url": "https://www.a11yproject.com/checklist/",
       "kind": "reference",
       "technology": "WCAG",
@@ -199,7 +199,7 @@
     },
     {
       "source": "web.dev (Google / Chrome team)",
-      "title": "Aprenda CSS — módulos Flexbox e Grid",
+      "title": "Aprenda CSS: módulos Flexbox e Grid",
       "url": "https://web.dev/learn/css?hl=pt-br",
       "kind": "course",
       "technology": "CSS",
@@ -496,7 +496,7 @@
     },
     {
       "source": "freeCodeCamp (Richard Reis; tradução de Afonso Branco)",
-      "title": "Como pensar como um programador — lições de resolução de problemas",
+      "title": "Como pensar como um programador: lições de resolução de problemas",
       "url": "https://www.freecodecamp.org/portuguese/news/como-pensar-como-um-programador-licoes-de-resolucao-de-problemas/",
       "kind": "article",
       "technology": "agnóstico",
@@ -710,7 +710,7 @@
     },
     {
       "source": "VisuAlgo — Steven Halim, National University of Singapore",
-      "title": "VisuAlgo — visualising data structures and algorithms through animation",
+      "title": "VisuAlgo: visualising data structures and algorithms through animation",
       "url": "https://visualgo.net/en",
       "kind": "interactive",
       "technology": "agnóstico",
@@ -780,7 +780,7 @@
     },
     {
       "source": "SQLBolt",
-      "title": "SQLBolt — Learn SQL",
+      "title": "SQLBolt: Learn SQL",
       "url": "https://sqlbolt.com/",
       "kind": "interactive",
       "technology": "SQL",
@@ -814,7 +814,7 @@
     },
     {
       "source": "Adrienne Watt e Nelson Eng — BCcampus",
-      "title": "Database Design — 2nd Edition",
+      "title": "Database Design: 2nd Edition",
       "url": "https://opentextbc.ca/dbdesign01/",
       "kind": "book",
       "technology": "modelagem relacional",
@@ -832,7 +832,7 @@
     },
     {
       "source": "Scott Chacon e Ben Straub / git-scm.com",
-      "title": "Pro Git — 2ª edição (pt-BR)",
+      "title": "Pro Git: 2ª edição (pt-BR)",
       "url": "https://git-scm.com/book/pt-br/v2",
       "kind": "book",
       "technology": "Git",
@@ -940,7 +940,7 @@
     },
     {
       "source": "Harvard University / CS50 (David J. Malan)",
-      "title": "CS50x — CS50's Introduction to Computer Science",
+      "title": "CS50x: CS50's Introduction to Computer Science",
       "url": "https://cs50.harvard.edu/x/",
       "kind": "course",
       "technology": "C / Python / SQL",
@@ -1059,6 +1059,40 @@
       "estimated_time": "30 min",
       "action_type": "READ",
       "why": "npm init, npm install, npx e scripts do package.json, no terminal: o \"instalo dependências e subo o projeto\" que toda vaga pressupõe. Sem versão em português no MDN."
+    },
+    {
+      "source": "Awwwards",
+      "title": "Awwwards: sites premiados por design e desenvolvimento front-end",
+      "url": "https://www.awwwards.com/websites/",
+      "kind": "reference",
+      "technology": "agnostic",
+      "competencies": [
+        "css-layout",
+        "ui-components-and-state"
+      ],
+      "level_min": "L1",
+      "license": "direitos reservados — apenas linkar",
+      "pt_br_status": "none",
+      "requires_signup": false,
+      "action_type": "READ",
+      "why": "Referência de teto: o que o front-end de nível alto está fazendo em layout, tipografia e movimento, com os sites de verdade para inspecionar no DevTools. Só rende para quem já monta uma página; antes disso é só vitrine. Pedido do dono do produto em 2026-10-16."
+    },
+    {
+      "source": "Mobbin",
+      "title": "Mobbin: biblioteca de padrões de interface de produtos reais",
+      "url": "https://mobbin.com/",
+      "kind": "reference",
+      "technology": "agnostic",
+      "competencies": [
+        "ui-components-and-state",
+        "css-layout"
+      ],
+      "level_min": "L1",
+      "license": "direitos reservados — apenas linkar",
+      "pt_br_status": "none",
+      "requires_signup": true,
+      "action_type": "READ",
+      "why": "Milhares de fluxos e telas de aplicativos reais, organizados por padrão (login, busca, formulário, estado vazio). Serve para decidir como um componente costuma se comportar antes de inventar. Plano gratuito com limite; o restante é pago. Pedido do dono do produto em 2026-10-16."
     }
   ],
   "resolucao_das_lacunas": [

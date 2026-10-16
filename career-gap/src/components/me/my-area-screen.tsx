@@ -72,7 +72,7 @@ export function MyAreaScreen() {
 
       <SectionLabel>O que você já sabe</SectionLabel>
       <p className="text-ink-soft mt-1 text-[13px] leading-relaxed">
-        Concluir um recurso não muda o seu nível — assistir não é saber fazer. Quando sentir que
+        Concluir um recurso não muda o seu nível, porque assistir não é saber fazer. Quando sentir que
         avançou, ajuste.
       </p>
       <p className="mt-2 flex flex-wrap gap-x-5 gap-y-1 text-[14px]">

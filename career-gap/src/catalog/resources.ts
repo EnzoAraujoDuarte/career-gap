@@ -429,7 +429,7 @@ export const RESOURCES: readonly Resource[] = [
   },
   {
     id: "tabnews-conteudos-para-quem-trabalha-com-programacao-e-tecnologia",
-    title: "TabNews — Conteúdos para quem trabalha com Programação e Tecnologia",
+    title: "TabNews: Conteúdos para quem trabalha com Programação e Tecnologia",
     sourceName: "TabNews (comunidade open source BR, mantida por Filipe Deschamps)",
     url: "https://www.tabnews.com.br/",
     kind: "community",
@@ -697,7 +697,7 @@ export const RESOURCES: readonly Resource[] = [
   },
   {
     id: "como-revisar-e-comentar-pull-requests-sem-ser-grosseiro-revisao-de-cod",
-    title: "Como revisar e comentar pull requests sem ser grosseiro — revisão de código (título original contém linguagem chula)",
+    title: "Como revisar e comentar pull requests sem ser grosseiro: revisão de código (título original contém linguagem chula)",
     sourceName: "Programador de Elite",
     url: "https://www.youtube.com/watch?v=fsMFuT59rMU",
     kind: "video",
@@ -836,7 +836,7 @@ export const RESOURCES: readonly Resource[] = [
   },
   {
     id: "jsonplaceholder-free-fake-rest-api",
-    title: "JSONPlaceholder — Free Fake REST API",
+    title: "JSONPlaceholder: Free Fake REST API",
     sourceName: "typicode",
     url: "https://jsonplaceholder.typicode.com/",
     kind: "exercise",
@@ -876,7 +876,7 @@ export const RESOURCES: readonly Resource[] = [
   },
   {
     id: "learn-accessibility-modulos-content-structure-e-keyboard-focus",
-    title: "Learn Accessibility — módulos 'Content structure' e 'Keyboard focus'",
+    title: "Learn Accessibility: módulos 'Content structure' e 'Keyboard focus'",
     sourceName: "web.dev (Google / Chrome team)",
     url: "https://web.dev/learn/accessibility",
     kind: "course",
@@ -896,7 +896,7 @@ export const RESOURCES: readonly Resource[] = [
   },
   {
     id: "checklist-the-a11y-project",
-    title: "Checklist — The A11Y Project",
+    title: "Checklist: The A11Y Project",
     sourceName: "The A11Y Project",
     url: "https://www.a11yproject.com/checklist/",
     kind: "reference",
@@ -956,7 +956,7 @@ export const RESOURCES: readonly Resource[] = [
   },
   {
     id: "aprenda-css-modulos-flexbox-e-grid",
-    title: "Aprenda CSS — módulos Flexbox e Grid",
+    title: "Aprenda CSS: módulos Flexbox e Grid",
     sourceName: "web.dev (Google / Chrome team)",
     url: "https://web.dev/learn/css/flexbox?hl=pt-br",
     kind: "course",
@@ -1297,7 +1297,7 @@ export const RESOURCES: readonly Resource[] = [
   },
   {
     id: "como-pensar-como-um-programador-licoes-de-resolucao-de-problemas",
-    title: "Como pensar como um programador — lições de resolução de problemas",
+    title: "Como pensar como um programador: lições de resolução de problemas",
     sourceName: "freeCodeCamp (Richard Reis; tradução de Afonso Branco)",
     url: "https://www.freecodecamp.org/portuguese/news/como-pensar-como-um-programador-licoes-de-resolucao-de-problemas/",
     kind: "article",
@@ -1539,7 +1539,7 @@ export const RESOURCES: readonly Resource[] = [
   },
   {
     id: "visualgo-visualising-data-structures-and-algorithms-through-animation",
-    title: "VisuAlgo — visualising data structures and algorithms through animation",
+    title: "VisuAlgo: visualising data structures and algorithms through animation",
     sourceName: "VisuAlgo — Steven Halim, National University of Singapore",
     url: "https://visualgo.net/en",
     kind: "interactive",
@@ -1622,7 +1622,7 @@ export const RESOURCES: readonly Resource[] = [
   },
   {
     id: "sqlbolt-learn-sql",
-    title: "SQLBolt — Learn SQL",
+    title: "SQLBolt: Learn SQL",
     sourceName: "SQLBolt",
     url: "https://sqlbolt.com/",
     kind: "interactive",
@@ -1662,7 +1662,7 @@ export const RESOURCES: readonly Resource[] = [
   },
   {
     id: "database-design-2nd-edition",
-    title: "Database Design — 2nd Edition",
+    title: "Database Design: 2nd Edition",
     sourceName: "Adrienne Watt e Nelson Eng — BCcampus",
     url: "https://opentextbc.ca/dbdesign01/",
     kind: "book",
@@ -1683,7 +1683,7 @@ export const RESOURCES: readonly Resource[] = [
   },
   {
     id: "pro-git-2-edicao-pt-br",
-    title: "Pro Git — 2ª edição (pt-BR)",
+    title: "Pro Git: 2ª edição (pt-BR)",
     sourceName: "Scott Chacon e Ben Straub / git-scm.com",
     url: "https://git-scm.com/book/pt-br/v2",
     kind: "book",
@@ -1806,7 +1806,7 @@ export const RESOURCES: readonly Resource[] = [
   },
   {
     id: "cs50x-cs50-s-introduction-to-computer-science",
-    title: "CS50x — CS50's Introduction to Computer Science",
+    title: "CS50x: CS50's Introduction to Computer Science",
     sourceName: "Harvard University / CS50 (David J. Malan)",
     url: "https://cs50.harvard.edu/x/",
     kind: "course",
@@ -1945,8 +1945,48 @@ export const RESOURCES: readonly Resource[] = [
     origin: "canonical"
   },
   {
+    id: "awwwards-sites-premiados-por-design-e-desenvolvimento-front-end",
+    title: "Awwwards: sites premiados por design e desenvolvimento front-end",
+    sourceName: "Awwwards",
+    url: "https://www.awwwards.com/websites/",
+    kind: "reference",
+    actionType: "READ",
+    competencies: [
+      "css-layout",
+      "ui-components-and-state"
+    ],
+    levelMin: "L1",
+    technology: "agnostic",
+    cost: "free",
+    ptBrStatus: "none",
+    requiresSignup: false,
+    license: "direitos reservados — apenas linkar",
+    why: "Referência de teto: o que o front-end de nível alto está fazendo em layout, tipografia e movimento, com os sites de verdade para inspecionar no DevTools. Só rende para quem já monta uma página; antes disso é só vitrine. Pedido do dono do produto em 2026-10-16.",
+    origin: "canonical"
+  },
+  {
+    id: "mobbin-biblioteca-de-padroes-de-interface-de-produtos-reais",
+    title: "Mobbin: biblioteca de padrões de interface de produtos reais",
+    sourceName: "Mobbin",
+    url: "https://mobbin.com/",
+    kind: "reference",
+    actionType: "READ",
+    competencies: [
+      "ui-components-and-state",
+      "css-layout"
+    ],
+    levelMin: "L1",
+    technology: "agnostic",
+    cost: "free",
+    ptBrStatus: "none",
+    requiresSignup: true,
+    license: "direitos reservados — apenas linkar",
+    why: "Milhares de fluxos e telas de aplicativos reais, organizados por padrão (login, busca, formulário, estado vazio). Serve para decidir como um componente costuma se comportar antes de inventar. Plano gratuito com limite; o restante é pago. Pedido do dono do produto em 2026-10-16.",
+    origin: "canonical"
+  },
+  {
     id: "pense-em-python-2-edicao-allen-downey-trad-sheila-gomes",
-    title: "Pense em Python — 2ª edição (Allen Downey, trad. Sheila Gomes)",
+    title: "Pense em Python: 2ª edição (Allen Downey, trad. Sheila Gomes)",
     sourceName: "Allen Downey (trad. Sheila Gomes)",
     url: "https://penseallen.github.io/PensePython2e/",
     kind: "book",
@@ -1967,7 +2007,7 @@ export const RESOURCES: readonly Resource[] = [
   },
   {
     id: "apostila-caelum-alura-desenvolvimento-web-com-html-css-e-javascript",
-    title: "Apostila Caelum/Alura — Desenvolvimento Web com HTML, CSS e JavaScript",
+    title: "Apostila Caelum/Alura: Desenvolvimento Web com HTML, CSS e JavaScript",
     sourceName: "Alura",
     url: "https://www.alura.com.br/apostila-html-css-javascript",
     kind: "book",
@@ -2008,7 +2048,7 @@ export const RESOURCES: readonly Resource[] = [
   },
   {
     id: "git-guia-pratico-pt-br",
-    title: "git — guia prático (pt-BR)",
+    title: "git: guia prático (pt-BR)",
     sourceName: "Roger Dudler",
     url: "https://rogerdudler.github.io/git-guide/index.pt_BR.html",
     kind: "guide",
@@ -2027,7 +2067,7 @@ export const RESOURCES: readonly Resource[] = [
   },
   {
     id: "you-don-t-know-js-yet-2-edicao-kyle-simpson",
-    title: "You Don't Know JS Yet — 2ª edição (Kyle Simpson)",
+    title: "You Don't Know JS Yet: 2ª edição (Kyle Simpson)",
     sourceName: "Kyle Simpson (GitHub)",
     url: "https://github.com/getify/You-Dont-Know-JS",
     kind: "book",
@@ -2046,7 +2086,7 @@ export const RESOURCES: readonly Resource[] = [
   },
   {
     id: "mdn-aprenda-desenvolvimento-web-pt-br",
-    title: "MDN — Aprenda desenvolvimento web (pt-BR)",
+    title: "MDN: Aprenda desenvolvimento web (pt-BR)",
     sourceName: "MDN (Mozilla)",
     url: "https://developer.mozilla.org/pt-BR/docs/Learn_web_development",
     kind: "course",
@@ -2069,7 +2109,7 @@ export const RESOURCES: readonly Resource[] = [
   },
   {
     id: "web-dev-aprenda-css-pt-br",
-    title: "web.dev — Aprenda CSS (pt-BR)",
+    title: "web.dev: Aprenda CSS (pt-BR)",
     sourceName: "Google (web.dev)",
     url: "https://web.dev/learn/css?hl=pt-br",
     kind: "course",
@@ -2088,7 +2128,7 @@ export const RESOURCES: readonly Resource[] = [
   },
   {
     id: "w3c-wai-digital-accessibility-foundations-edx",
-    title: "W3C WAI — Digital Accessibility Foundations (edX)",
+    title: "W3C WAI: Digital Accessibility Foundations (edX)",
     sourceName: "W3C",
     url: "https://www.w3.org/WAI/courses/foundations-course/",
     kind: "course",
@@ -2107,7 +2147,7 @@ export const RESOURCES: readonly Resource[] = [
   },
   {
     id: "curso-em-video-html5-e-css3-modulos-1-a-5",
-    title: "Curso em Vídeo — HTML5 e CSS3 (módulos 1 a 5)",
+    title: "Curso em Vídeo: HTML5 e CSS3 (módulos 1 a 5)",
     sourceName: "Curso em Vídeo · Gustavo Guanabara",
     url: "https://www.cursoemvideo.com/cursos/",
     kind: "course",
@@ -2129,7 +2169,7 @@ export const RESOURCES: readonly Resource[] = [
   },
   {
     id: "curso-em-video-javascript-modulos-a-f",
-    title: "Curso em Vídeo — JavaScript (módulos A-F)",
+    title: "Curso em Vídeo: JavaScript (módulos A-F)",
     sourceName: "Curso em Vídeo · Gustavo Guanabara",
     url: "https://www.cursoemvideo.com/curso/javascript/",
     kind: "course",
@@ -2150,7 +2190,7 @@ export const RESOURCES: readonly Resource[] = [
   },
   {
     id: "curso-em-video-git-e-github",
-    title: "Curso em Vídeo — Git e GitHub",
+    title: "Curso em Vídeo: Git e GitHub",
     sourceName: "Curso em Vídeo · Gustavo Guanabara",
     url: "https://www.cursoemvideo.com/curso/curso-de-git-e-github/",
     kind: "course",
@@ -2171,7 +2211,7 @@ export const RESOURCES: readonly Resource[] = [
   },
   {
     id: "curso-em-video-mysql-banco-de-dados",
-    title: "Curso em Vídeo — MySQL / Banco de Dados",
+    title: "Curso em Vídeo: MySQL / Banco de Dados",
     sourceName: "Curso em Vídeo · Gustavo Guanabara",
     url: "https://www.cursoemvideo.com/curso/mysql/",
     kind: "course",
@@ -2191,7 +2231,7 @@ export const RESOURCES: readonly Resource[] = [
   },
   {
     id: "cc50-cs50-de-harvard-legendado-em-portugues-fundacao-estudar",
-    title: "CC50 — CS50 de Harvard legendado em português (Fundação Estudar)",
+    title: "CC50: CS50 de Harvard legendado em português (Fundação Estudar)",
     sourceName: "Fundação Estudar",
     url: "https://www.estudarfora.org.br/cc50-v2/",
     kind: "course",
@@ -2211,7 +2251,7 @@ export const RESOURCES: readonly Resource[] = [
   },
   {
     id: "freecodecamp-curriculo-em-portugues",
-    title: "freeCodeCamp — currículo em português",
+    title: "freeCodeCamp: currículo em português",
     sourceName: "freeCodeCamp",
     url: "https://www.freecodecamp.org/portuguese/learn",
     kind: "interactive",
@@ -2234,7 +2274,7 @@ export const RESOURCES: readonly Resource[] = [
   },
   {
     id: "dio-bootcamp-primeiros-passos-em-tecnologia",
-    title: "DIO — Bootcamp Primeiros Passos em Tecnologia",
+    title: "DIO: Bootcamp Primeiros Passos em Tecnologia",
     sourceName: "DIO",
     url: "https://www.dio.me/bootcamp/primeiros-passos-em-tecnologia",
     kind: "course",
@@ -2257,7 +2297,7 @@ export const RESOURCES: readonly Resource[] = [
   },
   {
     id: "alura-7-days-of-code",
-    title: "Alura — 7 Days of Code",
+    title: "Alura: 7 Days of Code",
     sourceName: "Alura",
     url: "https://7daysofcode.io/",
     kind: "exercise",
@@ -2279,7 +2319,7 @@ export const RESOURCES: readonly Resource[] = [
   },
   {
     id: "escola-virtual-fundacao-bradesco-crie-um-site-simples-usando-html-css-",
-    title: "Escola Virtual Fundação Bradesco — Crie um site simples usando HTML, CSS e JavaScript",
+    title: "Escola Virtual Fundação Bradesco: Crie um site simples usando HTML, CSS e JavaScript",
     sourceName: "Fundação Bradesco · Escola Virtual",
     url: "https://www.ev.org.br/cursos/crie-um-site-simples-usando-html-css-e-javascript",
     kind: "course",
@@ -2300,7 +2340,7 @@ export const RESOURCES: readonly Resource[] = [
   },
   {
     id: "escola-virtual-fundacao-bradesco-linguagem-de-programacao-python-basic",
-    title: "Escola Virtual Fundação Bradesco — Linguagem de Programação Python Básico",
+    title: "Escola Virtual Fundação Bradesco: Linguagem de Programação Python Básico",
     sourceName: "Fundação Bradesco · Escola Virtual",
     url: "https://www.ev.org.br/cursos/linguagem-de-programacao-python-basico",
     kind: "course",
@@ -2319,7 +2359,7 @@ export const RESOURCES: readonly Resource[] = [
   },
   {
     id: "the-odin-project-foundations",
-    title: "The Odin Project — Foundations",
+    title: "The Odin Project: Foundations",
     sourceName: "The Odin Project",
     url: "https://www.theodinproject.com/paths/foundations/courses/foundations",
     kind: "course",
@@ -2491,7 +2531,7 @@ export const RESOURCES: readonly Resource[] = [
   },
   {
     id: "entendendo-algoritmos-2-edicao-aditya-bhargava",
-    title: "Entendendo Algoritmos — 2ª edição (Aditya Bhargava)",
+    title: "Entendendo Algoritmos: 2ª edição (Aditya Bhargava)",
     sourceName: "Novatec",
     url: "https://novatec.com.br/livros/entendendo-algoritmos-2ed/",
     kind: "book",
@@ -2532,7 +2572,7 @@ export const RESOURCES: readonly Resource[] = [
   },
   {
     id: "origamid-html-e-css-para-iniciantes",
-    title: "Origamid — HTML e CSS para Iniciantes",
+    title: "Origamid: HTML e CSS para Iniciantes",
     sourceName: "Origamid",
     url: "https://www.origamid.com/curso/html-e-css-para-iniciantes/",
     kind: "course",
@@ -2555,7 +2595,7 @@ export const RESOURCES: readonly Resource[] = [
   },
   {
     id: "origamid-javascript-completo-es6",
-    title: "Origamid — JavaScript Completo ES6",
+    title: "Origamid: JavaScript Completo ES6",
     sourceName: "Origamid",
     url: "https://www.origamid.com/curso/javascript-completo-es6/",
     kind: "course",
@@ -2577,7 +2617,7 @@ export const RESOURCES: readonly Resource[] = [
   },
   {
     id: "neps-academy-exercicios-com-correcao-automatica",
-    title: "Neps Academy — exercícios com correção automática",
+    title: "Neps Academy: exercícios com correção automática",
     sourceName: "Neps Academy",
     url: "https://neps.academy/br/exercises",
     kind: "exercise",
@@ -2597,7 +2637,7 @@ export const RESOURCES: readonly Resource[] = [
   },
   {
     id: "obi-problemas-das-edicoes-anteriores",
-    title: "OBI — problemas das edições anteriores",
+    title: "OBI: problemas das edições anteriores",
     sourceName: "Olimpíada Brasileira de Informática (Unicamp)",
     url: "https://olimpiada.ic.unicamp.br/pratique/",
     kind: "exercise",
@@ -2617,7 +2657,7 @@ export const RESOURCES: readonly Resource[] = [
   },
   {
     id: "exercism-trilha-de-javascript",
-    title: "Exercism — trilha de JavaScript",
+    title: "Exercism: trilha de JavaScript",
     sourceName: "Exercism",
     url: "https://exercism.org/tracks/javascript",
     kind: "exercise",
@@ -2637,7 +2677,7 @@ export const RESOURCES: readonly Resource[] = [
   },
   {
     id: "depurar-o-javascript-tutorial-do-chrome-devtools",
-    title: "Depurar o JavaScript — tutorial do Chrome DevTools",
+    title: "Depurar o JavaScript: tutorial do Chrome DevTools",
     sourceName: "Chrome for Developers (Google)",
     url: "https://developer.chrome.com/docs/devtools/javascript?hl=pt-br",
     kind: "tutorial",
@@ -2657,7 +2697,7 @@ export const RESOURCES: readonly Resource[] = [
   },
   {
     id: "gilded-rose-kata-de-refatoracao",
-    title: "Gilded Rose — kata de refatoração",
+    title: "Gilded Rose: kata de refatoração",
     sourceName: "Emily Bache (GitHub)",
     url: "https://github.com/emilybache/GildedRose-Refactoring-Kata",
     kind: "exercise",
@@ -2677,7 +2717,7 @@ export const RESOURCES: readonly Resource[] = [
   },
   {
     id: "overthewire-bandit",
-    title: "OverTheWire — Bandit",
+    title: "OverTheWire: Bandit",
     sourceName: "OverTheWire",
     url: "https://overthewire.org/wargames/bandit/",
     kind: "exercise",
@@ -2738,7 +2778,7 @@ export const RESOURCES: readonly Resource[] = [
   },
   {
     id: "missao-valide-o-cnpj-inclusive-o-novo-com-letras",
-    title: "Missão: valide o CNPJ — inclusive o novo, com letras",
+    title: "Missão: valide o CNPJ, inclusive o novo, com letras",
     sourceName: "Missão Career Gap · Receita Federal",
     url: "https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/perguntas-e-respostas/cnpj/cnpj-alfanumerico.pdf",
     kind: "exercise",
@@ -2759,7 +2799,7 @@ export const RESOURCES: readonly Resource[] = [
   },
   {
     id: "desafio-tecnico-de-empresa-brasileira-front-end",
-    title: "Desafio técnico de empresa brasileira — front-end",
+    title: "Desafio técnico de empresa brasileira: front-end",
     sourceName: "felipefialho/frontend-challenges (GitHub)",
     url: "https://github.com/felipefialho/frontend-challenges",
     kind: "exercise",
@@ -2778,7 +2818,7 @@ export const RESOURCES: readonly Resource[] = [
   },
   {
     id: "desafio-tecnico-de-empresa-brasileira-back-end",
-    title: "Desafio técnico de empresa brasileira — back-end",
+    title: "Desafio técnico de empresa brasileira: back-end",
     sourceName: "backend-br/desafios (GitHub)",
     url: "https://github.com/backend-br/desafios",
     kind: "exercise",
@@ -2817,7 +2857,7 @@ export const RESOURCES: readonly Resource[] = [
   },
   {
     id: "full-stack-open-exercicios-1-1-a-1-14-componentes-props-e-estado",
-    title: "Full Stack Open — exercícios 1.1 a 1.14: componentes, props e estado",
+    title: "Full Stack Open, exercícios 1.1 a 1.14: componentes, props e estado",
     sourceName: "Universidade de Helsinque — Full Stack Open",
     url: "https://fullstackopen.com/ptbr/part1/introducao_a_biblioteca_react",
     kind: "exercise",
@@ -2837,7 +2877,7 @@ export const RESOURCES: readonly Resource[] = [
   },
   {
     id: "full-stack-open-exercicios-2-1-a-2-10-listas-e-formulario-controlado",
-    title: "Full Stack Open — exercícios 2.1 a 2.10: listas e formulário controlado",
+    title: "Full Stack Open, exercícios 2.1 a 2.10: listas e formulário controlado",
     sourceName: "Universidade de Helsinque — Full Stack Open",
     url: "https://fullstackopen.com/ptbr/part2/formularios",
     kind: "exercise",
@@ -2856,7 +2896,7 @@ export const RESOURCES: readonly Resource[] = [
   },
   {
     id: "full-stack-open-exercicios-0-4-a-0-6-diagrame-as-requisicoes",
-    title: "Full Stack Open — exercícios 0.4 a 0.6: diagrame as requisições",
+    title: "Full Stack Open, exercícios 0.4 a 0.6: diagrame as requisições",
     sourceName: "Universidade de Helsinque — Full Stack Open",
     url: "https://fullstackopen.com/ptbr/part0/fundamentos_de_aplicacoes_web",
     kind: "exercise",
@@ -2876,7 +2916,7 @@ export const RESOURCES: readonly Resource[] = [
   },
   {
     id: "full-stack-open-exercicios-2-11-a-2-17-lista-telefonica-com-api-rest",
-    title: "Full Stack Open — exercícios 2.11 a 2.17: lista telefônica com API REST",
+    title: "Full Stack Open, exercícios 2.11 a 2.17: lista telefônica com API REST",
     sourceName: "Universidade de Helsinque — Full Stack Open",
     url: "https://fullstackopen.com/ptbr/part2/obtendo_dados_do_servidor",
     kind: "exercise",
@@ -2895,7 +2935,7 @@ export const RESOURCES: readonly Resource[] = [
   },
   {
     id: "full-stack-open-exercicios-4-15-a-4-23-senha-com-bcrypt-e-login-por-to",
-    title: "Full Stack Open — exercícios 4.15 a 4.23: senha com bcrypt e login por token",
+    title: "Full Stack Open, exercícios 4.15 a 4.23: senha com bcrypt e login por token",
     sourceName: "Universidade de Helsinque — Full Stack Open",
     url: "https://fullstackopen.com/ptbr/part4/autenticacao_por_token",
     kind: "exercise",
@@ -2933,7 +2973,7 @@ export const RESOURCES: readonly Resource[] = [
   },
   {
     id: "freecodecamp-criar-uma-api-de-lista-de-filmes-para-a-familia",
-    title: "freeCodeCamp — Criar uma API de lista de filmes para a família",
+    title: "freeCodeCamp: Criar uma API de lista de filmes para a família",
     sourceName: "freeCodeCamp",
     url: "https://www.freecodecamp.org/portuguese/learn/back-end-development-and-apis-v9/lab-family-movie-watchlist-api/build-a-family-movie-watchlist-api",
     kind: "exercise",
@@ -2952,7 +2992,7 @@ export const RESOURCES: readonly Resource[] = [
   },
   {
     id: "freecodecamp-criar-um-banco-de-dados-de-corpos-celestiais",
-    title: "freeCodeCamp — Criar um banco de dados de corpos celestiais",
+    title: "freeCodeCamp: Criar um banco de dados de corpos celestiais",
     sourceName: "freeCodeCamp",
     url: "https://www.freecodecamp.org/portuguese/learn/relational-databases-v9/lab-celestial-bodies-database/lab-celestial-bodies-database",
     kind: "exercise",
@@ -2971,7 +3011,7 @@ export const RESOURCES: readonly Resource[] = [
   },
   {
     id: "the-odin-project-project-inventory-application",
-    title: "The Odin Project — Project: Inventory Application",
+    title: "The Odin Project, Project: Inventory Application",
     sourceName: "The Odin Project",
     url: "https://www.theodinproject.com/lessons/node-path-nodejs-inventory-application",
     kind: "exercise",
@@ -2990,7 +3030,7 @@ export const RESOURCES: readonly Resource[] = [
   },
   {
     id: "freecodecamp-construir-um-aplicativo-de-clima",
-    title: "freeCodeCamp — Construir um Aplicativo de Clima",
+    title: "freeCodeCamp: Construir um Aplicativo de Clima",
     sourceName: "freeCodeCamp",
     url: "https://www.freecodecamp.org/portuguese/learn/javascript-v9/lab-weather-app/lab-weather-app",
     kind: "exercise",
@@ -3009,7 +3049,7 @@ export const RESOURCES: readonly Resource[] = [
   },
   {
     id: "freecodecamp-faca-a-depuracao-do-modificador-de-cor-de-fundo-aleatorio",
-    title: "freeCodeCamp — Faça a depuração do modificador de cor de fundo aleatório",
+    title: "freeCodeCamp: Faça a depuração do modificador de cor de fundo aleatório",
     sourceName: "freeCodeCamp",
     url: "https://www.freecodecamp.org/portuguese/learn/javascript-v9/lab-random-background-color-changer/debug-a-random-background-color-changer",
     kind: "exercise",
@@ -3028,7 +3068,7 @@ export const RESOURCES: readonly Resource[] = [
   },
   {
     id: "freecodecamp-depure-um-formulario-de-doacao",
-    title: "freeCodeCamp — Depure um formulário de doação",
+    title: "freeCodeCamp: Depure um formulário de doação",
     sourceName: "freeCodeCamp",
     url: "https://www.freecodecamp.org/portuguese/learn/responsive-web-design-v9/lab-debug-donation-form/debug-donation-form",
     kind: "exercise",
@@ -3047,7 +3087,7 @@ export const RESOURCES: readonly Resource[] = [
   },
   {
     id: "the-odin-project-project-etch-a-sketch",
-    title: "The Odin Project — Project: Etch-a-Sketch",
+    title: "The Odin Project, Project: Etch-a-Sketch",
     sourceName: "The Odin Project",
     url: "https://www.theodinproject.com/lessons/foundations-etch-a-sketch",
     kind: "exercise",
@@ -3066,7 +3106,7 @@ export const RESOURCES: readonly Resource[] = [
   },
   {
     id: "freecodecamp-criar-um-boilerplate-so-pelo-terminal",
-    title: "freeCodeCamp — Criar um boilerplate (só pelo terminal)",
+    title: "freeCodeCamp: Criar um boilerplate (só pelo terminal)",
     sourceName: "freeCodeCamp",
     url: "https://www.freecodecamp.org/portuguese/learn/relational-databases-v9/workshop-bash-boilerplate/build-a-boilerplate",
     kind: "exercise",

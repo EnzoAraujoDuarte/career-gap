@@ -205,6 +205,24 @@ export const TOOLS: readonly Tool[] = [
     verifiedAt: VERIFIED,
   },
   {
+    id: 'impeccable',
+    name: 'Impeccable (skill de design)',
+    category: 'ai',
+    use: 'Skill para o agente de IA auditar e lapidar interface: contraste, hierarquia, estados, responsivo e os clichês de UI gerada.',
+    why:
+      'Só rende para quem já monta uma página e sabe o que é layout bom: a skill aponta o que ' +
+      'falta, não substitui o olho. É o que este site usa para se auditar.',
+    url: 'https://github.com/pbakaus/impeccable',
+    cost: 'free',
+    ptBrStatus: 'none',
+    stability: 'volatile',
+    unlockedBy: [
+      { competency: 'css-layout', atLevel: 'L1' },
+      { competency: 'ai-assisted-development-basics', atLevel: 'L1' },
+    ],
+    verifiedAt: '2026-10-16',
+  },
+  {
     id: 'agents-md',
     name: 'AGENTS.md',
     category: 'ai',

@@ -11,7 +11,7 @@ export const REASON_TEXT: Record<ReasonCode, string> = {
   CORE_GAP_FOR_TARGET: 'É essencial para o objetivo que você escolheu.',
   SUPPORTS_TARGET: 'Apoia o objetivo, sem ser condição para ele.',
   UNLOCKS_OTHER_COMPETENCIES: 'Destrava outras etapas do seu mapa.',
-  LARGE_GAP: 'A distância até o nível esperado é grande — não se resolve numa tarde.',
+  LARGE_GAP: 'A distância até o nível esperado é grande: não se resolve numa tarde.',
   BLOCKED_BY_PREREQUISITE: 'Depende de algo que ainda não está de pé.',
   NEEDS_VERIFICATION: 'Você declarou isso, mas ainda não verificamos.',
   PREMATURE_SPECIALIZATION: 'Especialização cedo demais para o seu momento.',

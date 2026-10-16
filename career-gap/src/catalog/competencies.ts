@@ -467,7 +467,7 @@ export const COMPETENCIES: readonly Competency[] = [
       },
       L2: {
         canDo:
-          'Consumo uma API tratando os três estados: carregando, sucesso e erro — e a ' +
+          'Consumo uma API tratando os três estados: carregando, sucesso e erro, e a ' +
           'interface não quebra em nenhum deles.',
         exitCriteria: [
           'Minha tela mostra algo útil quando a requisição falha',
