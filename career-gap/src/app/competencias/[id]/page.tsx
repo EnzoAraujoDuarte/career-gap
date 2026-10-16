@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { Suspense } from 'react';
 import { CATALOG, FIRST_WEB_ROLE } from '@/catalog';
 import { CompetencyScreen } from '@/components/path/competency-screen';
 
@@ -16,13 +15,8 @@ export async function generateMetadata({ params }: PageProps<'/competencias/[id]
   return { title: `${CATALOG.competencies.get(id)?.name ?? 'Competência'} · Career Gap` };
 }
 
-/** Suspense porque a tela lê `?perfil=` (docs do Next: useSearchParams em prerender). */
 export default async function Page({ params }: PageProps<'/competencias/[id]'>) {
   const { id } = await params;
   if (!inTrack(id)) notFound();
-  return (
-    <Suspense fallback={null}>
-      <CompetencyScreen id={id} />
-    </Suspense>
-  );
+  return <CompetencyScreen id={id} />;
 }

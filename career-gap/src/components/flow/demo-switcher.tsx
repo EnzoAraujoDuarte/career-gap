@@ -1,6 +1,6 @@
 'use client';
 
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { DEMO_PROFILES } from '@/lib/demo-profiles';
 
@@ -11,7 +11,6 @@ import { DEMO_PROFILES } from '@/lib/demo-profiles';
  * parte do produto. Sai quando a avaliação com usuários terminar.
  */
 export function DemoSwitcher({ currentId }: { currentId?: string }) {
-  const router = useRouter();
   const pathname = usePathname();
 
   return (
@@ -21,7 +20,8 @@ export function DemoSwitcher({ currentId }: { currentId?: string }) {
         <select
           value={currentId ?? ''}
           onChange={(event) =>
-            router.push(event.target.value ? `${pathname}?perfil=${event.target.value}` : pathname)
+            // Recarga inteira: o perfil é lido da URL, e o roteador não avisa quando só a query muda.
+            window.location.assign(event.target.value ? `${pathname}?perfil=${event.target.value}` : pathname)
           }
           className="border-rule bg-paper text-ink-soft focus-visible:outline-attention rounded-sm border px-1.5 py-0.5 text-[12px] focus-visible:outline-2"
         >
