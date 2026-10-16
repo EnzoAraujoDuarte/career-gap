@@ -220,7 +220,7 @@ não trata o tema.
 | Segurança básica (XSS, SQL injection) e CORS | a | a | — | c | — | ● guias | (a) um critério em `api-development` (nunca concatenar entrada) e CORS em `api-consumption` |
 | Autenticação como parte do núcleo | ● | ● | ● 2 projetos | ● parte 4 | ● | ● | Reavaliar `optional` em `authentication-basics` |
 | Inglês técnico para ler documentação | — | b/a | — | — | ● | — | (a) critério em `reading-documentation` |
-| Portfólio e candidatura | a | — | c / a (site pessoal) | — | — | ● etapa e trilha Entrevistas | (a) README e site em `technical-communication`; currículo continua fora do escopo |
+| Portfólio e candidatura | a | — | c / a (site pessoal) | — | — | ● etapa e trilha Entrevistas | (a) README e site em `technical-communication`; currículo e LinkedIn entram como hábitos de carreira (manter em dia, publicar o que aprendeu) desde 2026-10-16; analisar currículo continua fora do escopo |
 | CI simples (ler o check do PR) | — | a | — | c | ● | ● | (a) em `code-review-participation`; montar pipeline fica em (c) |
 | SEO, Figma | — | — | — | — | ● | — | (c) |
 | Estado global, GraphQL, React Native, Next.js, contêineres, WebSockets, performance web, árvores, grafos e programação dinâmica, design, animação | c | c | c | c | — | ● alguns como desvio | (c), consenso |

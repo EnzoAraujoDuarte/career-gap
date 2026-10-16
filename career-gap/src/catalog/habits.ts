@@ -1,5 +1,6 @@
 import type { ProfessionalHabit } from '@/domain/model';
 import {
+  apprenticeshipPatterns,
   canonical,
   cs2023,
   extremeProgramming,
@@ -11,9 +12,10 @@ import {
 /**
  * Hábitos profissionais ligados às competências.
  *
- * Três tradições, escolhidas porque se reforçam: O Programador Pragmático e XP descrevem
- * como profissionais trabalham; a IA como tutora é a forma de usar IA que, no único ensaio
- * randomizado disponível, não prejudicou o aprendizado.
+ * Quatro tradições, escolhidas porque se reforçam: O Programador Pragmático e XP descrevem
+ * como profissionais trabalham; Apprenticeship Patterns descreve o caminho de quem está
+ * começando, aprendendo em público e com outras pessoas; a IA como tutora é a forma de usar IA
+ * que, no único ensaio randomizado disponível, não prejudicou o aprendizado.
  *
  * Regras de autoria:
  *  - o texto é paráfrase própria; da obra só se cita o título curto da dica ou da prática;
@@ -405,6 +407,60 @@ export const HABITS: readonly ProfessionalHabit[] = [
     sources: [
       extremeProgramming('coragem (courage)', 'valor'),
       swebok('Software Engineering Professional Practice'),
+    ],
+  },
+  // ---------------------------------------------------------------- carreira: ser visto
+  // O sistema indica o hábito; não lê currículo, LinkedIn nem GitHub de ninguém (escopo do TCC).
+  {
+    id: 'share-what-you-learn',
+    title: 'Publique toda semana o que aprendeu',
+    detail:
+      'Um perfil no LinkedIn com uma postagem por semana: o que estudou, o que construiu, o que ' +
+      'deu errado e como resolveu. Explicar fixa o aprendizado, e quem contrata vê um histórico ' +
+      'em vez de uma promessa.',
+    tradition: 'apprenticeship-patterns',
+    theme: 'career',
+    credit: 'Apprenticeship Patterns, padrões "Share What You Learn" e "Record What You Learn"',
+    competencies: ['technical-communication'],
+    sources: [
+      apprenticeshipPatterns('Share What You Learn', 'ensinar o que se acabou de aprender'),
+      apprenticeshipPatterns('Record What You Learn', 'um registro público e um privado'),
+      cs2023('SEP', 'comunicação profissional'),
+      sfia('PDSV', 'desenvolvimento profissional contínuo'),
+    ],
+  },
+  {
+    id: 'kindred-spirits',
+    title: 'Conviva com outros devs: eventos e comunidades',
+    detail:
+      'Meetup da sua cidade, grupo da faculdade, comunidade on-line, projeto aberto. É onde se ' +
+      'descobre o que o mercado pede de verdade, de onde vêm as indicações de vaga e onde você ' +
+      'acha quem está um passo à sua frente.',
+    tradition: 'apprenticeship-patterns',
+    theme: 'career',
+    credit: 'Apprenticeship Patterns, padrões "Kindred Spirits" e "Rubbing Elbows"',
+    competencies: ['code-review-participation'],
+    sources: [
+      apprenticeshipPatterns('Kindred Spirits', 'uma comunidade de quem segue o mesmo caminho'),
+      apprenticeshipPatterns('Rubbing Elbows', 'trabalhar lado a lado com outra pessoa'),
+      swebok('Software Engineering Professional Practice', 'sociedades profissionais e dinâmica de grupo'),
+    ],
+  },
+  {
+    id: 'keep-profile-current',
+    title: 'Mantenha currículo, LinkedIn e conhecimento em dia',
+    detail:
+      'Projeto terminado e competência que subiu de nível entram no currículo e no LinkedIn na ' +
+      'mesma semana, não quando a vaga aparece. E o que você sabe hoje envelhece: reserve um ' +
+      'horário fixo para estudar o que está mudando na sua área.',
+    tradition: 'apprenticeship-patterns',
+    theme: 'career',
+    credit: 'Apprenticeship Patterns, padrão "Reflect As You Work"; O Programador Pragmático, dica 8',
+    competencies: ['technical-communication', 'reading-documentation'],
+    sources: [
+      apprenticeshipPatterns('Reflect As You Work', 'parar para registrar o que mudou no seu trabalho'),
+      pragmaticProgrammer(8, 'Invista regularmente em sua carteira de conhecimentos'),
+      sfia('PDSV', 'planejar o próprio desenvolvimento profissional'),
     ],
   },
 ];
