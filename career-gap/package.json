@@ -12,7 +12,8 @@
     "inspect:roadmaps": "tsx --tsconfig tsconfig.json scripts/inspect-roadmaps.ts",
     "build:resources": "tsx scripts/build-resource-catalog.ts",
     "db:generate": "drizzle-kit generate",
-    "db:migrate": "drizzle-kit migrate"
+    "db:migrate": "drizzle-kit migrate",
+    "db:anonimos": "tsx --tsconfig tsconfig.json scripts/anonimos.ts"
   },
   "dependencies": {
     "better-auth": "^1.7.7",

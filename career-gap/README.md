@@ -52,6 +52,7 @@ nova se aplica a partir da máquina, com `pnpm db:migrate`, antes do envio que d
 | `pnpm inspect:roadmaps` | Imprime o roadmap dos perfis de teste, para revisar o motor |
 | `pnpm db:generate` | Gera uma migração nova a partir de `src/db/schema.ts` |
 | `pnpm db:migrate` | Aplica as migrações no banco do `.env.local` |
+| `pnpm db:anonimos` | Lista usuários anônimos sem nada guardado; `--apagar` remove, `--dias=N` define a idade mínima |
 
 ## Estrutura
 
