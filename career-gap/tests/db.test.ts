@@ -78,6 +78,20 @@ describe('banco: estado da pessoa', () => {
     expect(output.items[0].score).toBeTypeOf('number');
   });
 
+  it('não duplica o registro do motor quando as respostas não mudaram', async () => {
+    await createUser('bia');
+    const snapshots = async () =>
+      (await db.select().from(schema.roadmapSnapshot).where(eq(schema.roadmapSnapshot.userId, 'bia'))).length;
+
+    await saveProfile(db, 'bia', profile(1, 'L1'));
+    await saveProfile(db, 'bia', profile(2, 'L1'));
+    expect(await snapshots()).toBe(1);
+    expect((await loadUserState(db, 'bia')).profile?.updatedAt).toBe(at(2));
+
+    await saveProfile(db, 'bia', profile(3, 'L2'));
+    expect(await snapshots()).toBe(2);
+  });
+
   it('ignora uma gravação mais velha que a do banco', async () => {
     await saveProfile(db, 'ana', profile(5, 'L2'));
     await saveProfile(db, 'ana', profile(3, 'L1'));

@@ -85,10 +85,33 @@ export async function saveProfile(db: Db, userId: string, profile: StoredProfile
   await db.transaction(async (tx) => {
     await lockUser(tx, userId);
     const [current] = await tx
-      .select({ profileUpdatedAt: learner.profileUpdatedAt })
+      .select({
+        profileUpdatedAt: learner.profileUpdatedAt,
+        trackId: learner.trackId,
+        emphasisId: learner.emphasisId,
+        catalogVersion: learner.catalogVersion,
+      })
       .from(learner)
       .where(eq(learner.userId, userId));
     if (current?.profileUpdatedAt && current.profileUpdatedAt >= updatedAt) return;
+
+    // Mesmas respostas e mesmo catálogo dão a mesma trilha: só a data muda. Sem isso, refazer as
+    // perguntas com as mesmas respostas gravava outro snapshot idêntico e poluía a auditoria.
+    if (current?.profileUpdatedAt) {
+      const stored = await tx
+        .select({ competencyId: competencyLevel.competencyId, level: competencyLevel.level })
+        .from(competencyLevel)
+        .where(eq(competencyLevel.userId, userId));
+      const unchanged =
+        current.trackId === profile.trackId &&
+        (current.emphasisId ?? undefined) === profile.emphasisId &&
+        current.catalogVersion === CATALOG.version &&
+        sameLevels(stored, profile.levels);
+      if (unchanged) {
+        await tx.update(learner).set({ profileUpdatedAt: updatedAt }).where(eq(learner.userId, userId));
+        return;
+      }
+    }
 
     const values = {
       trackId: profile.trackId,
@@ -120,6 +143,13 @@ export async function saveProfile(db: Db, userId: string, profile: StoredProfile
     });
   });
 }
+
+const sameLevels = (
+  stored: readonly { competencyId: string; level: string }[],
+  levels: StoredProfile['levels'],
+): boolean =>
+  stored.length === Object.keys(levels).length &&
+  stored.every((item) => levels[item.competencyId] === item.level);
 
 export async function saveGoals(db: Db, userId: string, goals: Goals): Promise<void> {
   const updatedAt = new Date(goals.updatedAt);
