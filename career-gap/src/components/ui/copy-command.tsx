@@ -17,16 +17,18 @@ export function CopyCommand({ command, compact = false }: { command: string; com
   }
 
   if (compact) {
+    // Comando longo rola na horizontal e o botão desce para a linha de baixo; por isso o botão
+    // não pode ter margem negativa, senão sobe por cima da barra de rolagem do comando.
     return (
-      <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-        <code className="border-rule bg-paper-edge text-ink min-w-0 max-w-full overflow-x-auto rounded-sm border px-2 py-1 text-[12.5px] whitespace-nowrap [font-family:ui-monospace,Menlo,Consolas,monospace]">
+      <div className="flex flex-wrap items-center gap-x-3 gap-y-0.5">
+        <code className="border-rule bg-paper-edge text-ink min-w-0 max-w-full overflow-x-auto rounded-sm border px-2 py-1.5 text-[12.5px] whitespace-nowrap [font-family:ui-monospace,Menlo,Consolas,monospace] [scrollbar-color:var(--rule)_transparent] [scrollbar-width:thin]">
           {command}
         </code>
         <button
           type="button"
           onClick={copy}
           aria-label={`Copiar o comando ${command}`}
-          className="text-ink-soft hover:text-ink focus-visible:outline-attention -my-2 inline-flex min-h-11 items-center gap-1.5 text-[12.5px] focus-visible:outline-2"
+          className="text-ink-soft hover:text-ink focus-visible:outline-attention inline-flex min-h-11 items-center gap-1.5 text-[12.5px] focus-visible:outline-2"
         >
           <CopyIcon />
           {state === 'copied' ? 'copiado' : state === 'manual' ? 'selecione e copie' : 'copiar'}
