@@ -349,6 +349,25 @@ mais é trancado, e o ajuste por competência entra na Minha área (§9).
 - **ADR-0009** (orientar sem prender) e **ADR-0010** (persistência e login).
 - 105 testes; tipos, lint e build limpos.
 
+**Feito (2026-10-15, quinta rodada — pronto para uso):**
+
+- **Conteúdo comparado com seis currículos abertos** (`docs/COMPARACAO-CURRICULOS.md`):
+  - competência nova "Interface com componentes";
+  - critérios acrescentados em oito competências;
+  - 18 recursos novos, com o catálogo indo de 137 para 155;
+  - o recurso do Full Stack Open corrigido;
+  - autenticação passando de opcional a apoio.
+- **A trilha virou estrada** (ADR-0011). O trecho percorrido fica em tinta até o "você está
+  aqui", agora a primeira estação que ainda pede estudo.
+- **Fonte de leitura:** Atkinson Hyperlegible Next no lugar da Inter, que a auditoria apontava
+  como clichê. O fundo creme fica, porque é a direção fixada no `CLAUDE.md`.
+- **Seletor de demonstração escondido de quem usa o site.** Ele só aparece com
+  `?perfil=fixture-...` na URL. "Refazer as 6 perguntas" ficou visível na trilha.
+- **Busca:** `robots.txt` e `sitemap.xml`. As páginas de método e do experimento ficam com
+  `noindex`.
+- **Contraste e superfícies do navegador:** placeholder, seleção, cursor de texto e rótulos sem
+  espaçamento largo.
+
 **Próximo:**
 
 1. Conectar o Neon e conferir o fluxo no navegador (§5, "não verificado"). Preencher

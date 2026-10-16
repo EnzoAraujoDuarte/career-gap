@@ -17,11 +17,12 @@ que pode esperar, sempre com o motivo.
    competências que afirma.
 2. **Lacunas e prioridade** calculadas por um motor determinístico: elegibilidade pelo grafo de
    pré-requisitos, depois ranking ponderado. Mesma entrada, mesma saída — dá para auditar.
-3. **Trilha em 4 níveis**, a mesma para todos, com conteúdo concreto (quem ensina, quanto tempo
-   leva) e as marcas pessoais: *você já sabe*, *recomendado agora* (no máximo 3), *falta base*,
-   *não agora*.
-4. **Explorar**: o catálogo inteiro com filtros — 137 recursos verificados um a um (92 em
-   português, 126 gratuitos, 28 de prática ou prova, 15 livros), 13 ferramentas e 26 hábitos
+3. **Trilha em 4 níveis, desenhada como uma estrada**, a mesma para todos, com conteúdo concreto
+   (quem ensina, quanto tempo leva) e as marcas pessoais: *você já sabe*, *recomendado agora* (no
+   máximo 3), *falta base*, *não agora*. O trecho já percorrido fica em tinta, até o *você está
+   aqui* ([ADR-0011](docs/adr/0011-trilha-como-estrada.md)).
+4. **Explorar**: o catálogo inteiro com filtros — 155 recursos verificados um a um (104 em
+   português, 144 gratuitos, 43 de prática ou prova, 15 livros), 13 ferramentas e 26 hábitos
    profissionais.
 5. **Minha área**: continuar, minha lista, concluídos, critérios de saída marcados, propósito e
    meta. Fica no navegador e, com o banco ligado, no Postgres.
@@ -45,13 +46,17 @@ que pode esperar, sempre com o motivo.
 | [`career-gap/`](career-gap/) | O sistema (Next.js). Como rodar: [`career-gap/README.md`](career-gap/README.md) |
 | [`docs/adr/`](docs/adr/) | Decisões de arquitetura, curtas |
 | [`docs/PLANO-FASE4.md`](docs/PLANO-FASE4.md) | Direção atual: pesquisa de 14 plataformas, evidência sobre controle do aprendiz, banco |
+| [`docs/COMPARACAO-CURRICULOS.md`](docs/COMPARACAO-CURRICULOS.md) | O catálogo contra MDN, freeCodeCamp, Odin, Full Stack Open, Tech Guide e Trilha Info; licenças |
 | [`docs/DISCOVERY.md`](docs/DISCOVERY.md) | Modelo de domínio e desenho do motor |
 | [`docs/research/`](docs/research/) | Fontes verificadas e os dados que geram o catálogo de recursos |
 | [`tcc/`](tcc/) | Documento acadêmico (gerado por script, no formato da UNESC) |
 
 ## Estado
 
-105 testes (motor, catálogo, trilha, explorar, banco em Postgres em memória); tipos, lint e
+107 testes (motor, catálogo, trilha, explorar, banco em Postgres em memória); tipos, lint e
 build verificados a cada envio pela integração contínua; cada envio à `main` publica na Vercel.
-Banco no Neon, login anônimo por padrão. Ainda falta: login com Google e GitHub (credenciais), a condição de controle do
-experimento e a reforma visual.
+Banco no Neon, login anônimo por padrão. As páginas chegam renderizadas do servidor, com
+`robots.txt` e `sitemap.xml`. Ainda falta:
+- **Credenciais de Google e GitHub.** O login social aparece sozinho quando elas existirem, e a
+  página de privacidade passa a citá-lo.
+- **Condição de controle do experimento**, que espera o desenho com o orientador.

@@ -41,6 +41,14 @@ Vercel só escolhe sozinha até o 10. As variáveis de produção ficam no paine
 (`DATABASE_URL`, `BETTER_AUTH_SECRET`, `BETTER_AUTH_URL`, `NEXT_PUBLIC_CONTACT_EMAIL`); migração
 nova se aplica a partir da máquina, com `pnpm db:migrate`, antes do envio que depende dela.
 
+## Demonstração
+
+O seletor de perfis de demonstração fica escondido de quem usa o site. Para apresentar, abra a
+trilha com um perfil sintético na URL, e o seletor aparece no rodapé:
+`/trilha?perfil=fixture-absolute-beginner` (outros: `fixture-self-taught-frontend`,
+`fixture-cs-student`, `fixture-bootcamp-graduate`, `fixture-almost-ready`,
+`fixture-inflated-self-report`). O perfil viaja junto em todos os links internos.
+
 ## Comandos
 
 | Comando | O que faz |
@@ -63,8 +71,9 @@ nova se aplica a partir da máquina, com `pnpm db:migrate`, antes do envio que d
 | `src/lib/` | Camadas de visão (trilha, explorar, direção) e estado do usuário (navegador e sincronização) |
 | `src/db/` | Esquema e repositório do Postgres. Guarda só o estado da pessoa, nunca o catálogo |
 | `src/server/` | Server actions: o usuário sai sempre da sessão, a entrada é validada contra o catálogo |
-| `src/app/` | Rotas: `/trilha`, `/explorar`, `/minha-area`, `/competencias/[id]`, `/avaliacao`, `/privacidade` |
+| `src/app/` | Rotas: `/trilha`, `/explorar`, `/minha-area`, `/competencias/[id]`, `/avaliacao`, `/privacidade`; `robots.ts` e `sitemap.ts` |
 | `tests/` | Vitest |
 
 `/mapa` e `/catalogo` são as duas condições do experimento antigo e saem da navegação até o
-desenho ser revisto com o orientador.
+desenho ser revisto com o orientador. `/estilos` e `/entrada` são registros do método (as
+direções visuais e os modelos de primeira tela comparados). As quatro ficam fora da busca.
