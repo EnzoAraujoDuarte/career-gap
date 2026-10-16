@@ -1,13 +1,10 @@
 'use server';
 
 import { eq } from 'drizzle-orm';
-import { headers } from 'next/headers';
 import { CATALOG } from '@/catalog';
 import { LEVELS } from '@/domain/model';
-import { getDb } from '@/db/client';
 import { user } from '@/db/schema';
 import { loadUserState, saveUserState } from '@/db/user-state';
-import { getAuth } from '@/lib/auth';
 import {
   assertCriteria,
   assertGoals,
@@ -18,19 +15,12 @@ import {
   type UserState,
   type UserStatePatch,
 } from '@/lib/user-state';
+import { currentUser } from './session';
 
 /**
- * As duas portas do estado da pessoa no servidor. O `userId` sai SEMPRE da sessão, nunca do
- * navegador; e tudo o que chega é validado contra o catálogo antes de tocar o banco.
+ * As duas portas do estado da pessoa no servidor. O `userId` sai da sessão (`session.ts`), e
+ * tudo o que chega é validado contra o catálogo antes de tocar o banco.
  */
-
-async function currentUser() {
-  const db = getDb();
-  const auth = getAuth();
-  if (!db || !auth) return undefined;
-  const session = await auth.api.getSession({ headers: await headers() });
-  return session ? { db, userId: session.user.id } : undefined;
-}
 
 /** `null` sem banco ou sem sessão: o navegador segue sozinho. */
 export async function pullUserState(): Promise<UserState | null> {

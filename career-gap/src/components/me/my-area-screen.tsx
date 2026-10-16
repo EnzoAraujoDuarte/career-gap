@@ -84,6 +84,8 @@ export function MyAreaScreen() {
         </Link>
       </p>
 
+      <Research />
+
       <YourData />
     </PageShell>
   );
@@ -309,6 +311,23 @@ function GoalsForm({ initial }: { initial?: Goals }) {
   );
 }
 
+/** O convite à pesquisa do TCC. Fica aqui, e não na trilha principal, porque é um pedido ao
+ *  testador, não parte do estudo dele. */
+function Research() {
+  return (
+    <section>
+      <SectionLabel>Pesquisa do TCC</SectionLabel>
+      <p className="text-ink-soft mt-1 text-[13px] leading-relaxed">
+        Está testando o Career Gap? Conte como foi: uns 8 minutos de perguntas sobre a trilha e o site,
+        sem nome nem e-mail. É o que vira dado no trabalho.
+      </p>
+      <Link href="/pesquisa" className="text-now mt-2 inline-block text-[14px] underline underline-offset-2">
+        Responder ao questionário
+      </Link>
+    </section>
+  );
+}
+
 /** O que o Career Gap guarda, e o botão para apagar tudo (LGPD, art. 18, VI). */
 function YourData() {
   const { status } = usePersistence();
@@ -378,9 +397,9 @@ function YourData() {
           className="mt-3 border-l border-[var(--state-critical)] pl-3 focus:outline-none"
         >
           <p className="text-ink text-[13.5px] leading-relaxed">
-            Isso apaga o que você respondeu, suas metas, sua lista, o que concluiu e os critérios
-            marcados{status === 'on' ? ', neste navegador e no servidor' : ' neste navegador'}. Não
-            tem volta.
+            Isso apaga o que você respondeu, suas metas, sua lista, o que concluiu, os critérios
+            marcados e, se respondeu, o questionário da pesquisa
+            {status === 'on' ? ', neste navegador e no servidor' : ', neste navegador'}. Não tem volta.
           </p>
           {failed && (
             <p className="text-critical mt-2 text-[13px]" role="alert">

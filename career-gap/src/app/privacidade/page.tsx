@@ -32,6 +32,11 @@ export default function Page() {
             ` Se você escolher entrar com ${SOCIAL}, também o nome, o e-mail e a foto que o provedor envia.`}
         </li>
         <li>
+          <strong className="font-medium">Se você responder ao questionário da pesquisa:</strong> as
+          respostas, a data em que aceitou o termo e um retrato da trilha que você via na hora, ligados
+          à mesma sessão anônima.
+        </li>
+        <li>
           <strong className="font-medium">Na sessão:</strong> o endereço IP e o nome do navegador,
           para proteger o site contra abuso.
         </li>
@@ -47,8 +52,12 @@ export default function Page() {
         {SOCIAL && <li>Deixar você continuar de outro aparelho, se entrar com uma conta.</li>}
         <li>Não vendemos, não usamos para publicidade e não há rastreamento de terceiros.</li>
         <li>
-          Este site é parte de um Trabalho de Conclusão de Curso. Nenhum dado seu entra na pesquisa
-          sem um termo de consentimento à parte.
+          Este site é parte de um Trabalho de Conclusão de Curso. Só o{' '}
+          <Link href="/pesquisa" className="text-now underline underline-offset-2">
+            questionário
+          </Link>
+          , que você responde depois de aceitar o termo de consentimento, entra na pesquisa, e de forma
+          agregada. O resto do que guardamos serve só para montar a sua trilha.
         </li>
       </Block>
 
@@ -69,7 +78,7 @@ export default function Page() {
           <Link href="/minha-area" className="text-now underline underline-offset-2">
             Minha área → Seus dados
           </Link>
-          .
+          . Apagar também retira as respostas do questionário, se você as deu.
         </li>
       </Block>
 

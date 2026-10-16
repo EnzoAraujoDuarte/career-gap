@@ -33,7 +33,10 @@ de base e o que pode esperar, sempre com o motivo.
    competência e com "como ter" (já vem no computador, conta, programa, dependência do projeto ou
    plugin do Claude Code, com o comando) e 26 hábitos profissionais.
 6. **Minha área**: o que você construiu, continuar, minha lista, concluídos, critérios de saída
-   marcados, propósito e meta. Fica no navegador e, com o banco ligado, no Postgres.
+   marcados, propósito e meta. Fica no navegador e, com o banco ligado, no Postgres. Para quem
+   testa, o questionário da pesquisa do TCC (`/pesquisa`): termo de consentimento, SUS, ResQue e
+   checagem da manipulação, exportado sem identificador
+   ([ADR-0013](docs/adr/0013-questionario-de-avaliacao.md)).
 7. **Prompt para o seu assistente de IA**, em cada competência e construção: montado a partir
    dos critérios, pede um tutor que pergunta e confere, não uma solução pronta. Não há IA dentro
    do produto.

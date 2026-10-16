@@ -172,3 +172,25 @@ export const roadmapSnapshot = pgTable(
   },
   (table) => [index('roadmap_snapshot_user_id_idx').on(table.userId)],
 );
+
+/**
+ * Respostas ao questionário de avaliação do TCC (docs/AVALIACAO-COM-USUARIOS.md). Uma por
+ * pessoa: reenviar substitui. Os itens moram no código (`lib/evaluation.ts`), por isso as
+ * respostas são jsonb por id, com a versão do instrumento e a do catálogo que valiam. `context`
+ * guarda o que a pessoa via na hora (níveis, "você está aqui", recomendados): o perfil pode
+ * mudar depois, a resposta não. Sai em cascata com o usuário: apagar os dados retira o
+ * consentimento (LGPD, art. 18).
+ */
+export const evaluationResponse = pgTable('evaluation_response', {
+  userId: text('user_id')
+    .primaryKey()
+    .references(() => user.id, { onDelete: 'cascade' }),
+  instrumentVersion: text('instrument_version').notNull(),
+  catalogVersion: text('catalog_version').notNull(),
+  consentAt: instant('consent_at').notNull(),
+  participant: jsonb('participant').$type<Record<string, string>>().notNull(),
+  answers: jsonb('answers').$type<Record<string, number>>().notNull(),
+  comments: jsonb('comments').$type<Record<string, string>>().notNull(),
+  context: jsonb('context').$type<Record<string, unknown>>().notNull(),
+  submittedAt: instant('submitted_at').notNull(),
+});
