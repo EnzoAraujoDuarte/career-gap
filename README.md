@@ -7,9 +7,10 @@ Autor: Enzo Araujo Duarte · Orientador: Prof. Riciere Massariol.
 
 Quem começa em desenvolvimento web não sofre de falta de conteúdo, mas de falta de direção: não
 sabe o que estudar agora, em que ordem, e o que pode deixar para depois. O Career Gap estima o
-que a pessoa já sabe, calcula as lacunas em relação à primeira vaga e orienta o estudo — **sem
-trancar nada**. O catálogo é aberto; o sistema só anota o que vale agora, o que falta de base e o
-que pode esperar, sempre com o motivo.
+que a pessoa já sabe, calcula as lacunas em relação à primeira vaga e orienta o estudo **sem
+trancar nada**. A mensagem é uma só: você não precisa saber tudo para começar a criar. O sistema
+mostra o que a pessoa já consegue construir com o que sabe, o que vale estudar agora, o que falta
+de base e o que pode esperar, sempre com o motivo.
 
 ## O que ele faz
 
@@ -17,15 +18,25 @@ que pode esperar, sempre com o motivo.
    competências que afirma.
 2. **Lacunas e prioridade** calculadas por um motor determinístico: elegibilidade pelo grafo de
    pré-requisitos, depois ranking ponderado. Mesma entrada, mesma saída — dá para auditar.
-3. **Trilha em 4 níveis, desenhada como uma estrada**, a mesma para todos, com conteúdo concreto
+3. **Construções**: 11 coisas concretas para fazer e mostrar, de "uma página sobre você" (sem
+   exigir nada) a "uma contribuição aceita num projeto de verdade". O motor avalia cada uma contra
+   o perfil e anota: dá para fazer agora, falta só uma, mais adiante
+   ([ADR-0012](docs/adr/0012-construcoes.md)). É por elas que a trilha começa.
+4. **Trilha em 4 níveis, desenhada como uma estrada**, a mesma para todos, com conteúdo concreto
    (quem ensina, quanto tempo leva) e as marcas pessoais: *você já sabe*, *recomendado agora* (no
-   máximo 3), *falta base*, *não agora*. O trecho já percorrido fica em tinta, até o *você está
-   aqui* ([ADR-0011](docs/adr/0011-trilha-como-estrada.md)).
-4. **Explorar**: o catálogo inteiro com filtros — 155 recursos verificados um a um (104 em
-   português, 144 gratuitos, 43 de prática ou prova, 15 livros), 13 ferramentas e 26 hábitos
-   profissionais.
-5. **Minha área**: continuar, minha lista, concluídos, critérios de saída marcados, propósito e
-   meta. Fica no navegador e, com o banco ligado, no Postgres.
+   máximo 3), *falta base*, *não agora*. Cada nível fecha nas suas construções; cada estação diz o
+   que destrava. O trecho já percorrido fica em tinta, até o *você está aqui*
+   ([ADR-0011](docs/adr/0011-trilha-como-estrada.md)).
+5. **Explorar**: o catálogo inteiro com filtros: 157 recursos verificados um a um (104 em
+   português, 146 gratuitos, 43 de prática ou prova, 15 livros), 14 ferramentas com portão de
+   competência (inclusive Context7 e impeccable) e 26 hábitos profissionais.
+6. **Minha área**: o que você construiu, continuar, minha lista, concluídos, critérios de saída
+   marcados, propósito e meta. Fica no navegador e, com o banco ligado, no Postgres.
+7. **Prompt para o seu assistente de IA**, em cada competência e construção: montado a partir
+   dos critérios, pede um tutor que pergunta e confere, não uma solução pronta. Não há IA dentro
+   do produto.
+8. **[Kit de trabalho com IA](kit/)**: as regras de código, testes, git e trabalho com IA que o
+   autor usa, reescritas para qualquer stack, como marketplace de plugins do Claude Code.
 
 ## Princípios
 
@@ -47,16 +58,18 @@ que pode esperar, sempre com o motivo.
 | [`docs/adr/`](docs/adr/) | Decisões de arquitetura, curtas |
 | [`docs/PLANO-FASE4.md`](docs/PLANO-FASE4.md) | Direção atual: pesquisa de 14 plataformas, evidência sobre controle do aprendiz, banco |
 | [`docs/COMPARACAO-CURRICULOS.md`](docs/COMPARACAO-CURRICULOS.md) | O catálogo contra MDN, freeCodeCamp, Odin, Full Stack Open, Tech Guide e Trilha Info; licenças |
+| [`docs/REFERENCIAS-UX.md`](docs/REFERENCIAS-UX.md) | As referências de produto e de evidência por trás das construções e do primeiro acesso |
+| [`kit/`](kit/) | Marketplace de plugins do Claude Code: regras, skills e agente revisor, para qualquer stack |
 | [`docs/DISCOVERY.md`](docs/DISCOVERY.md) | Modelo de domínio e desenho do motor |
 | [`docs/research/`](docs/research/) | Fontes verificadas e os dados que geram o catálogo de recursos |
 | [`tcc/`](tcc/) | Documento acadêmico (gerado por script, no formato da UNESC) |
 
 ## Estado
 
-107 testes (motor, catálogo, trilha, explorar, banco em Postgres em memória); tipos, lint e
+116 testes (motor, catálogo, construções, trilha, explorar, banco em Postgres em memória); tipos, lint e
 build verificados a cada envio pela integração contínua; cada envio à `main` publica na Vercel.
 Banco no Neon, login anônimo por padrão. As páginas chegam renderizadas do servidor, com
-`robots.txt` e `sitemap.xml`. Ainda falta:
+`robots.txt` e `sitemap.xml`; o tema segue o do sistema (claro ou escuro). Ainda falta:
 - **Credenciais de Google e GitHub.** O login social aparece sozinho quando elas existirem, e a
   página de privacidade passa a citá-lo.
 - **Condição de controle do experimento**, que espera o desenho com o orientador.

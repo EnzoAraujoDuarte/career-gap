@@ -67,11 +67,11 @@ trilha com um perfil sintético na URL, e o seletor aparece no rodapé:
 | Pasta | Regra |
 |---|---|
 | `src/domain/` | O motor. TypeScript puro: **nenhum** import de framework, ORM ou modelo de linguagem |
-| `src/catalog/` | Competências, trilha, recursos, hábitos e ferramentas. `validate.ts` reprova o catálogo que perder proveniência, ordem ou cobertura |
+| `src/catalog/` | Competências, trilha, recursos, hábitos, ferramentas e construções. `validate.ts` reprova o catálogo que perder proveniência, ordem ou cobertura |
 | `src/lib/` | Camadas de visão (trilha, explorar, direção) e estado do usuário (navegador e sincronização) |
 | `src/db/` | Esquema e repositório do Postgres. Guarda só o estado da pessoa, nunca o catálogo |
 | `src/server/` | Server actions: o usuário sai sempre da sessão, a entrada é validada contra o catálogo |
-| `src/app/` | Rotas: `/trilha`, `/explorar`, `/minha-area`, `/competencias/[id]`, `/avaliacao`, `/privacidade`; `robots.ts` e `sitemap.ts` |
+| `src/app/` | Rotas: `/trilha`, `/construir/[id]`, `/explorar`, `/minha-area`, `/competencias/[id]`, `/avaliacao`, `/privacidade`; `robots.ts` e `sitemap.ts` |
 | `tests/` | Vitest |
 
 `/mapa` e `/catalogo` são as duas condições do experimento antigo e saem da navegação até o
