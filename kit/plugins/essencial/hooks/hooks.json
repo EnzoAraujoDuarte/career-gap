@@ -1,0 +1,17 @@
+{
+  "description": "Carrega as regras e o índice de decisões em toda sessão. Um comando por arquivo mantém cada saída abaixo do limite de contexto.",
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|clear|compact",
+        "hooks": [
+          { "type": "command", "command": "cat \"${CLAUDE_PLUGIN_ROOT}\"/regras/codigo.md" },
+          { "type": "command", "command": "cat \"${CLAUDE_PLUGIN_ROOT}\"/regras/testes.md" },
+          { "type": "command", "command": "cat \"${CLAUDE_PLUGIN_ROOT}\"/regras/git.md" },
+          { "type": "command", "command": "cat \"${CLAUDE_PLUGIN_ROOT}\"/regras/trabalhar-com-ia.md" },
+          { "type": "command", "command": "\"${CLAUDE_PLUGIN_ROOT}\"/hooks/listar-decisoes.sh" }
+        ]
+      }
+    ]
+  }
+}

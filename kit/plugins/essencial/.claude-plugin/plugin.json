@@ -1,0 +1,16 @@
+{
+  "name": "essencial",
+  "version": "1.0.0",
+  "description": "Regras de código, testes, git e trabalho com IA, carregadas em toda sessão; as skills pr, depurar, decisao e passagem; o agente revisor; e a documentação atual das bibliotecas pelo Context7.",
+  "author": {
+    "name": "Career Gap"
+  },
+  "userConfig": {
+    "context7_api_key": {
+      "type": "string",
+      "title": "Chave do Context7",
+      "description": "Opcional. Aumenta o limite de uso do Context7. Crie uma em context7.com/dashboard ou deixe vazio para usar sem chave.",
+      "sensitive": true
+    }
+  }
+}

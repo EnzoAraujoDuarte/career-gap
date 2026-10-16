@@ -1,0 +1,14 @@
+{
+  "name": "kit-career-gap",
+  "description": "Regras de código, skills de trabalho e um agente revisor para quem está começando a programar com um assistente de IA. Serve a qualquer linguagem ou stack.",
+  "owner": {
+    "name": "Career Gap"
+  },
+  "plugins": [
+    {
+      "name": "essencial",
+      "source": "./plugins/essencial",
+      "description": "As regras de código, testes, git e trabalho com IA; as skills pr, depurar, decisao e passagem; o agente revisor; e a documentação atual das bibliotecas pelo Context7."
+    }
+  ]
+}
