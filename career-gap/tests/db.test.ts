@@ -179,7 +179,7 @@ describe('banco: questionário', () => {
     const stored = await loadEvaluation(db, 'carla');
     expect(stored?.submittedAt).toBe(at(2));
     expect(stored?.answers['sus-01']).toBe(5);
-    expect(stored?.comments).toEqual({ ajudou: 'as construções' });
+    expect(stored?.comments).toEqual({ 'lacuna-descoberta': 'acessibilidade' });
     expect((await listEvaluations(db)).filter((item) => item.consentAt === at(2))).toHaveLength(1);
   });
 

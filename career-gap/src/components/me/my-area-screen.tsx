@@ -318,7 +318,7 @@ function Research() {
     <section>
       <SectionLabel>Pesquisa do TCC</SectionLabel>
       <p className="text-ink-soft mt-1 text-[13px] leading-relaxed">
-        Está testando o Career Gap? Conte como foi: uns 10 minutos de perguntas sobre a trilha e o site,
+        Está testando o Career Gap? Conte como foi: uns 5 minutos de perguntas sobre a trilha e o site,
         sem nome nem e-mail. É o que vira dado no trabalho.
       </p>
       <Link href="/pesquisa" className="text-now mt-2 inline-block text-[14px] underline underline-offset-2">

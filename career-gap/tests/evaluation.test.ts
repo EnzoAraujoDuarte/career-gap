@@ -35,6 +35,14 @@ describe('questionário: instrumento', () => {
     expect(PATH_ITEMS.filter((item) => item.source === 'manipulation-check')).toHaveLength(2);
   });
 
+  it('cabe em uns cinco minutos: poucos itens, frases curtas', () => {
+    expect(LIKERT_ITEMS.length).toBeLessThanOrEqual(30);
+    expect(CHOICE_QUESTIONS.length).toBeLessThanOrEqual(6);
+    expect(OPEN_QUESTIONS.length).toBeLessThanOrEqual(1);
+    for (const entry of LIKERT_ITEMS) expect(entry.text.length, entry.id).toBeLessThanOrEqual(80);
+    for (const question of CHOICE_QUESTIONS) expect(question.choices.length, question.id).toBeLessThanOrEqual(6);
+  });
+
   it('pergunta direto o que a tese afirma: as cinco perguntas do produto e a descoberta de lacunas', () => {
     const constructs = new Set(CAREER_GAP_ITEMS.map((item) => item.construct));
     for (const construct of ['where-am-i', 'can-build-now', 'next-step-clarity', 'what-to-ignore', 'path-clarity', 'gap-discovery']) {
@@ -86,6 +94,6 @@ describe('questionário: validação na entrada do servidor', () => {
 
   it('recusa comentário em pergunta inexistente ou longo demais', () => {
     expect(() => assertEvaluation({ ...valid, comments: { inventada: 'x' } })).toThrow();
-    expect(() => assertEvaluation({ ...valid, comments: { ajudou: 'a'.repeat(2_001) } })).toThrow();
+    expect(() => assertEvaluation({ ...valid, comments: { 'lacuna-descoberta': 'a'.repeat(2_001) } })).toThrow();
   });
 });
