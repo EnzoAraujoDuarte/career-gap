@@ -2,7 +2,7 @@
 
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-import { DEMO_PROFILES } from '@/lib/demo-profiles';
+import { DEMO_LABEL, DEMO_PROFILES } from '@/lib/demo-profiles';
 
 /**
  * Andaime de demonstração: troca entre perfis sintéticos para comparar roadmaps lado a lado.
@@ -15,8 +15,8 @@ export function DemoSwitcher({ currentId }: { currentId?: string }) {
 
   return (
     <footer className="border-rule bg-paper-edge flex flex-wrap items-center gap-x-4 gap-y-1 border-t px-4 py-1.5 sm:px-5">
-      <label className="text-ink-faint flex items-center gap-2 text-[12px]">
-        <span className="uppercase tracking-wide">Demonstração</span>
+      <label className="text-ink-soft flex items-center gap-2 text-[12px]">
+        <span>Demonstração</span>
         <select
           value={currentId ?? ''}
           onChange={(event) =>
@@ -28,8 +28,9 @@ export function DemoSwitcher({ currentId }: { currentId?: string }) {
           <option value="">meu perfil</option>
           {DEMO_PROFILES.map((profile) => (
             <option key={profile.id} value={profile.id}>
-              {profile.id.replace('fixture-', '')}
-              {profile.emphasisId ? ` · ${profile.emphasisId}` : ''}
+              {DEMO_LABEL[profile.id] ?? profile.id}
+              {profile.emphasisId === 'frontend' ? ' · ênfase em frontend' : ''}
+              {profile.emphasisId === 'backend' ? ' · ênfase em backend' : ''}
             </option>
           ))}
         </select>
@@ -37,13 +38,13 @@ export function DemoSwitcher({ currentId }: { currentId?: string }) {
 
       <Link
         href="/catalogo"
-        className="text-ink-faint hover:text-ink focus-visible:outline-attention text-[12px] underline underline-offset-2 focus-visible:outline-2"
+        className="text-ink-soft hover:text-ink focus-visible:outline-attention text-[12px] underline underline-offset-2 focus-visible:outline-2"
       >
-        catálogo completo (condição A)
+        catálogo completo (condição de controle)
       </Link>
       <Link
         href="/avaliacao"
-        className="text-ink-faint hover:text-ink focus-visible:outline-attention text-[12px] underline underline-offset-2 focus-visible:outline-2"
+        className="text-ink-soft hover:text-ink focus-visible:outline-attention text-[12px] underline underline-offset-2 focus-visible:outline-2"
       >
         refazer avaliação
       </Link>

@@ -132,3 +132,13 @@ export const DEMO_PROFILES: readonly UserProfile[] = [
 
 /** Alias histórico usado pelos testes e pelo script de inspeção. */
 export const ALL_FIXTURES = DEMO_PROFILES;
+
+/** Como cada perfil aparece na tela de demonstração: quem é, e não o id do teste. */
+export const DEMO_LABEL: Readonly<Record<string, string>> = {
+  'fixture-absolute-beginner': 'quem nunca programou',
+  'fixture-self-taught-frontend': 'autodidata de frontend',
+  'fixture-cs-student': 'estudante de computação',
+  'fixture-bootcamp-graduate': 'quem saiu de um bootcamp',
+  'fixture-almost-ready': 'quase pronto para a vaga',
+  'fixture-inflated-self-report': 'autoavaliação inflada',
+};
