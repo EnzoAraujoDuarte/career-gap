@@ -22,6 +22,7 @@ import { BuildGlyph } from '@/components/ui/build-glyph';
 import { ResourceLine } from '@/components/ui/resource-line';
 import { BuildMark } from './build-mark';
 import { BuildsNow } from './builds-now';
+import { ProKit } from './pro-kit';
 import { FlagIcon, RoadSvg, SWAY, StationDot, rowStyle, useRoad } from './road';
 
 /** Ritmo de referência para traduzir horas em semanas. É o conselho do Curso em Vídeo, e é
@@ -81,6 +82,7 @@ export function PathScreen() {
         ) : (
           <>
           <BuildsNow view={builds} hasProfile={profile !== null} suffix={suffix} />
+          <ProKit profile={profile} suffix={suffix} />
 
           <h2 className="font-serif text-ink mt-12 text-[22px] leading-tight">A estrada, nível a nível</h2>
           <p className="text-ink-soft mt-1 max-w-[62ch] text-[13.5px] leading-relaxed">
