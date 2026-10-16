@@ -61,6 +61,7 @@ trilha com um perfil sintético na URL, e o seletor aparece no rodapé:
 | `pnpm db:generate` | Gera uma migração nova a partir de `src/db/schema.ts` |
 | `pnpm db:migrate` | Aplica as migrações no banco do `.env.local` |
 | `pnpm db:anonimos` | Lista usuários anônimos sem nada guardado; `--apagar` remove, `--dias=N` define a idade mínima |
+| `pnpm db:respostas` | Exporta as respostas do questionário da pesquisa em CSV, sem identificador e com o escore SUS calculado (`> respostas.csv`) |
 
 ## Estrutura
 

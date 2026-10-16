@@ -395,8 +395,21 @@ mais é trancado, e o ajuste por competência entra na Minha área (§9).
   o que a pessoa precisa ter e tem passo a passo marcável, guardado na mesma tabela dos critérios.
   118 testes.
 
+**Feito (2026-10-16, sétima rodada — pronto para receber testadores):**
+
+- **Fluxo de entrada conferido em produção**, no navegador: as 6 perguntas criam a sessão anônima
+  na primeira gravação, o perfil e o snapshot do motor chegam ao Neon `main`, a Minha área diz
+  "salvo neste navegador e no servidor", e "Apagar meus dados" remove tudo em cascata (contagem
+  de linhas antes e depois). Login com Google e GitHub segue sem credencial na Vercel: não
+  existe cadastro, e isso é decisão, não falta (ADR-0010).
+- **Questionário da pesquisa** em `/pesquisa` (ADR-0013, `docs/AVALIACAO-COM-USUARIOS.md`):
+  termo de consentimento, perfil do participante em faixas, uso, 21 itens sobre a trilha (qualidade
+  do roadmap, ResQue, checagem da manipulação), SUS e três perguntas abertas. Uma resposta por
+  pessoa; o servidor grava junto o retrato da trilha que a pessoa via. `pnpm db:respostas` exporta
+  em CSV sem identificador, com o escore SUS. Migração `0002_respostas_da_pesquisa`.
+- 127 testes.
+
 **Próximo:**
 
-1. Conectar o Neon e conferir o fluxo no navegador (§5, "não verificado"). Preencher
-   `NEXT_PUBLIC_CONTACT_EMAIL` — a página de privacidade mostra o contato só quando ele existe.
+1. Aplicar a migração `0002` no Neon `main` antes de publicar a página da pesquisa.
 2. Condição A do experimento como trilha sem anotação, depois de falar com o orientador.
