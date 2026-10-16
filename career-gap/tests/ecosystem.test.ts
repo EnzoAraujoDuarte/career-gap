@@ -52,6 +52,18 @@ describe('hábitos de postura geral', () => {
   });
 });
 
+describe('hábitos de carreira', () => {
+  it('indicam publicar o que aprendeu, conviver com outros devs e manter currículo e LinkedIn em dia', () => {
+    const career = CATALOG.habits.filter((habit) => habit.theme === 'career');
+    expect(career.map((habit) => habit.id)).toEqual(['share-what-you-learn', 'kindred-spirits', 'keep-profile-current']);
+    for (const habit of career) {
+      expect(habit.tradition, habit.id).toBe('apprenticeship-patterns');
+      // Aparecem na ficha de uma competência, não só na aba: carreira é parte do estudo.
+      expect(habit.competencies.length, habit.id).toBeGreaterThan(0);
+    }
+  });
+});
+
 describe('duração dos recursos', () => {
   const resource = (estimatedTime: string | undefined, kind: Resource['kind'] = 'video') =>
     ({ estimatedTime, kind }) as Resource;

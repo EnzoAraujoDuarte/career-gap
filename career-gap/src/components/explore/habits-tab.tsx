@@ -14,6 +14,7 @@ const THEMES: readonly { theme: HabitTheme; title: string; intro: string }[] = [
   { theme: 'craft', title: 'Cuidar do código', intro: 'O que separa código que funciona de código que dá para manter.' },
   { theme: 'deliver', title: 'Entregar', intro: 'Pedaços pequenos, histórico guardado, integração frequente.' },
   { theme: 'collaborate', title: 'Colaborar e comunicar', intro: 'Revisão, retorno e conversa sobre o código.' },
+  { theme: 'career', title: 'Ser visto e seguir aprendendo', intro: 'Quem contrata precisa achar você, e o que você sabe hoje envelhece.' },
 ];
 
 /**
@@ -41,7 +42,7 @@ const CANON: readonly { title: string; authors: string; edition: string; isbn: s
     authors: 'Dave Hoover e Adewale Oshineye',
     edition: "O'Reilly, 2009 — em inglês",
     isbn: '978-0-596-51838-7',
-    note: 'Sobre o caminho de quem está começando. Os autores liberaram o texto sob Creative Commons em 2010.',
+    note: 'De onde vêm os hábitos de carreira: aprender em público e com outras pessoas. Os autores liberaram o texto sob Creative Commons em 2010.',
   },
 ];
 
