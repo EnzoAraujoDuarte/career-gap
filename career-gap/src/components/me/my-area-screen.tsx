@@ -138,6 +138,18 @@ function Account() {
     );
   }
 
+  if (status === 'idle') {
+    return (
+      <div className="mt-6 border-l-2 border-[var(--rule)] pl-3">
+        <p className="text-ink-soft text-[13.5px] leading-relaxed">
+          Nada guardado ainda. Quando você responder as perguntas ou marcar um recurso, seu
+          progresso também fica salvo no servidor.
+        </p>
+        <SocialSignIn providers={providers} />
+      </div>
+    );
+  }
+
   const user = session.data?.user as { name?: string; email?: string; isAnonymous?: boolean | null } | undefined;
   if (status === 'connecting' || session.isPending || !user) return <Loading />;
 
@@ -148,19 +160,7 @@ function Account() {
           Seu progresso está salvo, mas só neste aparelho.
           {providers.length > 0 && ' Entre para levá-lo junto — o que você já fez vai junto também.'}
         </p>
-        {providers.length > 0 && (
-          <p className="mt-2 flex flex-wrap gap-2">
-            {providers.map((provider) => (
-              <button
-                key={provider}
-                onClick={() => authClient.signIn.social({ provider, callbackURL: '/minha-area' })}
-                className="focus-visible:outline-attention rounded-sm border border-[var(--ink)] px-3 py-1.5 text-[13.5px] text-ink hover:bg-paper-edge focus-visible:outline-2"
-              >
-                Entrar com {PROVIDER_LABEL[provider]}
-              </button>
-            ))}
-          </p>
-        )}
+        <SocialSignIn providers={providers} />
       </div>
     );
   }
@@ -187,6 +187,23 @@ function clearLocalState() {
   clearGoals();
   clearProgress();
   clearCriteria();
+}
+
+function SocialSignIn({ providers }: { providers: readonly SocialProvider[] }) {
+  if (providers.length === 0) return null;
+  return (
+    <p className="mt-2 flex flex-wrap gap-2">
+      {providers.map((provider) => (
+        <button
+          key={provider}
+          onClick={() => authClient.signIn.social({ provider, callbackURL: '/minha-area' })}
+          className="focus-visible:outline-attention rounded-sm border border-[var(--ink)] px-3 py-1.5 text-[13.5px] text-ink hover:bg-paper-edge focus-visible:outline-2"
+        >
+          Entrar com {PROVIDER_LABEL[provider]}
+        </button>
+      ))}
+    </p>
+  );
 }
 
 /** Num computador compartilhado, sair precisa levar junto o que está no navegador. */

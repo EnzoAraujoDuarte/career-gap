@@ -13,6 +13,7 @@ import type { UserStatePatch } from './user-state';
 
 let enabled = false;
 let onFailure: () => void = () => {};
+let requestSession: (() => void) | undefined;
 
 /** Liga o envio depois que a sessão existe; `retry` é chamado quando uma subida falha. */
 export function enableRemote(retry: () => void): void {
@@ -24,7 +25,18 @@ export function disableRemote(): void {
   enabled = false;
 }
 
+/**
+ * Sem sessão ainda, a primeira gravação pede uma. A escrita já está no navegador, e a
+ * sincronização que vem com a sessão a envia — então nada se perde no caminho.
+ */
+export function onFirstWrite(start: () => void): void {
+  requestSession = start;
+}
+
 export function pushRemote(patch: UserStatePatch): void {
-  if (!enabled) return;
+  if (!enabled) {
+    requestSession?.();
+    return;
+  }
   pushUserState(patch).catch(() => onFailure());
 }

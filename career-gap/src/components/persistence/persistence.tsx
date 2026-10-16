@@ -3,14 +3,16 @@
 import { createContext, use, useEffect, useState } from 'react';
 import type { SocialProvider } from '@/lib/auth';
 import { authClient } from '@/lib/auth-client';
-import { syncNow } from '@/lib/remote-sync';
+import { onFirstWrite } from '@/lib/remote-push';
+import { hasLocalState, syncNow } from '@/lib/remote-sync';
 
 /**
  * `off`: sem banco — tudo no navegador, como sempre foi.
- * `connecting` → `on`: banco ligado, sessão criada (anônima, se preciso) e estado sincronizado.
+ * `idle`: banco ligado, mas esta visita ainda não guardou nada; a sessão nasce na primeira gravação.
+ * `connecting` → `on`: sessão criada (anônima, se preciso) e estado sincronizado.
  * `error`: o banco está configurado mas não respondeu; o produto segue no navegador.
  */
-export type PersistenceStatus = 'off' | 'connecting' | 'on' | 'error';
+export type PersistenceStatus = 'off' | 'idle' | 'connecting' | 'on' | 'error';
 
 interface Persistence {
   readonly status: PersistenceStatus;
@@ -36,8 +38,21 @@ export function PersistenceProvider({
   useEffect(() => {
     if (!enabled) return;
     let cancelled = false;
-    connectOnce()
-      .then(() => !cancelled && setStatus('on'))
+    const connectNow = () => {
+      if (!cancelled) setStatus('connecting');
+      connectOnce()
+        .then(() => !cancelled && setStatus('on'))
+        .catch(() => !cancelled && setStatus('error'));
+    };
+    shouldConnectNow()
+      .then((now) => {
+        if (cancelled) return;
+        if (now) connectNow();
+        else {
+          setStatus('idle');
+          onFirstWrite(connectNow);
+        }
+      })
       .catch(() => !cancelled && setStatus('error'));
     return () => {
       cancelled = true;
@@ -45,6 +60,16 @@ export function PersistenceProvider({
   }, [enabled]);
 
   return <PersistenceContext value={{ status, providers }}>{children}</PersistenceContext>;
+}
+
+/**
+ * Conectar já só quando há sessão ou algo a guardar. Visita que só olha — inclusive robôs, que
+ * criaram 16 usuários anônimos no primeiro dia no ar — não vira linha no banco.
+ */
+async function shouldConnectNow(): Promise<boolean> {
+  if (hasLocalState()) return true;
+  const session = await authClient.getSession();
+  return Boolean(session.data);
 }
 
 /**

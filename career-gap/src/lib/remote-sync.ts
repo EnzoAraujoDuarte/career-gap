@@ -10,6 +10,12 @@ import { mergeUserState } from './user-state';
 
 let resyncPending = false;
 
+/** Há algo neste navegador que valha guardar no servidor. */
+export const hasLocalState = (): boolean =>
+  Boolean(loadDraft() || loadGoals()) ||
+  Object.keys(loadProgress()).length > 0 ||
+  Object.keys(loadCriteria()).length > 0;
+
 /**
  * Junta o que está no navegador com o que está no banco e grava o resultado nos dois lados.
  * Devolve `false` quando o servidor não tem sessão — aí tudo segue só no navegador.
