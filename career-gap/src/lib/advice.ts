@@ -16,6 +16,9 @@ export interface Advice {
   readonly kind: AdviceKind;
   /** O motivo, sempre presente: aviso sem motivo é cadeado disfarçado. */
   readonly reason: string;
+  /** O motivo só repete a marca ("já está no nível"). A visão fechada pode omiti-lo: a regra de
+   *  ruído da ADR-0008 mostra só razões que diferenciam. */
+  readonly redundant?: boolean;
 }
 
 /**
@@ -34,6 +37,7 @@ export function adviseCompetencies(view: RoadmapView): ReadonlyMap<CompetencyId,
         reason: node.needsVerification
           ? 'Você declarou que já sabe. Vale conferir pelos critérios de saída.'
           : 'Você já está no nível que a vaga pede.',
+        redundant: !node.needsVerification,
       });
     } else if (node.status === 'blocked') {
       advice.set(node.id, {

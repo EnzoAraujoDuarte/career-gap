@@ -43,7 +43,9 @@ export interface PathView {
   readonly levels: readonly PathLevelView[];
   /** Recomendado agora, na ordem do ranking do motor. Vazio sem perfil. */
   readonly recommended: readonly PathStop[];
-  /** Nível do primeiro recomendado: o "você está aqui". */
+  /** "Você está aqui": a primeira parada, na ordem da trilha, que ainda pede estudo. O que a
+   *  pessoa já sabe e o que pode esperar ficam para trás. Vazio sem perfil ou com tudo feito. */
+  readonly hereId?: CompetencyId;
   readonly hereLevelId?: string;
   /** Competências do catálogo que o track não exige: o "pode ignorar" permanente. */
   readonly outside: readonly { readonly id: CompetencyId; readonly name: string; readonly reason: string }[];
@@ -109,13 +111,18 @@ export function buildPathView(
     .flat()
     .filter((stop) => stop.advice?.kind === 'recommended')
     .sort((a, b) => (rankOf.get(a.id) ?? Infinity) - (rankOf.get(b.id) ?? Infinity));
-  const hereLevelId = recommended[0]
-    ? track.path.find((level) => level.competencies.includes(recommended[0].id))?.id
+  // Não é o nível do primeiro recomendado: o ranking pode recomendar algo do nível 4 enquanto
+  // ainda há lacuna no 1, e aí a estrada percorrida atravessaria o que a pessoa não sabe.
+  const here = view
+    ? stopsByLevel.flat().find((stop) => stop.advice?.kind !== 'met' && stop.advice?.kind !== 'not-now')
+    : undefined;
+  const hereLevelId = here
+    ? track.path.find((level) => level.competencies.includes(here.id))?.id
     : undefined;
 
   const outside = [...catalog.competencies.values()]
     .filter((competency) => !targetOf.has(competency.id))
     .map((competency) => ({ id: competency.id, name: competency.name, reason: competency.summary }));
 
-  return { levels, recommended, hereLevelId, outside };
+  return { levels, recommended, hereId: here?.id, hereLevelId, outside };
 }

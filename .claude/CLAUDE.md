@@ -15,7 +15,10 @@ Always read these files before planning significant work:
 - `docs/DECISOES.md` — the three open questions, decided on evidence. **Overrides
   `PLANO-DIRECAO.md` and ADR-0007 where they conflict.**
 - `docs/adr/0008-fluxo-vertical-sem-canvas.md` — current visual direction. **Supersedes
-  ADR-0006 and the whiteboard/canvas rules in this file.**
+  ADR-0006 and the whiteboard/canvas rules in this file.** `docs/adr/0011-trilha-como-estrada.md`
+  revises only its ban on drawn strokes: `/trilha` is a vertical road (one geometric stroke).
+- `docs/COMPARACAO-CURRICULOS.md` — MDN, freeCodeCamp, Odin, Full Stack Open, Tech Guide and
+  Trilha Info compared with the catalog; licenses (freeCodeCamp content is NOT open).
 - `docs/TCC-ORIENTACAO.md` — the seven fronts the advisor asked for, written as academic text.
 - `docs/PLANO-FASE4.md` + `docs/adr/0009-orientar-sem-prender.md` +
   `docs/adr/0010-persistencia-e-login.md` — **current direction**: the engine annotates, never
@@ -121,6 +124,8 @@ The current TCC should focus on early-career development users and prove:
 > fluxo vertical editorial, mobile primeiro. A metáfora do quadro branco sobrevive apenas na
 > **voz da anotação** (`← você está aqui`, `← comece aqui`, `não agora`) e no papel/tinta.
 > Não reintroduzir canvas, pan/zoom ou traço desenhado sem revisar a ADR-0008.
+> **2026-10-15, ADR-0011:** a `/trilha` é uma estrada vertical — um traço geométrico único que
+> passa pelas estações, sem pan nem zoom. Traço irregular de canvas continua proibido.
 
 Career Gap must not look like a generic AI SaaS dashboard.
 

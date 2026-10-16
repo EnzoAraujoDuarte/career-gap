@@ -62,15 +62,27 @@ describe('trilha', () => {
     for (const profile of ALL_FIXTURES) expect(content(profile), profile.id).toEqual(content());
   });
 
-  it('marca "você está aqui" no nível do primeiro recomendado', () => {
+  it('marca "você está aqui" na primeira parada que ainda pede estudo', () => {
     const path = buildPathView(CATALOG, FIRST_WEB_ROLE, viewOf(beginner));
     expect(path.recommended[0].id).toBe('programming-fundamentals');
+    expect(path.hereId).toBe('programming-fundamentals');
     expect(path.hereLevelId).toBe('fundamentals');
+
+    // O que a pessoa já sabe ou pode deixar para depois fica para trás; uma lacuna no primeiro
+    // nível segura o "você está aqui" ali, mesmo que o ranking recomende algo mais adiante.
+    for (const profile of ALL_FIXTURES) {
+      const view = buildPathView(CATALOG, FIRST_WEB_ROLE, viewOf(profile));
+      const stops = view.levels.flatMap((level) => level.stops);
+      const index = stops.findIndex((stop) => stop.id === view.hereId);
+      const behind = index < 0 ? stops : stops.slice(0, index);
+      for (const stop of behind) expect(['met', 'not-now'], profile.id).toContain(stop.advice?.kind);
+    }
   });
 
   it('não anota nada sem perfil', () => {
     const path = buildPathView(CATALOG, FIRST_WEB_ROLE);
     expect(path.recommended).toEqual([]);
+    expect(path.hereId).toBeUndefined();
     expect(path.levels.flatMap((level) => level.stops).every((stop) => !stop.advice)).toBe(true);
   });
 

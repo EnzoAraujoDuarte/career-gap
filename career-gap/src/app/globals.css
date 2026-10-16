@@ -76,6 +76,22 @@ body {
   background-size: 22px 22px;
 }
 
+/* Trilha (ADR-0011): o trecho percorrido se desenha uma vez, como uma caneta
+   passando pelo caminho. Com movimento reduzido, a regra abaixo deixa o traço pronto. */
+@keyframes road-draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.road-draw {
+  stroke-dasharray: 1;
+  animation: road-draw 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
