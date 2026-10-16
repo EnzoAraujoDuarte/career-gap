@@ -1,6 +1,13 @@
+import type { Metadata } from 'next';
 import { CATALOG } from '@/catalog';
 import { FIRST_WEB_ROLE } from '@/catalog/tracks';
 import { EntryOption, type EntrySpec } from '@/components/entrada/entry-option';
+
+/** Registro do método, como /estilos: fora da navegação e da busca. */
+export const metadata: Metadata = {
+  title: 'Modelos de primeira tela · Career Gap',
+  robots: { index: false, follow: false },
+};
 
 /**
  * Comparação de modelos de primeira tela.

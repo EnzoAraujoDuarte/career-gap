@@ -1,11 +1,9 @@
-import { Suspense } from 'react';
+import type { Metadata } from 'next';
 import { FlowScreen } from '@/components/flow/flow-screen';
 
-/** Suspense porque o mapa lê `?perfil=` (docs do Next: useSearchParams em prerender). */
+/** Condição B do experimento, fora da navegação e da busca. */
+export const metadata: Metadata = { title: 'Mapa · Career Gap', robots: { index: false, follow: false } };
+
 export default function MapaPage() {
-  return (
-    <Suspense fallback={null}>
-      <FlowScreen />
-    </Suspense>
-  );
+  return <FlowScreen />;
 }

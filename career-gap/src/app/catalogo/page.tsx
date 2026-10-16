@@ -1,7 +1,14 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { CATALOG } from '@/catalog';
 import { FIRST_WEB_ROLE } from '@/catalog/tracks';
 import { CatalogFlow } from '@/components/flow/catalog-flow';
+
+/** Fora da navegação e da busca: existe só para o experimento. */
+export const metadata: Metadata = {
+  title: 'Catálogo completo · Career Gap',
+  robots: { index: false, follow: false },
+};
 
 /**
  * Condição A do experimento: o catálogo completo do track, na ordem de declaração, sem

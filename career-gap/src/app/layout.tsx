@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Fraunces, Inter, Shantell_Sans } from 'next/font/google';
 import { PersistenceProvider } from '@/components/persistence/persistence';
 import { configuredProviders } from '@/lib/auth';
+import { SITE_URL } from '@/lib/site-url';
 import './globals.css';
 
 /** Leitura: formulários, textos e detalhes. */
@@ -18,13 +19,8 @@ const serif = Fraunces({ variable: '--font-serif', subsets: ['latin'] });
 const description =
   'O que estudar agora e o que pode esperar, para a primeira vaga em desenvolvimento web: uma trilha aberta, com conteúdo em português e o motivo de cada recomendação.';
 
-/** A Vercel expõe o domínio de produção; sem ele (local), os links da prévia apontam para cá. */
-const siteUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
-  ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-  : 'http://localhost:3000';
-
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(SITE_URL),
   title: 'Career Gap',
   description,
   openGraph: { title: 'Career Gap', description, siteName: 'Career Gap', locale: 'pt_BR', type: 'website' },
