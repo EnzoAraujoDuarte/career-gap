@@ -5,9 +5,10 @@ import { useMemo, useRef } from 'react';
 import { CATALOG, FIRST_WEB_ROLE } from '@/catalog';
 import type { Resource } from '@/domain/model';
 import { generateRoadmap } from '@/domain/roadmap';
+import { buildBuildsView, type BuildView, type BuildsView } from '@/lib/builds-view';
 import { useCurrentProfile, useProfileSuffix } from '@/lib/current-profile';
 import { useCriteria } from '@/lib/criteria-storage';
-import { markStarted } from '@/lib/progress-storage';
+import { markStarted, useProgress } from '@/lib/progress-storage';
 import { buildPathView, type PathLevelView, type PathStop, type PathView } from '@/lib/path-view';
 import { criteriaKey } from '@/lib/user-state';
 import { formatDuration } from '@/lib/resource-duration';
@@ -17,7 +18,10 @@ import { EcosystemNav } from '@/components/ecosystem/ecosystem-nav';
 import { Loading } from '@/components/ecosystem/page-shell';
 import { DemoSwitcher } from '@/components/flow/demo-switcher';
 import { AdviceMark } from '@/components/ui/advice-mark';
+import { BuildGlyph } from '@/components/ui/build-glyph';
 import { ResourceLine } from '@/components/ui/resource-line';
+import { BuildMark } from './build-mark';
+import { BuildsNow } from './builds-now';
 import { FlagIcon, RoadSvg, SWAY, StationDot, rowStyle, useRoad } from './road';
 
 /** Ritmo de referência para traduzir horas em semanas. É o conselho do Curso em Vídeo, e é
@@ -25,14 +29,17 @@ import { FlagIcon, RoadSvg, SWAY, StationDot, rowStyle, useRoad } from './road';
 const MINUTES_PER_WEEK = 90 * 5;
 
 /**
- * A trilha como estrada (ADR-0011): níveis, conteúdo concreto em cada estação e o trecho já
- * percorrido em tinta. A ordem é sugestão e tudo abre (ADR-0009); o que é pessoal são as
- * marcas e o "você está aqui".
+ * A trilha como estrada (ADR-0011): o que você já consegue construir vem primeiro; depois os
+ * níveis, cada um fechando numa construção, com conteúdo concreto em cada estação e o trecho já
+ * percorrido em tinta. A ordem é sugestão e tudo abre (ADR-0009); o que é pessoal são as marcas,
+ * o "você está aqui" e o que cada competência destrava.
  */
 export function PathScreen() {
   const { profile, demoId } = useCurrentProfile();
   const suffix = useProfileSuffix();
+  const progress = useProgress();
   const track = (profile && CATALOG.tracks.get(profile.trackId)) || FIRST_WEB_ROLE;
+  const builds = useMemo(() => buildBuildsView(CATALOG, track, profile, progress), [track, profile, progress]);
   const path = useMemo(
     () =>
       buildPathView(
@@ -57,19 +64,31 @@ export function PathScreen() {
       <div className="mx-auto max-w-[1040px] px-4 py-6 sm:px-6">
         <EcosystemNav current="trilha" />
 
-        <header className="mt-7 max-w-[62ch]">
-          <h1 className="font-serif text-ink text-[26px] leading-tight text-balance">{track.name}</h1>
-          <p className="text-ink-soft mt-2 text-[14px] leading-relaxed">
-            Siga a estrada de cima para baixo. Ela mostra uma ordem, não uma obrigação: tudo abre,
-            e as marcas dizem o que você já sabe, o que vale agora e o que pode esperar, sempre com
-            o motivo.
+        <header className="mt-8 max-w-[62ch]">
+          <h1 className="font-serif text-ink text-[30px] leading-[1.15] text-balance sm:text-[34px]">
+            Você não precisa saber tudo para começar a criar.
+          </h1>
+          <p className="text-ink-soft mt-3 text-[14.5px] leading-relaxed">
+            Esta é a trilha para a {track.name.toLowerCase()}: {track.requirements.length} competências
+            em {track.path.length} níveis, e cada nível fecha numa coisa que você constrói e mostra.
+            Nada é trancado. As marcas dizem o que você já sabe, o que vale agora e o que pode
+            esperar, sempre com o motivo.
           </p>
         </header>
 
-        {profile === undefined ? (
+        {profile === undefined || progress === undefined ? (
           <Loading />
         ) : (
-          <div className="mt-8 grid gap-10 lg:grid-cols-[minmax(0,1fr)_280px] lg:gap-14">
+          <>
+          <BuildsNow view={builds} hasProfile={profile !== null} suffix={suffix} />
+
+          <h2 className="font-serif text-ink mt-12 text-[22px] leading-tight">A estrada, nível a nível</h2>
+          <p className="text-ink-soft mt-1 max-w-[62ch] text-[13.5px] leading-relaxed">
+            De cima para baixo, na ordem sugerida. Cada estação mostra por onde começar e o que ela
+            destrava; a bandeira de cada nível é o que você constrói ao chegar lá.
+          </p>
+
+          <div className="mt-6 grid gap-10 lg:grid-cols-[minmax(0,1fr)_280px] lg:gap-14">
             <Aside path={path} suffix={suffix} hasProfile={profile !== null} />
 
             <div className="relative min-w-0 lg:order-first">
@@ -87,6 +106,7 @@ export function PathScreen() {
                     reach={reach}
                     hereId={path.hereId}
                     personal={profile !== null}
+                    builds={builds}
                     suffix={suffix}
                   />
                 ))}
@@ -100,6 +120,7 @@ export function PathScreen() {
               <Detours outside={path.outside} />
             </div>
           </div>
+          </>
         )}
       </div>
 
@@ -121,6 +142,7 @@ function Level({
   reach,
   hereId,
   personal,
+  builds,
   suffix,
 }: {
   level: PathLevelView;
@@ -128,11 +150,13 @@ function Level({
   reach: number;
   hereId?: string;
   personal: boolean;
+  builds: BuildsView;
   suffix: string;
 }) {
   const weeks = Math.max(1, Math.round(level.minutes / MINUTES_PER_WEEK));
   const met = level.stops.filter((stop) => stop.advice?.kind === 'met').length;
   const here = level.stops.some((stop) => stop.id === hereId);
+  const levelBuilds = builds.byLevel.get(level.level.id) ?? [];
   return (
     <li className="pb-6">
       <div
@@ -166,6 +190,14 @@ function Level({
             )}
           </p>
           <p className="text-ink mt-2 text-[14px] leading-relaxed">{level.level.summary}</p>
+          <ul className="mt-3 space-y-1">
+            {level.level.outcomes.map((outcome) => (
+              <li key={outcome} className="text-ink-soft flex gap-2 text-[13px] leading-snug">
+                <span className="text-done shrink-0" aria-hidden>✓</span>
+                {outcome}
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
 
@@ -177,6 +209,7 @@ function Level({
             sway={SWAY[(index + 1) % SWAY.length]}
             walked={start + index < reach}
             here={stop.id === hereId}
+            unlocks={builds.unlockedBy.get(stop.id) ?? []}
             suffix={suffix}
           />
         ))}
@@ -192,14 +225,10 @@ function Level({
           <FlagIcon />
         </span>
         <div className="bg-paper min-w-0 max-w-[62ch] pr-2">
-          <h3 className="text-ink text-[13.5px] font-medium">
-            Ao fim do nível {level.number}, você consegue
-          </h3>
-          <ul className="mt-1 space-y-0.5">
-            {level.level.outcomes.map((outcome) => (
-              <li key={outcome} className="text-ink-soft text-[13px] leading-snug">
-                {outcome}
-              </li>
+          <h3 className="text-ink text-[13.5px] font-medium">Ao fim do nível {level.number}, você constrói</h3>
+          <ul className="mt-2 space-y-3">
+            {levelBuilds.map((item) => (
+              <LevelBuild key={item.build.id} item={item} personal={personal} suffix={suffix} />
             ))}
           </ul>
         </div>
@@ -210,17 +239,39 @@ function Level({
   );
 }
 
+function LevelBuild({ item, personal, suffix }: { item: BuildView; personal: boolean; suffix: string }) {
+  return (
+    <li className="flex items-start gap-3">
+      <BuildGlyph kind={item.build.kind} size={36} className="text-ink shrink-0" />
+      <div className="min-w-0">
+        <p className="flex flex-wrap items-baseline gap-x-2.5 gap-y-0.5">
+          <Link
+            href={`/construir/${item.build.id}${suffix}`}
+            className="text-ink focus-visible:outline-attention text-[14.5px] font-medium underline decoration-[var(--rule)] underline-offset-2 hover:decoration-[var(--ink)] focus-visible:outline-2"
+          >
+            {item.build.title}
+          </Link>
+          {personal && <BuildMark status={item.status} missing={item.missingNames[0]?.name} />}
+        </p>
+        <p className="text-ink-soft mt-0.5 text-[12.5px] leading-snug">{item.build.result}</p>
+      </div>
+    </li>
+  );
+}
+
 function Station({
   stop,
   sway,
   walked,
   here,
+  unlocks,
   suffix,
 }: {
   stop: PathStop;
   sway: number;
   walked: boolean;
   here: boolean;
+  unlocks: readonly BuildView[];
   suffix: string;
 }) {
   const kind = stop.advice?.kind;
@@ -249,6 +300,18 @@ function Station({
         </div>
         {stop.advice && !stop.advice.redundant && (
           <p className="text-ink-soft mt-0.5 text-[12.5px] leading-snug">{stop.advice.reason}</p>
+        )}
+        {unlocks.length > 0 && (
+          <p className="hand text-now mt-1 text-[13.5px] leading-snug">
+            ← destrava{' '}
+            <Link
+              href={`/construir/${unlocks[0].build.id}${suffix}`}
+              className="focus-visible:outline-attention underline decoration-[var(--rule)] underline-offset-2 hover:decoration-current focus-visible:outline-2"
+            >
+              {unlocks[0].build.title.toLowerCase()}
+            </Link>
+            {unlocks.length > 1 && ` e mais ${unlocks.length - 1}`}
+          </p>
         )}
         {checked > 0 && (
           <p className="text-done mt-0.5 text-[12.5px]">
@@ -479,7 +542,7 @@ function Aside({
             <span className="border-ink flex h-[18px] w-[18px] shrink-0 items-center justify-center rounded-[3px] border-2">
               <FlagIcon />
             </span>
-            o que você consegue ao fim de cada nível
+o que você constrói ao fim de cada nível
           </li>
         </ul>
       </details>

@@ -129,7 +129,14 @@ export function mergeUserState(local: UserState, remote: UserState): Merge {
 const MAX_TEXT = 1_000;
 const ISO_DATE = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?Z$/;
 const MONTH = /^\d{4}-(0[1-9]|1[0-2])$/;
-const RESOURCE_IDS = new Set(CATALOG.resources.map((resource) => resource.id));
+/** Progresso guarda recursos e construções na mesma tabela; a construção leva prefixo. */
+export const BUILD_PROGRESS_PREFIX = 'build:';
+export const buildProgressKey = (buildId: string) => `${BUILD_PROGRESS_PREFIX}${buildId}`;
+const PROGRESS_IDS = new Set([
+  ...CATALOG.resources.map((resource) => resource.id),
+  ...CATALOG.builds.map((build) => buildProgressKey(build.id)),
+]);
+export const PROGRESS_ID_COUNT = PROGRESS_IDS.size;
 
 const isDate = (value: unknown): value is string => typeof value === 'string' && ISO_DATE.test(value);
 const isOptionalDate = (value: unknown) => value === undefined || value === null || isDate(value);
@@ -162,7 +169,7 @@ export function assertGoals(value: unknown): asserts value is Goals {
 }
 
 export function assertProgress(resourceId: unknown, value: unknown): asserts value is ResourceProgress {
-  if (typeof resourceId !== 'string' || !RESOURCE_IDS.has(resourceId)) {
+  if (typeof resourceId !== 'string' || !PROGRESS_IDS.has(resourceId)) {
     throw new InvalidUserState('recurso desconhecido');
   }
   const entry = value as ResourceProgress;

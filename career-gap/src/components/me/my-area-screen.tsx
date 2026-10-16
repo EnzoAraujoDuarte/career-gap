@@ -11,13 +11,15 @@ import { clearGoals, saveGoals, useGoals } from '@/lib/goals-storage';
 import { clearDraft, useStoredDraft } from '@/lib/profile-storage';
 import { clearProgress, useProgress } from '@/lib/progress-storage';
 import { disableRemote } from '@/lib/remote-push';
-import type { Goals, ResourceProgress } from '@/lib/user-state';
+import { BUILD_PROGRESS_PREFIX, type Goals, type ResourceProgress } from '@/lib/user-state';
 import { deleteMyData } from '@/server/user-state-actions';
 import { Loading, PageShell, SectionLabel } from '@/components/ecosystem/page-shell';
 import { usePersistence } from '@/components/persistence/persistence';
+import { BuildGlyph } from '@/components/ui/build-glyph';
 import { ResourceLine } from '@/components/ui/resource-line';
 
 const RESOURCES = new Map(CATALOG.resources.map((resource) => [resource.id, resource]));
+const BUILDS = new Map(CATALOG.builds.map((build) => [build.id, build]));
 
 const PROVIDER_LABEL: Record<SocialProvider, string> = { google: 'Google', github: 'GitHub' };
 
@@ -42,6 +44,7 @@ export function MyAreaScreen() {
         <Loading />
       ) : (
         <>
+          <BuiltList progress={progress ?? {}} />
           <ResourceList
             title="Continuar"
             empty="Abra qualquer recurso na trilha ou no Explorar e ele aparece aqui."
@@ -69,7 +72,7 @@ export function MyAreaScreen() {
 
       <SectionLabel>O que você já sabe</SectionLabel>
       <p className="text-ink-soft mt-1 text-[13px] leading-relaxed">
-        Concluir um recurso não muda o seu nível — assistir não é saber fazer. Quando sentir que
+        Concluir um recurso não muda o seu nível, porque assistir não é saber fazer. Quando sentir que
         avançou, ajuste.
       </p>
       <p className="mt-2 flex flex-wrap gap-x-5 gap-y-1 text-[14px]">
@@ -96,6 +99,44 @@ function pick(
     .filter(([id, entry]) => RESOURCES.has(id) && include(entry))
     .sort(([, a], [, b]) => (b[by] ?? '').localeCompare(a[by] ?? ''))
     .map(([id]) => RESOURCES.get(id)!);
+}
+
+/** As construções terminadas: a prova concreta de que a pessoa já faz, antes de qualquer lista. */
+function BuiltList({ progress }: { progress: Readonly<Record<string, ResourceProgress>> }) {
+  const built = Object.entries(progress)
+    .filter(([id, entry]) => id.startsWith(BUILD_PROGRESS_PREFIX) && entry.completedAt)
+    .sort(([, a], [, b]) => (b.completedAt ?? '').localeCompare(a.completedAt ?? ''))
+    .map(([id, entry]) => ({ build: BUILDS.get(id.slice(BUILD_PROGRESS_PREFIX.length)), at: entry.completedAt! }))
+    .filter((item) => item.build);
+  return (
+    <section>
+      <SectionLabel>Construído · {built.length}</SectionLabel>
+      {built.length === 0 ? (
+        <p className="text-ink-soft mt-2 text-[13px]">
+          Quando terminar uma construção da trilha, marque “Construí isto” e ela aparece aqui.
+        </p>
+      ) : (
+        <ul className="mt-3 space-y-3">
+          {built.map(({ build, at }) => (
+            <li key={build!.id} className="flex items-start gap-3">
+              <BuildGlyph kind={build!.kind} size={36} className="text-ink shrink-0" />
+              <div className="min-w-0">
+                <Link
+                  href={`/construir/${build!.id}`}
+                  className="text-ink focus-visible:outline-attention text-[14.5px] font-medium underline decoration-[var(--rule)] underline-offset-2 hover:decoration-[var(--ink)] focus-visible:outline-2"
+                >
+                  {build!.title}
+                </Link>
+                <p className="text-ink-soft mt-0.5 text-[12.5px]">
+                  em {new Date(at).toLocaleDateString('pt-BR', { day: 'numeric', month: 'short' })}
+                </p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      )}
+    </section>
+  );
 }
 
 function ResourceList({ title, empty, entries }: { title: string; empty: string; entries: readonly Resource[] }) {

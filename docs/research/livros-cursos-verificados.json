@@ -4,7 +4,7 @@
   "rejeitados": 11,
   "entries": [
     {
-      "name": "Pro Git — 2ª edição (tradução pt-BR)",
+      "name": "Pro Git: 2ª edição (tradução pt-BR)",
       "url": "https://git-scm.com/book/pt-br/v2",
       "kind": "book",
       "competencies": [
@@ -19,7 +19,7 @@
       "why": "Site oficial do projeto Git, corpo verificado em português, tradução mantida continuamente. Referência gratuita e canônica que torna o livro pago de Git da Casa do Código desnecessário. Atenção à rota correta do capítulo: 'Fundamentos-do-Git-...', não 'Fundamentos-de-Git-...'."
     },
     {
-      "name": "JavaScript Eloquente — 4ª edição (tradução BrazilJS)",
+      "name": "JavaScript Eloquente: 4ª edição (tradução BrazilJS)",
       "url": "https://braziljs.github.io/eloquente-javascript/",
       "kind": "book",
       "competencies": [
@@ -35,7 +35,7 @@
       "why": "Projeto de tradução comunitária do BrazilJS sobre o original CC BY-NC, 22 capítulos com corpo verificado em português. Ressalva obrigatória na ficha: o próprio README declara que a 4ª edição foi traduzida com auxílio de IA e está aberta a revisão — oferecer o original em eloquentjavascript.net como alternativa."
     },
     {
-      "name": "Pense em Python — 2ª edição (Allen Downey, trad. Sheila Gomes)",
+      "name": "Pense em Python: 2ª edição (Allen Downey, trad. Sheila Gomes)",
       "url": "https://penseallen.github.io/PensePython2e/",
       "kind": "book",
       "competencies": [
@@ -52,7 +52,7 @@
       "why": "Tradução integral autorizada, montada por Luciano Ramalho a partir de arquivos da Novatec. Serve fundamentos agnósticos, não a plataforma web — só recomendar quando o usuário ainda não escolheu caminho, e encadear com material de HTML/CSS/JS depois."
     },
     {
-      "name": "Apostila Caelum/Alura — Desenvolvimento Web com HTML, CSS e JavaScript",
+      "name": "Apostila Caelum/Alura: Desenvolvimento Web com HTML, CSS e JavaScript",
       "url": "https://www.alura.com.br/apostila-html-css-javascript",
       "kind": "apostila",
       "competencies": [
@@ -85,7 +85,7 @@
       "why": "Repositório da conta pessoal do próprio autor, com PDFs das aulas e exercícios executáveis via GitHub Pages, 16,5k estrelas. Ressalva: a atualização do repositório (nov/2025) não significa aulas regravadas — o conteúdo é da safra 2019-2021."
     },
     {
-      "name": "git — guia prático (pt-BR)",
+      "name": "git: guia prático (pt-BR)",
       "url": "https://rogerdudler.github.io/git-guide/index.pt_BR.html",
       "kind": "guia",
       "competencies": [
@@ -144,7 +144,7 @@
       "why": "Melhor material de JavaScript do lote: gratuito, sem cadastro, do autor e detentor desde 2007, atualizado em 10/09/2026. Marcar explicitamente 'sem versão em português': o seletor do site lista 15 idiomas e português não está entre eles; a tradução comunitária existe só como repositório sem site publicado — não linkar pt.javascript.info."
     },
     {
-      "name": "You Don't Know JS Yet — 2ª edição (Kyle Simpson)",
+      "name": "You Don't Know JS Yet: 2ª edição (Kyle Simpson)",
       "url": "https://github.com/getify/You-Dont-Know-JS",
       "kind": "book",
       "competencies": [
@@ -159,7 +159,7 @@
       "why": "Repositório oficial do próprio autor, leitura online gratuita. Entra com gate 'só depois de um projeto real' — é aprofundamento de linguagem, L2-L3. A ficha precisa declarar o status por volume para não prometer uma série completa que não existe. A tradução pt-BR em circulação é da 1ª edição e foi reprovada."
     },
     {
-      "name": "MDN — Aprenda desenvolvimento web (pt-BR)",
+      "name": "MDN: Aprenda desenvolvimento web (pt-BR)",
       "url": "https://developer.mozilla.org/pt-BR/docs/Learn_web_development",
       "kind": "curso/documentação",
       "competencies": [
@@ -178,7 +178,7 @@
       "why": "Corpo verificado em português nos módulos centrais, com aviso explícito da própria página de que a tradução é comunitária. Parcial de verdade: vários links internos apontam para /en-US/. Espinha dorsal gratuita de web-platform em pt-BR."
     },
     {
-      "name": "MDN — Uma visão geral do HTTP (pt-BR)",
+      "name": "MDN: Uma visão geral do HTTP (pt-BR)",
       "url": "https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Guides/Overview",
       "kind": "documentação",
       "competencies": [
@@ -192,7 +192,7 @@
       "why": "Corpo integralmente em português, atualizada em jul/2025, URL canônica atual (o caminho já inclui /Guides/). Apresenta cliente-servidor, requisição/resposta, métodos, cabeçalhos, cache, CORS e status em uma leitura de 25 min. É a porta de entrada de http-fundamentals e desmente a suposição de que a competência não tinha material em pt-BR — o que faltava era aula em vídeo, não material."
     },
     {
-      "name": "web.dev — Aprenda CSS (pt-BR)",
+      "name": "web.dev: Aprenda CSS (pt-BR)",
       "url": "https://web.dev/learn/css?hl=pt-br",
       "kind": "curso",
       "competencies": [
@@ -207,7 +207,7 @@
       "why": "Publicado pelo Google/Chrome, corpo verificado em português, licença permissiva declarada, sem cadastro. Substitui com folga os livros de CSS brasileiros de 2012 e é a razão pela qual nenhum material pago de CSS pode ser o recomendado padrão. O carimbo de data (2021) parece ser da página-índice: o sumário lista módulos pós-2023."
     },
     {
-      "name": "Google — Technical Writing One",
+      "name": "Google: Technical Writing One",
       "url": "https://developers.google.com/tech-writing/one",
       "kind": "curso",
       "competencies": [
@@ -222,7 +222,7 @@
       "why": "Recurso oficial do Google, gratuito, sem cadastro para a pré-aula, atualizado em mar/2025. Correção importante: o parâmetro ?hl=pt-br traduz apenas a interface — o corpo das lições abre em inglês. Cadastrar sem o parâmetro e marcar idioma como inglês, senão a pílula de idioma engana o usuário."
     },
     {
-      "name": "W3C WAI — Digital Accessibility Foundations (edX)",
+      "name": "W3C WAI: Digital Accessibility Foundations (edX)",
       "url": "https://www.w3.org/WAI/courses/foundations-course/",
       "kind": "curso",
       "competencies": [
@@ -251,7 +251,7 @@
       "why": "18 lições interativas no navegador, sem paywall e sem cadastro. É o artefato PROVE de SQL. Só em inglês, mas o texto é curto e técnico; oferecer o Curso em Vídeo de MySQL como alternativa falada em português no mesmo nó."
     },
     {
-      "name": "Curso em Vídeo — HTML5 e CSS3 (módulos 1 a 5)",
+      "name": "Curso em Vídeo: HTML5 e CSS3 (módulos 1 a 5)",
       "url": "https://www.cursoemvideo.com/cursos/",
       "kind": "curso em vídeo",
       "competencies": [
@@ -268,7 +268,7 @@
       "why": "Plataforma oficial do próprio autor, conteúdo 100% gratuito, material em PDF e exercícios. Duas correções obrigatórias: a plataforma EXIGE cadastro (a ficha anterior dizia que não), e a URL precisa apontar para a lista de cursos — cadastrada no módulo 1, o usuário nunca chega ao módulo que ensina layout moderno."
     },
     {
-      "name": "Curso em Vídeo — JavaScript (módulos A-F)",
+      "name": "Curso em Vídeo: JavaScript (módulos A-F)",
       "url": "https://www.cursoemvideo.com/curso/javascript/",
       "kind": "curso em vídeo",
       "competencies": [
@@ -284,7 +284,7 @@
       "why": "40h com estrutura confirmada, patrocínio Google, foco em ECMAScript 6, publicado em 2019 — no limite do corte. Não cobre fetch, async/await nem módulos ES6+: serve como porta de entrada falada em português e obriga javascript.info ou o Eloquente para L1-L2. Exige cadastro gratuito."
     },
     {
-      "name": "Curso em Vídeo — Git e GitHub",
+      "name": "Curso em Vídeo: Git e GitHub",
       "url": "https://www.cursoemvideo.com/curso/curso-de-git-e-github/",
       "kind": "curso em vídeo",
       "competencies": [
@@ -300,7 +300,7 @@
       "why": "20h em 13 aulas sem pré-requisito de programação; cobre controle de versão, branches, Issues, Markdown e GitHub Pages. Exige cadastro. A página não data o curso — checar periodicamente se as demonstrações ainda batem com a interface atual do GitHub."
     },
     {
-      "name": "Curso em Vídeo — Algoritmos e Lógica de Programação",
+      "name": "Curso em Vídeo: Algoritmos e Lógica de Programação",
       "url": "https://www.cursoemvideo.com/curso/curso-de-algoritmo/",
       "kind": "curso em vídeo",
       "competencies": [
@@ -315,7 +315,7 @@
       "why": "40h em 16 aulas, sem pré-requisito, nó de entrada para quem nunca escreveu um algoritmo. Correção de fato: a ferramenta é Scratch mais pseudocódigo, não Visualg. Conceitos evergreen, mas não ensina a plataforma web — encadear obrigatoriamente com o curso de JavaScript. Exige cadastro."
     },
     {
-      "name": "Curso em Vídeo — MySQL / Banco de Dados",
+      "name": "Curso em Vídeo: MySQL / Banco de Dados",
       "url": "https://www.cursoemvideo.com/curso/mysql/",
       "kind": "curso em vídeo",
       "competencies": [
@@ -331,7 +331,7 @@
       "why": "40h em 18 aulas com SQL explicado em português falado. Ressalva forte e obrigatória na ficha: o ambiente ensinado é WAMP/XAMPP com phpMyAdmin, stack datada e hoje um obstáculo real — recomendar praticar no SQLBolt ou em MySQL/Postgres em container. Exige cadastro."
     },
     {
-      "name": "CC50 — CS50 de Harvard legendado em português (Fundação Estudar)",
+      "name": "CC50: CS50 de Harvard legendado em português (Fundação Estudar)",
       "url": "https://www.estudarfora.org.br/cc50-v2/",
       "kind": "curso",
       "competencies": [
@@ -347,7 +347,7 @@
       "why": "Versão pt-BR oficial do CS50, produzida e licenciada por Harvard, com link de licença na própria página. Correção obrigatória: pt-BR é LEGENDA profissional, não dublagem nem tradução do corpo — as aulas são em inglês, e problem sets e textos seguem em inglês. Marcar como parcial e dizer isso ao usuário."
     },
     {
-      "name": "freeCodeCamp — currículo em português",
+      "name": "freeCodeCamp: currículo em português",
       "url": "https://www.freecodecamp.org/portuguese/learn",
       "kind": "curso interativo",
       "competencies": [
@@ -366,7 +366,7 @@
       "why": "Fundação detentora, gratuito, tradução do currículo feita manualmente por voluntários. Alerta que muda o cadastro: as 11 certificações antigas viraram 'legadas' e há um novo currículo Certified Full Stack Developer sem evidência de tradução pt-BR — apontar para as legadas, não para a raiz. A SPA não permitiu inspecionar o corpo dos desafios: confiança rebaixada."
     },
     {
-      "name": "DIO — Bootcamp Primeiros Passos em Tecnologia",
+      "name": "DIO: Bootcamp Primeiros Passos em Tecnologia",
       "url": "https://www.dio.me/bootcamp/primeiros-passos-em-tecnologia",
       "kind": "bootcamp",
       "competencies": [
@@ -384,7 +384,7 @@
       "why": "72h com inscrição gratuita e ativa, conteúdo nativo em pt-BR cobrindo lógica, HTML/CSS/JS, versionamento e preparação para entrevista. Aviso obrigatório na ficha: a própria página declara que o cadastro deixa o perfil disponível para centenas de empresas — o preço real é o dado pessoal, e o usuário tem que saber antes de clicar."
     },
     {
-      "name": "Alura — 7 Days of Code",
+      "name": "Alura: 7 Days of Code",
       "url": "https://7daysofcode.io/",
       "kind": "desafio",
       "competencies": [
@@ -402,7 +402,7 @@
       "why": "Iniciativa perene, aberta a qualquer pessoa sem assinatura, com o único requisito de um e-mail para receber os desafios. Não ensina conteúdo novo, propõe prática — é artefato BUILD dependente de um curso anterior, e por isso encaixa exatamente na regra de um FAÇA a cada ~4 leituras."
     },
     {
-      "name": "Escola Virtual Fundação Bradesco — Crie um site simples usando HTML, CSS e JavaScript",
+      "name": "Escola Virtual Fundação Bradesco: Crie um site simples usando HTML, CSS e JavaScript",
       "url": "https://www.ev.org.br/cursos/crie-um-site-simples-usando-html-css-e-javascript",
       "kind": "curso",
       "competencies": [
@@ -418,7 +418,7 @@
       "why": "2h, integralmente gratuito, com certificado digital gratuito e código de autenticação — raro no lote. Contradição a registrar: a própria página exige familiaridade prévia com uma linguagem de programação e marcação, e instalação do VS Code. Recurso secundário com certificado, NUNCA porta de entrada de html-semantics L0. Idade mínima 16 anos, prazo de 60 dias."
     },
     {
-      "name": "Escola Virtual Fundação Bradesco — Linguagem de Programação Python Básico",
+      "name": "Escola Virtual Fundação Bradesco: Linguagem de Programação Python Básico",
       "url": "https://www.ev.org.br/cursos/linguagem-de-programacao-python-basico",
       "kind": "curso",
       "competencies": [
@@ -432,7 +432,7 @@
       "why": "18h, nível iniciante, com certificado automático para aprovados: lógica, variáveis e tipos, estruturas lógicas e funções. Usa PyCharm e programas de console — só recomendar quando o usuário quer fundamentos agnósticos, nunca como caminho para a plataforma web. A página não declara ano de produção."
     },
     {
-      "name": "Full Stack Open — Universidade de Helsinque (pt-BR)",
+      "name": "Full Stack Open: Universidade de Helsinque (pt-BR)",
       "url": "https://fullstackopen.com/ptbr/",
       "kind": "curso",
       "competencies": [
@@ -450,7 +450,7 @@
       "why": "Única fonte estruturada e gratuita em português para API REST com Node/Express, testes e autenticação por token. Pré-requisito duro: javascript-essentials L1 e programação prévia, com React desde a parte 1 — aparece no fim da trilha, nunca antes. Correção de fato (2026-10-15): o índice em pt-BR leva a parte 13 para a versão em inglês, marcada \"english only\", e /ptbr/part13 não existe."
     },
     {
-      "name": "The Odin Project — Foundations",
+      "name": "The Odin Project: Foundations",
       "url": "https://www.theodinproject.com/paths/foundations/courses/foundations",
       "kind": "curso",
       "competencies": [
@@ -581,7 +581,7 @@
       "why": "Publicado em jun/2023 com atualização em fev/2024 — o livro pago mais recente do lote. Implementações em JavaScript ao lado de C/Java/C#/Python confirmadas, o que resolve o problema de todo material brasileiro de algoritmos estar em Java. L2 legítimo: gate 'depois de programming-fundamentals L1 e de Entendendo Algoritmos'."
     },
     {
-      "name": "Entendendo Algoritmos — 2ª edição (Aditya Bhargava)",
+      "name": "Entendendo Algoritmos: 2ª edição (Aditya Bhargava)",
       "url": "https://novatec.com.br/livros/entendendo-algoritmos-2ed/",
       "kind": "book",
       "competencies": [
@@ -612,7 +612,7 @@
       "why": "Página oficial da editora detentora dos direitos em pt-BR, tradução completa, conteúdo conceitual evergreen. Entra APENAS como aprofundamento opcional com o corte por capítulo: R$ 138,50 é alto para o público-alvo e a tradução é criticada, então o gratuito (Refactoring.Guru pt-BR parcial, guias de code review do Google) vem sempre primeiro na ficha."
     },
     {
-      "name": "Origamid — HTML e CSS para Iniciantes",
+      "name": "Origamid: HTML e CSS para Iniciantes",
       "url": "https://www.origamid.com/curso/html-e-css-para-iniciantes/",
       "kind": "curso em vídeo",
       "competencies": [
@@ -630,7 +630,7 @@
       "why": "Conteúdo moderno e confirmado (Flexbox e Grid), sem o problema pré-flexbox dos livros brasileiros da mesma competência. Mas o paywall é sobre o conteúdo em si, não sobre certificado, e a Origamid não tem mais cursos gratuitos: a ficha deve sempre oferecer primeiro web.dev 'Aprenda CSS' e o Curso em Vídeo. A página não declara ano de produção."
     },
     {
-      "name": "Origamid — JavaScript Completo ES6",
+      "name": "Origamid: JavaScript Completo ES6",
       "url": "https://www.origamid.com/curso/javascript-completo-es6/",
       "kind": "curso em vídeo",
       "competencies": [

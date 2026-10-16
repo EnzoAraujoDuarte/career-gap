@@ -151,6 +151,8 @@ export function validateCatalog(catalog: Catalog): readonly CatalogProblem[] {
     }
   }
 
+  validateBuilds(catalog, report);
+
   const cycle = new PrerequisiteGraph(catalog.prerequisites).findCycle();
   if (cycle) {
     report('acyclic', cycle.join(' -> '), 'ciclo torna a elegibilidade indecidível');
@@ -311,6 +313,90 @@ function validateTrack(
         );
       }
     }
+  }
+}
+
+/** Passos demais viram tutorial; de menos, a construção não guia. */
+const BUILD_STEPS = { min: 3, max: 6 };
+
+/**
+ * Construções: cada exigência existe e não passa do alvo do track; o nível da trilha existe e
+ * nenhuma exigência vem de um nível depois do da construção (senão ela nunca fica pronta na
+ * ordem sugerida); cada nível tem o que construir; e existe exatamente uma porta de entrada,
+ * sem exigências, no primeiro nível — a prova de que dá para começar sem saber nada.
+ */
+function validateBuilds(
+  catalog: Catalog,
+  report: (rule: string, subject: string, detail: string) => void,
+): void {
+  const resourceIds = new Set(catalog.resources.map((resource) => resource.id));
+  const buildIds = new Set<string>();
+  const competencyIds = [...catalog.competencies.keys()];
+
+  for (const track of catalog.tracks.values()) {
+    const targetOf = new Map(track.requirements.map((item) => [item.competency, item.targetLevel]));
+    const levelPosition = new Map(track.path.map((level, index) => [level.id, index]));
+    const competencyPosition = new Map(
+      track.path.flatMap((level, index) => level.competencies.map((competency) => [competency, index] as const)),
+    );
+    const buildsPerLevel = new Map<string, number>();
+    let doorways = 0;
+
+    for (const build of catalog.builds) {
+      if (buildIds.has(build.id)) report('build-unique', build.id, 'id de construção repetido');
+      buildIds.add(build.id);
+
+      const levelIndexOf = levelPosition.get(build.levelId);
+      if (levelIndexOf === undefined) {
+        report('build-level', build.id, `nível da trilha inexistente: ${build.levelId}`);
+        continue;
+      }
+      buildsPerLevel.set(build.levelId, (buildsPerLevel.get(build.levelId) ?? 0) + 1);
+      if (build.requires.length === 0) {
+        doorways += 1;
+        if (levelIndexOf !== 0) report('build-doorway', build.id, 'a porta de entrada fica no primeiro nível');
+      }
+
+      for (const requirement of build.requires) {
+        const target = targetOf.get(requirement.competency);
+        const label = `${build.id} <- ${requirement.competency}@${requirement.level}`;
+        if (!target) {
+          report('build-requires', label, 'exigência fora do track');
+          continue;
+        }
+        if (levelIndex(requirement.level) > levelIndex(target)) {
+          report('build-requires', label, 'exige mais que o alvo do track');
+        }
+        if ((competencyPosition.get(requirement.competency) ?? Infinity) > levelIndexOf) {
+          report('build-order', label, 'exigência de um nível posterior ao da construção');
+        }
+        requireDescriptor(catalog.competencies.get(requirement.competency), requirement.level, label, report);
+      }
+      for (const competency of build.exercises) {
+        if (!catalog.competencies.has(competency)) {
+          report('build-exercises', build.id, `competência inexistente: ${competency}`);
+        }
+      }
+      for (const resource of build.resources) {
+        if (!resourceIds.has(resource)) report('build-resource', build.id, `recurso inexistente: ${resource}`);
+      }
+      if (build.steps.length < BUILD_STEPS.min || build.steps.length > BUILD_STEPS.max) {
+        report('build-steps', build.id, `${build.steps.length} passos; o intervalo é ${BUILD_STEPS.min} a ${BUILD_STEPS.max}`);
+      }
+      if (!build.result.trim() || !build.doneWhen.trim()) {
+        report('build-text', build.id, 'construção precisa dizer o resultado e quando está pronta');
+      }
+      for (const text of [build.title, build.result, build.doneWhen, ...build.steps]) {
+        if (INTERNAL_LEVEL.test(text) || competencyIds.some((id) => text.includes(id))) {
+          report('build-text', build.id, `texto exibido com código interno: "${text}"`);
+        }
+      }
+    }
+
+    for (const level of track.path) {
+      if (!buildsPerLevel.get(level.id)) report('build-coverage', `${track.id}:${level.id}`, 'nível sem construção');
+    }
+    if (doorways !== 1) report('build-doorway', track.id, `${doorways} construções sem exigência; precisa ser exatamente 1`);
   }
 }
 

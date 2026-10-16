@@ -29,6 +29,29 @@
      este passa no AA (4,5:1) nos três fundos (docs/AUDITORIA-UI-2026-10-15.md). */
   --state-attention: #955f1d;
   --state-future: #9a948a;
+
+  color-scheme: light dark;
+}
+
+/* O mesmo papel, à noite. Quem estuda tarde, e é a maioria de quem está começando, não precisa de
+   uma tela branca na cara: os tokens trocam de valor e nenhum componente muda. Contraste conferido
+   para AA sobre o papel escuro. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #16140f;
+    --paper-edge: #211e17;
+    --ink: #efe9dc;
+    --ink-soft: #b4ab9b;
+    --ink-faint: #9a927f;
+    --rule: #3a352c;
+    --tint-now: #1c2738;
+    --tint-done: #1d2a20;
+    --state-done: #86b793;
+    --state-now: #93b6ea;
+    --state-critical: #e38282;
+    --state-attention: #d6a65c;
+    --state-future: #8c8676;
+  }
 }
 
 @theme inline {

@@ -364,7 +364,7 @@
       "creator": "TabNews (comunidade open source BR, mantida por Filipe Deschamps)",
       "creator_url": "https://www.tabnews.com.br/",
       "artifact_kind": "community",
-      "artifact_title": "TabNews — Conteúdos para quem trabalha com Programação e Tecnologia",
+      "artifact_title": "TabNews: Conteúdos para quem trabalha com Programação e Tecnologia",
       "artifact_url": "https://www.tabnews.com.br/",
       "competencies": [
         "technical-communication"
@@ -590,7 +590,7 @@
       "creator": "Programador de Elite",
       "creator_url": "https://www.youtube.com/@progdeelite",
       "artifact_kind": "video",
-      "artifact_title": "Como revisar e comentar pull requests sem ser grosseiro — revisão de código (título original contém linguagem chula)",
+      "artifact_title": "Como revisar e comentar pull requests sem ser grosseiro: revisão de código (título original contém linguagem chula)",
       "artifact_url": "https://www.youtube.com/watch?v=fsMFuT59rMU",
       "competencies": [
         "code-review-participation",

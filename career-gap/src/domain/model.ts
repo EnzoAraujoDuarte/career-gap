@@ -271,6 +271,47 @@ export interface Resource {
 }
 
 // ---------------------------------------------------------------------------
+// Construções — o que a pessoa consegue fazer com o que sabe
+// ---------------------------------------------------------------------------
+
+/** A forma do resultado: é o que o desenho da construção mostra antes de a pessoa começar. */
+export type BuildKind = 'page' | 'terminal' | 'link' | 'widget' | 'form' | 'server' | 'app' | 'pull-request';
+
+export interface BuildRequirement {
+  readonly competency: CompetencyId;
+  readonly level: Level;
+}
+
+/**
+ * Algo concreto que a pessoa constrói e mostra — a unidade que liga saber a conseguir fazer.
+ *
+ * O roadmap só com competências dizia o que estudar; a construção diz o que você já pode criar
+ * com o que sabe e o que cada competência destrava (docs/COMPARACAO-CURRICULOS.md, Hyperskill e
+ * Frontend Mentor organizam o estudo assim). `requires` é avaliado contra o perfil da mesma forma
+ * que o portão de uma ferramenta: declarado, verificável e sem cadeado — a página abre para
+ * todos; o que muda é a anotação (ADR-0009). O texto é do projeto; os recursos são links.
+ */
+export interface Build {
+  readonly id: string;
+  readonly title: string;
+  /** O que a pessoa tem na mão quando termina, em uma frase concreta. */
+  readonly result: string;
+  readonly kind: BuildKind;
+  /** Nível da trilha em que a construção fecha. */
+  readonly levelId: string;
+  /** Vazio = dá para fazer sem saber nada ainda: é a porta de entrada. */
+  readonly requires: readonly BuildRequirement[];
+  /** O que a construção exercita; pode incluir competências de níveis adiante, como um gosto. */
+  readonly exercises: readonly CompetencyId[];
+  readonly steps: readonly string[];
+  /** O critério observável de pronto. */
+  readonly doneWhen: string;
+  /** Recursos do catálogo que apoiam a construção. */
+  readonly resources: readonly string[];
+  readonly estimatedMinutes: number;
+}
+
+// ---------------------------------------------------------------------------
 // Hábitos profissionais
 // ---------------------------------------------------------------------------
 

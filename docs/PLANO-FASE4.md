@@ -368,6 +368,27 @@ mais é trancado, e o ajuste por competência entra na Minha área (§9).
 - **Contraste e superfícies do navegador:** placeholder, seleção, cursor de texto e rótulos sem
   espaçamento largo.
 
+**Feito (2026-10-16, sexta rodada — criar desde o primeiro minuto):**
+
+- **Regras do projeto podadas.** `CLAUDE.md` e `AGENTS.md` na raiz, curtos, só com o que o
+  código não conta; as regras de escrita de código vêm do kit pessoal do Enzo. Saíram o manual
+  visual do canvas e as listas de leitura obrigatória.
+- **Construções** (ADR-0012): 11 coisas para fazer e mostrar, avaliadas contra o perfil, com
+  página própria, passo a passo, critério de pronto e "Construí isto". A trilha começa por elas;
+  cada nível fecha nelas; cada estação diz o que destrava.
+- **Primeiro acesso:** "Você não precisa saber tudo para começar a criar", a porta de entrada
+  sem exigência e o convite às 6 perguntas.
+- **Prompt para IA externa** nas páginas de competência e de construção, por template, sem IA
+  dentro do produto.
+- **Desenhos a traço** por construção; **modo escuro** pelos tokens, seguindo o sistema.
+- **Catálogo:** Context7 e impeccable no kit de ferramentas; Awwwards e Mobbin como referências
+  de teto para CSS e componentes.
+- **Kit de trabalho com IA** (github.com/EnzoAraujoDuarte/kit-career-gap, público, MIT): o
+  marketplace pessoal do Enzo reescrito em português, para qualquer stack, com as regras, `pr`,
+  `depurar`, `decisao`, `passagem` e o agente `revisor`. Validado com `claude plugin validate`;
+  cadastrado no catálogo como ferramenta, com portão de Git e de IA.
+- 116 testes; referências em `docs/REFERENCIAS-UX.md`.
+
 **Próximo:**
 
 1. Conectar o Neon e conferir o fluxo no navegador (§5, "não verificado"). Preencher

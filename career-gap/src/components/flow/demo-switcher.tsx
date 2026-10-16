@@ -23,7 +23,7 @@ export function DemoSwitcher({ currentId }: { currentId?: string }) {
             // Recarga inteira: o perfil é lido da URL, e o roteador não avisa quando só a query muda.
             window.location.assign(event.target.value ? `${pathname}?perfil=${event.target.value}` : pathname)
           }
-          className="border-rule bg-paper text-ink-soft focus-visible:outline-attention rounded-sm border px-1.5 py-0.5 text-[12px] focus-visible:outline-2"
+          className="border-rule bg-paper text-ink-soft focus-visible:outline-attention min-w-0 max-w-[60vw] rounded-sm border px-1.5 py-0.5 text-[12px] focus-visible:outline-2"
         >
           <option value="">meu perfil</option>
           {DEMO_PROFILES.map((profile) => (

@@ -33,7 +33,7 @@ export function EcosystemNav({ current }: { current?: SpaceId }) {
             Perfil de exemplo: <strong className="font-medium">{DEMO_LABEL[demoId] ?? demoId}</strong>.
             As marcas são dele, não suas.
           </span>
-          <a href={pathname} className="text-now underline underline-offset-2">
+          <a href={pathname} className="text-now -my-2 inline-block py-2 underline underline-offset-2">
             Voltar ao meu perfil
           </a>
         </p>

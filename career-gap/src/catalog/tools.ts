@@ -205,6 +205,43 @@ export const TOOLS: readonly Tool[] = [
     verifiedAt: VERIFIED,
   },
   {
+    id: 'impeccable',
+    name: 'Impeccable (skill de design)',
+    category: 'ai',
+    use: 'Skill para o agente de IA auditar e lapidar interface: contraste, hierarquia, estados, responsivo e os clichês de UI gerada.',
+    why:
+      'Só rende para quem já monta uma página e sabe o que é layout bom: a skill aponta o que ' +
+      'falta, não substitui o olho. É o que este site usa para se auditar.',
+    url: 'https://github.com/pbakaus/impeccable',
+    cost: 'free',
+    ptBrStatus: 'none',
+    stability: 'volatile',
+    unlockedBy: [
+      { competency: 'css-layout', atLevel: 'L1' },
+      { competency: 'ai-assisted-development-basics', atLevel: 'L1' },
+    ],
+    verifiedAt: '2026-10-16',
+  },
+  {
+    id: 'kit-career-gap',
+    name: 'Kit de trabalho com IA',
+    category: 'ai',
+    use: 'Regras de código, testes e git carregadas em toda sessão do assistente, mais as skills de PR, depuração e decisão e um agente revisor.',
+    why:
+      'É a forma de trabalhar do autor deste site, reescrita para qualquer stack: o assistente faz a ' +
+      'menor mudança, mostra o que rodou e pede aprovação antes de apagar ou publicar. Pede alguém ' +
+      'que já versiona e já usa assistente com critério, senão as regras não têm o que guiar.',
+    url: 'https://github.com/EnzoAraujoDuarte/kit-career-gap',
+    cost: 'free',
+    ptBrStatus: 'complete',
+    stability: 'volatile',
+    unlockedBy: [
+      { competency: 'version-control-git', atLevel: 'L1' },
+      { competency: 'ai-assisted-development-basics', atLevel: 'L1' },
+    ],
+    verifiedAt: '2026-10-16',
+  },
+  {
     id: 'agents-md',
     name: 'AGENTS.md',
     category: 'ai',
