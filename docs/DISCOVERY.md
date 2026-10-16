@@ -2,7 +2,7 @@
 
 Documento de saída da fase de pesquisa. Define **o que construir, como e por quê**.
 
-Prioridade documental: instrução atual do usuário > `INITIAL_SCOPE.md` > `.agents/AGENTS.md` > `SYSTEM_SPEC.md`.
+Prioridade documental: instrução atual do usuário > `INITIAL_SCOPE.md` > `AGENTS.md` > `SYSTEM_SPEC.md`.
 Este documento **detalha e ajusta** `INITIAL_SCOPE.md`; onde houver divergência explícita, o ajuste está marcado como **MUDANÇA**.
 
 Fontes citadas: `docs/research/SOURCES.md`. Decisões formais: `docs/adr/`.
