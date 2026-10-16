@@ -142,6 +142,14 @@ export function validateCatalog(catalog: Catalog): readonly CatalogProblem[] {
     if (!/^\d{4}-\d{2}-\d{2}$/.test(tool.verifiedAt)) {
       report('tool-verified', tool.id, 'data de verificação ausente ou fora de AAAA-MM-DD');
     }
+    // Quem começa precisa saber se é algo que já tem, que cria, que instala ou que adiciona ao
+    // projeto; plugin e dependência sem comando viram "procure por aí".
+    if (!tool.setup?.note.trim()) {
+      report('tool-setup', tool.id, 'ferramenta precisa dizer como se passa a tê-la');
+    }
+    if (['claude-plugin', 'project-dependency'].includes(tool.setup?.kind) && !tool.setup.command?.trim()) {
+      report('tool-setup', tool.id, 'plugin e dependência de projeto precisam do comando');
+    }
     for (const gate of tool.unlockedBy) {
       const label = `${tool.id} <- ${gate.competency}@${gate.atLevel}`;
       if (!competencies.has(gate.competency)) {
@@ -330,6 +338,7 @@ function validateBuilds(
   report: (rule: string, subject: string, detail: string) => void,
 ): void {
   const resourceIds = new Set(catalog.resources.map((resource) => resource.id));
+  const toolIds = new Set(catalog.tools.map((tool) => tool.id));
   const buildIds = new Set<string>();
   const competencyIds = [...catalog.competencies.keys()];
 
@@ -380,6 +389,10 @@ function validateBuilds(
       for (const resource of build.resources) {
         if (!resourceIds.has(resource)) report('build-resource', build.id, `recurso inexistente: ${resource}`);
       }
+      for (const tool of build.tools) {
+        if (!toolIds.has(tool)) report('build-tool', build.id, `ferramenta inexistente: ${tool}`);
+      }
+      if (build.tools.length === 0) report('build-tool', build.id, 'construção precisa dizer o que a pessoa precisa ter em mãos');
       if (build.steps.length < BUILD_STEPS.min || build.steps.length > BUILD_STEPS.max) {
         report('build-steps', build.id, `${build.steps.length} passos; o intervalo é ${BUILD_STEPS.min} a ${BUILD_STEPS.max}`);
       }

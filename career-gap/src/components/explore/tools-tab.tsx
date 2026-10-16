@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { CATALOG } from '@/catalog';
-import type { ToolCategory, ToolGate } from '@/domain/model';
+import type { ToolCategory, ToolGate, ToolSetupKind } from '@/domain/model';
 import { assessTools } from '@/domain/tools';
 import { useCurrentProfile } from '@/lib/current-profile';
 import { COST_LABEL, LEVEL_SHORT, PT_BR_LABEL } from '@/lib/reason-text';
@@ -11,7 +11,18 @@ import { COST_LABEL, LEVEL_SHORT, PT_BR_LABEL } from '@/lib/reason-text';
 const formatMonth = (isoDate: string) =>
   new Date(`${isoDate}T12:00:00`).toLocaleDateString('pt-BR', { month: 'short', year: 'numeric' });
 import { AdviceMark } from '@/components/ui/advice-mark';
+import { CopyCommand } from '@/components/ui/copy-command';
 import { Tag } from '@/components/ui/tag';
+
+/** O que a pessoa precisa fazer para ter a ferramenta, em duas palavras. */
+const SETUP_LABEL: Record<ToolSetupKind, string> = {
+  'built-in': 'já vem no computador',
+  account: 'conta gratuita',
+  install: 'programa para instalar',
+  'project-dependency': 'dependência do projeto',
+  'repository-file': 'arquivo no repositório',
+  'claude-plugin': 'plugin do Claude Code',
+};
 
 const CATEGORY_LABEL: Record<ToolCategory, string> = {
   editor: 'editor',
@@ -40,7 +51,13 @@ export function ToolsTab() {
   return (
     <section className="mt-5">
       <p className="text-ink-soft text-[13px] leading-relaxed">
-        Cada uma no momento em que deixa de ser muleta e passa a ser alavanca.
+        Cada uma no momento em que deixa de ser muleta e passa a ser alavanca, e cada uma diz como
+        se passa a tê-la: se já vem no computador, se é conta, programa, dependência do projeto ou
+        plugin do Claude Code. Nada aqui é obrigatório.
+        {' '}
+        <Link href="/kit" className="text-now underline underline-offset-2">
+          As de IA se instalam juntas, com um comando.
+        </Link>
         {profile === null && (
           <>
             {' '}
@@ -82,6 +99,18 @@ export function ToolsTab() {
                   : 'Desde o primeiro dia.'
                 : `Faz mais sentido depois de: ${gates.map(gateText).join(' · ')}`}
             </p>
+            <div className="mt-2 border-l border-[var(--rule)] pl-3">
+              <p className="text-ink text-[12.5px]">
+                <span className="text-ink-soft">Como ter · </span>
+                {SETUP_LABEL[tool.setup.kind]}
+              </p>
+              <p className="text-ink-soft mt-0.5 text-[12.5px] leading-snug">{tool.setup.note}</p>
+              {tool.setup.command && (
+                <div className="mt-1.5">
+                  <CopyCommand command={tool.setup.command} compact />
+                </div>
+              )}
+            </div>
             <span className="mt-1.5 flex flex-wrap gap-1.5">
               <Tag warn={tool.ptBrStatus === 'none'}>docs {PT_BR_LABEL[tool.ptBrStatus]}</Tag>
               <Tag warn={tool.cost === 'paid'}>{tool.costNote ?? COST_LABEL[tool.cost]}</Tag>

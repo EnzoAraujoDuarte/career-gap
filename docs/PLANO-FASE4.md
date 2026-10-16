@@ -388,6 +388,12 @@ mais é trancado, e o ajuste por competência entra na Minha área (§9).
   `depurar`, `decisao`, `passagem` e o agente `revisor`. Validado com `claude plugin validate`;
   cadastrado no catálogo como ferramenta, com portão de Git e de IA.
 - 116 testes; referências em `docs/REFERENCIAS-UX.md`.
+- **Depois do merge, no mesmo dia:** a seção "O kit de desenvolvimento profissional" na trilha e a
+  página `/kit`, com um comando que instala o kit e as skills de forma interativa
+  (`install.sh` no repositório do kit); toda ferramenta ganhou "como ter" (tipo, nota e comando);
+  Node.js e Claude Code entraram no catálogo (o segundo com o custo dito); cada construção lista
+  o que a pessoa precisa ter e tem passo a passo marcável, guardado na mesma tabela dos critérios.
+  118 testes.
 
 **Próximo:**
 

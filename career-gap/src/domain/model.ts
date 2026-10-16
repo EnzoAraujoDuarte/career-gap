@@ -308,6 +308,8 @@ export interface Build {
   readonly doneWhen: string;
   /** Recursos do catálogo que apoiam a construção. */
   readonly resources: readonly string[];
+  /** Ferramentas do kit que a pessoa precisa ter em mãos antes do passo 1. */
+  readonly tools: readonly string[];
   readonly estimatedMinutes: number;
 }
 
@@ -355,6 +357,27 @@ export type ToolCategory =
   | 'ai'
   | 'delivery';
 
+/**
+ * Como se passa a ter a ferramenta. Sem isto a lista dizia o que cada uma era e calava sobre o
+ * óbvio para quem começa: o DevTools já está no navegador; o Prettier entra no projeto; o
+ * Context7 é um plugin do assistente.
+ */
+export type ToolSetupKind =
+  | 'built-in'
+  | 'account'
+  | 'install'
+  | 'project-dependency'
+  | 'repository-file'
+  | 'claude-plugin';
+
+export interface ToolSetup {
+  readonly kind: ToolSetupKind;
+  /** Uma frase para quem nunca fez isso. */
+  readonly note: string;
+  /** O comando, quando um comando resolve; copiável na tela. */
+  readonly command?: string;
+}
+
 /** Competência mínima para a ferramenta fazer sentido. */
 export interface ToolGate {
   readonly competency: CompetencyId;
@@ -386,6 +409,7 @@ export interface Tool {
   readonly stability: Stability;
   /** Vazio = desde o primeiro dia. */
   readonly unlockedBy: readonly ToolGate[];
+  readonly setup: ToolSetup;
   /** Ferramenta muda rápido; sem data, a recomendação envelhece sem ninguém perceber. */
   readonly verifiedAt: string;
 }

@@ -31,6 +31,10 @@ export const TOOLS: readonly Tool[] = [
     ptBrStatus: 'none',
     stability: 'evergreen',
     unlockedBy: [],
+    setup: {
+      kind: 'install',
+      note: 'Baixe em code.visualstudio.com e instale como qualquer programa; na primeira abertura, troque o idioma para português em Extensões.',
+    },
     verifiedAt: VERIFIED,
   },
   {
@@ -46,7 +50,33 @@ export const TOOLS: readonly Tool[] = [
     ptBrStatus: 'complete',
     stability: 'evergreen',
     unlockedBy: [],
+    setup: {
+      kind: 'install',
+      note: 'No Windows e no Mac, baixe em git-scm.com e instale com as opções padrão; no Linux, pelo gerenciador de pacotes. Confira com git --version.',
+      command: 'git --version',
+    },
     verifiedAt: VERIFIED,
+  },
+
+  {
+    id: 'node',
+    name: 'Node.js',
+    category: 'editor',
+    use: 'Roda JavaScript fora do navegador e traz o npm, que instala as dependências de um projeto.',
+    why:
+      'Quase todo comando "npm install" e "npx" desta lista precisa dele. Faz sentido quando você ' +
+      'já escreve JavaScript; antes disso, o navegador basta.',
+    url: 'https://nodejs.org/pt',
+    cost: 'free',
+    ptBrStatus: 'partial',
+    stability: 'evergreen',
+    unlockedBy: [{ competency: 'javascript-essentials', atLevel: 'L1' }],
+    setup: {
+      kind: 'install',
+      note: 'Baixe a versão LTS em nodejs.org e instale com as opções padrão. Depois, num terminal novo, confira.',
+      command: 'node --version && npm --version',
+    },
+    verifiedAt: '2026-10-16',
   },
 
   // --------------------------------------------------------------- plataforma web
@@ -61,6 +91,10 @@ export const TOOLS: readonly Tool[] = [
     ptBrStatus: 'complete',
     stability: 'evergreen',
     unlockedBy: [{ competency: 'html-semantics', atLevel: 'L1' }],
+    setup: {
+      kind: 'built-in',
+      note: 'Já está no seu navegador: aperte F12, ou clique com o botão direito na página e escolha Inspecionar.',
+    },
     verifiedAt: VERIFIED,
   },
   {
@@ -76,6 +110,11 @@ export const TOOLS: readonly Tool[] = [
     ptBrStatus: 'none',
     stability: 'evergreen',
     unlockedBy: [{ competency: 'http-fundamentals', atLevel: 'L1' }],
+    setup: {
+      kind: 'built-in',
+      note: 'Já vem no macOS, no Linux e no Windows 10 em diante: abra o terminal e confira.',
+      command: 'curl --version',
+    },
     verifiedAt: VERIFIED,
   },
   {
@@ -91,6 +130,10 @@ export const TOOLS: readonly Tool[] = [
     ptBrStatus: 'complete',
     stability: 'evergreen',
     unlockedBy: [{ competency: 'version-control-git', atLevel: 'L1' }],
+    setup: {
+      kind: 'account',
+      note: 'Crie uma conta gratuita em github.com; não há nada para instalar. O Git da sua máquina conversa com ela.',
+    },
     verifiedAt: VERIFIED,
   },
 
@@ -108,6 +151,11 @@ export const TOOLS: readonly Tool[] = [
     ptBrStatus: 'none',
     stability: 'evergreen',
     unlockedBy: [{ competency: 'javascript-essentials', atLevel: 'L1' }],
+    setup: {
+      kind: 'project-dependency',
+      note: 'Entra no projeto, não no computador: rode na pasta do projeto e ligue “formatar ao salvar” no editor.',
+      command: 'npm install -D prettier',
+    },
     verifiedAt: VERIFIED,
   },
   {
@@ -126,6 +174,11 @@ export const TOOLS: readonly Tool[] = [
       { competency: 'javascript-essentials', atLevel: 'L1' },
       { competency: 'code-readability', atLevel: 'L1' },
     ],
+    setup: {
+      kind: 'project-dependency',
+      note: 'Entra no projeto: o comando faz as perguntas e cria o arquivo de configuração.',
+      command: 'npm init @eslint/config@latest',
+    },
     verifiedAt: VERIFIED,
   },
   {
@@ -144,6 +197,11 @@ export const TOOLS: readonly Tool[] = [
       { competency: 'automated-testing-basics', atLevel: 'L1' },
       { competency: 'version-control-git', atLevel: 'L1' },
     ],
+    setup: {
+      kind: 'project-dependency',
+      note: 'Entra no projeto e cria a pasta .husky; o lint e os testes passam a rodar antes de cada commit.',
+      command: 'npm install -D husky && npx husky init',
+    },
     verifiedAt: VERIFIED,
   },
   {
@@ -163,10 +221,38 @@ export const TOOLS: readonly Tool[] = [
       { competency: 'automated-testing-basics', atLevel: 'L1' },
       { competency: 'version-control-git', atLevel: 'L2' },
     ],
+    setup: {
+      kind: 'repository-file',
+      note: 'Nada para instalar: um arquivo .github/workflows/ci.yml no repositório, e o GitHub roda a cada envio.',
+    },
     verifiedAt: VERIFIED,
   },
 
   // ------------------------------------------------------------------------- IA
+  {
+    id: 'claude-code',
+    name: 'Claude Code',
+    category: 'ai',
+    use: 'O agente de IA no terminal que lê o seu projeto, edita arquivos e roda comandos; é onde os plugins e as skills desta lista entram.',
+    why:
+      'É o que o autor usa no trabalho. Depois de fundamentos e depuração, pelo mesmo motivo do ' +
+      'assistente no editor: quem não depura não confere o que a IA fez. Exige assinatura paga.',
+    url: 'https://code.claude.com/docs/en/quickstart',
+    cost: 'paid',
+    costNote: 'assinatura Claude (Pro ou acima) ou créditos de API',
+    ptBrStatus: 'none',
+    stability: 'volatile',
+    unlockedBy: [
+      { competency: 'programming-fundamentals', atLevel: 'L1' },
+      { competency: 'debugging', atLevel: 'L1' },
+    ],
+    setup: {
+      kind: 'install',
+      note: 'No macOS, Linux e WSL, o comando abaixo instala; no Windows sem WSL, use o PowerShell: irm https://claude.ai/install.ps1 | iex. Depois, abra um terminal novo e rode claude para entrar.',
+      command: 'curl -fsSL https://claude.ai/install.sh | bash',
+    },
+    verifiedAt: '2026-10-16',
+  },
   {
     id: 'ai-code-assistant',
     name: 'Assistente de código no editor',
@@ -184,6 +270,10 @@ export const TOOLS: readonly Tool[] = [
       { competency: 'programming-fundamentals', atLevel: 'L1' },
       { competency: 'debugging', atLevel: 'L1' },
     ],
+    setup: {
+      kind: 'install',
+      note: 'Extensão do editor: no VS Code, procure GitHub Copilot em Extensões e entre com a conta do GitHub.',
+    },
     verifiedAt: VERIFIED,
   },
   {
@@ -202,6 +292,11 @@ export const TOOLS: readonly Tool[] = [
       { competency: 'reading-documentation', atLevel: 'L1' },
       { competency: 'ai-assisted-development-basics', atLevel: 'L1' },
     ],
+    setup: {
+      kind: 'claude-plugin',
+      note: 'Plugin do Claude Code, do marketplace oficial. Com o kit essencial instalado ele já vem junto.',
+      command: 'claude plugin install context7@claude-plugins-official --scope user',
+    },
     verifiedAt: VERIFIED,
   },
   {
@@ -220,6 +315,11 @@ export const TOOLS: readonly Tool[] = [
       { competency: 'css-layout', atLevel: 'L1' },
       { competency: 'ai-assisted-development-basics', atLevel: 'L1' },
     ],
+    setup: {
+      kind: 'claude-plugin',
+      note: 'Plugin do Claude Code, do marketplace do autor. Depois, rode /impeccable init no seu projeto.',
+      command: 'claude plugin marketplace add pbakaus/impeccable && claude plugin install impeccable@impeccable --scope user',
+    },
     verifiedAt: '2026-10-16',
   },
   {
@@ -239,6 +339,11 @@ export const TOOLS: readonly Tool[] = [
       { competency: 'version-control-git', atLevel: 'L1' },
       { competency: 'ai-assisted-development-basics', atLevel: 'L1' },
     ],
+    setup: {
+      kind: 'claude-plugin',
+      note: 'Um comando no terminal lista o kit e as skills, pergunta o que você quer e instala só isso. Precisa do Claude Code; no Windows, rode no WSL ou no Git Bash.',
+      command: 'bash <(curl -fsSL https://raw.githubusercontent.com/EnzoAraujoDuarte/kit-career-gap/main/install.sh)',
+    },
     verifiedAt: '2026-10-16',
   },
   {
@@ -257,6 +362,10 @@ export const TOOLS: readonly Tool[] = [
       { competency: 'ai-assisted-development-basics', atLevel: 'L1' },
       { competency: 'technical-communication', atLevel: 'L1' },
     ],
+    setup: {
+      kind: 'repository-file',
+      note: 'Um arquivo AGENTS.md na raiz do seu projeto, escrito por você; o kit traz um modelo pronto para preencher.',
+    },
     verifiedAt: VERIFIED,
   },
   {
@@ -275,6 +384,11 @@ export const TOOLS: readonly Tool[] = [
       { competency: 'ai-assisted-development-basics', atLevel: 'L1' },
       { competency: 'automated-testing-basics', atLevel: 'L1' },
     ],
+    setup: {
+      kind: 'claude-plugin',
+      note: 'Plugin do Claude Code, do marketplace oficial.',
+      command: 'claude plugin install superpowers@claude-plugins-official --scope user',
+    },
     verifiedAt: '2026-10-16',
   },
   {
@@ -293,6 +407,11 @@ export const TOOLS: readonly Tool[] = [
       { competency: 'ai-assisted-development-basics', atLevel: 'L1' },
       { competency: 'automated-testing-basics', atLevel: 'L1' },
     ],
+    setup: {
+      kind: 'claude-plugin',
+      note: 'Cada skill é um plugin do marketplace oficial do Claude Code; as duas mais úteis para começar vão no comando.',
+      command: 'claude plugin install frontend-design@claude-plugins-official --scope user && claude plugin install skill-creator@claude-plugins-official --scope user',
+    },
     verifiedAt: VERIFIED,
   },
 ];
