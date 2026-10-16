@@ -209,12 +209,13 @@ export const FIRST_WEB_ROLE: CareerTrack = {
       ],
     },
   ],
-  // Seis temas em vez de 25 telas. Cada frase lista o que ela afirma; a frase menor afirma
-  // menos de propósito — "seguindo um tutorial" não diz nada sobre depurar, então depuração
-  // só entra na frase de quem programa sozinho. Ficam sem pergunta algoritmos, autenticação,
-  // IA e interface com componentes: começam em "ainda não" e a pessoa ajusta na página da
-  // competência. Componentes não cabem na pergunta de JavaScript sem uma terceira frase, e a
-  // regra das frases (cada uma sobe de nível) não deixa.
+  // Seis temas em vez de 25 telas, cada um com três frases "consigo…" que afirmam cada vez
+  // mais: a menor afirma pouco de propósito ("seguindo um tutorial" não diz nada sobre
+  // depurar); a do meio dá crédito parcial no mesmo nível, afirmando mais competências; a
+  // maior sobe de nível. A regra das frases (validate.ts): nunca descer de nível, nunca deixar
+  // de afirmar o que a anterior afirma, e no mesmo nível afirmar mais. Assim quem usa IA só é
+  // creditado na frase de quem depura sozinho, que é o que a competência exige. Fica sem
+  // pergunta só algoritmos e custo: começa em "ainda não" e a pessoa ajusta na página.
   quickAssessment: [
     {
       id: 'programming',
@@ -227,14 +228,21 @@ export const FIRST_WEB_ROLE: CareerTrack = {
           competencies: ['programming-fundamentals'],
         },
         {
+          level: 'L1',
+          canDo:
+            'Divido um problema em passos menores quando alguém me mostra por onde começar, e leio a mensagem de erro até chegar à linha que falhou.',
+          competencies: ['programming-fundamentals', 'problem-decomposition', 'debugging'],
+        },
+        {
           level: 'L2',
           canDo:
-            'Escrevo do zero um programa que outra pessoa entende, quebro o problema em partes e acho a causa de um erro testando hipóteses.',
+            'Escrevo do zero um programa que outra pessoa entende, acho a causa de um erro testando hipóteses e, se uso IA, reviso e rodo o que ela gera antes de aceitar.',
           competencies: [
             'programming-fundamentals',
             'problem-decomposition',
             'debugging',
             'code-readability',
+            'ai-assisted-development-basics',
           ],
         },
       ],
@@ -250,6 +258,12 @@ export const FIRST_WEB_ROLE: CareerTrack = {
           competencies: ['html-semantics', 'css-layout'],
         },
         {
+          level: 'L1',
+          canDo:
+            'Monto uma página a partir de um exemplo, com texto alternativo nas imagens e que dá para percorrer pelo teclado.',
+          competencies: ['html-semantics', 'css-layout', 'web-accessibility-basics'],
+        },
+        {
           level: 'L2',
           canDo:
             'Monto do zero uma página responsiva, com as tags certas, que dá para usar só com o teclado.',
@@ -260,7 +274,7 @@ export const FIRST_WEB_ROLE: CareerTrack = {
     {
       id: 'javascript',
       title: 'JavaScript no navegador',
-      summary: 'A linguagem da web, a página reagindo e dados vindos de uma API.',
+      summary: 'A linguagem da web, a página reagindo, dados de uma API e componentes.',
       statements: [
         {
           level: 'L1',
@@ -268,10 +282,15 @@ export const FIRST_WEB_ROLE: CareerTrack = {
           competencies: ['javascript-essentials', 'dom-and-browser'],
         },
         {
+          level: 'L1',
+          canDo: 'Faço uma requisição a uma API com fetch e mostro o resultado na tela, seguindo um exemplo.',
+          competencies: ['javascript-essentials', 'dom-and-browser', 'api-consumption'],
+        },
+        {
           level: 'L2',
           canDo:
-            'Busco dados de uma API com fetch e mostro na página, tratando o carregamento e o erro.',
-          competencies: ['javascript-essentials', 'dom-and-browser', 'api-consumption'],
+            'Busco dados de uma API tratando carregamento e erro, e monto a tela com componentes de um framework (React, Vue ou parecido) seguindo a documentação.',
+          competencies: ['javascript-essentials', 'dom-and-browser', 'api-consumption', 'ui-components-and-state'],
         },
       ],
     },
@@ -286,14 +305,20 @@ export const FIRST_WEB_ROLE: CareerTrack = {
           competencies: ['command-line-basics', 'version-control-git'],
         },
         {
+          level: 'L1',
+          canDo:
+            'Rodo comandos no terminal, faço commit e push, e consulto a documentação oficial quando alguém me indica a página.',
+          competencies: ['command-line-basics', 'version-control-git', 'reading-documentation'],
+        },
+        {
           level: 'L2',
           canDo:
-            'Trabalho com branches, resolvo conflito, abro pull request, respondo à revisão e tiro dúvidas na documentação oficial.',
+            'Trabalho com branches, resolvo conflito, abro pull request, respondo à revisão e acho sozinho a resposta na documentação oficial.',
           competencies: [
             'command-line-basics',
             'version-control-git',
-            'code-review-participation',
             'reading-documentation',
+            'code-review-participation',
           ],
         },
       ],
@@ -301,7 +326,7 @@ export const FIRST_WEB_ROLE: CareerTrack = {
     {
       id: 'backend',
       title: 'Servidor e dados',
-      summary: 'HTTP, banco de dados e a sua própria API.',
+      summary: 'HTTP, banco de dados, a sua própria API e login.',
       statements: [
         {
           level: 'L1',
@@ -310,13 +335,21 @@ export const FIRST_WEB_ROLE: CareerTrack = {
           competencies: ['http-fundamentals', 'sql-basics'],
         },
         {
+          level: 'L1',
+          canDo:
+            'Leio um modelo de tabelas e entendo como elas se relacionam, e crio um endpoint que devolve JSON seguindo um exemplo.',
+          competencies: ['http-fundamentals', 'sql-basics', 'relational-data-modeling', 'api-development'],
+        },
+        {
           level: 'L2',
-          canDo: 'Crio uma API com rotas e validação que grava num banco que eu mesmo modelei.',
+          canDo:
+            'Crio uma API com rotas, validação e login (com uma biblioteca pronta, senha com hash) que grava num banco que eu mesmo modelei.',
           competencies: [
             'http-fundamentals',
             'sql-basics',
             'relational-data-modeling',
             'api-development',
+            'authentication-basics',
           ],
         },
       ],
@@ -330,6 +363,12 @@ export const FIRST_WEB_ROLE: CareerTrack = {
           level: 'L1',
           canDo: 'Já fiz um projeto seguindo um curso e coloquei no ar com um passo a passo.',
           competencies: ['build-an-application', 'deployment-basics'],
+        },
+        {
+          level: 'L1',
+          canDo:
+            'Já fiz um projeto seguindo um curso, coloquei no ar, escrevi testes para algumas funções dele e peço ajuda descrevendo o que tentei e o que aconteceu.',
+          competencies: ['build-an-application', 'deployment-basics', 'automated-testing-basics', 'technical-communication'],
         },
         {
           level: 'L2',

@@ -273,8 +273,9 @@ function validateTrack(
     }
   }
 
-  // Avaliação rápida: cada competência responde a uma pergunta só, e a frase maior afirma
-  // tudo o que a menor afirma — senão subir de resposta poderia baixar um nível.
+  // Avaliação rápida: cada competência responde a uma pergunta só, e cada frase afirma mais
+  // que a anterior — sobe de nível ou, no mesmo nível, afirma mais competências — sem nunca
+  // deixar de afirmar o que a anterior afirma. Senão subir de resposta poderia baixar um nível.
   const askedIn = new Map<string, string>();
   for (const question of track.quickAssessment) {
     const subject = `${track.id}:${question.id}`;
@@ -291,11 +292,17 @@ function validateTrack(
       if (!statement.canDo.trim()) report('quick-text', subject, 'frase vazia');
       const previous = question.statements[index - 1];
       if (!previous) return;
-      if (levelIndex(statement.level) <= levelIndex(previous.level)) {
-        report('quick-monotonic', subject, 'frases devem subir de nível');
+      if (levelIndex(statement.level) < levelIndex(previous.level)) {
+        report('quick-monotonic', subject, 'frases não podem descer de nível');
       }
       if (previous.competencies.some((competency) => !statement.competencies.includes(competency))) {
         report('quick-monotonic', subject, `${statement.level} deixa de afirmar o que ${previous.level} afirma`);
+      }
+      if (
+        levelIndex(statement.level) === levelIndex(previous.level) &&
+        statement.competencies.length <= previous.competencies.length
+      ) {
+        report('quick-monotonic', subject, 'frase no mesmo nível precisa afirmar mais competências');
       }
     });
   }
