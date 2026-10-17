@@ -93,6 +93,9 @@ export function validateCatalog(catalog: Catalog): readonly CatalogProblem[] {
       report('resource-why', resource.id, 'recurso sem justificativa de escolha');
     }
     // Missão sem enunciado é link solto; enunciado fora de missão é texto nosso atribuído a terceiro.
+    if (resource.featured && !/^\d{4}-\d{2}-\d{2}$/.test(resource.published ?? '')) {
+      report('resource-featured', resource.id, 'vídeo curado precisa da data de publicação (AAAA-MM-DD)');
+    }
     for (const [competency, position] of Object.entries(resource.featured ?? {})) {
       if (!resource.competencies.includes(competency)) {
         report('resource-featured', resource.id, `posição curada numa competência que o recurso não lista: ${competency}`);
@@ -110,6 +113,21 @@ export function validateCatalog(catalog: Catalog): readonly CatalogProblem[] {
     for (const text of [resource.chapters, resource.task]) {
       if (text && (INTERNAL_LEVEL.test(text) || [...competencies.keys()].some((id) => text.includes(id)))) {
         report('resource-text', resource.id, `texto exibido com código interno: "${text}"`);
+      }
+    }
+  }
+  // Vídeos curados vão do mais novo para o mais antigo em cada competência (pedido do autor).
+  const curated = new Map<string, { position: number; published: string; id: string }[]>();
+  for (const resource of catalog.resources) {
+    for (const [competency, position] of Object.entries(resource.featured ?? {})) {
+      curated.set(competency, [...(curated.get(competency) ?? []), { position, published: resource.published ?? '', id: resource.id }]);
+    }
+  }
+  for (const [competency, items] of curated) {
+    const byPosition = [...items].sort((a, b) => a.position - b.position);
+    for (let i = 1; i < byPosition.length; i++) {
+      if (byPosition[i].published > byPosition[i - 1].published) {
+        report('resource-featured-order', competency, `${byPosition[i].id} é mais novo que ${byPosition[i - 1].id} e vem depois`);
       }
     }
   }

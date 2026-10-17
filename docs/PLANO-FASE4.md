@@ -458,8 +458,9 @@ mais é trancado, e o ajuste por competência entra na Minha área (§9).
 
 - **Vídeo em português primeiro** (ADR-0015): busca no YouTube por competência, 76 vídeos
   recentes e bem avaliados aprovados inteiros pelo Enzo (`docs/research/videos-pt-verificados.json`,
-  lista legível em `videos-candidatos-2026-10-17.md`). Abrem cada estação na ordem aprovada; depois
-  deles, vídeo vem antes de texto. 230 materiais, 177 em português.
+  lista legível em `videos-candidatos-2026-10-17.md`). Abrem cada estação do mais novo para o mais
+  antigo (pedido dele; o validador cobra pela data); depois deles, vídeo vem antes de texto. 230
+  materiais, 177 em português.
 - **Menu fixo e celular** (pedido do Enzo): barra no mesmo lugar em todas as páginas, presa ao
   topo, sem rolagem; texto 1px maior abaixo de 640px; toque estendido nos títulos; Explorar com
   filtros recolhíveis e lista de 20 em 20.

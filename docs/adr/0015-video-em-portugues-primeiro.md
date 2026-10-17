@@ -13,12 +13,15 @@ caminho mais curto é um vídeo em português, recente e bem avaliado. A regra d
 Em 2026-10-17 foi feita uma busca no YouTube por competência, filtrando vídeos falados em
 português (legenda automática e título original conferidos; o YouTube traduz títulos de canais
 estrangeiros), no assunto, de até dois anos, priorizando recência e avaliação. Saíram 76 vídeos,
-até três por competência. O dono do produto aprovou a lista inteira, na ordem proposta.
+até três por competência. O dono do produto aprovou a lista inteira e pediu que, em cada
+competência, os vídeos fiquem do mais novo para o mais antigo.
 
 ## Decisão
 
-1. **Os vídeos curados abrem a estação, na ordem aprovada.** Cada recurso pode ter `featured`,
-   uma posição por competência; a ordenação começa por ela.
+1. **Os vídeos curados abrem a estação, do mais novo para o mais antigo.** Cada recurso pode ter
+   `featured`, uma posição por competência, e `published`, a data de publicação; a ordenação
+   começa pela posição, e o validador cobra que a posição siga a data. A linha do material mostra
+   o mês e o ano.
 2. **Depois deles, qualquer vídeo vem antes de texto.** Vídeo é `actionType: 'WATCH'`.
 3. **Dentro de cada grupo, a regra antiga continua:** o mais acessível primeiro, quem ensina
    antes de quem pede prática, a linguagem escolhida desempata, depois idioma, gratuidade e id.

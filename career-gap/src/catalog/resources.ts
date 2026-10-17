@@ -46,8 +46,9 @@ export const RESOURCES: readonly Resource[] = [
     origin: "br-creator",
     estimatedTime: "2 h 51 min",
     featured: {
-      "programming-fundamentals": 1
-    }
+      "programming-fundamentals": 2
+    },
+    published: "2025-08-06"
   },
   {
     id: "curso-de-javascript-do-zero-parte-1-variaveis-onclick-funcoes-e-intera",
@@ -71,7 +72,8 @@ export const RESOURCES: readonly Resource[] = [
     estimatedTime: "32 min",
     featured: {
       "javascript-essentials": 2
-    }
+    },
+    published: "2024-11-27"
   },
   {
     id: "curso-gratis-de-javascript-e-ecmascript-para-iniciantes",
@@ -207,8 +209,9 @@ export const RESOURCES: readonly Resource[] = [
     origin: "br-creator",
     estimatedTime: "1 h 31 min",
     featured: {
-      "html-semantics": 1
-    }
+      "html-semantics": 2
+    },
+    published: "2024-09-12"
   },
   {
     id: "curso-de-html-para-iniciantes-2023-aprenda-html-5-e-crie-um-projeto",
@@ -3177,8 +3180,9 @@ export const RESOURCES: readonly Resource[] = [
     why: "Vídeo em português de dezembro de 2025, com 161.631 visualizações e 15.470 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
     origin: "br-creator",
     featured: {
-      "programming-fundamentals": 2
-    }
+      "programming-fundamentals": 1
+    },
+    published: "2025-12-08"
   },
   {
     id: "curso-completo-de-logica-de-programacao-com-portugues-estruturado-do-z",
@@ -3201,53 +3205,8 @@ export const RESOURCES: readonly Resource[] = [
     origin: "br-creator",
     featured: {
       "programming-fundamentals": 3
-    }
-  },
-  {
-    id: "introducao-ao-pensamento-computacional-como-resolver-problemas-com-log",
-    title: "Introdução ao Pensamento Computacional - Como Resolver Problemas com Lógica de Computador",
-    sourceName: "Bóson Treinamentos",
-    url: "https://www.youtube.com/watch?v=ZkQShfZV4r4",
-    kind: "video",
-    actionType: "WATCH",
-    competencies: [
-      "problem-decomposition"
-    ],
-    levelMin: "L0",
-    technology: "agnostic",
-    cost: "free",
-    ptBrStatus: "complete",
-    requiresSignup: false,
-    license: "direitos reservados — apenas linkar",
-    estimatedTime: "25 min",
-    why: "Vídeo em português de fevereiro de 2026, com 15.020 visualizações e 1.424 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
-    origin: "br-creator",
-    featured: {
-      "problem-decomposition": 1
-    }
-  },
-  {
-    id: "como-pensar-como-um-programador-genio-e-resolver-qualquer-problema",
-    title: "Como Pensar Como um Programador Gênio (E Resolver Qualquer Problema)",
-    sourceName: "João Alves",
-    url: "https://www.youtube.com/watch?v=xP7XjW1SedI",
-    kind: "video",
-    actionType: "WATCH",
-    competencies: [
-      "problem-decomposition"
-    ],
-    levelMin: "L0",
-    technology: "agnostic",
-    cost: "free",
-    ptBrStatus: "complete",
-    requiresSignup: false,
-    license: "direitos reservados — apenas linkar",
-    estimatedTime: "10 min",
-    why: "Vídeo em português de março de 2025, com 5.558 visualizações e 498 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
-    origin: "br-creator",
-    featured: {
-      "problem-decomposition": 2
-    }
+    },
+    published: "2024-02-27"
   },
   {
     id: "resolvendo-exercicio-em-java-nivel-facil",
@@ -3269,31 +3228,57 @@ export const RESOURCES: readonly Resource[] = [
     why: "Vídeo em português de fevereiro de 2026, com 28.661 visualizações e 2.602 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema. Mostra o raciocínio de quebrar um exercício em passos, resolvendo em Java.",
     origin: "br-creator",
     featured: {
-      "problem-decomposition": 3
-    }
+      "problem-decomposition": 1
+    },
+    published: "2026-02-06"
   },
   {
-    id: "impulsione-seu-seo-aprenda-html-semantico",
-    title: "Impulsione seu SEO - Aprenda HTML Semântico",
-    sourceName: "Hashtag Programação",
-    url: "https://www.youtube.com/watch?v=cF1lLi0xbfU",
+    id: "introducao-ao-pensamento-computacional-como-resolver-problemas-com-log",
+    title: "Introdução ao Pensamento Computacional - Como Resolver Problemas com Lógica de Computador",
+    sourceName: "Bóson Treinamentos",
+    url: "https://www.youtube.com/watch?v=ZkQShfZV4r4",
     kind: "video",
     actionType: "WATCH",
     competencies: [
-      "html-semantics"
+      "problem-decomposition"
     ],
     levelMin: "L0",
-    technology: "html",
+    technology: "agnostic",
     cost: "free",
     ptBrStatus: "complete",
     requiresSignup: false,
     license: "direitos reservados — apenas linkar",
-    estimatedTime: "20 min",
-    why: "Vídeo em português de março de 2024, com 15.467 visualizações e 257 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
+    estimatedTime: "25 min",
+    why: "Vídeo em português de fevereiro de 2026, com 15.020 visualizações e 1.424 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
     origin: "br-creator",
     featured: {
-      "html-semantics": 2
-    }
+      "problem-decomposition": 2
+    },
+    published: "2026-02-04"
+  },
+  {
+    id: "como-pensar-como-um-programador-genio-e-resolver-qualquer-problema",
+    title: "Como Pensar Como um Programador Gênio (E Resolver Qualquer Problema)",
+    sourceName: "João Alves",
+    url: "https://www.youtube.com/watch?v=xP7XjW1SedI",
+    kind: "video",
+    actionType: "WATCH",
+    competencies: [
+      "problem-decomposition"
+    ],
+    levelMin: "L0",
+    technology: "agnostic",
+    cost: "free",
+    ptBrStatus: "complete",
+    requiresSignup: false,
+    license: "direitos reservados — apenas linkar",
+    estimatedTime: "10 min",
+    why: "Vídeo em português de março de 2025, com 5.558 visualizações e 498 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
+    origin: "br-creator",
+    featured: {
+      "problem-decomposition": 3
+    },
+    published: "2025-03-12"
   },
   {
     id: "aprenda-html-e-css-em-40-minutos-tutorial-para-iniciantes",
@@ -3315,31 +3300,33 @@ export const RESOURCES: readonly Resource[] = [
     why: "Vídeo em português de junho de 2025, com 96.103 visualizações e 5.349 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
     origin: "br-creator",
     featured: {
-      "html-semantics": 3
-    }
+      "html-semantics": 1
+    },
+    published: "2025-06-12"
   },
   {
-    id: "desvendando-requisicoes-http-metodos-parametros-body-e-status-codes-pa",
-    title: "Desvendando Requisições HTTP: Métodos, Parâmetros, Body e Status Codes para Devs",
-    sourceName: "Rocketseat",
-    url: "https://www.youtube.com/watch?v=bMmdksBHyXc",
+    id: "impulsione-seu-seo-aprenda-html-semantico",
+    title: "Impulsione seu SEO - Aprenda HTML Semântico",
+    sourceName: "Hashtag Programação",
+    url: "https://www.youtube.com/watch?v=cF1lLi0xbfU",
     kind: "video",
     actionType: "WATCH",
     competencies: [
-      "http-fundamentals"
+      "html-semantics"
     ],
     levelMin: "L0",
-    technology: "http",
+    technology: "html",
     cost: "free",
     ptBrStatus: "complete",
     requiresSignup: false,
     license: "direitos reservados — apenas linkar",
-    estimatedTime: "17 min",
-    why: "Vídeo em português de outubro de 2025, com 15.313 visualizações e 1.093 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
+    estimatedTime: "20 min",
+    why: "Vídeo em português de março de 2024, com 15.467 visualizações e 257 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
     origin: "br-creator",
     featured: {
-      "http-fundamentals": 1
-    }
+      "html-semantics": 3
+    },
+    published: "2024-03-25"
   },
   {
     id: "voce-usa-apis-todos-os-dias-mas-nao-entende-http",
@@ -3361,8 +3348,33 @@ export const RESOURCES: readonly Resource[] = [
     why: "Vídeo em português de agosto de 2026, com 12.922 visualizações e 754 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
     origin: "br-creator",
     featured: {
+      "http-fundamentals": 1
+    },
+    published: "2026-08-28"
+  },
+  {
+    id: "desvendando-requisicoes-http-metodos-parametros-body-e-status-codes-pa",
+    title: "Desvendando Requisições HTTP: Métodos, Parâmetros, Body e Status Codes para Devs",
+    sourceName: "Rocketseat",
+    url: "https://www.youtube.com/watch?v=bMmdksBHyXc",
+    kind: "video",
+    actionType: "WATCH",
+    competencies: [
+      "http-fundamentals"
+    ],
+    levelMin: "L0",
+    technology: "http",
+    cost: "free",
+    ptBrStatus: "complete",
+    requiresSignup: false,
+    license: "direitos reservados — apenas linkar",
+    estimatedTime: "17 min",
+    why: "Vídeo em português de outubro de 2025, com 15.313 visualizações e 1.093 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
+    origin: "br-creator",
+    featured: {
       "http-fundamentals": 2
-    }
+    },
+    published: "2025-10-01"
   },
   {
     id: "entendendo-o-protocolo-http-e-https",
@@ -3385,30 +3397,8 @@ export const RESOURCES: readonly Resource[] = [
     origin: "br-creator",
     featured: {
       "http-fundamentals": 3
-    }
-  },
-  {
-    id: "14-comandos-basicos-do-linux-que-todo-iniciante-precisa-conhecer",
-    title: "14 comandos básicos do Linux que todo iniciante precisa conhecer",
-    sourceName: "Diolinux Labs",
-    url: "https://www.youtube.com/watch?v=fdbsAKgQ3Bk",
-    kind: "video",
-    actionType: "WATCH",
-    competencies: [
-      "command-line-basics"
-    ],
-    levelMin: "L0",
-    technology: "shell",
-    cost: "free",
-    ptBrStatus: "complete",
-    requiresSignup: false,
-    license: "direitos reservados — apenas linkar",
-    estimatedTime: "7 min",
-    why: "Vídeo em português de maio de 2025, com 7.149 visualizações e 735 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
-    origin: "br-creator",
-    featured: {
-      "command-line-basics": 1
-    }
+    },
+    published: "2024-05-30"
   },
   {
     id: "linux-pra-iniciantes-guia-rapido-e-divertido",
@@ -3430,8 +3420,33 @@ export const RESOURCES: readonly Resource[] = [
     why: "Vídeo em português de maio de 2025, com 183.870 visualizações e 10.970 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema. Sobre usar o Linux no geral, não só o terminal.",
     origin: "br-creator",
     featured: {
+      "command-line-basics": 1
+    },
+    published: "2025-05-24"
+  },
+  {
+    id: "14-comandos-basicos-do-linux-que-todo-iniciante-precisa-conhecer",
+    title: "14 comandos básicos do Linux que todo iniciante precisa conhecer",
+    sourceName: "Diolinux Labs",
+    url: "https://www.youtube.com/watch?v=fdbsAKgQ3Bk",
+    kind: "video",
+    actionType: "WATCH",
+    competencies: [
+      "command-line-basics"
+    ],
+    levelMin: "L0",
+    technology: "shell",
+    cost: "free",
+    ptBrStatus: "complete",
+    requiresSignup: false,
+    license: "direitos reservados — apenas linkar",
+    estimatedTime: "7 min",
+    why: "Vídeo em português de maio de 2025, com 7.149 visualizações e 735 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
+    origin: "br-creator",
+    featured: {
       "command-line-basics": 2
-    }
+    },
+    published: "2025-05-23"
   },
   {
     id: "60-comandos-linux-em-10-minutos",
@@ -3454,30 +3469,8 @@ export const RESOURCES: readonly Resource[] = [
     origin: "br-creator",
     featured: {
       "command-line-basics": 3
-    }
-  },
-  {
-    id: "git-minicurso-para-voce-sair-do-zero-aprenda-em-45-minutos",
-    title: "GIT: Minicurso para Você Sair do Zero! (Aprenda em 45 Minutos)",
-    sourceName: "Código Fonte TV",
-    url: "https://www.youtube.com/watch?v=ts-H3W1uLMM",
-    kind: "video",
-    actionType: "WATCH",
-    competencies: [
-      "version-control-git"
-    ],
-    levelMin: "L0",
-    technology: "git",
-    cost: "free",
-    ptBrStatus: "complete",
-    requiresSignup: false,
-    license: "direitos reservados — apenas linkar",
-    estimatedTime: "46 min",
-    why: "Vídeo em português de janeiro de 2024, com 136.997 visualizações e 10.347 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
-    origin: "br-creator",
-    featured: {
-      "version-control-git": 1
-    }
+    },
+    published: "2024-08-01"
   },
   {
     id: "oque-e-git-e-github-explicado-com-bananas-coisas-que-voce-precisa-sabe",
@@ -3499,8 +3492,9 @@ export const RESOURCES: readonly Resource[] = [
     why: "Vídeo em português de dezembro de 2025, com 262.854 visualizações e 18.756 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
     origin: "br-creator",
     featured: {
-      "version-control-git": 2
-    }
+      "version-control-git": 1
+    },
+    published: "2025-12-10"
   },
   {
     id: "tutorial-github-para-iniciantes-como-usar-o-github-2026-atualizado",
@@ -3522,8 +3516,33 @@ export const RESOURCES: readonly Resource[] = [
     why: "Vídeo em português de agosto de 2025, com 117.860 visualizações e 5.240 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
     origin: "br-creator",
     featured: {
+      "version-control-git": 2
+    },
+    published: "2025-08-20"
+  },
+  {
+    id: "git-minicurso-para-voce-sair-do-zero-aprenda-em-45-minutos",
+    title: "GIT: Minicurso para Você Sair do Zero! (Aprenda em 45 Minutos)",
+    sourceName: "Código Fonte TV",
+    url: "https://www.youtube.com/watch?v=ts-H3W1uLMM",
+    kind: "video",
+    actionType: "WATCH",
+    competencies: [
+      "version-control-git"
+    ],
+    levelMin: "L0",
+    technology: "git",
+    cost: "free",
+    ptBrStatus: "complete",
+    requiresSignup: false,
+    license: "direitos reservados — apenas linkar",
+    estimatedTime: "46 min",
+    why: "Vídeo em português de janeiro de 2024, com 136.997 visualizações e 10.347 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
+    origin: "br-creator",
+    featured: {
       "version-control-git": 3
-    }
+    },
+    published: "2024-01-24"
   },
   {
     id: "como-ler-qualquer-documentacao-de-programacao",
@@ -3546,7 +3565,8 @@ export const RESOURCES: readonly Resource[] = [
     origin: "br-creator",
     featured: {
       "reading-documentation": 1
-    }
+    },
+    published: "2026-08-13"
   },
   {
     id: "como-entender-documentacoes-mesmo-sendo-iniciante-na-programacao-aula-",
@@ -3569,7 +3589,8 @@ export const RESOURCES: readonly Resource[] = [
     origin: "br-creator",
     featured: {
       "reading-documentation": 2
-    }
+    },
+    published: "2025-02-14"
   },
   {
     id: "curso-javascript-sintaxe-basica-tipos-variaveis-loops-funcoes-condicio",
@@ -3592,7 +3613,8 @@ export const RESOURCES: readonly Resource[] = [
     origin: "br-creator",
     featured: {
       "javascript-essentials": 1
-    }
+    },
+    published: "2025-08-21"
   },
   {
     id: "curso-de-javascript-completo-pt-1-aprenda-programacao-e-torne-se-um-pr",
@@ -3615,30 +3637,8 @@ export const RESOURCES: readonly Resource[] = [
     origin: "br-creator",
     featured: {
       "javascript-essentials": 3
-    }
-  },
-  {
-    id: "flexbox-guia-completo-para-iniciantes-em-css",
-    title: "FLEXBOX: Guia Completo para Iniciantes em CSS",
-    sourceName: "Larissa Kich",
-    url: "https://www.youtube.com/watch?v=Z4CbaGCEsTY",
-    kind: "video",
-    actionType: "WATCH",
-    competencies: [
-      "css-layout"
-    ],
-    levelMin: "L0",
-    technology: "css",
-    cost: "free",
-    ptBrStatus: "complete",
-    requiresSignup: false,
-    license: "direitos reservados — apenas linkar",
-    estimatedTime: "19 min",
-    why: "Vídeo em português de março de 2024, com 64.296 visualizações e 4.302 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
-    origin: "br-creator",
-    featured: {
-      "css-layout": 1
-    }
+    },
+    published: "2023-11-01"
   },
   {
     id: "display-grid-guia-completo-para-iniciantes-em-css",
@@ -3660,8 +3660,9 @@ export const RESOURCES: readonly Resource[] = [
     why: "Vídeo em português de agosto de 2024, com 59.106 visualizações e 4.226 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
     origin: "br-creator",
     featured: {
-      "css-layout": 2
-    }
+      "css-layout": 1
+    },
+    published: "2024-08-07"
   },
   {
     id: "dominando-display-flex-guia-para-iniciantes",
@@ -3683,8 +3684,33 @@ export const RESOURCES: readonly Resource[] = [
     why: "Vídeo em português de junho de 2024, com 55.165 visualizações e 4.262 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
     origin: "br-creator",
     featured: {
+      "css-layout": 2
+    },
+    published: "2024-06-13"
+  },
+  {
+    id: "flexbox-guia-completo-para-iniciantes-em-css",
+    title: "FLEXBOX: Guia Completo para Iniciantes em CSS",
+    sourceName: "Larissa Kich",
+    url: "https://www.youtube.com/watch?v=Z4CbaGCEsTY",
+    kind: "video",
+    actionType: "WATCH",
+    competencies: [
+      "css-layout"
+    ],
+    levelMin: "L0",
+    technology: "css",
+    cost: "free",
+    ptBrStatus: "complete",
+    requiresSignup: false,
+    license: "direitos reservados — apenas linkar",
+    estimatedTime: "19 min",
+    why: "Vídeo em português de março de 2024, com 64.296 visualizações e 4.302 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
+    origin: "br-creator",
+    featured: {
       "css-layout": 3
-    }
+    },
+    published: "2024-03-08"
   },
   {
     id: "curso-javascript-interagindo-com-a-dom-manipulando-arrays-e-objetos",
@@ -3707,30 +3733,8 @@ export const RESOURCES: readonly Resource[] = [
     origin: "br-creator",
     featured: {
       "dom-and-browser": 1
-    }
-  },
-  {
-    id: "javascript-web-e-a-dom-na-pratica-curso-de-javascript-completo-gratuit",
-    title: "JavaScript WEB e a DOM na Prática | Curso de JavaScript Completo Gratuito",
-    sourceName: "DevClub | Programação",
-    url: "https://www.youtube.com/watch?v=DcN49TD7it0",
-    kind: "video",
-    actionType: "WATCH",
-    competencies: [
-      "dom-and-browser"
-    ],
-    levelMin: "L0",
-    technology: "javascript",
-    cost: "free",
-    ptBrStatus: "complete",
-    requiresSignup: false,
-    license: "direitos reservados — apenas linkar",
-    estimatedTime: "28 min",
-    why: "Vídeo em português de dezembro de 2023, com 34.140 visualizações e 3.010 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
-    origin: "br-creator",
-    featured: {
-      "dom-and-browser": 2
-    }
+    },
+    published: "2025-10-02"
   },
   {
     id: "o-que-e-dom-no-javascript-e-como-manipular-elementos-na-pratica",
@@ -3752,18 +3756,19 @@ export const RESOURCES: readonly Resource[] = [
     why: "Vídeo em português de setembro de 2025, com 3.096 visualizações e 172 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
     origin: "br-creator",
     featured: {
-      "dom-and-browser": 3
-    }
+      "dom-and-browser": 2
+    },
+    published: "2025-09-03"
   },
   {
-    id: "como-debugar-codigo-javascript-dicas-para-iniciantes",
-    title: "Como Debugar Código JavaScript - Dicas para Iniciantes",
-    sourceName: "Senhor Programador",
-    url: "https://www.youtube.com/watch?v=tqJ2W21l2hg",
+    id: "javascript-web-e-a-dom-na-pratica-curso-de-javascript-completo-gratuit",
+    title: "JavaScript WEB e a DOM na Prática | Curso de JavaScript Completo Gratuito",
+    sourceName: "DevClub | Programação",
+    url: "https://www.youtube.com/watch?v=DcN49TD7it0",
     kind: "video",
     actionType: "WATCH",
     competencies: [
-      "debugging"
+      "dom-and-browser"
     ],
     levelMin: "L0",
     technology: "javascript",
@@ -3771,12 +3776,13 @@ export const RESOURCES: readonly Resource[] = [
     ptBrStatus: "complete",
     requiresSignup: false,
     license: "direitos reservados — apenas linkar",
-    estimatedTime: "21 min",
-    why: "Vídeo em português de janeiro de 2023, com 1.314 visualizações e 88 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema. Depuração de JavaScript para iniciantes.",
+    estimatedTime: "28 min",
+    why: "Vídeo em português de dezembro de 2023, com 34.140 visualizações e 3.010 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
     origin: "br-creator",
     featured: {
-      debugging: 1
-    }
+      "dom-and-browser": 3
+    },
+    published: "2023-12-12"
   },
   {
     id: "como-debugar-python-com-o-vscode-facil-e-rapido",
@@ -3798,54 +3804,33 @@ export const RESOURCES: readonly Resource[] = [
     why: "Vídeo em português de novembro de 2024, com 21.132 visualizações e 858 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema. Depuração no VS Code com Python; o método (pontos de parada, inspeção) vale para qualquer linguagem.",
     origin: "br-creator",
     featured: {
+      debugging: 1
+    },
+    published: "2024-11-12"
+  },
+  {
+    id: "como-debugar-codigo-javascript-dicas-para-iniciantes",
+    title: "Como Debugar Código JavaScript - Dicas para Iniciantes",
+    sourceName: "Senhor Programador",
+    url: "https://www.youtube.com/watch?v=tqJ2W21l2hg",
+    kind: "video",
+    actionType: "WATCH",
+    competencies: [
+      "debugging"
+    ],
+    levelMin: "L0",
+    technology: "javascript",
+    cost: "free",
+    ptBrStatus: "complete",
+    requiresSignup: false,
+    license: "direitos reservados — apenas linkar",
+    estimatedTime: "21 min",
+    why: "Vídeo em português de janeiro de 2023, com 1.314 visualizações e 88 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema. Depuração de JavaScript para iniciantes.",
+    origin: "br-creator",
+    featured: {
       debugging: 2
-    }
-  },
-  {
-    id: "clean-code",
-    title: "CLEAN CODE",
-    sourceName: "Augusto Galego",
-    url: "https://www.youtube.com/watch?v=alyVXP6b-wo",
-    kind: "video",
-    actionType: "WATCH",
-    competencies: [
-      "code-readability"
-    ],
-    levelMin: "L0",
-    technology: "agnostic",
-    cost: "free",
-    ptBrStatus: "complete",
-    requiresSignup: false,
-    license: "direitos reservados — apenas linkar",
-    estimatedTime: "20 min",
-    why: "Vídeo em português de dezembro de 2024, com 29.958 visualizações e 2.846 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
-    origin: "br-creator",
-    featured: {
-      "code-readability": 1
-    }
-  },
-  {
-    id: "solid-clean-code-e-design-patterns-pare-de-buscar-o-codigo-perfeito",
-    title: "SOLID, Clean Code e Design Patterns: Pare de Buscar o Código Perfeito!",
-    sourceName: "Renato Augusto",
-    url: "https://www.youtube.com/watch?v=yZRd_EWUs1g",
-    kind: "video",
-    actionType: "WATCH",
-    competencies: [
-      "code-readability"
-    ],
-    levelMin: "L0",
-    technology: "agnostic",
-    cost: "free",
-    ptBrStatus: "complete",
-    requiresSignup: false,
-    license: "direitos reservados — apenas linkar",
-    estimatedTime: "8 min",
-    why: "Vídeo em português de novembro de 2024, com 17.426 visualizações e 2.051 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
-    origin: "br-creator",
-    featured: {
-      "code-readability": 2
-    }
+    },
+    published: "2023-01-12"
   },
   {
     id: "codigo-limpo-vs-realidade-o-que-realmente-importa-no-codigo-de-produca",
@@ -3867,8 +3852,57 @@ export const RESOURCES: readonly Resource[] = [
     why: "Vídeo em português de janeiro de 2026, com 6.458 visualizações e 633 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
     origin: "br-creator",
     featured: {
+      "code-readability": 1
+    },
+    published: "2026-01-31"
+  },
+  {
+    id: "clean-code",
+    title: "CLEAN CODE",
+    sourceName: "Augusto Galego",
+    url: "https://www.youtube.com/watch?v=alyVXP6b-wo",
+    kind: "video",
+    actionType: "WATCH",
+    competencies: [
+      "code-readability"
+    ],
+    levelMin: "L0",
+    technology: "agnostic",
+    cost: "free",
+    ptBrStatus: "complete",
+    requiresSignup: false,
+    license: "direitos reservados — apenas linkar",
+    estimatedTime: "20 min",
+    why: "Vídeo em português de dezembro de 2024, com 29.958 visualizações e 2.846 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
+    origin: "br-creator",
+    featured: {
+      "code-readability": 2
+    },
+    published: "2024-12-09"
+  },
+  {
+    id: "solid-clean-code-e-design-patterns-pare-de-buscar-o-codigo-perfeito",
+    title: "SOLID, Clean Code e Design Patterns: Pare de Buscar o Código Perfeito!",
+    sourceName: "Renato Augusto",
+    url: "https://www.youtube.com/watch?v=yZRd_EWUs1g",
+    kind: "video",
+    actionType: "WATCH",
+    competencies: [
+      "code-readability"
+    ],
+    levelMin: "L0",
+    technology: "agnostic",
+    cost: "free",
+    ptBrStatus: "complete",
+    requiresSignup: false,
+    license: "direitos reservados — apenas linkar",
+    estimatedTime: "8 min",
+    why: "Vídeo em português de novembro de 2024, com 17.426 visualizações e 2.051 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
+    origin: "br-creator",
+    featured: {
       "code-readability": 3
-    }
+    },
+    published: "2024-11-24"
   },
   {
     id: "como-usar-acessibilidade-web-no-seu-projeto-front-end-na-pratica",
@@ -3891,30 +3925,8 @@ export const RESOURCES: readonly Resource[] = [
     origin: "br-creator",
     featured: {
       "web-accessibility-basics": 1
-    }
-  },
-  {
-    id: "html-acessibilidade-aula-01-introducao-ao-atributo-role-e-aria",
-    title: "HTML Acessibilidade: Aula #01 - Introdução ao atributo role e aria",
-    sourceName: "Programador Cego",
-    url: "https://www.youtube.com/watch?v=sCHO4A-EIkc",
-    kind: "video",
-    actionType: "WATCH",
-    competencies: [
-      "web-accessibility-basics"
-    ],
-    levelMin: "L0",
-    technology: "html",
-    cost: "free",
-    ptBrStatus: "complete",
-    requiresSignup: false,
-    license: "direitos reservados — apenas linkar",
-    estimatedTime: "18 min",
-    why: "Vídeo em português de junho de 2023, com 2.984 visualizações e 253 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
-    origin: "br-creator",
-    featured: {
-      "web-accessibility-basics": 2
-    }
+    },
+    published: "2024-01-09"
   },
   {
     id: "navegacao-para-todos-dicas-cruciais-de-acessibilidade-no-front-end",
@@ -3936,31 +3948,33 @@ export const RESOURCES: readonly Resource[] = [
     why: "Vídeo em português de setembro de 2023, com 1.156 visualizações e 113 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
     origin: "br-creator",
     featured: {
-      "web-accessibility-basics": 3
-    }
+      "web-accessibility-basics": 2
+    },
+    published: "2023-09-25"
   },
   {
-    id: "minicurso-de-sql-saia-do-zero-em-1-hora",
-    title: "Minicurso de SQL (Saia do Zero em 1 Hora)",
-    sourceName: "Código Fonte TV",
-    url: "https://www.youtube.com/watch?v=dpanYy8IrcU",
+    id: "html-acessibilidade-aula-01-introducao-ao-atributo-role-e-aria",
+    title: "HTML Acessibilidade: Aula #01 - Introdução ao atributo role e aria",
+    sourceName: "Programador Cego",
+    url: "https://www.youtube.com/watch?v=sCHO4A-EIkc",
     kind: "video",
     actionType: "WATCH",
     competencies: [
-      "sql-basics"
+      "web-accessibility-basics"
     ],
-    levelMin: "L1",
-    technology: "sql",
+    levelMin: "L0",
+    technology: "html",
     cost: "free",
     ptBrStatus: "complete",
     requiresSignup: false,
     license: "direitos reservados — apenas linkar",
-    estimatedTime: "1 h",
-    why: "Vídeo em português de janeiro de 2025, com 124.779 visualizações e 7.718 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
+    estimatedTime: "18 min",
+    why: "Vídeo em português de junho de 2023, com 2.984 visualizações e 253 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
     origin: "br-creator",
     featured: {
-      "sql-basics": 1
-    }
+      "web-accessibility-basics": 3
+    },
+    published: "2023-06-05"
   },
   {
     id: "curso-completo-de-sql-com-postgresql-do-zero-ao-avancado",
@@ -3982,8 +3996,9 @@ export const RESOURCES: readonly Resource[] = [
     why: "Vídeo em português de fevereiro de 2026, com 156.274 visualizações e 9.858 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
     origin: "br-creator",
     featured: {
-      "sql-basics": 2
-    }
+      "sql-basics": 1
+    },
+    published: "2026-02-19"
   },
   {
     id: "sql-explicado-de-forma-simples-guia-para-iniciantes",
@@ -4005,18 +4020,19 @@ export const RESOURCES: readonly Resource[] = [
     why: "Vídeo em português de junho de 2025, com 58.831 visualizações e 4.519 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
     origin: "br-creator",
     featured: {
-      "sql-basics": 3
-    }
+      "sql-basics": 2
+    },
+    published: "2025-06-17"
   },
   {
-    id: "banco-de-dados-pra-quem-acha-que-e-dificil-kkkkkkk",
-    title: "Banco de dados pra quem acha que é difícil kkkkkkk",
-    sourceName: "Lan Code",
-    url: "https://www.youtube.com/watch?v=VbNDTOGjt4o",
+    id: "minicurso-de-sql-saia-do-zero-em-1-hora",
+    title: "Minicurso de SQL (Saia do Zero em 1 Hora)",
+    sourceName: "Código Fonte TV",
+    url: "https://www.youtube.com/watch?v=dpanYy8IrcU",
     kind: "video",
     actionType: "WATCH",
     competencies: [
-      "relational-data-modeling"
+      "sql-basics"
     ],
     levelMin: "L1",
     technology: "sql",
@@ -4024,12 +4040,13 @@ export const RESOURCES: readonly Resource[] = [
     ptBrStatus: "complete",
     requiresSignup: false,
     license: "direitos reservados — apenas linkar",
-    estimatedTime: "7 min",
-    why: "Vídeo em português de maio de 2025, com 144.306 visualizações e 12.821 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
+    estimatedTime: "1 h",
+    why: "Vídeo em português de janeiro de 2025, com 124.779 visualizações e 7.718 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
     origin: "br-creator",
     featured: {
-      "relational-data-modeling": 1
-    }
+      "sql-basics": 3
+    },
+    published: "2025-01-30"
   },
   {
     id: "modelo-conceitual-brmodelo-modelagem-de-banco-de-dados",
@@ -4051,8 +4068,9 @@ export const RESOURCES: readonly Resource[] = [
     why: "Vídeo em português de outubro de 2025, com 3.789 visualizações e 162 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
     origin: "br-creator",
     featured: {
-      "relational-data-modeling": 2
-    }
+      "relational-data-modeling": 1
+    },
+    published: "2025-10-27"
   },
   {
     id: "como-criar-um-modelo-der-no-mysql-workbench-rapido-e-profissional",
@@ -4074,31 +4092,57 @@ export const RESOURCES: readonly Resource[] = [
     why: "Vídeo em português de junho de 2025, com 3.814 visualizações e 204 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
     origin: "br-creator",
     featured: {
-      "relational-data-modeling": 3
-    }
+      "relational-data-modeling": 2
+    },
+    published: "2025-06-05"
   },
   {
-    id: "fetch-api-na-pratica-consumindo-api-com-javascript",
-    title: "FETCH API na Prática: Consumindo API com JavaScript",
-    sourceName: "DevZito",
-    url: "https://www.youtube.com/watch?v=1O5GyaGcpos",
+    id: "banco-de-dados-pra-quem-acha-que-e-dificil-kkkkkkk",
+    title: "Banco de dados pra quem acha que é difícil kkkkkkk",
+    sourceName: "Lan Code",
+    url: "https://www.youtube.com/watch?v=VbNDTOGjt4o",
+    kind: "video",
+    actionType: "WATCH",
+    competencies: [
+      "relational-data-modeling"
+    ],
+    levelMin: "L1",
+    technology: "sql",
+    cost: "free",
+    ptBrStatus: "complete",
+    requiresSignup: false,
+    license: "direitos reservados — apenas linkar",
+    estimatedTime: "7 min",
+    why: "Vídeo em português de maio de 2025, com 144.306 visualizações e 12.821 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
+    origin: "br-creator",
+    featured: {
+      "relational-data-modeling": 3
+    },
+    published: "2025-05-06"
+  },
+  {
+    id: "o-que-e-uma-api-conceito-e-como-usar",
+    title: "O QUE É UMA API? | Conceito e Como Usar",
+    sourceName: "Shaulin",
+    url: "https://www.youtube.com/watch?v=1QZR5De4f9E",
     kind: "video",
     actionType: "WATCH",
     competencies: [
       "api-consumption"
     ],
     levelMin: "L1",
-    technology: "javascript",
+    technology: "agnostic",
     cost: "free",
     ptBrStatus: "complete",
     requiresSignup: false,
     license: "direitos reservados — apenas linkar",
-    estimatedTime: "5 min",
-    why: "Vídeo em português de fevereiro de 2024, com 38.161 visualizações e 2.931 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
+    estimatedTime: "10 min",
+    why: "Vídeo em português de julho de 2024, com 244.385 visualizações e 24.098 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
     origin: "br-creator",
     featured: {
       "api-consumption": 1
-    }
+    },
+    published: "2024-07-24"
   },
   {
     id: "aprenda-apis-em-10-minutos-guia-rapido-com-exemplos-praticos-para-inic",
@@ -4121,36 +4165,38 @@ export const RESOURCES: readonly Resource[] = [
     origin: "br-creator",
     featured: {
       "api-consumption": 2
-    }
+    },
+    published: "2024-04-23"
   },
   {
-    id: "o-que-e-uma-api-conceito-e-como-usar",
-    title: "O QUE É UMA API? | Conceito e Como Usar",
-    sourceName: "Shaulin",
-    url: "https://www.youtube.com/watch?v=1QZR5De4f9E",
+    id: "fetch-api-na-pratica-consumindo-api-com-javascript",
+    title: "FETCH API na Prática: Consumindo API com JavaScript",
+    sourceName: "DevZito",
+    url: "https://www.youtube.com/watch?v=1O5GyaGcpos",
     kind: "video",
     actionType: "WATCH",
     competencies: [
       "api-consumption"
     ],
     levelMin: "L1",
-    technology: "agnostic",
+    technology: "javascript",
     cost: "free",
     ptBrStatus: "complete",
     requiresSignup: false,
     license: "direitos reservados — apenas linkar",
-    estimatedTime: "10 min",
-    why: "Vídeo em português de julho de 2024, com 244.385 visualizações e 24.098 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
+    estimatedTime: "5 min",
+    why: "Vídeo em português de fevereiro de 2024, com 38.161 visualizações e 2.931 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
     origin: "br-creator",
     featured: {
       "api-consumption": 3
-    }
+    },
+    published: "2024-02-05"
   },
   {
-    id: "curso-de-react-para-completos-iniciantes-2026",
-    title: "Curso de React para Completos Iniciantes [2026]",
-    sourceName: "Felipe Rocha • Full Stack Club",
-    url: "https://www.youtube.com/watch?v=2RWsLmu8yVc",
+    id: "como-comecar-em-react-em-2026-dicas-e-atualizacoes-pra-voce-iniciar-co",
+    title: "Como começar em React em 2026? (Dicas e atualizações pra você iniciar com tudo)",
+    sourceName: "Rocketseat",
+    url: "https://www.youtube.com/watch?v=EOsigJta6cI",
     kind: "video",
     actionType: "WATCH",
     competencies: [
@@ -4162,12 +4208,13 @@ export const RESOURCES: readonly Resource[] = [
     ptBrStatus: "complete",
     requiresSignup: false,
     license: "direitos reservados — apenas linkar",
-    estimatedTime: "2 h 25 min",
-    why: "Vídeo em português de agosto de 2024, com 372.116 visualizações e 15.032 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
+    estimatedTime: "20 min",
+    why: "Vídeo em português de dezembro de 2025, com 35.794 visualizações e 2.746 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema. Dicas de por onde começar em React, não uma aula.",
     origin: "br-creator",
     featured: {
       "ui-components-and-state": 1
-    }
+    },
+    published: "2025-12-18"
   },
   {
     id: "curso-de-react-js-para-iniciantes-com-projeto",
@@ -4190,13 +4237,14 @@ export const RESOURCES: readonly Resource[] = [
     origin: "br-creator",
     featured: {
       "ui-components-and-state": 2
-    }
+    },
+    published: "2025-01-06"
   },
   {
-    id: "como-comecar-em-react-em-2026-dicas-e-atualizacoes-pra-voce-iniciar-co",
-    title: "Como começar em React em 2026? (Dicas e atualizações pra você iniciar com tudo)",
-    sourceName: "Rocketseat",
-    url: "https://www.youtube.com/watch?v=EOsigJta6cI",
+    id: "curso-de-react-para-completos-iniciantes-2026",
+    title: "Curso de React para Completos Iniciantes [2026]",
+    sourceName: "Felipe Rocha • Full Stack Club",
+    url: "https://www.youtube.com/watch?v=2RWsLmu8yVc",
     kind: "video",
     actionType: "WATCH",
     competencies: [
@@ -4208,35 +4256,13 @@ export const RESOURCES: readonly Resource[] = [
     ptBrStatus: "complete",
     requiresSignup: false,
     license: "direitos reservados — apenas linkar",
-    estimatedTime: "20 min",
-    why: "Vídeo em português de dezembro de 2025, com 35.794 visualizações e 2.746 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema. Dicas de por onde começar em React, não uma aula.",
+    estimatedTime: "2 h 25 min",
+    why: "Vídeo em português de agosto de 2024, com 372.116 visualizações e 15.032 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
     origin: "br-creator",
     featured: {
       "ui-components-and-state": 3
-    }
-  },
-  {
-    id: "criando-uma-api-do-zero-com-node-js-e-banco-de-dados",
-    title: "Criando uma API do ZERO com Node.js e Banco de Dados",
-    sourceName: "DevClub | Programação",
-    url: "https://www.youtube.com/watch?v=PyrMT0GA3sE",
-    kind: "video",
-    actionType: "WATCH",
-    competencies: [
-      "api-development"
-    ],
-    levelMin: "L1",
-    technology: "node",
-    cost: "free",
-    ptBrStatus: "complete",
-    requiresSignup: false,
-    license: "direitos reservados — apenas linkar",
-    estimatedTime: "1 h 15 min",
-    why: "Vídeo em português de maio de 2024, com 285.546 visualizações e 17.557 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
-    origin: "br-creator",
-    featured: {
-      "api-development": 1
-    }
+    },
+    published: "2024-08-29"
   },
   {
     id: "curso-spring-boot-criando-sua-primeira-api-rest-do-zero-parte-1",
@@ -4258,8 +4284,33 @@ export const RESOURCES: readonly Resource[] = [
     why: "Vídeo em português de março de 2026, com 48.341 visualizações e 2.706 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema. A mesma competência em Java com Spring.",
     origin: "br-creator",
     featured: {
+      "api-development": 1
+    },
+    published: "2026-03-23"
+  },
+  {
+    id: "criando-uma-api-do-zero-com-node-js-e-banco-de-dados",
+    title: "Criando uma API do ZERO com Node.js e Banco de Dados",
+    sourceName: "DevClub | Programação",
+    url: "https://www.youtube.com/watch?v=PyrMT0GA3sE",
+    kind: "video",
+    actionType: "WATCH",
+    competencies: [
+      "api-development"
+    ],
+    levelMin: "L1",
+    technology: "node",
+    cost: "free",
+    ptBrStatus: "complete",
+    requiresSignup: false,
+    license: "direitos reservados — apenas linkar",
+    estimatedTime: "1 h 15 min",
+    why: "Vídeo em português de maio de 2024, com 285.546 visualizações e 17.557 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
+    origin: "br-creator",
+    featured: {
       "api-development": 2
-    }
+    },
+    published: "2024-05-23"
   },
   {
     id: "como-criar-uma-rest-api-completa-do-zero-com-go-golang-tutorial-inicia",
@@ -4282,30 +4333,8 @@ export const RESOURCES: readonly Resource[] = [
     origin: "br-creator",
     featured: {
       "api-development": 3
-    }
-  },
-  {
-    id: "aprendendo-react-do-zero-conectando-back-e-front-end-e-consumindo-api",
-    title: "Aprendendo React do Zero, Conectando Back e Front End, e Consumindo API",
-    sourceName: "DevClub | Programação",
-    url: "https://www.youtube.com/watch?v=_gHr2Pe5LCY",
-    kind: "video",
-    actionType: "WATCH",
-    competencies: [
-      "build-an-application"
-    ],
-    levelMin: "L1",
-    technology: "node",
-    cost: "free",
-    ptBrStatus: "complete",
-    requiresSignup: false,
-    license: "direitos reservados — apenas linkar",
-    estimatedTime: "1 h 13 min",
-    why: "Vídeo em português de maio de 2024, com 251.181 visualizações e 12.714 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
-    origin: "br-creator",
-    featured: {
-      "build-an-application": 1
-    }
+    },
+    published: "2024-05-20"
   },
   {
     id: "criando-backend-completo-do-zero-com-java-spring-postgres-aws",
@@ -4327,8 +4356,33 @@ export const RESOURCES: readonly Resource[] = [
     why: "Vídeo em português de junho de 2024, com 147.650 visualizações e 6.480 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
     origin: "br-creator",
     featured: {
+      "build-an-application": 1
+    },
+    published: "2024-06-14"
+  },
+  {
+    id: "aprendendo-react-do-zero-conectando-back-e-front-end-e-consumindo-api",
+    title: "Aprendendo React do Zero, Conectando Back e Front End, e Consumindo API",
+    sourceName: "DevClub | Programação",
+    url: "https://www.youtube.com/watch?v=_gHr2Pe5LCY",
+    kind: "video",
+    actionType: "WATCH",
+    competencies: [
+      "build-an-application"
+    ],
+    levelMin: "L1",
+    technology: "node",
+    cost: "free",
+    ptBrStatus: "complete",
+    requiresSignup: false,
+    license: "direitos reservados — apenas linkar",
+    estimatedTime: "1 h 13 min",
+    why: "Vídeo em português de maio de 2024, com 251.181 visualizações e 12.714 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
+    origin: "br-creator",
+    featured: {
       "build-an-application": 2
-    }
+    },
+    published: "2024-05-30"
   },
   {
     id: "como-sair-do-zero-em-node-js-em-apenas-uma-aula",
@@ -4351,7 +4405,8 @@ export const RESOURCES: readonly Resource[] = [
     origin: "br-creator",
     featured: {
       "build-an-application": 3
-    }
+    },
+    published: "2023-09-06"
   },
   {
     id: "autenticacao-moderna-em-20-minutos",
@@ -4374,7 +4429,8 @@ export const RESOURCES: readonly Resource[] = [
     origin: "br-creator",
     featured: {
       "authentication-basics": 1
-    }
+    },
+    published: "2026-02-28"
   },
   {
     id: "estrategias-de-autenticacao-entre-front-end-e-back-end-com-jwt-cookies",
@@ -4397,7 +4453,8 @@ export const RESOURCES: readonly Resource[] = [
     origin: "br-creator",
     featured: {
       "authentication-basics": 2
-    }
+    },
+    published: "2024-03-23"
   },
   {
     id: "como-funciona-a-autenticacao-login-e-senha-em-uma-api-backend-java-spr",
@@ -4420,53 +4477,8 @@ export const RESOURCES: readonly Resource[] = [
     origin: "br-creator",
     featured: {
       "authentication-basics": 3
-    }
-  },
-  {
-    id: "como-colocar-seu-site-no-ar-de-graca-com-o-github-pages",
-    title: "Como colocar seu SITE no AR de GRAÇA com o GitHub Pages",
-    sourceName: "Larissa Kich",
-    url: "https://www.youtube.com/watch?v=q3vsAtijvgA",
-    kind: "video",
-    actionType: "WATCH",
-    competencies: [
-      "deployment-basics"
-    ],
-    levelMin: "L1",
-    technology: "agnostic",
-    cost: "free",
-    ptBrStatus: "complete",
-    requiresSignup: false,
-    license: "direitos reservados — apenas linkar",
-    estimatedTime: "6 min",
-    why: "Vídeo em português de agosto de 2024, com 150.309 visualizações e 8.907 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
-    origin: "br-creator",
-    featured: {
-      "deployment-basics": 1
-    }
-  },
-  {
-    id: "como-hospedar-seu-projeto-online-tutorial-completo-com-vercel-e-github",
-    title: "Como Hospedar Seu Projeto Online: Tutorial Completo com Vercel e GitHub",
-    sourceName: "Everton Dev",
-    url: "https://www.youtube.com/watch?v=e7L_8XVQBik",
-    kind: "video",
-    actionType: "WATCH",
-    competencies: [
-      "deployment-basics"
-    ],
-    levelMin: "L1",
-    technology: "agnostic",
-    cost: "free",
-    ptBrStatus: "complete",
-    requiresSignup: false,
-    license: "direitos reservados — apenas linkar",
-    estimatedTime: "7 min",
-    why: "Vídeo em português de abril de 2024, com 56.349 visualizações e 1.834 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
-    origin: "br-creator",
-    featured: {
-      "deployment-basics": 2
-    }
+    },
+    published: "2024-01-15"
   },
   {
     id: "coloque-seu-site-no-ar-gratis-com-github-pages-em-2025-tutorial-comple",
@@ -4488,18 +4500,19 @@ export const RESOURCES: readonly Resource[] = [
     why: "Vídeo em português de maio de 2025, com 23.234 visualizações e 1.157 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
     origin: "br-creator",
     featured: {
-      "deployment-basics": 3
-    }
+      "deployment-basics": 1
+    },
+    published: "2025-05-30"
   },
   {
-    id: "descomplicando-testes-unitarios-guia-rapido-para-iniciantes-na-program",
-    title: "Descomplicando Testes Unitários! (Guia Rápido Para Iniciantes Na Programação)",
-    sourceName: "Attekita Dev",
-    url: "https://www.youtube.com/watch?v=HcDJdKfm5nA",
+    id: "como-colocar-seu-site-no-ar-de-graca-com-o-github-pages",
+    title: "Como colocar seu SITE no AR de GRAÇA com o GitHub Pages",
+    sourceName: "Larissa Kich",
+    url: "https://www.youtube.com/watch?v=q3vsAtijvgA",
     kind: "video",
     actionType: "WATCH",
     competencies: [
-      "automated-testing-basics"
+      "deployment-basics"
     ],
     levelMin: "L1",
     technology: "agnostic",
@@ -4507,35 +4520,37 @@ export const RESOURCES: readonly Resource[] = [
     ptBrStatus: "complete",
     requiresSignup: false,
     license: "direitos reservados — apenas linkar",
-    estimatedTime: "13 min",
-    why: "Vídeo em português de outubro de 2023, com 69.500 visualizações e 5.066 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
+    estimatedTime: "6 min",
+    why: "Vídeo em português de agosto de 2024, com 150.309 visualizações e 8.907 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
     origin: "br-creator",
     featured: {
-      "automated-testing-basics": 1
-    }
+      "deployment-basics": 2
+    },
+    published: "2024-08-19"
   },
   {
-    id: "aprenda-testar-seu-backend-node-js-com-jest",
-    title: "Aprenda testar seu backend Node JS com Jest",
-    sourceName: "Fernanda Kipper",
-    url: "https://www.youtube.com/watch?v=Ru6Tr7Q75IQ",
+    id: "como-hospedar-seu-projeto-online-tutorial-completo-com-vercel-e-github",
+    title: "Como Hospedar Seu Projeto Online: Tutorial Completo com Vercel e GitHub",
+    sourceName: "Everton Dev",
+    url: "https://www.youtube.com/watch?v=e7L_8XVQBik",
     kind: "video",
     actionType: "WATCH",
     competencies: [
-      "automated-testing-basics"
+      "deployment-basics"
     ],
     levelMin: "L1",
-    technology: "node",
+    technology: "agnostic",
     cost: "free",
     ptBrStatus: "complete",
     requiresSignup: false,
     license: "direitos reservados — apenas linkar",
-    estimatedTime: "37 min",
-    why: "Vídeo em português de julho de 2023, com 32.872 visualizações e 2.238 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
+    estimatedTime: "7 min",
+    why: "Vídeo em português de abril de 2024, com 56.349 visualizações e 1.834 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
     origin: "br-creator",
     featured: {
-      "automated-testing-basics": 2
-    }
+      "deployment-basics": 3
+    },
+    published: "2024-04-05"
   },
   {
     id: "para-de-escrever-testes-com-jest-alternativa-mais-rapida-testes-unitar",
@@ -4557,54 +4572,57 @@ export const RESOURCES: readonly Resource[] = [
     why: "Vídeo em português de abril de 2025, com 9.456 visualizações e 621 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
     origin: "br-creator",
     featured: {
+      "automated-testing-basics": 1
+    },
+    published: "2025-04-10"
+  },
+  {
+    id: "descomplicando-testes-unitarios-guia-rapido-para-iniciantes-na-program",
+    title: "Descomplicando Testes Unitários! (Guia Rápido Para Iniciantes Na Programação)",
+    sourceName: "Attekita Dev",
+    url: "https://www.youtube.com/watch?v=HcDJdKfm5nA",
+    kind: "video",
+    actionType: "WATCH",
+    competencies: [
+      "automated-testing-basics"
+    ],
+    levelMin: "L1",
+    technology: "agnostic",
+    cost: "free",
+    ptBrStatus: "complete",
+    requiresSignup: false,
+    license: "direitos reservados — apenas linkar",
+    estimatedTime: "13 min",
+    why: "Vídeo em português de outubro de 2023, com 69.500 visualizações e 5.066 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
+    origin: "br-creator",
+    featured: {
+      "automated-testing-basics": 2
+    },
+    published: "2023-10-19"
+  },
+  {
+    id: "aprenda-testar-seu-backend-node-js-com-jest",
+    title: "Aprenda testar seu backend Node JS com Jest",
+    sourceName: "Fernanda Kipper",
+    url: "https://www.youtube.com/watch?v=Ru6Tr7Q75IQ",
+    kind: "video",
+    actionType: "WATCH",
+    competencies: [
+      "automated-testing-basics"
+    ],
+    levelMin: "L1",
+    technology: "node",
+    cost: "free",
+    ptBrStatus: "complete",
+    requiresSignup: false,
+    license: "direitos reservados — apenas linkar",
+    estimatedTime: "37 min",
+    why: "Vídeo em português de julho de 2023, com 32.872 visualizações e 2.238 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
+    origin: "br-creator",
+    featured: {
       "automated-testing-basics": 3
-    }
-  },
-  {
-    id: "como-ser-aprovado-na-code-review-sendo-dev-junior-metodo-infalivel",
-    title: "Como SER APROVADO na CODE REVIEW Sendo Dev Júnior (MÉTODO INFALÍVEL)",
-    sourceName: "O Novo Programador",
-    url: "https://www.youtube.com/watch?v=OPjazS_VdBQ",
-    kind: "video",
-    actionType: "WATCH",
-    competencies: [
-      "code-review-participation"
-    ],
-    levelMin: "L1",
-    technology: "agnostic",
-    cost: "free",
-    ptBrStatus: "complete",
-    requiresSignup: false,
-    license: "direitos reservados — apenas linkar",
-    estimatedTime: "19 min",
-    why: "Vídeo em português de outubro de 2024, com 10.587 visualizações e 1.142 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
-    origin: "br-creator",
-    featured: {
-      "code-review-participation": 1
-    }
-  },
-  {
-    id: "recebi-um-code-review-no-github-e-agora",
-    title: "Recebi um code review no GitHub, e agora!?",
-    sourceName: "Mayk Brito",
-    url: "https://www.youtube.com/watch?v=YKncSsTDR_4",
-    kind: "video",
-    actionType: "WATCH",
-    competencies: [
-      "code-review-participation"
-    ],
-    levelMin: "L1",
-    technology: "agnostic",
-    cost: "free",
-    ptBrStatus: "complete",
-    requiresSignup: false,
-    license: "direitos reservados — apenas linkar",
-    estimatedTime: "15 min",
-    why: "Vídeo em português de março de 2024, com 4.343 visualizações e 232 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
-    origin: "br-creator",
-    featured: {
-      "code-review-participation": 2
-    }
+    },
+    published: "2023-07-08"
   },
   {
     id: "ninguem-mais-le-o-codigo",
@@ -4626,14 +4644,63 @@ export const RESOURCES: readonly Resource[] = [
     why: "Vídeo em português de agosto de 2026, com 31.074 visualizações e 2.365 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema. Revisão de código na era da IA.",
     origin: "br-creator",
     featured: {
-      "code-review-participation": 3
-    }
+      "code-review-participation": 1
+    },
+    published: "2026-08-10"
   },
   {
-    id: "como-criar-seus-readmes-guia-do-readme-completo",
-    title: "COMO CRIAR SEUS READMEs? GUIA DO README COMPLETO",
-    sourceName: "Fernanda Kipper",
-    url: "https://www.youtube.com/watch?v=k4Rsy8GbKE0",
+    id: "como-ser-aprovado-na-code-review-sendo-dev-junior-metodo-infalivel",
+    title: "Como SER APROVADO na CODE REVIEW Sendo Dev Júnior (MÉTODO INFALÍVEL)",
+    sourceName: "O Novo Programador",
+    url: "https://www.youtube.com/watch?v=OPjazS_VdBQ",
+    kind: "video",
+    actionType: "WATCH",
+    competencies: [
+      "code-review-participation"
+    ],
+    levelMin: "L1",
+    technology: "agnostic",
+    cost: "free",
+    ptBrStatus: "complete",
+    requiresSignup: false,
+    license: "direitos reservados — apenas linkar",
+    estimatedTime: "19 min",
+    why: "Vídeo em português de outubro de 2024, com 10.587 visualizações e 1.142 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
+    origin: "br-creator",
+    featured: {
+      "code-review-participation": 2
+    },
+    published: "2024-10-30"
+  },
+  {
+    id: "recebi-um-code-review-no-github-e-agora",
+    title: "Recebi um code review no GitHub, e agora!?",
+    sourceName: "Mayk Brito",
+    url: "https://www.youtube.com/watch?v=YKncSsTDR_4",
+    kind: "video",
+    actionType: "WATCH",
+    competencies: [
+      "code-review-participation"
+    ],
+    levelMin: "L1",
+    technology: "agnostic",
+    cost: "free",
+    ptBrStatus: "complete",
+    requiresSignup: false,
+    license: "direitos reservados — apenas linkar",
+    estimatedTime: "15 min",
+    why: "Vídeo em português de março de 2024, com 4.343 visualizações e 232 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
+    origin: "br-creator",
+    featured: {
+      "code-review-participation": 3
+    },
+    published: "2024-03-14"
+  },
+  {
+    id: "soft-skills-essenciais-para-devs-acelere-sua-carreira-tech",
+    title: "Soft Skills essenciais para devs: acelere sua carreira tech!",
+    sourceName: "Rocketseat",
+    url: "https://www.youtube.com/watch?v=k-bBu8IsILI",
     kind: "video",
     actionType: "WATCH",
     competencies: [
@@ -4645,12 +4712,13 @@ export const RESOURCES: readonly Resource[] = [
     ptBrStatus: "complete",
     requiresSignup: false,
     license: "direitos reservados — apenas linkar",
-    estimatedTime: "26 min",
-    why: "Vídeo em português de maio de 2024, com 60.647 visualizações e 4.263 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
+    estimatedTime: "6 min",
+    why: "Vídeo em português de outubro de 2025, com 3.561 visualizações e 292 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
     origin: "br-creator",
     featured: {
       "technical-communication": 1
-    }
+    },
+    published: "2025-10-21"
   },
   {
     id: "soft-skills-o-segredo-dos-programadores-de-sucesso-desenvolva-essas-ha",
@@ -4673,13 +4741,14 @@ export const RESOURCES: readonly Resource[] = [
     origin: "br-creator",
     featured: {
       "technical-communication": 2
-    }
+    },
+    published: "2025-03-30"
   },
   {
-    id: "soft-skills-essenciais-para-devs-acelere-sua-carreira-tech",
-    title: "Soft Skills essenciais para devs: acelere sua carreira tech!",
-    sourceName: "Rocketseat",
-    url: "https://www.youtube.com/watch?v=k-bBu8IsILI",
+    id: "como-criar-seus-readmes-guia-do-readme-completo",
+    title: "COMO CRIAR SEUS READMEs? GUIA DO README COMPLETO",
+    sourceName: "Fernanda Kipper",
+    url: "https://www.youtube.com/watch?v=k4Rsy8GbKE0",
     kind: "video",
     actionType: "WATCH",
     competencies: [
@@ -4691,58 +4760,13 @@ export const RESOURCES: readonly Resource[] = [
     ptBrStatus: "complete",
     requiresSignup: false,
     license: "direitos reservados — apenas linkar",
-    estimatedTime: "6 min",
-    why: "Vídeo em português de outubro de 2025, com 3.561 visualizações e 292 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
+    estimatedTime: "26 min",
+    why: "Vídeo em português de maio de 2024, com 60.647 visualizações e 4.263 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
     origin: "br-creator",
     featured: {
       "technical-communication": 3
-    }
-  },
-  {
-    id: "big-o-notation-facil-de-entender-complexidade-de-tempo-e-espaco-na-pro",
-    title: "Big O Notation fácil de entender! (Complexidade de Tempo e Espaço na Programação)",
-    sourceName: "Attekita Dev",
-    url: "https://www.youtube.com/watch?v=FR44uWofQ7o",
-    kind: "video",
-    actionType: "WATCH",
-    competencies: [
-      "algorithms-and-complexity"
-    ],
-    levelMin: "L1",
-    technology: "agnostic",
-    cost: "free",
-    ptBrStatus: "complete",
-    requiresSignup: false,
-    license: "direitos reservados — apenas linkar",
-    estimatedTime: "20 min",
-    why: "Vídeo em português de fevereiro de 2025, com 30.555 visualizações e 3.284 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
-    origin: "br-creator",
-    featured: {
-      "algorithms-and-complexity": 1
-    }
-  },
-  {
-    id: "big-o-notation-o-pesadelo-do-programador-iniciante",
-    title: "Big O Notation: O Pesadelo do Programador Iniciante",
-    sourceName: "Lucas Montano",
-    url: "https://www.youtube.com/watch?v=GLKDo13920k",
-    kind: "video",
-    actionType: "WATCH",
-    competencies: [
-      "algorithms-and-complexity"
-    ],
-    levelMin: "L1",
-    technology: "agnostic",
-    cost: "free",
-    ptBrStatus: "complete",
-    requiresSignup: false,
-    license: "direitos reservados — apenas linkar",
-    estimatedTime: "14 min",
-    why: "Vídeo em português de junho de 2023, com 86.055 visualizações e 9.876 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
-    origin: "br-creator",
-    featured: {
-      "algorithms-and-complexity": 2
-    }
+    },
+    published: "2024-05-08"
   },
   {
     id: "por-que-seu-codigo-e-lento-complexidade-de-algoritmos-para-entrevistas",
@@ -4764,54 +4788,57 @@ export const RESOURCES: readonly Resource[] = [
     why: "Vídeo em português de janeiro de 2026, com 5.959 visualizações e 772 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
     origin: "br-creator",
     featured: {
+      "algorithms-and-complexity": 1
+    },
+    published: "2026-01-14"
+  },
+  {
+    id: "big-o-notation-facil-de-entender-complexidade-de-tempo-e-espaco-na-pro",
+    title: "Big O Notation fácil de entender! (Complexidade de Tempo e Espaço na Programação)",
+    sourceName: "Attekita Dev",
+    url: "https://www.youtube.com/watch?v=FR44uWofQ7o",
+    kind: "video",
+    actionType: "WATCH",
+    competencies: [
+      "algorithms-and-complexity"
+    ],
+    levelMin: "L1",
+    technology: "agnostic",
+    cost: "free",
+    ptBrStatus: "complete",
+    requiresSignup: false,
+    license: "direitos reservados — apenas linkar",
+    estimatedTime: "20 min",
+    why: "Vídeo em português de fevereiro de 2025, com 30.555 visualizações e 3.284 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
+    origin: "br-creator",
+    featured: {
+      "algorithms-and-complexity": 2
+    },
+    published: "2025-02-13"
+  },
+  {
+    id: "big-o-notation-o-pesadelo-do-programador-iniciante",
+    title: "Big O Notation: O Pesadelo do Programador Iniciante",
+    sourceName: "Lucas Montano",
+    url: "https://www.youtube.com/watch?v=GLKDo13920k",
+    kind: "video",
+    actionType: "WATCH",
+    competencies: [
+      "algorithms-and-complexity"
+    ],
+    levelMin: "L1",
+    technology: "agnostic",
+    cost: "free",
+    ptBrStatus: "complete",
+    requiresSignup: false,
+    license: "direitos reservados — apenas linkar",
+    estimatedTime: "14 min",
+    why: "Vídeo em português de junho de 2023, com 86.055 visualizações e 9.876 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema.",
+    origin: "br-creator",
+    featured: {
       "algorithms-and-complexity": 3
-    }
-  },
-  {
-    id: "o-metodo-fabio-akita-para-programar-com-ia",
-    title: "O Método Fábio Akita para programar com IA",
-    sourceName: "mano deyvin",
-    url: "https://www.youtube.com/watch?v=cWY7iBafw7I",
-    kind: "video",
-    actionType: "WATCH",
-    competencies: [
-      "ai-assisted-development-basics"
-    ],
-    levelMin: "L1",
-    technology: "agnostic",
-    cost: "free",
-    ptBrStatus: "complete",
-    requiresSignup: false,
-    license: "direitos reservados — apenas linkar",
-    estimatedTime: "45 min",
-    why: "Vídeo em português de março de 2026, com 416.371 visualizações e 30.244 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema. Corte de live sobre o método de programar com IA do Fabio Akita.",
-    origin: "br-creator",
-    featured: {
-      "ai-assisted-development-basics": 1
-    }
-  },
-  {
-    id: "claude-code-tutorial-completo-para-iniciantes-do-zero-ao-projeto",
-    title: "Claude Code: Tutorial COMPLETO para Iniciantes (Do Zero ao Projeto)",
-    sourceName: "Matheus Battisti - Hora de Codar",
-    url: "https://www.youtube.com/watch?v=w8HuiXr5Fkc",
-    kind: "video",
-    actionType: "WATCH",
-    competencies: [
-      "ai-assisted-development-basics"
-    ],
-    levelMin: "L1",
-    technology: "agnostic",
-    cost: "free",
-    ptBrStatus: "complete",
-    requiresSignup: false,
-    license: "direitos reservados — apenas linkar",
-    estimatedTime: "22 min",
-    why: "Vídeo em português de fevereiro de 2026, com 166.181 visualizações e 5.750 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema. Ensina uma ferramenta paga (Claude Code).",
-    origin: "br-creator",
-    featured: {
-      "ai-assisted-development-basics": 2
-    }
+    },
+    published: "2023-06-16"
   },
   {
     id: "claude-code-tutorial-completo-para-iniciantes",
@@ -4833,7 +4860,56 @@ export const RESOURCES: readonly Resource[] = [
     why: "Vídeo em português de março de 2026, com 344.257 visualizações e 13.206 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema. Ensina uma ferramenta paga (Claude Code).",
     origin: "br-creator",
     featured: {
+      "ai-assisted-development-basics": 1
+    },
+    published: "2026-03-12"
+  },
+  {
+    id: "o-metodo-fabio-akita-para-programar-com-ia",
+    title: "O Método Fábio Akita para programar com IA",
+    sourceName: "mano deyvin",
+    url: "https://www.youtube.com/watch?v=cWY7iBafw7I",
+    kind: "video",
+    actionType: "WATCH",
+    competencies: [
+      "ai-assisted-development-basics"
+    ],
+    levelMin: "L1",
+    technology: "agnostic",
+    cost: "free",
+    ptBrStatus: "complete",
+    requiresSignup: false,
+    license: "direitos reservados — apenas linkar",
+    estimatedTime: "45 min",
+    why: "Vídeo em português de março de 2026, com 416.371 visualizações e 30.244 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema. Corte de live sobre o método de programar com IA do Fabio Akita.",
+    origin: "br-creator",
+    featured: {
+      "ai-assisted-development-basics": 2
+    },
+    published: "2026-03-02"
+  },
+  {
+    id: "claude-code-tutorial-completo-para-iniciantes-do-zero-ao-projeto",
+    title: "Claude Code: Tutorial COMPLETO para Iniciantes (Do Zero ao Projeto)",
+    sourceName: "Matheus Battisti - Hora de Codar",
+    url: "https://www.youtube.com/watch?v=w8HuiXr5Fkc",
+    kind: "video",
+    actionType: "WATCH",
+    competencies: [
+      "ai-assisted-development-basics"
+    ],
+    levelMin: "L1",
+    technology: "agnostic",
+    cost: "free",
+    ptBrStatus: "complete",
+    requiresSignup: false,
+    license: "direitos reservados — apenas linkar",
+    estimatedTime: "22 min",
+    why: "Vídeo em português de fevereiro de 2026, com 166.181 visualizações e 5.750 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema. Ensina uma ferramenta paga (Claude Code).",
+    origin: "br-creator",
+    featured: {
       "ai-assisted-development-basics": 3
-    }
+    },
+    published: "2026-02-02"
   }
 ];

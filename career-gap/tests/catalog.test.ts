@@ -158,4 +158,21 @@ describe('ordem curada dos vídeos', () => {
     expect(rules(swap({ ...video, featured: { 'css-layout': 1 } }))).toContain('resource-featured');
     expect(rules(swap({ ...other, featured: { 'sql-basics': video.featured!['sql-basics'] } }))).toContain('resource-featured');
   });
+
+  it('põe os vídeos de cada competência do mais novo para o mais antigo, e recusa o contrário', () => {
+    const curated = new Map<string, { position: number; published: string }[]>();
+    for (const resource of CATALOG.resources) {
+      for (const [competency, position] of Object.entries(resource.featured ?? {})) {
+        curated.set(competency, [...(curated.get(competency) ?? []), { position, published: resource.published! }]);
+      }
+    }
+    for (const [competency, items] of curated) {
+      const dates = [...items].sort((a, b) => a.position - b.position).map((item) => item.published);
+      expect(dates, competency).toEqual([...dates].sort().reverse());
+    }
+    const [newest] = CATALOG.resources.filter((resource) => resource.featured?.['sql-basics'] === 1);
+    const older = { ...newest, published: '2000-01-01' };
+    const rules = validateCatalog({ ...CATALOG, resources: CATALOG.resources.map((r) => (r.id === newest.id ? older : r)) }).map((p) => p.rule);
+    expect(rules).toContain('resource-featured-order');
+  });
 });

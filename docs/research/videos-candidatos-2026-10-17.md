@@ -6,7 +6,11 @@ título original; vários vídeos estrangeiros aparecem com título traduzido), 
 competência, de até dois anos (três quando não havia nada mais novo), ordenados pelo que
 melhor ensina a competência, não só por visualização. Números do dia da busca.
 
-**Como responder:** 26 números, na ordem das competências, separados por vírgula. `0` mantém
+**Decisão (2026-10-17):** o autor aprovou a lista inteira e pediu, em cada competência, do mais
+novo para o mais antigo; é essa a ordem no catálogo (`videos-pt-verificados.json`), não a
+numeração abaixo.
+
+**Como responder (antes da decisão):** 26 números, na ordem das competências, separados por vírgula. `0` mantém
 o material de hoje. Exemplo: `1, 1, 2, 0, 1, …`. O vídeo escolhido passa a ser o primeiro da
 estação ("comece aqui"); o material de hoje continua na lista da competência.
 

@@ -53,6 +53,7 @@ export function ResourceLine({
         {yourStack && <Tag>{PICK_REASON_TEXT.YOUR_STACK}</Tag>}
         <Tag warn={resource.cost === 'paid'}>{COST_LABEL[resource.cost]}</Tag>
         {time && <Tag>{time}</Tag>}
+        {resource.published && <Tag>{publishedLabel(resource.published)}</Tag>}
         {resource.requiresSignup && <Tag warn>exige cadastro</Tag>}
       </span>
       {detailed && resource.chapters && (
@@ -70,3 +71,7 @@ export function ResourceLine({
     </div>
   );
 }
+
+const MONTHS = ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez'];
+/** "2025-08-06" → "ago/2025": a data diz se o vídeo ainda vale, sem pedir que a pessoa abra. */
+const publishedLabel = (date: string) => `${MONTHS[Number(date.slice(5, 7)) - 1]}/${date.slice(0, 4)}`;

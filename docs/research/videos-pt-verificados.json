@@ -1,25 +1,7 @@
 {
   "gerado_em": "2026-10-17",
-  "metodo": "Busca no YouTube, uma ou duas consultas por competência, com e sem o filtro 'este ano'. Mantidos só vídeos falados em português (legenda automática e título original conferidos, porque o YouTube traduz títulos estrangeiros), no assunto da competência, de até dois anos (três quando não havia nada mais novo), ordenados pelo que melhor ensina a competência. Lista aprovada inteira pelo autor em 2026-10-17: os vídeos abrem cada estação, nesta ordem (campo featured).",
+  "metodo": "Busca no YouTube, uma ou duas consultas por competência, com e sem o filtro 'este ano'. Mantidos só vídeos falados em português (legenda automática e título original conferidos, porque o YouTube traduz títulos estrangeiros), no assunto da competência, de até dois anos (três quando não havia nada mais novo), ordenados pelo que melhor ensina a competência. Lista aprovada inteira pelo autor em 2026-10-17: os vídeos abrem cada estação, do mais novo para o mais antigo (campo featured, conferido pelo validador contra a data de publicação).",
   "entries": [
-    {
-      "title": "Curso Lógica de Programação 2026 – Aprenda em 3 Horas (De Verdade!)",
-      "channel": "Dev Aprender | Jhonatan de Souza",
-      "url": "https://www.youtube.com/watch?v=epf-WQdVis0",
-      "competencies": [
-        "programming-fundamentals"
-      ],
-      "level_min": "L0",
-      "technology": "agnostic",
-      "length": "2 h 51 min",
-      "published": "2025-08-06",
-      "views": 695169,
-      "likes": 20551,
-      "featured": {
-        "programming-fundamentals": 1
-      },
-      "why": "Vídeo em português de agosto de 2025, com 695.169 visualizações e 20.551 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
-    },
     {
       "title": "O que é Lógica de Programação? Explicado com bananas",
       "channel": "Primata Hub",
@@ -34,9 +16,27 @@
       "views": 161631,
       "likes": 15470,
       "featured": {
-        "programming-fundamentals": 2
+        "programming-fundamentals": 1
       },
       "why": "Vídeo em português de dezembro de 2025, com 161.631 visualizações e 15.470 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
+    },
+    {
+      "title": "Curso Lógica de Programação 2026 – Aprenda em 3 Horas (De Verdade!)",
+      "channel": "Dev Aprender | Jhonatan de Souza",
+      "url": "https://www.youtube.com/watch?v=epf-WQdVis0",
+      "competencies": [
+        "programming-fundamentals"
+      ],
+      "level_min": "L0",
+      "technology": "agnostic",
+      "length": "2 h 51 min",
+      "published": "2025-08-06",
+      "views": 695169,
+      "likes": 20551,
+      "featured": {
+        "programming-fundamentals": 2
+      },
+      "why": "Vídeo em português de agosto de 2025, com 695.169 visualizações e 20.551 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
     },
     {
       "title": "Curso Completo de Lógica de Programação com Português Estruturado do Zero ao Avançado",
@@ -57,6 +57,24 @@
       "why": "Vídeo em português de fevereiro de 2024, com 237.166 visualizações e 13.281 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
     },
     {
+      "title": "Resolvendo exercício em Java (Nível fácil)",
+      "channel": "Kriss",
+      "url": "https://www.youtube.com/watch?v=FR1ZzSfdqCw",
+      "competencies": [
+        "problem-decomposition"
+      ],
+      "level_min": "L0",
+      "technology": "java",
+      "length": "5 min",
+      "published": "2026-02-06",
+      "views": 28661,
+      "likes": 2602,
+      "featured": {
+        "problem-decomposition": 1
+      },
+      "why": "Vídeo em português de fevereiro de 2026, com 28.661 visualizações e 2.602 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema. Mostra o raciocínio de quebrar um exercício em passos, resolvendo em Java."
+    },
+    {
       "title": "Introdução ao Pensamento Computacional - Como Resolver Problemas com Lógica de Computador",
       "channel": "Bóson Treinamentos",
       "url": "https://www.youtube.com/watch?v=ZkQShfZV4r4",
@@ -70,7 +88,7 @@
       "views": 15020,
       "likes": 1424,
       "featured": {
-        "problem-decomposition": 1
+        "problem-decomposition": 2
       },
       "why": "Vídeo em português de fevereiro de 2026, com 15.020 visualizações e 1.424 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
     },
@@ -88,27 +106,27 @@
       "views": 5558,
       "likes": 498,
       "featured": {
-        "problem-decomposition": 2
+        "problem-decomposition": 3
       },
       "why": "Vídeo em português de março de 2025, com 5.558 visualizações e 498 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
     },
     {
-      "title": "Resolvendo exercício em Java (Nível fácil)",
-      "channel": "Kriss",
-      "url": "https://www.youtube.com/watch?v=FR1ZzSfdqCw",
+      "title": "Aprenda HTML e CSS em 40 Minutos - Tutorial para Iniciantes",
+      "channel": "Gustavo Campelo - Desenvolvedor",
+      "url": "https://www.youtube.com/watch?v=wx5Be8G8Zbo",
       "competencies": [
-        "problem-decomposition"
+        "html-semantics"
       ],
       "level_min": "L0",
-      "technology": "java",
-      "length": "5 min",
-      "published": "2026-02-06",
-      "views": 28661,
-      "likes": 2602,
+      "technology": "html",
+      "length": "45 min",
+      "published": "2025-06-12",
+      "views": 96103,
+      "likes": 5349,
       "featured": {
-        "problem-decomposition": 3
+        "html-semantics": 1
       },
-      "why": "Vídeo em português de fevereiro de 2026, com 28.661 visualizações e 2.602 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema. Mostra o raciocínio de quebrar um exercício em passos, resolvendo em Java."
+      "why": "Vídeo em português de junho de 2025, com 96.103 visualizações e 5.349 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
     },
     {
       "title": "Curso completo de HTML - seu PRIMEIRO SITE DO ZERO para iniciar em PROGRAMAÇÃO!",
@@ -124,7 +142,7 @@
       "views": 547233,
       "likes": 32378,
       "featured": {
-        "html-semantics": 1
+        "html-semantics": 2
       },
       "why": "Vídeo em português de setembro de 2024, com 547.233 visualizações e 32.378 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
     },
@@ -142,45 +160,9 @@
       "views": 15467,
       "likes": 257,
       "featured": {
-        "html-semantics": 2
-      },
-      "why": "Vídeo em português de março de 2024, com 15.467 visualizações e 257 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
-    },
-    {
-      "title": "Aprenda HTML e CSS em 40 Minutos - Tutorial para Iniciantes",
-      "channel": "Gustavo Campelo - Desenvolvedor",
-      "url": "https://www.youtube.com/watch?v=wx5Be8G8Zbo",
-      "competencies": [
-        "html-semantics"
-      ],
-      "level_min": "L0",
-      "technology": "html",
-      "length": "45 min",
-      "published": "2025-06-12",
-      "views": 96103,
-      "likes": 5349,
-      "featured": {
         "html-semantics": 3
       },
-      "why": "Vídeo em português de junho de 2025, com 96.103 visualizações e 5.349 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
-    },
-    {
-      "title": "Desvendando Requisições HTTP: Métodos, Parâmetros, Body e Status Codes para Devs",
-      "channel": "Rocketseat",
-      "url": "https://www.youtube.com/watch?v=bMmdksBHyXc",
-      "competencies": [
-        "http-fundamentals"
-      ],
-      "level_min": "L0",
-      "technology": "http",
-      "length": "17 min",
-      "published": "2025-10-01",
-      "views": 15313,
-      "likes": 1093,
-      "featured": {
-        "http-fundamentals": 1
-      },
-      "why": "Vídeo em português de outubro de 2025, com 15.313 visualizações e 1.093 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
+      "why": "Vídeo em português de março de 2024, com 15.467 visualizações e 257 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
     },
     {
       "title": "Você usa APIs todos os dias, mas não entende HTTP",
@@ -196,9 +178,27 @@
       "views": 12922,
       "likes": 754,
       "featured": {
-        "http-fundamentals": 2
+        "http-fundamentals": 1
       },
       "why": "Vídeo em português de agosto de 2026, com 12.922 visualizações e 754 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
+    },
+    {
+      "title": "Desvendando Requisições HTTP: Métodos, Parâmetros, Body e Status Codes para Devs",
+      "channel": "Rocketseat",
+      "url": "https://www.youtube.com/watch?v=bMmdksBHyXc",
+      "competencies": [
+        "http-fundamentals"
+      ],
+      "level_min": "L0",
+      "technology": "http",
+      "length": "17 min",
+      "published": "2025-10-01",
+      "views": 15313,
+      "likes": 1093,
+      "featured": {
+        "http-fundamentals": 2
+      },
+      "why": "Vídeo em português de outubro de 2025, com 15.313 visualizações e 1.093 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
     },
     {
       "title": "ENTENDENDO O PROTOCOLO HTTP e HTTPS",
@@ -219,24 +219,6 @@
       "why": "Vídeo em português de maio de 2024, com 4.364 visualizações e 335 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
     },
     {
-      "title": "14 comandos básicos do Linux que todo iniciante precisa conhecer",
-      "channel": "Diolinux Labs",
-      "url": "https://www.youtube.com/watch?v=fdbsAKgQ3Bk",
-      "competencies": [
-        "command-line-basics"
-      ],
-      "level_min": "L0",
-      "technology": "shell",
-      "length": "7 min",
-      "published": "2025-05-23",
-      "views": 7149,
-      "likes": 735,
-      "featured": {
-        "command-line-basics": 1
-      },
-      "why": "Vídeo em português de maio de 2025, com 7.149 visualizações e 735 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
-    },
-    {
       "title": "Linux pra Iniciantes | Guia Rápido (e divertido!)",
       "channel": "psygreg",
       "url": "https://www.youtube.com/watch?v=nbZw0S8hNVc",
@@ -250,9 +232,27 @@
       "views": 183870,
       "likes": 10970,
       "featured": {
-        "command-line-basics": 2
+        "command-line-basics": 1
       },
       "why": "Vídeo em português de maio de 2025, com 183.870 visualizações e 10.970 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema. Sobre usar o Linux no geral, não só o terminal."
+    },
+    {
+      "title": "14 comandos básicos do Linux que todo iniciante precisa conhecer",
+      "channel": "Diolinux Labs",
+      "url": "https://www.youtube.com/watch?v=fdbsAKgQ3Bk",
+      "competencies": [
+        "command-line-basics"
+      ],
+      "level_min": "L0",
+      "technology": "shell",
+      "length": "7 min",
+      "published": "2025-05-23",
+      "views": 7149,
+      "likes": 735,
+      "featured": {
+        "command-line-basics": 2
+      },
+      "why": "Vídeo em português de maio de 2025, com 7.149 visualizações e 735 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
     },
     {
       "title": "60 Comandos Linux em 10 minutos",
@@ -273,24 +273,6 @@
       "why": "Vídeo em português de agosto de 2024, com 9.171 visualizações e 709 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
     },
     {
-      "title": "GIT: Minicurso para Você Sair do Zero! (Aprenda em 45 Minutos)",
-      "channel": "Código Fonte TV",
-      "url": "https://www.youtube.com/watch?v=ts-H3W1uLMM",
-      "competencies": [
-        "version-control-git"
-      ],
-      "level_min": "L0",
-      "technology": "git",
-      "length": "46 min",
-      "published": "2024-01-24",
-      "views": 136997,
-      "likes": 10347,
-      "featured": {
-        "version-control-git": 1
-      },
-      "why": "Vídeo em português de janeiro de 2024, com 136.997 visualizações e 10.347 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
-    },
-    {
       "title": "Oque é Git e Github explicado com bananas | Coisas que você precisa saber!",
       "channel": "Primata Hub",
       "url": "https://www.youtube.com/watch?v=LkBjOeoHBhA",
@@ -304,7 +286,7 @@
       "views": 262854,
       "likes": 18756,
       "featured": {
-        "version-control-git": 2
+        "version-control-git": 1
       },
       "why": "Vídeo em português de dezembro de 2025, com 262.854 visualizações e 18.756 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
     },
@@ -322,9 +304,27 @@
       "views": 117860,
       "likes": 5240,
       "featured": {
-        "version-control-git": 3
+        "version-control-git": 2
       },
       "why": "Vídeo em português de agosto de 2025, com 117.860 visualizações e 5.240 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
+    },
+    {
+      "title": "GIT: Minicurso para Você Sair do Zero! (Aprenda em 45 Minutos)",
+      "channel": "Código Fonte TV",
+      "url": "https://www.youtube.com/watch?v=ts-H3W1uLMM",
+      "competencies": [
+        "version-control-git"
+      ],
+      "level_min": "L0",
+      "technology": "git",
+      "length": "46 min",
+      "published": "2024-01-24",
+      "views": 136997,
+      "likes": 10347,
+      "featured": {
+        "version-control-git": 3
+      },
+      "why": "Vídeo em português de janeiro de 2024, com 136.997 visualizações e 10.347 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
     },
     {
       "title": "Como ler QUALQUER documentação de programação!",
@@ -417,24 +417,6 @@
       "why": "Vídeo em português de novembro de 2023, com 93.526 visualizações e 4.399 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
     },
     {
-      "title": "FLEXBOX: Guia Completo para Iniciantes em CSS",
-      "channel": "Larissa Kich",
-      "url": "https://www.youtube.com/watch?v=Z4CbaGCEsTY",
-      "competencies": [
-        "css-layout"
-      ],
-      "level_min": "L0",
-      "technology": "css",
-      "length": "19 min",
-      "published": "2024-03-08",
-      "views": 64296,
-      "likes": 4302,
-      "featured": {
-        "css-layout": 1
-      },
-      "why": "Vídeo em português de março de 2024, com 64.296 visualizações e 4.302 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
-    },
-    {
       "title": "DISPLAY GRID: Guia completo para Iniciantes em CSS",
       "channel": "Larissa Kich",
       "url": "https://www.youtube.com/watch?v=IpGFoNYJJU8",
@@ -448,7 +430,7 @@
       "views": 59106,
       "likes": 4226,
       "featured": {
-        "css-layout": 2
+        "css-layout": 1
       },
       "why": "Vídeo em português de agosto de 2024, com 59.106 visualizações e 4.226 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
     },
@@ -466,9 +448,27 @@
       "views": 55165,
       "likes": 4262,
       "featured": {
-        "css-layout": 3
+        "css-layout": 2
       },
       "why": "Vídeo em português de junho de 2024, com 55.165 visualizações e 4.262 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
+    },
+    {
+      "title": "FLEXBOX: Guia Completo para Iniciantes em CSS",
+      "channel": "Larissa Kich",
+      "url": "https://www.youtube.com/watch?v=Z4CbaGCEsTY",
+      "competencies": [
+        "css-layout"
+      ],
+      "level_min": "L0",
+      "technology": "css",
+      "length": "19 min",
+      "published": "2024-03-08",
+      "views": 64296,
+      "likes": 4302,
+      "featured": {
+        "css-layout": 3
+      },
+      "why": "Vídeo em português de março de 2024, com 64.296 visualizações e 4.302 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
     },
     {
       "title": "CURSO JAVASCRIPT | Interagindo com a DOM + Manipulando Arrays e Objetos",
@@ -489,24 +489,6 @@
       "why": "Vídeo em português de outubro de 2025, com 19.914 visualizações e 1.275 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
     },
     {
-      "title": "JavaScript WEB e a DOM na Prática | Curso de JavaScript Completo Gratuito",
-      "channel": "DevClub | Programação",
-      "url": "https://www.youtube.com/watch?v=DcN49TD7it0",
-      "competencies": [
-        "dom-and-browser"
-      ],
-      "level_min": "L0",
-      "technology": "javascript",
-      "length": "28 min",
-      "published": "2023-12-12",
-      "views": 34140,
-      "likes": 3010,
-      "featured": {
-        "dom-and-browser": 2
-      },
-      "why": "Vídeo em português de dezembro de 2023, com 34.140 visualizações e 3.010 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
-    },
-    {
       "title": "O Que É DOM no JavaScript e Como Manipular Elementos (Na Prática)",
       "channel": "Hashtag Dev",
       "url": "https://www.youtube.com/watch?v=uN8SfjJqkCw",
@@ -520,27 +502,27 @@
       "views": 3096,
       "likes": 172,
       "featured": {
-        "dom-and-browser": 3
+        "dom-and-browser": 2
       },
       "why": "Vídeo em português de setembro de 2025, com 3.096 visualizações e 172 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
     },
     {
-      "title": "Como Debugar Código JavaScript - Dicas para Iniciantes",
-      "channel": "Senhor Programador",
-      "url": "https://www.youtube.com/watch?v=tqJ2W21l2hg",
+      "title": "JavaScript WEB e a DOM na Prática | Curso de JavaScript Completo Gratuito",
+      "channel": "DevClub | Programação",
+      "url": "https://www.youtube.com/watch?v=DcN49TD7it0",
       "competencies": [
-        "debugging"
+        "dom-and-browser"
       ],
       "level_min": "L0",
       "technology": "javascript",
-      "length": "21 min",
-      "published": "2023-01-12",
-      "views": 1314,
-      "likes": 88,
+      "length": "28 min",
+      "published": "2023-12-12",
+      "views": 34140,
+      "likes": 3010,
       "featured": {
-        "debugging": 1
+        "dom-and-browser": 3
       },
-      "why": "Vídeo em português de janeiro de 2023, com 1.314 visualizações e 88 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema. Depuração de JavaScript para iniciantes."
+      "why": "Vídeo em português de dezembro de 2023, com 34.140 visualizações e 3.010 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
     },
     {
       "title": "Como Debugar Python com o VSCode? [Fácil e Rápido]",
@@ -556,9 +538,45 @@
       "views": 21132,
       "likes": 858,
       "featured": {
-        "debugging": 2
+        "debugging": 1
       },
       "why": "Vídeo em português de novembro de 2024, com 21.132 visualizações e 858 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema. Depuração no VS Code com Python; o método (pontos de parada, inspeção) vale para qualquer linguagem."
+    },
+    {
+      "title": "Como Debugar Código JavaScript - Dicas para Iniciantes",
+      "channel": "Senhor Programador",
+      "url": "https://www.youtube.com/watch?v=tqJ2W21l2hg",
+      "competencies": [
+        "debugging"
+      ],
+      "level_min": "L0",
+      "technology": "javascript",
+      "length": "21 min",
+      "published": "2023-01-12",
+      "views": 1314,
+      "likes": 88,
+      "featured": {
+        "debugging": 2
+      },
+      "why": "Vídeo em português de janeiro de 2023, com 1.314 visualizações e 88 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema. Depuração de JavaScript para iniciantes."
+    },
+    {
+      "title": "Código Limpo vs Realidade: o que realmente importa no código de produção",
+      "channel": "Diogo Löff",
+      "url": "https://www.youtube.com/watch?v=VhDSMkqxfDo",
+      "competencies": [
+        "code-readability"
+      ],
+      "level_min": "L0",
+      "technology": "agnostic",
+      "length": "21 min",
+      "published": "2026-01-31",
+      "views": 6458,
+      "likes": 633,
+      "featured": {
+        "code-readability": 1
+      },
+      "why": "Vídeo em português de janeiro de 2026, com 6.458 visualizações e 633 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
     },
     {
       "title": "CLEAN CODE",
@@ -574,7 +592,7 @@
       "views": 29958,
       "likes": 2846,
       "featured": {
-        "code-readability": 1
+        "code-readability": 2
       },
       "why": "Vídeo em português de dezembro de 2024, com 29.958 visualizações e 2.846 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
     },
@@ -592,27 +610,9 @@
       "views": 17426,
       "likes": 2051,
       "featured": {
-        "code-readability": 2
-      },
-      "why": "Vídeo em português de novembro de 2024, com 17.426 visualizações e 2.051 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
-    },
-    {
-      "title": "Código Limpo vs Realidade: o que realmente importa no código de produção",
-      "channel": "Diogo Löff",
-      "url": "https://www.youtube.com/watch?v=VhDSMkqxfDo",
-      "competencies": [
-        "code-readability"
-      ],
-      "level_min": "L0",
-      "technology": "agnostic",
-      "length": "21 min",
-      "published": "2026-01-31",
-      "views": 6458,
-      "likes": 633,
-      "featured": {
         "code-readability": 3
       },
-      "why": "Vídeo em português de janeiro de 2026, com 6.458 visualizações e 633 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
+      "why": "Vídeo em português de novembro de 2024, com 17.426 visualizações e 2.051 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
     },
     {
       "title": "Como usar acessibilidade web no seu projeto front end na prática!",
@@ -633,24 +633,6 @@
       "why": "Vídeo em português de janeiro de 2024, com 15.941 visualizações e 1.401 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
     },
     {
-      "title": "HTML Acessibilidade: Aula #01 - Introdução ao atributo role e aria",
-      "channel": "Programador Cego",
-      "url": "https://www.youtube.com/watch?v=sCHO4A-EIkc",
-      "competencies": [
-        "web-accessibility-basics"
-      ],
-      "level_min": "L0",
-      "technology": "html",
-      "length": "18 min",
-      "published": "2023-06-05",
-      "views": 2984,
-      "likes": 253,
-      "featured": {
-        "web-accessibility-basics": 2
-      },
-      "why": "Vídeo em português de junho de 2023, com 2.984 visualizações e 253 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
-    },
-    {
       "title": "Navegação para TODOS: Dicas Cruciais de ACESSIBILIDADE no Front-End!",
       "channel": "Codeboost",
       "url": "https://www.youtube.com/watch?v=FtSn8IL94BA",
@@ -664,27 +646,27 @@
       "views": 1156,
       "likes": 113,
       "featured": {
-        "web-accessibility-basics": 3
+        "web-accessibility-basics": 2
       },
       "why": "Vídeo em português de setembro de 2023, com 1.156 visualizações e 113 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
     },
     {
-      "title": "Minicurso de SQL (Saia do Zero em 1 Hora)",
-      "channel": "Código Fonte TV",
-      "url": "https://www.youtube.com/watch?v=dpanYy8IrcU",
+      "title": "HTML Acessibilidade: Aula #01 - Introdução ao atributo role e aria",
+      "channel": "Programador Cego",
+      "url": "https://www.youtube.com/watch?v=sCHO4A-EIkc",
       "competencies": [
-        "sql-basics"
+        "web-accessibility-basics"
       ],
-      "level_min": "L1",
-      "technology": "sql",
-      "length": "1 h",
-      "published": "2025-01-30",
-      "views": 124779,
-      "likes": 7718,
+      "level_min": "L0",
+      "technology": "html",
+      "length": "18 min",
+      "published": "2023-06-05",
+      "views": 2984,
+      "likes": 253,
       "featured": {
-        "sql-basics": 1
+        "web-accessibility-basics": 3
       },
-      "why": "Vídeo em português de janeiro de 2025, com 124.779 visualizações e 7.718 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
+      "why": "Vídeo em português de junho de 2023, com 2.984 visualizações e 253 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
     },
     {
       "title": "Curso Completo de SQL com PostgreSQL - Do Zero ao Avançado",
@@ -700,7 +682,7 @@
       "views": 156274,
       "likes": 9858,
       "featured": {
-        "sql-basics": 2
+        "sql-basics": 1
       },
       "why": "Vídeo em português de fevereiro de 2026, com 156.274 visualizações e 9.858 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
     },
@@ -718,27 +700,27 @@
       "views": 58831,
       "likes": 4519,
       "featured": {
-        "sql-basics": 3
+        "sql-basics": 2
       },
       "why": "Vídeo em português de junho de 2025, com 58.831 visualizações e 4.519 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
     },
     {
-      "title": "Banco de dados pra quem acha que é difícil kkkkkkk",
-      "channel": "Lan Code",
-      "url": "https://www.youtube.com/watch?v=VbNDTOGjt4o",
+      "title": "Minicurso de SQL (Saia do Zero em 1 Hora)",
+      "channel": "Código Fonte TV",
+      "url": "https://www.youtube.com/watch?v=dpanYy8IrcU",
       "competencies": [
-        "relational-data-modeling"
+        "sql-basics"
       ],
       "level_min": "L1",
       "technology": "sql",
-      "length": "7 min",
-      "published": "2025-05-06",
-      "views": 144306,
-      "likes": 12821,
+      "length": "1 h",
+      "published": "2025-01-30",
+      "views": 124779,
+      "likes": 7718,
       "featured": {
-        "relational-data-modeling": 1
+        "sql-basics": 3
       },
-      "why": "Vídeo em português de maio de 2025, com 144.306 visualizações e 12.821 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
+      "why": "Vídeo em português de janeiro de 2025, com 124.779 visualizações e 7.718 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
     },
     {
       "title": "Modelo Conceitual - BRModelo - Modelagem de banco de dados",
@@ -754,7 +736,7 @@
       "views": 3789,
       "likes": 162,
       "featured": {
-        "relational-data-modeling": 2
+        "relational-data-modeling": 1
       },
       "why": "Vídeo em português de outubro de 2025, com 3.789 visualizações e 162 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
     },
@@ -772,27 +754,45 @@
       "views": 3814,
       "likes": 204,
       "featured": {
-        "relational-data-modeling": 3
+        "relational-data-modeling": 2
       },
       "why": "Vídeo em português de junho de 2025, com 3.814 visualizações e 204 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
     },
     {
-      "title": "FETCH API na Prática: Consumindo API com JavaScript",
-      "channel": "DevZito",
-      "url": "https://www.youtube.com/watch?v=1O5GyaGcpos",
+      "title": "Banco de dados pra quem acha que é difícil kkkkkkk",
+      "channel": "Lan Code",
+      "url": "https://www.youtube.com/watch?v=VbNDTOGjt4o",
+      "competencies": [
+        "relational-data-modeling"
+      ],
+      "level_min": "L1",
+      "technology": "sql",
+      "length": "7 min",
+      "published": "2025-05-06",
+      "views": 144306,
+      "likes": 12821,
+      "featured": {
+        "relational-data-modeling": 3
+      },
+      "why": "Vídeo em português de maio de 2025, com 144.306 visualizações e 12.821 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
+    },
+    {
+      "title": "O QUE É UMA API? | Conceito e Como Usar",
+      "channel": "Shaulin",
+      "url": "https://www.youtube.com/watch?v=1QZR5De4f9E",
       "competencies": [
         "api-consumption"
       ],
       "level_min": "L1",
-      "technology": "javascript",
-      "length": "5 min",
-      "published": "2024-02-05",
-      "views": 38161,
-      "likes": 2931,
+      "technology": "agnostic",
+      "length": "10 min",
+      "published": "2024-07-24",
+      "views": 244385,
+      "likes": 24098,
       "featured": {
         "api-consumption": 1
       },
-      "why": "Vídeo em português de fevereiro de 2024, com 38.161 visualizações e 2.931 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
+      "why": "Vídeo em português de julho de 2024, com 244.385 visualizações e 24.098 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
     },
     {
       "title": "Aprenda APIs em 10 Minutos: Guia Rápido com Exemplos Práticos para Iniciantes",
@@ -813,40 +813,40 @@
       "why": "Vídeo em português de abril de 2024, com 224.508 visualizações e 16.928 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
     },
     {
-      "title": "O QUE É UMA API? | Conceito e Como Usar",
-      "channel": "Shaulin",
-      "url": "https://www.youtube.com/watch?v=1QZR5De4f9E",
+      "title": "FETCH API na Prática: Consumindo API com JavaScript",
+      "channel": "DevZito",
+      "url": "https://www.youtube.com/watch?v=1O5GyaGcpos",
       "competencies": [
         "api-consumption"
       ],
       "level_min": "L1",
-      "technology": "agnostic",
-      "length": "10 min",
-      "published": "2024-07-24",
-      "views": 244385,
-      "likes": 24098,
+      "technology": "javascript",
+      "length": "5 min",
+      "published": "2024-02-05",
+      "views": 38161,
+      "likes": 2931,
       "featured": {
         "api-consumption": 3
       },
-      "why": "Vídeo em português de julho de 2024, com 244.385 visualizações e 24.098 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
+      "why": "Vídeo em português de fevereiro de 2024, com 38.161 visualizações e 2.931 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
     },
     {
-      "title": "Curso de React para Completos Iniciantes [2026]",
-      "channel": "Felipe Rocha • Full Stack Club",
-      "url": "https://www.youtube.com/watch?v=2RWsLmu8yVc",
+      "title": "Como começar em React em 2026? (Dicas e atualizações pra você iniciar com tudo)",
+      "channel": "Rocketseat",
+      "url": "https://www.youtube.com/watch?v=EOsigJta6cI",
       "competencies": [
         "ui-components-and-state"
       ],
       "level_min": "L1",
       "technology": "react",
-      "length": "2 h 25 min",
-      "published": "2024-08-29",
-      "views": 372116,
-      "likes": 15032,
+      "length": "20 min",
+      "published": "2025-12-18",
+      "views": 35794,
+      "likes": 2746,
       "featured": {
         "ui-components-and-state": 1
       },
-      "why": "Vídeo em português de agosto de 2024, com 372.116 visualizações e 15.032 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
+      "why": "Vídeo em português de dezembro de 2025, com 35.794 visualizações e 2.746 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema. Dicas de por onde começar em React, não uma aula."
     },
     {
       "title": "Curso de React JS para Iniciantes com Projeto",
@@ -867,40 +867,22 @@
       "why": "Vídeo em português de janeiro de 2025, com 32.639 visualizações e 1.701 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
     },
     {
-      "title": "Como começar em React em 2026? (Dicas e atualizações pra você iniciar com tudo)",
-      "channel": "Rocketseat",
-      "url": "https://www.youtube.com/watch?v=EOsigJta6cI",
+      "title": "Curso de React para Completos Iniciantes [2026]",
+      "channel": "Felipe Rocha • Full Stack Club",
+      "url": "https://www.youtube.com/watch?v=2RWsLmu8yVc",
       "competencies": [
         "ui-components-and-state"
       ],
       "level_min": "L1",
       "technology": "react",
-      "length": "20 min",
-      "published": "2025-12-18",
-      "views": 35794,
-      "likes": 2746,
+      "length": "2 h 25 min",
+      "published": "2024-08-29",
+      "views": 372116,
+      "likes": 15032,
       "featured": {
         "ui-components-and-state": 3
       },
-      "why": "Vídeo em português de dezembro de 2025, com 35.794 visualizações e 2.746 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema. Dicas de por onde começar em React, não uma aula."
-    },
-    {
-      "title": "Criando uma API do ZERO com Node.js e Banco de Dados",
-      "channel": "DevClub | Programação",
-      "url": "https://www.youtube.com/watch?v=PyrMT0GA3sE",
-      "competencies": [
-        "api-development"
-      ],
-      "level_min": "L1",
-      "technology": "node",
-      "length": "1 h 15 min",
-      "published": "2024-05-23",
-      "views": 285546,
-      "likes": 17557,
-      "featured": {
-        "api-development": 1
-      },
-      "why": "Vídeo em português de maio de 2024, com 285.546 visualizações e 17.557 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
+      "why": "Vídeo em português de agosto de 2024, com 372.116 visualizações e 15.032 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
     },
     {
       "title": "Curso Spring Boot: Criando sua primeira API REST do ZERO - Parte 1",
@@ -916,9 +898,27 @@
       "views": 48341,
       "likes": 2706,
       "featured": {
-        "api-development": 2
+        "api-development": 1
       },
       "why": "Vídeo em português de março de 2026, com 48.341 visualizações e 2.706 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema. A mesma competência em Java com Spring."
+    },
+    {
+      "title": "Criando uma API do ZERO com Node.js e Banco de Dados",
+      "channel": "DevClub | Programação",
+      "url": "https://www.youtube.com/watch?v=PyrMT0GA3sE",
+      "competencies": [
+        "api-development"
+      ],
+      "level_min": "L1",
+      "technology": "node",
+      "length": "1 h 15 min",
+      "published": "2024-05-23",
+      "views": 285546,
+      "likes": 17557,
+      "featured": {
+        "api-development": 2
+      },
+      "why": "Vídeo em português de maio de 2024, com 285.546 visualizações e 17.557 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
     },
     {
       "title": "Como criar uma REST API completa do zero com GO | Golang tutorial - iniciante",
@@ -939,24 +939,6 @@
       "why": "Vídeo em português de maio de 2024, com 57.168 visualizações e 3.213 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema. A mesma competência em Go."
     },
     {
-      "title": "Aprendendo React do Zero, Conectando Back e Front End, e Consumindo API",
-      "channel": "DevClub | Programação",
-      "url": "https://www.youtube.com/watch?v=_gHr2Pe5LCY",
-      "competencies": [
-        "build-an-application"
-      ],
-      "level_min": "L1",
-      "technology": "node",
-      "length": "1 h 13 min",
-      "published": "2024-05-30",
-      "views": 251181,
-      "likes": 12714,
-      "featured": {
-        "build-an-application": 1
-      },
-      "why": "Vídeo em português de maio de 2024, com 251.181 visualizações e 12.714 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
-    },
-    {
       "title": "Criando BACKEND COMPLETO do ZERO com JAVA SPRING + POSTGRES + AWS",
       "channel": "Fernanda Kipper",
       "url": "https://www.youtube.com/watch?v=d0KaNzAMVO4",
@@ -970,9 +952,27 @@
       "views": 147650,
       "likes": 6480,
       "featured": {
-        "build-an-application": 2
+        "build-an-application": 1
       },
       "why": "Vídeo em português de junho de 2024, com 147.650 visualizações e 6.480 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
+    },
+    {
+      "title": "Aprendendo React do Zero, Conectando Back e Front End, e Consumindo API",
+      "channel": "DevClub | Programação",
+      "url": "https://www.youtube.com/watch?v=_gHr2Pe5LCY",
+      "competencies": [
+        "build-an-application"
+      ],
+      "level_min": "L1",
+      "technology": "node",
+      "length": "1 h 13 min",
+      "published": "2024-05-30",
+      "views": 251181,
+      "likes": 12714,
+      "featured": {
+        "build-an-application": 2
+      },
+      "why": "Vídeo em português de maio de 2024, com 251.181 visualizações e 12.714 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
     },
     {
       "title": "Como sair do ZERO em Node.js em apenas UMA aula",
@@ -1047,6 +1047,24 @@
       "why": "Vídeo em português de janeiro de 2024, com 10.338 visualizações e 627 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
     },
     {
+      "title": "Coloque Seu Site no Ar GRÁTIS com GitHub Pages em 2025 - Tutorial completo",
+      "channel": "Dev. Odair Michael",
+      "url": "https://www.youtube.com/watch?v=uFEJyU6i20Q",
+      "competencies": [
+        "deployment-basics"
+      ],
+      "level_min": "L1",
+      "technology": "agnostic",
+      "length": "15 min",
+      "published": "2025-05-30",
+      "views": 23234,
+      "likes": 1157,
+      "featured": {
+        "deployment-basics": 1
+      },
+      "why": "Vídeo em português de maio de 2025, com 23.234 visualizações e 1.157 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
+    },
+    {
       "title": "Como colocar seu SITE no AR de GRAÇA com o GitHub Pages",
       "channel": "Larissa Kich",
       "url": "https://www.youtube.com/watch?v=q3vsAtijvgA",
@@ -1060,7 +1078,7 @@
       "views": 150309,
       "likes": 8907,
       "featured": {
-        "deployment-basics": 1
+        "deployment-basics": 2
       },
       "why": "Vídeo em português de agosto de 2024, com 150.309 visualizações e 8.907 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
     },
@@ -1078,27 +1096,27 @@
       "views": 56349,
       "likes": 1834,
       "featured": {
-        "deployment-basics": 2
+        "deployment-basics": 3
       },
       "why": "Vídeo em português de abril de 2024, com 56.349 visualizações e 1.834 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
     },
     {
-      "title": "Coloque Seu Site no Ar GRÁTIS com GitHub Pages em 2025 - Tutorial completo",
-      "channel": "Dev. Odair Michael",
-      "url": "https://www.youtube.com/watch?v=uFEJyU6i20Q",
+      "title": "PARA DE ESCREVER TESTES COM JEST (alternativa mais rápida testes unitários em JavaScript)",
+      "channel": "Fernanda Kipper",
+      "url": "https://www.youtube.com/watch?v=lzknJcj3QgY",
       "competencies": [
-        "deployment-basics"
+        "automated-testing-basics"
       ],
       "level_min": "L1",
-      "technology": "agnostic",
-      "length": "15 min",
-      "published": "2025-05-30",
-      "views": 23234,
-      "likes": 1157,
+      "technology": "javascript",
+      "length": "17 min",
+      "published": "2025-04-10",
+      "views": 9456,
+      "likes": 621,
       "featured": {
-        "deployment-basics": 3
+        "automated-testing-basics": 1
       },
-      "why": "Vídeo em português de maio de 2025, com 23.234 visualizações e 1.157 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
+      "why": "Vídeo em português de abril de 2025, com 9.456 visualizações e 621 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
     },
     {
       "title": "Descomplicando Testes Unitários! (Guia Rápido Para Iniciantes Na Programação)",
@@ -1114,7 +1132,7 @@
       "views": 69500,
       "likes": 5066,
       "featured": {
-        "automated-testing-basics": 1
+        "automated-testing-basics": 2
       },
       "why": "Vídeo em português de outubro de 2023, com 69.500 visualizações e 5.066 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
     },
@@ -1132,27 +1150,27 @@
       "views": 32872,
       "likes": 2238,
       "featured": {
-        "automated-testing-basics": 2
+        "automated-testing-basics": 3
       },
       "why": "Vídeo em português de julho de 2023, com 32.872 visualizações e 2.238 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
     },
     {
-      "title": "PARA DE ESCREVER TESTES COM JEST (alternativa mais rápida testes unitários em JavaScript)",
-      "channel": "Fernanda Kipper",
-      "url": "https://www.youtube.com/watch?v=lzknJcj3QgY",
+      "title": "Ninguém Mais Lê o Código",
+      "channel": "Augusto Galego",
+      "url": "https://www.youtube.com/watch?v=In-QCYl06_Q",
       "competencies": [
-        "automated-testing-basics"
+        "code-review-participation"
       ],
       "level_min": "L1",
-      "technology": "javascript",
-      "length": "17 min",
-      "published": "2025-04-10",
-      "views": 9456,
-      "likes": 621,
+      "technology": "agnostic",
+      "length": "16 min",
+      "published": "2026-08-10",
+      "views": 31074,
+      "likes": 2365,
       "featured": {
-        "automated-testing-basics": 3
+        "code-review-participation": 1
       },
-      "why": "Vídeo em português de abril de 2025, com 9.456 visualizações e 621 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
+      "why": "Vídeo em português de agosto de 2026, com 31.074 visualizações e 2.365 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema. Revisão de código na era da IA."
     },
     {
       "title": "Como SER APROVADO na CODE REVIEW Sendo Dev Júnior (MÉTODO INFALÍVEL)",
@@ -1168,7 +1186,7 @@
       "views": 10587,
       "likes": 1142,
       "featured": {
-        "code-review-participation": 1
+        "code-review-participation": 2
       },
       "why": "Vídeo em português de outubro de 2024, com 10.587 visualizações e 1.142 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
     },
@@ -1186,45 +1204,27 @@
       "views": 4343,
       "likes": 232,
       "featured": {
-        "code-review-participation": 2
+        "code-review-participation": 3
       },
       "why": "Vídeo em português de março de 2024, com 4.343 visualizações e 232 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
     },
     {
-      "title": "Ninguém Mais Lê o Código",
-      "channel": "Augusto Galego",
-      "url": "https://www.youtube.com/watch?v=In-QCYl06_Q",
-      "competencies": [
-        "code-review-participation"
-      ],
-      "level_min": "L1",
-      "technology": "agnostic",
-      "length": "16 min",
-      "published": "2026-08-10",
-      "views": 31074,
-      "likes": 2365,
-      "featured": {
-        "code-review-participation": 3
-      },
-      "why": "Vídeo em português de agosto de 2026, com 31.074 visualizações e 2.365 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema. Revisão de código na era da IA."
-    },
-    {
-      "title": "COMO CRIAR SEUS READMEs? GUIA DO README COMPLETO",
-      "channel": "Fernanda Kipper",
-      "url": "https://www.youtube.com/watch?v=k4Rsy8GbKE0",
+      "title": "Soft Skills essenciais para devs: acelere sua carreira tech!",
+      "channel": "Rocketseat",
+      "url": "https://www.youtube.com/watch?v=k-bBu8IsILI",
       "competencies": [
         "technical-communication"
       ],
       "level_min": "L1",
       "technology": "agnostic",
-      "length": "26 min",
-      "published": "2024-05-08",
-      "views": 60647,
-      "likes": 4263,
+      "length": "6 min",
+      "published": "2025-10-21",
+      "views": 3561,
+      "likes": 292,
       "featured": {
         "technical-communication": 1
       },
-      "why": "Vídeo em português de maio de 2024, com 60.647 visualizações e 4.263 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
+      "why": "Vídeo em português de outubro de 2025, com 3.561 visualizações e 292 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
     },
     {
       "title": "SOFT SKILLS: O Segredo dos PROGRAMADORES de Sucesso: Desenvolva Essas Habilidades e se Destaque!",
@@ -1245,22 +1245,40 @@
       "why": "Vídeo em português de março de 2025, com 41.744 visualizações e 4.689 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
     },
     {
-      "title": "Soft Skills essenciais para devs: acelere sua carreira tech!",
-      "channel": "Rocketseat",
-      "url": "https://www.youtube.com/watch?v=k-bBu8IsILI",
+      "title": "COMO CRIAR SEUS READMEs? GUIA DO README COMPLETO",
+      "channel": "Fernanda Kipper",
+      "url": "https://www.youtube.com/watch?v=k4Rsy8GbKE0",
       "competencies": [
         "technical-communication"
       ],
       "level_min": "L1",
       "technology": "agnostic",
-      "length": "6 min",
-      "published": "2025-10-21",
-      "views": 3561,
-      "likes": 292,
+      "length": "26 min",
+      "published": "2024-05-08",
+      "views": 60647,
+      "likes": 4263,
       "featured": {
         "technical-communication": 3
       },
-      "why": "Vídeo em português de outubro de 2025, com 3.561 visualizações e 292 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
+      "why": "Vídeo em português de maio de 2024, com 60.647 visualizações e 4.263 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
+    },
+    {
+      "title": "POR QUE SEU CÓDIGO É LENTO? Complexidade de Algoritmos para Entrevistas Técnicas (Big O Notation)",
+      "channel": "Código Fonte TV",
+      "url": "https://www.youtube.com/watch?v=GmGJNJJETlo",
+      "competencies": [
+        "algorithms-and-complexity"
+      ],
+      "level_min": "L1",
+      "technology": "agnostic",
+      "length": "10 min",
+      "published": "2026-01-14",
+      "views": 5959,
+      "likes": 772,
+      "featured": {
+        "algorithms-and-complexity": 1
+      },
+      "why": "Vídeo em português de janeiro de 2026, com 5.959 visualizações e 772 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
     },
     {
       "title": "Big O Notation fácil de entender! (Complexidade de Tempo e Espaço na Programação)",
@@ -1276,7 +1294,7 @@
       "views": 30555,
       "likes": 3284,
       "featured": {
-        "algorithms-and-complexity": 1
+        "algorithms-and-complexity": 2
       },
       "why": "Vídeo em português de fevereiro de 2025, com 30.555 visualizações e 3.284 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
     },
@@ -1294,27 +1312,27 @@
       "views": 86055,
       "likes": 9876,
       "featured": {
-        "algorithms-and-complexity": 2
+        "algorithms-and-complexity": 3
       },
       "why": "Vídeo em português de junho de 2023, com 86.055 visualizações e 9.876 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
     },
     {
-      "title": "POR QUE SEU CÓDIGO É LENTO? Complexidade de Algoritmos para Entrevistas Técnicas (Big O Notation)",
-      "channel": "Código Fonte TV",
-      "url": "https://www.youtube.com/watch?v=GmGJNJJETlo",
+      "title": "Claude Code - Tutorial Completo (para Iniciantes)",
+      "channel": "Hashtag Programação",
+      "url": "https://www.youtube.com/watch?v=yDO21vewdes",
       "competencies": [
-        "algorithms-and-complexity"
+        "ai-assisted-development-basics"
       ],
       "level_min": "L1",
       "technology": "agnostic",
-      "length": "10 min",
-      "published": "2026-01-14",
-      "views": 5959,
-      "likes": 772,
+      "length": "46 min",
+      "published": "2026-03-12",
+      "views": 344257,
+      "likes": 13206,
       "featured": {
-        "algorithms-and-complexity": 3
+        "ai-assisted-development-basics": 1
       },
-      "why": "Vídeo em português de janeiro de 2026, com 5.959 visualizações e 772 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema."
+      "why": "Vídeo em português de março de 2026, com 344.257 visualizações e 13.206 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema. Ensina uma ferramenta paga (Claude Code)."
     },
     {
       "title": "O Método Fábio Akita para programar com IA",
@@ -1330,7 +1348,7 @@
       "views": 416371,
       "likes": 30244,
       "featured": {
-        "ai-assisted-development-basics": 1
+        "ai-assisted-development-basics": 2
       },
       "why": "Vídeo em português de março de 2026, com 416.371 visualizações e 30.244 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema. Corte de live sobre o método de programar com IA do Fabio Akita."
     },
@@ -1348,27 +1366,9 @@
       "views": 166181,
       "likes": 5750,
       "featured": {
-        "ai-assisted-development-basics": 2
-      },
-      "why": "Vídeo em português de fevereiro de 2026, com 166.181 visualizações e 5.750 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema. Ensina uma ferramenta paga (Claude Code)."
-    },
-    {
-      "title": "Claude Code - Tutorial Completo (para Iniciantes)",
-      "channel": "Hashtag Programação",
-      "url": "https://www.youtube.com/watch?v=yDO21vewdes",
-      "competencies": [
-        "ai-assisted-development-basics"
-      ],
-      "level_min": "L1",
-      "technology": "agnostic",
-      "length": "46 min",
-      "published": "2026-03-12",
-      "views": 344257,
-      "likes": 13206,
-      "featured": {
         "ai-assisted-development-basics": 3
       },
-      "why": "Vídeo em português de março de 2026, com 344.257 visualizações e 13.206 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema. Ensina uma ferramenta paga (Claude Code)."
+      "why": "Vídeo em português de fevereiro de 2026, com 166.181 visualizações e 5.750 curtidas na busca de 17/10/2026; escolhido entre os mais recentes e mais bem avaliados sobre o tema. Ensina uma ferramenta paga (Claude Code)."
     }
   ]
 }

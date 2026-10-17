@@ -112,7 +112,7 @@ interface Built {
   actionType: string; competencies: string[]; levelMin: string; technology: string;
   cost: string; costNote?: string; ptBrStatus: string; requiresSignup: boolean;
   license: string; estimatedTime?: string; chapters?: string; why: string; task?: string;
-  origin: string; featured?: Record<string, number>;
+  origin: string; featured?: Record<string, number>; published?: string;
 }
 
 /** O nome do detentor não existe de forma confiável no JSON de livros — o host da URL é o
@@ -290,6 +290,7 @@ for (const e of read('videos-pt-verificados.json')) {
     why: String(e.why),
     origin: 'br-creator',
     featured: e.featured as Record<string, number>,
+    published: String(e.published),
   });
 }
 
@@ -319,6 +320,7 @@ for (const entry of built) {
     competencies: [...new Set([...keep.competencies, ...other.competencies])],
     // A posição curada vem da lente de vídeos mesmo quando o recurso já existia em outra lente.
     featured: keep.featured || other.featured ? { ...other.featured, ...keep.featured } : undefined,
+    published: keep.published ?? other.published,
   });
 }
 const deduped = [...byUrl.values()];
