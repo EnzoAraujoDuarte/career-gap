@@ -30,8 +30,9 @@ de base e o que pode esperar, sempre com o motivo.
    máximo 3), *falta base*, *não agora*. Cada nível fecha nas suas construções; cada estação diz o
    que destrava. O trecho já percorrido fica em tinta, até o *você está aqui*
    ([ADR-0011](docs/adr/0011-trilha-como-estrada.md)).
-5. **Explorar**: o catálogo inteiro com filtros: 157 recursos verificados um a um (104 em
-   português, 146 gratuitos, 43 de prática ou prova, 15 livros), 19 ferramentas com portão de
+5. **Explorar**: o catálogo inteiro com filtros: 230 recursos verificados um a um (177 em
+   português, 215 gratuitos, 43 de prática ou prova, 15 livros, 110 vídeos; toda estação abre por
+   um vídeo em português recente, [ADR-0015](docs/adr/0015-video-em-portugues-primeiro.md)), 19 ferramentas com portão de
    competência e com "como ter" (já vem no computador, conta, programa, dependência do projeto ou
    plugin do Claude Code, com o comando), 30 hábitos profissionais, inclusive os de carreira
    (publicar o que aprendeu no seu ritmo, conviver com outros devs, manter currículo e LinkedIn em dia), e 13

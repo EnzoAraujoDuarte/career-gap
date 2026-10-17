@@ -76,6 +76,7 @@ export function validateCatalog(catalog: Catalog): readonly CatalogProblem[] {
     requireDescriptor(competencies.get(edge.requires), edge.atLevel, label, report);
   }
 
+  const featuredSlots = new Map<string, string>();
   for (const resource of catalog.resources) {
     for (const competency of resource.competencies) {
       if (!competencies.has(competency)) {
@@ -92,6 +93,15 @@ export function validateCatalog(catalog: Catalog): readonly CatalogProblem[] {
       report('resource-why', resource.id, 'recurso sem justificativa de escolha');
     }
     // Missão sem enunciado é link solto; enunciado fora de missão é texto nosso atribuído a terceiro.
+    for (const [competency, position] of Object.entries(resource.featured ?? {})) {
+      if (!resource.competencies.includes(competency)) {
+        report('resource-featured', resource.id, `posição curada numa competência que o recurso não lista: ${competency}`);
+      }
+      const key = `${competency}#${position}`;
+      if (!Number.isInteger(position) || position < 1) report('resource-featured', resource.id, `posição inválida: ${position}`);
+      if (featuredSlots.has(key)) report('resource-featured', resource.id, `posição ${position} de ${competency} repetida (${featuredSlots.get(key)})`);
+      featuredSlots.set(key, resource.id);
+    }
     if ((resource.origin === 'mission') !== Boolean(resource.task?.trim())) {
       report('mission-task', resource.id, 'enunciado existe se e somente se o recurso é missão');
     }

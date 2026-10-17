@@ -147,3 +147,15 @@ describe('invariantes do catálogo — estrutura', () => {
     }
   });
 });
+
+describe('ordem curada dos vídeos', () => {
+  it('recusa posição numa competência que o recurso não lista e posição repetida', () => {
+    const [video, other] = CATALOG.resources.filter((resource) => resource.featured?.['sql-basics']);
+    const rules = (resources: typeof CATALOG.resources) => validateCatalog({ ...CATALOG, resources }).map((problem) => problem.rule);
+    const swap = (changed: (typeof CATALOG.resources)[number]) =>
+      CATALOG.resources.map((resource) => (resource.id === changed.id ? changed : resource));
+    expect(rules(CATALOG.resources)).not.toContain('resource-featured');
+    expect(rules(swap({ ...video, featured: { 'css-layout': 1 } }))).toContain('resource-featured');
+    expect(rules(swap({ ...other, featured: { 'sql-basics': video.featured!['sql-basics'] } }))).toContain('resource-featured');
+  });
+});

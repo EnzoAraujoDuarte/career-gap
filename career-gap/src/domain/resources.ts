@@ -64,7 +64,7 @@ export function selectResourcesFor(
   // Ordem PEDAGÓGICA, não ordem de escore: o mais acessível primeiro, para a lista ser lida
   // como progressão. Ordenar pelo nível mais próximo do alvo colocava um desafio de nível
   // final como primeiro passo de quem está em L0.
-  const order = pedagogicalOrder(preferred);
+  const order = pedagogicalOrder(competency, preferred);
   const ordered = [...eligible].map((resource) => ({ resource, score: scoreOf(resource) })).sort(order);
 
   const ranked = withPracticeSlot(ordered, limit, order);
@@ -82,6 +82,17 @@ interface Scored {
 }
 
 /**
+ * Vídeo primeiro. Quem está começando em português aprende mais rápido assistindo, e a busca de
+ * 2026-10-17 achou vídeo recente e bem avaliado para todas as competências (ADR-0015). Primeiro
+ * os vídeos curados, na ordem aprovada pelo autor; depois qualquer outro vídeo; depois o resto.
+ */
+/** Grande e finito: dois materiais sem posição empatam em 0, não em NaN. */
+const NOT_FEATURED = 1_000_000;
+const featuredRank = (resource: Resource, competency: CompetencyId): number =>
+  resource.featured?.[competency] ?? NOT_FEATURED;
+const videoRank = (resource: Resource): number => (resource.actionType === 'WATCH' ? 0 : 1);
+
+/**
  * A linguagem escolhida só desempata entre materiais igualmente acessíveis: o acessível vem
  * primeiro para todo mundo, e entre iguais o material na sua linguagem passa à frente. O
  * agnóstico serve a qualquer escolha, por isso empata com ela. O caminho não muda (ADR-0014).
@@ -91,8 +102,10 @@ const stackRank = (resource: Resource, preferred?: TechnologyId): number =>
 
 // Desempate por id mantém a ordem estável entre execuções e entre participantes.
 const pedagogicalOrder =
-  (preferred?: TechnologyId) =>
+  (competency: CompetencyId, preferred?: TechnologyId) =>
   (a: Scored, b: Scored): number =>
+    featuredRank(a.resource, competency) - featuredRank(b.resource, competency) ||
+    videoRank(a.resource) - videoRank(b.resource) ||
     levelIndex(a.resource.levelMin) - levelIndex(b.resource.levelMin) ||
     TEACHES_FIRST[a.resource.actionType] - TEACHES_FIRST[b.resource.actionType] ||
     stackRank(a.resource, preferred) - stackRank(b.resource, preferred) ||
