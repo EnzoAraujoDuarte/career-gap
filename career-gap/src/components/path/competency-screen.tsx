@@ -12,6 +12,7 @@ import { useCurrentProfile, useProfileSuffix } from '@/lib/current-profile';
 import { useProgress } from '@/lib/progress-storage';
 import { LEVEL_ASKED, LEVEL_SHORT } from '@/lib/reason-text';
 import { buildRoadmapView } from '@/lib/roadmap-view';
+import { aimReturnAt } from '@/lib/scroll-memory';
 import { EcosystemNav } from '@/components/ecosystem/ecosystem-nav';
 import { SectionLabel } from '@/components/ecosystem/page-shell';
 import { ExitCriteria } from '@/components/flow/exit-criteria';
@@ -57,6 +58,9 @@ export function CompetencyScreen({ id }: { id: string }) {
 
         <Link
           href={`/trilha${suffix}`}
+          // Sem rolar para o topo: quem decide onde parar é a volta guardada (lib/scroll-memory).
+          scroll={false}
+          onClick={() => aimReturnAt('trilha', competency.id)}
           className="text-ink-soft hover:text-ink focus-visible:outline-attention mt-7 inline-block py-1 text-[13px] focus-visible:outline-2"
         >
           ← Trilha{competency.levelTitle && ` · ${competency.levelTitle}`}

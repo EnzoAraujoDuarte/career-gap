@@ -12,6 +12,7 @@ import { markStarted, useProgress } from '@/lib/progress-storage';
 import { buildPathView, type PathLevelView, type PathStop, type PathView } from '@/lib/path-view';
 import { criteriaKey } from '@/lib/user-state';
 import { formatDuration } from '@/lib/resource-duration';
+import { rememberOnDetailLink, useRestoreScroll } from '@/lib/scroll-memory';
 import { buildRoadmapView } from '@/lib/roadmap-view';
 import type { AdviceKind } from '@/lib/advice';
 import { EcosystemNav } from '@/components/ecosystem/ecosystem-nav';
@@ -61,9 +62,14 @@ export function PathScreen() {
   );
   const trailRef = useRef<HTMLOListElement>(null);
   const road = useRoad(trailRef, `${demoId}|${reach}|${profile === undefined}`);
+  useRestoreScroll('trilha', profile !== undefined && progress !== undefined);
 
   return (
-    <main className="min-h-dvh bg-paper">
+    // Ao abrir uma competência, uma construção, o kit ou a carta, a posição fica guardada para a volta.
+    <main
+      className="min-h-dvh bg-paper"
+      onClickCapture={rememberOnDetailLink('trilha', ['/competencias/', '/construir/', '/kit', '/carta'])}
+    >
       <div className="mx-auto max-w-[1040px] px-4 py-6 sm:px-6">
         <EcosystemNav current="trilha" />
 
@@ -92,6 +98,26 @@ export function PathScreen() {
             De cima para baixo, na ordem sugerida. Cada estação mostra por onde começar e o que ela
             destrava; a bandeira de cada nível é o que você constrói ao chegar lá.
           </p>
+          {/* No celular a lista de níveis do lado não aparece; sem isto, chegar ao nível 3 era rolar
+              umas dez telas. */}
+          <nav aria-label="Ir para o nível" className="mt-3 lg:hidden">
+            <ol className="flex flex-wrap gap-2">
+              {path.levels.map((level) => (
+                <li key={level.level.id}>
+                  <a
+                    href={`#nivel-${level.level.id}`}
+                    aria-current={level.level.id === path.hereLevelId ? 'step' : undefined}
+                    className={`focus-visible:outline-attention inline-flex min-h-9 items-center gap-1.5 rounded-sm border px-2.5 text-[13px] focus-visible:outline-2 ${
+                      level.level.id === path.hereLevelId ? 'border-now text-now' : 'border-rule text-ink-soft hover:text-ink'
+                    }`}
+                  >
+                    <span className="font-serif tabular-nums">{level.number}</span>
+                    {level.level.title}
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </nav>
 
           <div className="mt-6 grid gap-10 lg:grid-cols-[minmax(0,1fr)_280px] lg:gap-14">
             <Aside path={path} suffix={suffix} hasProfile={profile !== null} />
@@ -251,7 +277,7 @@ function Level({
 
 function LevelBuild({ item, personal, suffix }: { item: BuildView; personal: boolean; suffix: string }) {
   return (
-    <li className="flex items-start gap-3">
+    <li id={`construcao-${item.build.id}`} className="flex scroll-mt-20 items-start gap-3">
       <BuildGlyph kind={item.build.kind} size={36} className="text-ink shrink-0" />
       <div className="min-w-0">
         <p className="flex flex-wrap items-baseline gap-x-2.5 gap-y-0.5">
@@ -290,7 +316,7 @@ function Station({
   const dim = kind === 'met' || kind === 'not-now';
   const checked = useCriteria()?.[criteriaKey(stop.id, stop.targetLevel)]?.checked.length ?? 0;
   return (
-    <li className="relative flex items-start gap-3" style={rowStyle(sway, 18)}>
+    <li id={stop.id} className="relative flex scroll-mt-20 items-start gap-3" style={rowStyle(sway, 18)}>
       <span data-road-point data-walked={walked} className="mt-[5px] shrink-0">
         <StationDot kind={kind} />
       </span>

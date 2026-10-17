@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useCurrentProfile, useProfileSuffix } from '@/lib/current-profile';
 import { DEMO_LABEL } from '@/lib/demo-profiles';
+import { forgetReturns } from '@/lib/scroll-memory';
 
 /**
  * Três lugares, como no Laracasts: a trilha, o catálogo aberto e o que é seu. Todos leem o
@@ -46,6 +47,7 @@ export function EcosystemNav({ current }: { current?: SpaceId }) {
               <li key={space.id}>
                 <Link
                   href={space.href + suffix}
+                  onClick={forgetReturns}
                   // "page" só no próprio espaço; numa página de dentro dele (uma competência, o
                   // ajuste do perfil) o espaço é o lugar atual, não a página.
                   aria-current={active ? (pathname === space.href ? 'page' : 'true') : undefined}
