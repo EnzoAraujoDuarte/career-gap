@@ -34,7 +34,7 @@ de base e o que pode esperar, sempre com o motivo.
    português, 146 gratuitos, 43 de prática ou prova, 15 livros), 19 ferramentas com portão de
    competência e com "como ter" (já vem no computador, conta, programa, dependência do projeto ou
    plugin do Claude Code, com o comando), 30 hábitos profissionais, inclusive os de carreira
-   (publicar o que aprendeu, conviver com outros devs, manter currículo e LinkedIn em dia), e 13
+   (publicar o que aprendeu no seu ritmo, conviver com outros devs, manter currículo e LinkedIn em dia), e 13
    pessoas que valem seguir, com a página oficial conferida e o momento em que cada uma rende.
 6. **Minha área**: o seu portfólio (as construções feitas, pelo que provam, com a frase para o
    currículo), continuar, minha lista, concluídos, critérios de saída marcados, propósito e meta. Fica no navegador e, com o banco ligado, no Postgres. Para quem

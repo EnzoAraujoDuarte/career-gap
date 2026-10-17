@@ -74,9 +74,8 @@ export function PathScreen() {
           <p className="text-ink-soft mt-3 text-[14.5px] leading-relaxed">
             Esta é a trilha para a {track.name.toLowerCase()}: {track.requirements.length} competências
             em {track.path.length} níveis, e cada nível fecha numa coisa que você constrói e mostra.
-            Nada é trancado. As marcas dizem o que você já sabe, o que vale agora e o que pode
-            esperar, sempre com o motivo. O caminho é independente de stack: as competências e a
-            ordem valem para qualquer linguagem; a do servidor você escolhe no nível 3.
+            Nada é trancado, e o caminho vale para qualquer linguagem. As marcas dizem o que você
+            já sabe, o que vale agora e o que pode esperar, sempre com o motivo.
           </p>
         </header>
 

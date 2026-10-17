@@ -413,11 +413,11 @@ export const HABITS: readonly ProfessionalHabit[] = [
   // O sistema indica o hábito; não lê currículo, LinkedIn nem GitHub de ninguém (escopo do TCC).
   {
     id: 'share-what-you-learn',
-    title: 'Publique toda semana o que aprendeu',
+    title: 'Publique o que aprendeu, no seu ritmo',
     detail:
-      'Um perfil no LinkedIn com uma postagem por semana: o que estudou, o que construiu, o que ' +
-      'deu errado e como resolveu. Explicar fixa o aprendizado, e quem contrata vê um histórico ' +
-      'em vez de uma promessa.',
+      'Um perfil no LinkedIn onde você conta o que estudou, o que construiu, o que deu errado e ' +
+      'como resolveu. Não precisa ser toda semana: uma postagem por mês já deixa um histórico, e ' +
+      'explicar fixa o aprendizado. Quem contrata vê histórico em vez de promessa.',
     tradition: 'apprenticeship-patterns',
     theme: 'career',
     credit: 'Apprenticeship Patterns, padrões "Share What You Learn" e "Record What You Learn"',

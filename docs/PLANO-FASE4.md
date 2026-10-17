@@ -419,7 +419,7 @@ mais é trancado, e o ajuste por competência entra na Minha área (§9).
 - **Três frases por pergunta** (§6): a do meio dá crédito parcial no mesmo nível; as maiores
   passaram a cobrir componentes, autenticação e IA. Catálogo `2026.10.16-1`; 130 testes.
 - **Hábitos de carreira**, tema novo "Ser visto e seguir aprendendo", tradição Apprenticeship
-  Patterns (Hoover e Oshineye, 2009): publicar toda semana o que aprendeu (LinkedIn), conviver
+  Patterns (Hoover e Oshineye, 2009): publicar o que aprendeu, no seu ritmo (LinkedIn), conviver
   com outros devs em eventos e comunidades, manter currículo, LinkedIn e conhecimento em dia.
   Ligados a comunicação técnica, participação em code review e leitura de documentação. O
   sistema indica o hábito; não analisa currículo nem perfil, que segue fora do escopo. 131 testes.
