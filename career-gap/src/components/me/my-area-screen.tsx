@@ -146,10 +146,11 @@ function Portfolio({ profile, progress }: { profile: UserProfile | null; progres
     <section>
       <SectionLabel>Seu portfólio · {builtTotal === 0 ? 'nada ainda' : builtTotal === 1 ? '1 construção' : `${builtTotal} construções`}</SectionLabel>
       <p className="text-ink-soft mt-1 text-[13px] leading-relaxed">
-        O que você já construiu, agrupado pelo que prova a quem contrata. Variedade vale mais que
-        quantidade: um projeto de back-end, um de front-end, um com design, um com IA. Cada construção
-        feita traz a frase para o currículo e o LinkedIn; na entrevista, a pergunta é “posso te
-        mostrar um pouco do que já construí?”.
+        O que você já construiu, agrupado pelo que prova a quem contrata. Qualidade primeiro,
+        variedade depois, e as duas valem mais que quantidade: um projeto de back-end, um de
+        front-end, um com design, um com IA, todos bem feitos. Cada construção feita traz a frase
+        para o currículo e o LinkedIn; na entrevista, a pergunta é “posso te mostrar um pouco do que
+        já construí?”.
       </p>
       <ul className="divide-rule mt-3 divide-y">
         {groups.map((group) => (
