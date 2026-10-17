@@ -115,7 +115,7 @@ export const PEOPLE: readonly Person[] = [
   {
     id: 'erick-wendel',
     name: 'Erick Wendel',
-    url: 'https://www.youtube.com/@ErickWendel',
+    url: 'https://www.youtube.com/@ErickWendelAcademy',
     publishes: 'Node.js e JavaScript a fundo: como a plataforma funciona, não só como usar.',
     why: 'Para quem já domina o JavaScript do dia a dia e quer entender o que acontece por baixo de uma API em Node.',
     competencies: ['javascript-essentials', 'api-development'],
