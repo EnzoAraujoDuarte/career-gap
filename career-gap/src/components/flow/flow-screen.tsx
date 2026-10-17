@@ -164,10 +164,12 @@ function groupByWave(nodes: readonly ViewNode[]): [number, ViewNode[]][] {
 
 function Shell({ children }: { children: React.ReactNode }) {
   return (
-    <main className="min-h-dvh bg-paper px-4 py-6 sm:px-6">
-      <div className="mx-auto max-w-[640px]">
-        <EcosystemNav />
+    <main className="min-h-dvh bg-paper">
+      <EcosystemNav />
+      <div className="mx-auto max-w-[1040px] px-4 pb-12 sm:px-6">
+        <div className="max-w-[640px]">
         <div className="mt-7">{children}</div>
+        </div>
       </div>
     </main>
   );

@@ -70,8 +70,8 @@ export function PathScreen() {
       className="min-h-dvh bg-paper"
       onClickCapture={rememberOnDetailLink('trilha', ['/competencias/', '/construir/', '/kit', '/carta'])}
     >
-      <div className="mx-auto max-w-[1040px] px-4 py-6 sm:px-6">
-        <EcosystemNav current="trilha" />
+      <EcosystemNav current="trilha" />
+      <div className="mx-auto max-w-[1040px] px-4 pb-12 sm:px-6">
 
         <header className="mt-8 max-w-[62ch]">
           <h1 className="font-serif text-ink text-[30px] leading-[1.15] text-balance sm:text-[34px]">
@@ -195,7 +195,7 @@ function Level({
     <li className="pb-6">
       <div
         id={`nivel-${level.level.id}`}
-        className="relative flex scroll-mt-6 items-start gap-4"
+        className="relative flex scroll-mt-16 items-start gap-4"
         style={rowStyle(0, 40)}
       >
         <span
@@ -283,7 +283,7 @@ function LevelBuild({ item, personal, suffix }: { item: BuildView; personal: boo
         <p className="flex flex-wrap items-baseline gap-x-2.5 gap-y-0.5">
           <Link
             href={`/construir/${item.build.id}${suffix}`}
-            className="text-ink focus-visible:outline-attention text-[14.5px] font-medium underline decoration-[var(--rule)] underline-offset-2 hover:decoration-[var(--ink)] focus-visible:outline-2"
+            className="tap text-ink focus-visible:outline-attention text-[14.5px] font-medium underline decoration-[var(--rule)] underline-offset-2 hover:decoration-[var(--ink)] focus-visible:outline-2"
           >
             {item.build.title}
           </Link>
@@ -325,7 +325,7 @@ function Station({
           <Link
             href={`/competencias/${stop.id}${suffix}`}
             aria-current={here ? 'step' : undefined}
-            className={`focus-visible:outline-attention font-serif text-[18px] leading-snug underline decoration-transparent underline-offset-4 hover:decoration-[var(--ink)] focus-visible:outline-2 ${
+            className={`tap focus-visible:outline-attention font-serif text-[18px] leading-snug underline decoration-transparent underline-offset-4 hover:decoration-[var(--ink)] focus-visible:outline-2 ${
               dim ? 'text-ink-soft' : 'text-ink'
             }`}
           >

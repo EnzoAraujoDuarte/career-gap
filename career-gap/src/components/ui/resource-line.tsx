@@ -36,7 +36,7 @@ export function ResourceLine({
         target="_blank"
         rel="noreferrer noopener"
         onClick={() => markStarted(resource.id)}
-        className="text-ink focus-visible:outline-attention -my-1 inline-block py-1 text-[14.5px] leading-snug underline decoration-[var(--rule)] underline-offset-2 hover:decoration-[var(--ink)] focus-visible:outline-2"
+        className="tap text-ink focus-visible:outline-attention -my-1 inline-block py-1 text-[14.5px] leading-snug underline decoration-[var(--rule)] underline-offset-2 hover:decoration-[var(--ink)] focus-visible:outline-2"
       >
         {resource.title}
         <span className="sr-only"> (abre em nova aba)</span>

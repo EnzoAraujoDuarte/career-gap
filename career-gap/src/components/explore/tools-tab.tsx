@@ -84,7 +84,7 @@ export function ToolsTab() {
               href={tool.url}
               target="_blank"
               rel="noreferrer noopener"
-              className="text-ink focus-visible:outline-attention text-[15px] underline decoration-[var(--rule)] underline-offset-2 hover:decoration-[var(--ink)] focus-visible:outline-2"
+              className="tap text-ink focus-visible:outline-attention text-[15px] underline decoration-[var(--rule)] underline-offset-2 hover:decoration-[var(--ink)] focus-visible:outline-2"
             >
               {tool.name}
               <span className="sr-only"> (abre em nova aba)</span>
