@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useMemo, useRef } from 'react';
 import { CATALOG, FIRST_WEB_ROLE } from '@/catalog';
-import type { Resource, UserProfile } from '@/domain/model';
+import type { Resource } from '@/domain/model';
 import { generateRoadmap } from '@/domain/roadmap';
 import { buildBuildsView, type BuildView, type BuildsView } from '@/lib/builds-view';
 import { useCurrentProfile, useProfileSuffix } from '@/lib/current-profile';
@@ -111,8 +111,6 @@ export function PathScreen() {
                     reach={reach}
                     hereId={path.hereId}
                     personal={profile !== null}
-                    profile={profile}
-                    demo={Boolean(demoId)}
                     builds={builds}
                     technologyId={path.technologyId}
                     suffix={suffix}
@@ -150,8 +148,6 @@ function Level({
   reach,
   hereId,
   personal,
-  profile,
-  demo,
   builds,
   technologyId,
   suffix,
@@ -161,8 +157,6 @@ function Level({
   reach: number;
   hereId?: string;
   personal: boolean;
-  profile: UserProfile | null;
-  demo: boolean;
   builds: BuildsView;
   technologyId?: string;
   suffix: string;
@@ -212,9 +206,7 @@ function Level({
               </li>
             ))}
           </ul>
-          {FIRST_WEB_ROLE.stacks.length > 0 && level.level.id === 'build-and-ship' && (
-            <StackChoice track={FIRST_WEB_ROLE} profile={profile} demo={demo} suffix={suffix} />
-          )}
+          {level.level.id === 'build-and-ship' && <StackChoice track={FIRST_WEB_ROLE} />}
         </div>
       </div>
 

@@ -37,3 +37,12 @@ linguagem; o site precisava dizer quando e como, sem contradizer a ADR-0001.
   A preferência de linguagem é a mesma nas duas condições, porque só toca os materiais.
 - Mais uma coluna no `learner` (migração `0003_linguagem_do_servidor`). Aplicar no Neon `main`
   antes de publicar.
+
+## Revisão de 2026-10-17 (mesmo dia): sem seletor
+
+O seletor com as duas linguagens saiu da tela a pedido do dono do produto: dois cartões lado a lado
+liam como "estas são as duas linguagens aceitas", o contrário do que a seção afirma, e Go, Ruby,
+Rust, C#, PHP e Python ficavam de fora sem motivo. A seção virou texto: a independência, o momento
+da escolha, quais linguagens têm material verificado hoje e que as outras servem igual. O campo no
+perfil, a coluna no banco e a regra de desempate no motor ficam, inofensivos e testados, para o dia
+em que o catálogo cobrir mais linguagens e a escolha puder voltar como filtro de materiais.

@@ -33,9 +33,7 @@ export function MyAreaScreen() {
   const { profile } = useCurrentProfile();
   const progress = useProgress();
   const goals = useGoals();
-  const draft = useStoredDraft();
-  const answered = Boolean(draft);
-  const stack = FIRST_WEB_ROLE.stacks.find((option) => option.technology === draft?.technologyId);
+  const answered = Boolean(useStoredDraft());
 
   return (
     <PageShell
@@ -88,15 +86,6 @@ export function MyAreaScreen() {
           {answered ? 'Refazer as 6 perguntas' : 'Responder as 6 perguntas'}
         </Link>
       </p>
-      {answered && (
-        <p className="text-ink-soft mt-2 text-[13px] leading-relaxed">
-          Linguagem do servidor: <span className="text-ink">{stack?.name ?? 'ainda não escolhida'}</span>. O caminho
-          é o mesmo em qualquer stack; a escolha só reordena os materiais.{' '}
-          <Link href="/trilha#nivel-build-and-ship" className="text-now underline underline-offset-2">
-            Escolher na trilha
-          </Link>
-        </p>
-      )}
 
       <Research />
 
