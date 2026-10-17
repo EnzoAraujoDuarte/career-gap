@@ -61,7 +61,7 @@ function BuildItem({ item, suffix }: { item: BuildView; suffix: string }) {
       <div className="min-w-0">
         <Link
           href={`/construir/${item.build.id}${suffix}`}
-          className="font-serif text-ink focus-visible:outline-attention text-[17px] leading-snug underline decoration-transparent underline-offset-4 hover:decoration-[var(--ink)] focus-visible:outline-2"
+          className="tap font-serif text-ink focus-visible:outline-attention text-[17px] leading-snug underline decoration-transparent underline-offset-4 hover:decoration-[var(--ink)] focus-visible:outline-2"
         >
           {item.build.title}
         </Link>

@@ -13,12 +13,16 @@ export function PageShell({
   children: React.ReactNode;
 }) {
   return (
-    <main className="min-h-dvh bg-paper px-4 py-6 sm:px-6">
-      <div className="mx-auto max-w-[640px]">
-        <EcosystemNav current={current} />
-        <h1 className="font-serif text-ink mt-7 text-[26px] leading-tight">{title}</h1>
-        <p className="text-ink-soft mt-2 max-w-[65ch] text-[14px] leading-relaxed">{intro}</p>
-        {children}
+    <main className="min-h-dvh bg-paper">
+      <EcosystemNav current={current} />
+      {/* A coluna de leitura (640px) começa na mesma margem da barra e da trilha: o título não
+          pula de lugar ao trocar de página. */}
+      <div className="mx-auto max-w-[1040px] px-4 pb-12 sm:px-6">
+        <div className="max-w-[640px]">
+          <h1 className="font-serif text-ink mt-7 text-[26px] leading-tight">{title}</h1>
+          <p className="text-ink-soft mt-2 max-w-[65ch] text-[14px] leading-relaxed">{intro}</p>
+          {children}
+        </div>
       </div>
     </main>
   );

@@ -29,6 +29,9 @@ const TABS = [
 
 type TabId = (typeof TABS)[number]['id'];
 
+/** Quantos conteúdos aparecem por vez. */
+const PAGE_SIZE = 20;
+
 /** Nomes curtos na URL: o link de um filtro precisa ser legível para ser compartilhado. */
 const TYPE_PARAM: Record<string, ContentType> = {
   aprender: 'learn',
@@ -133,6 +136,15 @@ function ContentsTab() {
     filters.type || filters.competency || filters.creator || filters.advice || filters.ptBr || filters.free,
   );
   const active = filtered || Boolean(query);
+  const activeCount = [filters.type, filters.competency, filters.creator, filters.advice, filters.ptBr, filters.free].filter(Boolean).length;
+  // No celular os filtros ocupavam duas telas antes do primeiro conteúdo. Ficam recolhidos atrás
+  // de um botão; a partir de 640px aparecem sempre, como antes.
+  const [filtersOpen, setFiltersOpen] = useState(false);
+  // 157 itens de uma vez davam 32 mil pixels no celular. Mostra em partes; muda de filtro, volta
+  // ao começo (a chave da lista abaixo é o filtro).
+  const listKey = JSON.stringify({ ...filters, query });
+  const [shown, setShown] = useState({ key: listKey, count: PAGE_SIZE });
+  const visibleCount = shown.key === listKey ? shown.count : PAGE_SIZE;
 
   return (
     <section className="mt-5">
@@ -156,6 +168,17 @@ function ContentsTab() {
         />
       </label>
 
+      <button
+        type="button"
+        onClick={() => setFiltersOpen((open) => !open)}
+        aria-expanded={filtersOpen}
+        aria-controls="filtros"
+        className="text-ink focus-visible:outline-attention mt-2 inline-flex min-h-11 items-center gap-2 text-[14px] focus-visible:outline-2 sm:hidden"
+      >
+        <span aria-hidden className="text-ink-soft">{filtersOpen ? '−' : '+'}</span>
+        Filtrar{activeCount > 0 && <span className="text-now">· {activeCount} ativo{activeCount > 1 ? 's' : ''}</span>}
+      </button>
+      <div id="filtros" className={`${filtersOpen ? 'block' : 'hidden'} sm:block`}>
       {profile && explore.facets.advice.length > 0 && (
         <ChipRow
           label="Direção"
@@ -196,6 +219,7 @@ function ContentsTab() {
           onSelect={(value) => update({ criador: value })}
         />
       </div>
+      </div>
 
       <div className="mt-5 flex items-baseline justify-between border-b border-rule pb-2">
         <p className="text-ink-soft text-[13px]" aria-live="polite">
@@ -221,11 +245,22 @@ function ContentsTab() {
             : 'Nada com esses filtros. Tire um deles — a contagem ao lado de cada opção mostra quantos aparecem.'}
         </p>
       ) : (
-        <ul className="mt-4 space-y-6">
-          {explore.items.map((item) => (
-            <Item key={item.resource.id} item={item} />
-          ))}
-        </ul>
+        <>
+          <ul className="mt-4 space-y-6">
+            {explore.items.slice(0, visibleCount).map((item) => (
+              <Item key={item.resource.id} item={item} />
+            ))}
+          </ul>
+          {explore.items.length > visibleCount && (
+            <button
+              type="button"
+              onClick={() => setShown({ key: listKey, count: visibleCount + PAGE_SIZE })}
+              className="border-rule text-ink hover:border-ink-faint focus-visible:outline-attention mt-8 inline-flex min-h-11 w-full items-center justify-center rounded-sm border text-[14px] focus-visible:outline-2 sm:w-auto sm:px-5"
+            >
+              Mostrar mais {Math.min(PAGE_SIZE, explore.items.length - visibleCount)} de {explore.items.length - visibleCount}
+            </button>
+          )}
+        </>
       )}
     </section>
   );

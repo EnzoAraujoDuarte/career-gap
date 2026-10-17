@@ -82,6 +82,33 @@ body {
   font-family: var(--font-ui), system-ui, sans-serif;
 }
 
+/* Piso de leitura no celular. O site foi composto em corpos de 12 a 14,5px, que no computador
+   leem bem e numa tela de bolso, em tinta clara, cansam. Abaixo de 640px cada um desses corpos
+   sobe 1px; a hierarquia fica a mesma, só mais legível. Regra fora de camada de propósito: vence
+   os utilitários do Tailwind sem `!important`. */
+@media (max-width: 639px) {
+  .text-\[12px\] { font-size: 13px; }
+  .text-\[12\.5px\] { font-size: 13.5px; }
+  .text-\[13px\] { font-size: 14px; }
+  .text-\[13\.5px\] { font-size: 14.5px; }
+  .text-\[14px\] { font-size: 15px; }
+  .text-\[14\.5px\] { font-size: 15.5px; }
+}
+
+/* Área de toque. Títulos-link de estação, construção e material têm a altura da linha (~20px);
+   com o dedo, isso é errar o alvo. No toque, um pseudo-elemento invisível estende o alvo para
+   cima e para baixo sem mexer no desenho. Só em elemento que já é caixa (flex, inline-block). */
+@media (pointer: coarse) {
+  .tap {
+    position: relative;
+  }
+  .tap::after {
+    content: "";
+    position: absolute;
+    inset: -12px -4px;
+  }
+}
+
 /* Manuscrita é para rótulo e anotação. Texto longo permanece na fonte de leitura. */
 .hand {
   font-family: var(--font-hand), var(--font-ui), cursive;

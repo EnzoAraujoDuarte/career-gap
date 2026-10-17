@@ -10,6 +10,10 @@ import { forgetReturns } from '@/lib/scroll-memory';
  * Três lugares, como no Laracasts: a trilha, o catálogo aberto e o que é seu. Todos leem o
  * mesmo estado de competências, então a navegação carrega o perfil de demonstração junto —
  * sem isso, trocar de lugar trocaria de pessoa.
+ *
+ * A barra ocupa a largura da página e tem a mesma moldura (1040px) em todas as telas: antes ela
+ * vivia dentro da coluna de cada página, e a trilha (1040px) e as outras (640px) a punham em
+ * lugares diferentes. Fica presa ao topo porque, no celular, a trilha passa de dez telas.
  */
 const SPACES = [
   { id: 'trilha', href: '/trilha', label: 'Trilha' },
@@ -29,41 +33,45 @@ export function EcosystemNav({ current }: { current?: SpaceId }) {
       {demoId && (
         // O perfil de exemplo viaja em todos os links; sem este aviso, a pessoa acharia que as
         // marcas e a lista são dela. Link comum: sair do exemplo precisa recarregar a página.
-        <p className="border-rule bg-tint-now text-ink -mx-4 mb-3 flex flex-wrap items-baseline gap-x-3 gap-y-1 border-b px-4 py-2 text-[13px] sm:-mx-6 sm:px-6">
-          <span>
-            Perfil de exemplo: <strong className="font-medium">{DEMO_LABEL[demoId] ?? demoId}</strong>.
-            As marcas são dele, não suas.
+        <p className="border-rule bg-tint-now text-ink border-b text-[13px]">
+          <span className="mx-auto flex max-w-[1040px] flex-wrap items-baseline gap-x-3 gap-y-1 px-4 py-2 sm:px-6">
+            <span>
+              Perfil de exemplo: <strong className="font-medium">{DEMO_LABEL[demoId] ?? demoId}</strong>.
+              As marcas são dele, não suas.
+            </span>
+            <a href={pathname} className="text-now -my-2 inline-block py-2 underline underline-offset-2">
+              Voltar ao meu perfil
+            </a>
           </span>
-          <a href={pathname} className="text-now -my-2 inline-block py-2 underline underline-offset-2">
-            Voltar ao meu perfil
-          </a>
         </p>
       )}
-      <nav aria-label="Espaços" className="-mx-4 overflow-x-auto px-4 sm:-mx-6 sm:px-6">
-        <ul className="flex gap-x-4 whitespace-nowrap py-1 text-[13.5px]">
-          {SPACES.map((space) => {
-            const active = space.id === current;
-            return (
-              <li key={space.id}>
-                <Link
-                  href={space.href + suffix}
-                  onClick={forgetReturns}
-                  // "page" só no próprio espaço; numa página de dentro dele (uma competência, o
-                  // ajuste do perfil) o espaço é o lugar atual, não a página.
-                  aria-current={active ? (pathname === space.href ? 'page' : 'true') : undefined}
-                  className={`focus-visible:outline-attention -my-2 inline-block py-2 focus-visible:outline-2 ${
-                    active
-                      ? 'text-ink underline decoration-2 underline-offset-[6px]'
-                      : 'text-ink-soft hover:text-ink'
-                  }`}
-                >
-                  {space.label}
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
-      </nav>
+      <header className="border-rule bg-paper sticky top-0 z-30 border-b">
+        <nav aria-label="Espaços" className="mx-auto max-w-[1040px] px-2 sm:px-4">
+          <ul className="flex text-[14px]">
+            {SPACES.map((space) => {
+              const active = space.id === current;
+              return (
+                <li key={space.id}>
+                  <Link
+                    href={space.href + suffix}
+                    onClick={forgetReturns}
+                    // "page" só no próprio espaço; numa página de dentro dele (uma competência, o
+                    // ajuste do perfil) o espaço é o lugar atual, não a página.
+                    aria-current={active ? (pathname === space.href ? 'page' : 'true') : undefined}
+                    className={`focus-visible:outline-attention relative inline-flex min-h-12 items-center px-2 focus-visible:outline-2 focus-visible:-outline-offset-4 ${
+                      active
+                        ? 'text-ink after:absolute after:inset-x-2 after:bottom-2 after:h-0.5 after:bg-[var(--ink)]'
+                        : 'text-ink-soft hover:text-ink'
+                    }`}
+                  >
+                    {space.label}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
+      </header>
     </>
   );
 }

@@ -163,7 +163,7 @@ function Portfolio({ profile, progress }: { profile: UserProfile | null; progres
                     <div className="min-w-0">
                       <Link
                         href={`/construir/${item.build.id}`}
-                        className="text-ink focus-visible:outline-attention text-[14px] font-medium underline decoration-[var(--rule)] underline-offset-2 hover:decoration-[var(--ink)] focus-visible:outline-2"
+                        className="tap text-ink focus-visible:outline-attention text-[14px] font-medium underline decoration-[var(--rule)] underline-offset-2 hover:decoration-[var(--ink)] focus-visible:outline-2"
                       >
                         {item.build.title}
                       </Link>

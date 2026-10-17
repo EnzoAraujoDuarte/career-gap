@@ -60,9 +60,10 @@ export function BuildScreen({ id }: { id: string }) {
   const tools = build.tools.map((id) => TOOLS.get(id)).filter((tool) => tool !== undefined);
 
   return (
-    <main className="min-h-dvh bg-paper px-4 py-6 sm:px-6">
-      <div className="mx-auto max-w-[640px]">
-        <EcosystemNav current="trilha" />
+    <main className="min-h-dvh bg-paper">
+      <EcosystemNav current="trilha" />
+      <div className="mx-auto max-w-[1040px] px-4 pb-12 sm:px-6">
+        <div className="max-w-[640px]">
 
         <Link
           href={`/trilha${suffix}`}
@@ -251,6 +252,7 @@ export function BuildScreen({ id }: { id: string }) {
             </section>
           </>
         )}
+        </div>
       </div>
     </main>
   );
