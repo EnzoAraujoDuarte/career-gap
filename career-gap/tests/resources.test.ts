@@ -81,11 +81,37 @@ describe('seleção de recursos', () => {
     for (const { resource } of picked) expect(resource.levelMin).not.toBe('L2');
   });
 
-  it('abre pelo recurso mais acessível, em ordem pedagógica', () => {
+  // A regra mudou em 2026-10-17 (ADR-0015): antes, "o mais acessível primeiro" valia para tudo;
+  // agora os vídeos curados abrem a estação na ordem aprovada, depois os outros vídeos, depois o
+  // resto. O acessível-primeiro continua valendo dentro de cada um desses grupos.
+  it('abre pelos vídeos curados, na ordem aprovada; depois vídeo; e o mais acessível primeiro em cada grupo', () => {
     for (const requirement of FIRST_WEB_ROLE.requirements) {
-      const picked = selectResourcesFor(requirement.competency, requirement.targetLevel, RESOURCES);
-      const levels = picked.map((item) => item.resource.levelMin);
-      expect([...levels].sort(), requirement.competency).toEqual(levels);
+      const id = requirement.competency;
+      const all = selectResourcesFor(id, requirement.targetLevel, RESOURCES, Infinity);
+      const positions = all.map((item) => item.resource.featured?.[id]).filter((n) => n !== undefined);
+      expect(positions.length, `${id} sem vídeo curado`).toBeGreaterThan(0);
+      expect(all.slice(0, positions.length).map((item) => item.resource.featured?.[id]), id).toEqual(
+        positions.map((_, index) => index + 1),
+      );
+
+      const rest = all.slice(positions.length);
+      const firstNotVideo = rest.findIndex((item) => item.resource.actionType !== 'WATCH');
+      if (firstNotVideo >= 0) {
+        expect(rest.slice(firstNotVideo).some((item) => item.resource.actionType === 'WATCH'), id).toBe(false);
+      }
+      for (const group of [rest.filter((item) => item.resource.actionType === 'WATCH'), rest.filter((item) => item.resource.actionType !== 'WATCH')]) {
+        const levels = group.map((item) => item.resource.levelMin);
+        expect([...levels].sort(), id).toEqual(levels);
+      }
+    }
+  });
+
+  it('o "comece aqui" de toda estação é um vídeo em português', () => {
+    for (const requirement of FIRST_WEB_ROLE.requirements) {
+      const [first] = selectResourcesFor(requirement.competency, requirement.targetLevel, RESOURCES);
+      expect(first.resource.actionType, requirement.competency).toBe('WATCH');
+      expect(first.resource.ptBrStatus, requirement.competency).toBe('complete');
+      expect(first.reasons, requirement.competency).toContain('STARTING_POINT');
     }
   });
 

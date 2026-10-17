@@ -24,6 +24,8 @@ export const TECHNOLOGIES: readonly Technology[] = [
   { id: 'python-django', name: 'Python / Django', ecosystem: 'web', stability: 'volatile' },
   { id: 'react', name: 'React', ecosystem: 'web', stability: 'volatile' },
   { id: 'java', name: 'Java', ecosystem: 'web', stability: 'evergreen' },
+  { id: 'go', name: 'Go', ecosystem: 'web', stability: 'evergreen' },
+  { id: 'python', name: 'Python', ecosystem: 'web', stability: 'evergreen' },
   { id: 'http', name: 'HTTP', ecosystem: 'web', stability: 'evergreen' },
   { id: 'shell', name: 'Terminal', ecosystem: 'web', stability: 'evergreen' },
 ];

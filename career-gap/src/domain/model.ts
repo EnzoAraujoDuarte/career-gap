@@ -281,6 +281,13 @@ export interface Resource {
    */
   readonly task?: string;
   readonly origin: 'br-creator' | 'canonical' | 'book' | 'practice' | 'mission';
+  /**
+   * Ordem curada: estes vídeos abrem a estação da competência, nesta posição (1 primeiro), do
+   * mais novo para o mais antigo. Busca de 2026-10-17 (docs/research/videos-pt-verificados.json).
+   */
+  readonly featured?: Readonly<Record<CompetencyId, number>>;
+  /** Data de publicação (AAAA-MM-DD), quando a fonte a dá com segurança: hoje, só os vídeos. */
+  readonly published?: string;
 }
 
 // ---------------------------------------------------------------------------

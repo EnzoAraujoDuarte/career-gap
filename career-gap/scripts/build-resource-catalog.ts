@@ -112,7 +112,7 @@ interface Built {
   actionType: string; competencies: string[]; levelMin: string; technology: string;
   cost: string; costNote?: string; ptBrStatus: string; requiresSignup: boolean;
   license: string; estimatedTime?: string; chapters?: string; why: string; task?: string;
-  origin: string;
+  origin: string; featured?: Record<string, number>; published?: string;
 }
 
 /** O nome do detentor não existe de forma confiável no JSON de livros — o host da URL é o
@@ -265,6 +265,35 @@ for (const e of read('recursos-pratica-verificados.json')) {
   });
 }
 
+// --- vídeos em português ------------------------------------------------------
+// Lente de 2026-10-17: vídeos recentes e bem avaliados, aprovados pelo autor para abrir cada
+// estação. `featured` guarda a posição em cada competência.
+const TECH_IDS = new Set(['agnostic', 'html', 'css', 'javascript', 'node', 'react', 'sql', 'git', 'http', 'shell', 'java', 'go', 'python']);
+for (const e of read('videos-pt-verificados.json')) {
+  const technology = String(e.technology);
+  if (!TECH_IDS.has(technology)) throw new Error(`tecnologia fora da lista: ${technology}`);
+  built.push({
+    id: uniqueId(slug(String(e.title))),
+    title: String(e.title),
+    sourceName: String(e.channel),
+    url: String(e.url),
+    kind: 'video',
+    actionType: 'WATCH',
+    competencies: e.competencies as string[],
+    levelMin: String(e.level_min),
+    technology,
+    cost: 'free',
+    ptBrStatus: 'complete',
+    requiresSignup: false,
+    license: 'direitos reservados — apenas linkar',
+    estimatedTime: String(e.length),
+    why: String(e.why),
+    origin: 'br-creator',
+    featured: e.featured as Record<string, number>,
+    published: String(e.published),
+  });
+}
+
 /**
  * Deduplicação por URL. Dez recursos apareceram em mais de uma lente (Pro Git, MDN HTTP,
  * SQLBolt, Full Stack Open...), porque cada lente procurou por um ângulo diferente. Mesclar
@@ -289,12 +318,16 @@ for (const entry of built) {
     estimatedTime: keep.estimatedTime ?? other.estimatedTime,
     license: keep.license.startsWith('não declarada') ? other.license : keep.license,
     competencies: [...new Set([...keep.competencies, ...other.competencies])],
+    // A posição curada vem da lente de vídeos mesmo quando o recurso já existia em outra lente.
+    featured: keep.featured || other.featured ? { ...other.featured, ...keep.featured } : undefined,
+    published: keep.published ?? other.published,
   });
 }
 const deduped = [...byUrl.values()];
 
 const header = `// GERADO por scripts/build-resource-catalog.ts — não editar à mão.
-// Fonte: docs/research/*.json — verificados um a um em 2026-09-11; prática e missões em 2026-10-15.
+// Fonte: docs/research/*.json — verificados um a um em 2026-09-11; prática e missões em 2026-10-15;
+// vídeos em português em 2026-10-17.
 // Regenerar com: pnpm build:resources
 import type { Resource } from '@/domain/model';
 
