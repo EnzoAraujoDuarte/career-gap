@@ -22,11 +22,9 @@ export function OpeningNote({ suffix }: { suffix: string }) {
         antes de começar, uma palavra de quem trabalha com isso
       </h2>
       <p className="text-ink mt-1.5 text-[14px] leading-relaxed">
-        As IAs já escrevem código bom, e as vagas de entrada encolheram: nos repositórios de vagas
-        da comunidade, estágio e júnior caíram de {DATA.entryBefore} para {DATA.entryAfter} num ano.
-        O que conta agora não é saber escrever código, é ter algo para mostrar: projetos que dá
-        para abrir, gente que conhece você e uma stack usada como ferramenta, não como identidade.
-        Este site existe para isso.{' '}
+        As IAs já escrevem código bom, e as vagas de entrada encolheram (estágio e júnior: de{' '}
+        {DATA.entryBefore} para {DATA.entryAfter} num ano, nos repositórios da comunidade). O que
+        conta agora é ter algo para mostrar e gente que conhece você. Este site existe para isso.{' '}
         <Link href={`/carta${suffix}`} className="text-now underline underline-offset-2">
           Ler a carta inteira
         </Link>
@@ -55,16 +53,16 @@ export function OpeningLetter() {
       <p className={paragraph}>
         <strong className="font-medium">Prova é coisa que dá para abrir.</strong> Um portfólio no seu
         currículo, com link, onde quem acessa vê o que você construiu: um projeto de back-end, um de
-        front-end, um com design que pareça de gente grande, um com IA. Site para um conhecido,
+        front-end, um com design de nível profissional, um com IA. Site para um conhecido,
         trabalho de freelancer, projeto inventado: tudo vale, desde que esteja no ar e você saiba
         explicar cada decisão. Na entrevista, a frase que muda a conversa é simples: “posso te
         mostrar um pouco do que já construí?”.
       </p>
       <p className={paragraph}>
         <strong className="font-medium">Nunca parado, nunca sozinho.</strong> Quem dá certo nesta
-        área não espera a vaga para começar: está sempre construindo alguma coisa, publica o que
-        aprendeu toda semana, conhece gente em eventos e comunidades, mantém o LinkedIn e o
-        currículo em dia e acompanha o mercado. Isso não é extra; é metade do trabalho de entrar.
+        área não espera a vaga para começar: está sempre construindo alguma coisa, mostra o que
+        fez, conhece gente em eventos e comunidades, mantém o LinkedIn e o currículo em dia e
+        acompanha o mercado. Isso não é extra; é metade do trabalho de entrar.
       </p>
       <p className={paragraph}>
         <strong className="font-medium">A base é lógica; a stack é ferramenta.</strong> Com lógica de
@@ -85,8 +83,8 @@ export function OpeningLetter() {
       <p className={paragraph}>
         <strong className="font-medium">Como este site ajuda.</strong> A trilha diz onde você está e
         o que vem depois. As construções são o portfólio, uma por vez, cada uma com uma frase pronta
-        para o currículo. Os hábitos de carreira são o “nunca parado”. O kit é o que eu uso no
-        trabalho. Comece pela primeira construção hoje; ela não exige saber nada ainda.
+        para o currículo. Os hábitos de carreira são o “nunca parado, nunca sozinho”. O kit é o que
+        eu uso no trabalho. Comece pela primeira construção hoje; ela não exige saber nada ainda.
       </p>
       <p className="text-ink-soft max-w-[65ch] text-[13px] leading-relaxed">
         Dados: repositórios frontendbr/vagas e backend-br/vagas, doze meses contra os doze
