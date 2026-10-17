@@ -446,6 +446,8 @@ mais é trancado, e o ajuste por competência entra na Minha área (§9).
   duas com material verificado) ou "ainda não sei". A escolha fica no perfil (`technology_id`,
   migração `0003`), entra no snapshot do motor e só reordena materiais, com o motivo "na linguagem
   que você escolheu". Validador exige material para cada linguagem oferecida.
+  **No mesmo dia, o seletor saiu** (decisão do Enzo): a seção ficou só texto, dizendo quais
+  linguagens têm material e que as outras servem igual; perfil, coluna e motor ficam.
 - **Carreira na era da IA**, do pedido do Enzo: carta de abertura (`/carta`, resumo no alto da
   trilha) com os dados próprios de vagas; "Seu portfólio" na Minha área, as construções agrupadas
   pelo que provam (fundamentos, front-end, back-end, design, IA, colaboração), com a frase para o
