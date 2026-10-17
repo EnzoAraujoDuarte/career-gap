@@ -18,7 +18,7 @@
  * substitui o texto sem mudar o id.
  */
 
-export const INSTRUMENT_VERSION = '2026.10.16-4';
+export const INSTRUMENT_VERSION = '2026.10.17-5';
 
 export interface Choice {
   readonly value: string;
@@ -142,6 +142,7 @@ export const CAREER_GAP_ITEMS: readonly LikertItem[] = [
   item('career-gap', 'can-build-now', 'construir-agora', 'Sei o que já consigo construir hoje.'),
   item('career-gap', 'next-step-clarity', 'proximo-passo', 'Sei qual é o meu próximo passo.'),
   item('career-gap', 'what-to-ignore', 'o-que-ignorar', 'Sei o que posso deixar para depois.'),
+  item('career-gap', 'not-now-usefulness', 'nao-agora-util', 'Ver o que pode esperar ("não agora") ajudou, em vez de esconder conteúdo.'),
   item('career-gap', 'better-than-before', 'melhor-que-antes', 'Ficou mais fácil decidir o que estudar do que antes.'),
 ];
 

@@ -3,7 +3,10 @@
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import { CATALOG, FIRST_WEB_ROLE } from '@/catalog';
-import type { Resource } from '@/domain/model';
+import type { PortfolioFacet, Resource, UserProfile } from '@/domain/model';
+import type { BuildStatus } from '@/domain/builds';
+import { buildBuildsView, portfolioView } from '@/lib/builds-view';
+import { useCurrentProfile } from '@/lib/current-profile';
 import type { SocialProvider } from '@/lib/auth';
 import { authClient } from '@/lib/auth-client';
 import { clearCriteria } from '@/lib/criteria-storage';
@@ -11,7 +14,7 @@ import { clearGoals, saveGoals, useGoals } from '@/lib/goals-storage';
 import { clearDraft, useStoredDraft } from '@/lib/profile-storage';
 import { clearProgress, useProgress } from '@/lib/progress-storage';
 import { disableRemote } from '@/lib/remote-push';
-import { BUILD_PROGRESS_PREFIX, type Goals, type ResourceProgress } from '@/lib/user-state';
+import type { Goals, ResourceProgress } from '@/lib/user-state';
 import { deleteMyData } from '@/server/user-state-actions';
 import { Loading, PageShell, SectionLabel } from '@/components/ecosystem/page-shell';
 import { usePersistence } from '@/components/persistence/persistence';
@@ -19,7 +22,6 @@ import { BuildGlyph } from '@/components/ui/build-glyph';
 import { ResourceLine } from '@/components/ui/resource-line';
 
 const RESOURCES = new Map(CATALOG.resources.map((resource) => [resource.id, resource]));
-const BUILDS = new Map(CATALOG.builds.map((build) => [build.id, build]));
 
 const PROVIDER_LABEL: Record<SocialProvider, string> = { google: 'Google', github: 'GitHub' };
 
@@ -28,6 +30,7 @@ const PROVIDER_LABEL: Record<SocialProvider, string> = { google: 'Google', githu
  * e a meta dela. Não há agenda: quando estudar é decisão de quem estuda.
  */
 export function MyAreaScreen() {
+  const { profile } = useCurrentProfile();
   const progress = useProgress();
   const goals = useGoals();
   const draft = useStoredDraft();
@@ -46,7 +49,7 @@ export function MyAreaScreen() {
         <Loading />
       ) : (
         <>
-          <BuiltList progress={progress ?? {}} />
+          <Portfolio profile={profile ?? null} progress={progress ?? {}} />
           <ResourceList
             title="Continuar"
             empty="Abra qualquer recurso na trilha ou no Explorar e ele aparece aqui."
@@ -114,40 +117,100 @@ function pick(
     .map(([id]) => RESOURCES.get(id)!);
 }
 
-/** As construções terminadas: a prova concreta de que a pessoa já faz, antes de qualquer lista. */
-function BuiltList({ progress }: { progress: Readonly<Record<string, ResourceProgress>> }) {
-  const built = Object.entries(progress)
-    .filter(([id, entry]) => id.startsWith(BUILD_PROGRESS_PREFIX) && entry.completedAt)
-    .sort(([, a], [, b]) => (b.completedAt ?? '').localeCompare(a.completedAt ?? ''))
-    .map(([id, entry]) => ({ build: BUILDS.get(id.slice(BUILD_PROGRESS_PREFIX.length)), at: entry.completedAt! }))
-    .filter((item) => item.build);
+/** Rótulos do portfólio, pelo que cada construção prova a quem contrata. */
+const FACET_LABEL: Record<PortfolioFacet, string> = {
+  fundamentals: 'Fundamentos',
+  frontend: 'Front-end',
+  backend: 'Back-end',
+  design: 'Design',
+  ai: 'IA',
+  collaboration: 'Colaboração',
+};
+
+const STATUS_LABEL: Record<BuildStatus, string> = {
+  ready: 'dá para fazer agora',
+  'one-away': 'a um passo',
+  later: 'mais adiante',
+  built: 'feita',
+};
+
+/**
+ * O portfólio: as construções feitas, agrupadas pelo que provam, com a frase para o currículo.
+ * Variedade é a régua, e o que falta é anotado com a construção mais perto; nada é trancado.
+ */
+function Portfolio({ profile, progress }: { profile: UserProfile | null; progress: Readonly<Record<string, ResourceProgress>> }) {
+  const groups = portfolioView(buildBuildsView(CATALOG, FIRST_WEB_ROLE, profile, progress));
+  const builtCount = groups.reduce((sum, group) => sum + group.built.length, 0);
   return (
     <section>
-      <SectionLabel>Construído · {built.length}</SectionLabel>
-      {built.length === 0 ? (
-        <p className="text-ink-soft mt-2 text-[13px]">
-          Quando terminar uma construção da trilha, marque “Construí isto” e ela aparece aqui.
-        </p>
-      ) : (
-        <ul className="mt-3 space-y-3">
-          {built.map(({ build, at }) => (
-            <li key={build!.id} className="flex items-start gap-3">
-              <BuildGlyph kind={build!.kind} size={36} className="text-ink shrink-0" />
-              <div className="min-w-0">
-                <Link
-                  href={`/construir/${build!.id}`}
-                  className="text-ink focus-visible:outline-attention text-[14.5px] font-medium underline decoration-[var(--rule)] underline-offset-2 hover:decoration-[var(--ink)] focus-visible:outline-2"
-                >
-                  {build!.title}
-                </Link>
-                <p className="text-ink-soft mt-0.5 text-[12.5px]">
-                  em {new Date(at).toLocaleDateString('pt-BR', { day: 'numeric', month: 'short' })}
+      <SectionLabel>Seu portfólio · {builtCount > 0 ? `${new Set(groups.flatMap((g) => g.built.map((b) => b.build.id))).size} construções` : 'nada ainda'}</SectionLabel>
+      <p className="text-ink-soft mt-1 text-[13px] leading-relaxed">
+        O que você já construiu, agrupado pelo que prova a quem contrata. Variedade vale mais que
+        quantidade: um projeto de back-end, um de front-end, um com design, um com IA. Cada construção
+        feita traz a frase para o currículo e o LinkedIn; na entrevista, a pergunta é “posso te
+        mostrar um pouco do que já construí?”.
+      </p>
+      <ul className="divide-rule mt-3 divide-y">
+        {groups.map((group) => (
+          <li key={group.facet} className="py-3">
+            <p className="flex flex-wrap items-baseline gap-x-2.5">
+              <span className="text-ink text-[14.5px] font-medium">{FACET_LABEL[group.facet]}</span>
+              {group.built.length > 0 ? (
+                <span className="hand text-done text-[13.5px]">✓ você já prova</span>
+              ) : (
+                <span className="text-ink-faint text-[12.5px]">ainda nada que prove</span>
+              )}
+            </p>
+            {group.built.length > 0 ? (
+              <ul className="mt-1.5 space-y-2">
+                {group.built.map((item) => (
+                  <li key={item.build.id} className="flex items-start gap-3">
+                    <BuildGlyph kind={item.build.kind} size={30} className="text-ink shrink-0" />
+                    <div className="min-w-0">
+                      <Link
+                        href={`/construir/${item.build.id}`}
+                        className="text-ink focus-visible:outline-attention text-[14px] font-medium underline decoration-[var(--rule)] underline-offset-2 hover:decoration-[var(--ink)] focus-visible:outline-2"
+                      >
+                        {item.build.title}
+                      </Link>
+                      <p className="text-ink-soft mt-0.5 text-[13px] leading-snug">
+                        <span className="text-ink-faint">Para o currículo: </span>
+                        {item.build.pitch}
+                      </p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              group.next && (
+                <p className="text-ink-soft mt-1 text-[13px] leading-snug">
+                  A mais perto:{' '}
+                  <Link
+                    href={`/construir/${group.next.build.id}`}
+                    className="text-ink underline decoration-[var(--rule)] underline-offset-2 hover:decoration-[var(--ink)]"
+                  >
+                    {group.next.build.title}
+                  </Link>
+                  {profile && (
+                    <>
+                      {' · '}
+                      <span className={group.next.status === 'ready' ? 'text-done' : 'text-ink-faint'}>
+                        {STATUS_LABEL[group.next.status]}
+                      </span>
+                    </>
+                  )}
                 </p>
-              </div>
-            </li>
-          ))}
-        </ul>
-      )}
+              )
+            )}
+          </li>
+        ))}
+      </ul>
+      <p className="text-ink-soft mt-3 text-[13px] leading-relaxed">
+        Quando terminar uma construção, marque “Construí isto” na página dela e ela entra aqui.{' '}
+        <Link href="/carta" className="text-now underline underline-offset-2">
+          Por que isso importa agora
+        </Link>
+      </p>
     </section>
   );
 }

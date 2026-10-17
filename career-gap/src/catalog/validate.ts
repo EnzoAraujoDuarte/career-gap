@@ -1,5 +1,5 @@
 import type { ActionType, CareerTrack, Competency, Level, Source } from '@/domain/model';
-import { MVP_MAX_LEVEL, levelIndex } from '@/domain/model';
+import { MVP_MAX_LEVEL, PORTFOLIO_FACETS, levelIndex } from '@/domain/model';
 import { PrerequisiteGraph } from '@/domain/graph';
 import { TECHNOLOGY_IDS } from './technologies';
 import type { Catalog } from '@/domain/roadmap';
@@ -405,10 +405,11 @@ function validateBuilds(
       if (build.steps.length < BUILD_STEPS.min || build.steps.length > BUILD_STEPS.max) {
         report('build-steps', build.id, `${build.steps.length} passos; o intervalo é ${BUILD_STEPS.min} a ${BUILD_STEPS.max}`);
       }
-      if (!build.result.trim() || !build.doneWhen.trim()) {
-        report('build-text', build.id, 'construção precisa dizer o resultado e quando está pronta');
+      if (!build.result.trim() || !build.doneWhen.trim() || !build.pitch.trim()) {
+        report('build-text', build.id, 'construção precisa dizer o resultado, quando está pronta e a frase para o currículo');
       }
-      for (const text of [build.title, build.result, build.doneWhen, ...build.steps]) {
+      if (build.shows.length === 0) report('build-shows', build.id, 'construção precisa dizer o que prova no portfólio');
+      for (const text of [build.title, build.result, build.doneWhen, build.pitch, ...build.steps]) {
         if (INTERNAL_LEVEL.test(text) || competencyIds.some((id) => text.includes(id))) {
           report('build-text', build.id, `texto exibido com código interno: "${text}"`);
         }
@@ -419,6 +420,12 @@ function validateBuilds(
       if (!buildsPerLevel.get(level.id)) report('build-coverage', `${track.id}:${level.id}`, 'nível sem construção');
     }
     if (doorways !== 1) report('build-doorway', track.id, `${doorways} construções sem exigência; precisa ser exatamente 1`);
+  }
+  // Portfólio com variedade: cada faceta precisa de pelo menos uma construção que a prove.
+  for (const facet of PORTFOLIO_FACETS) {
+    if (!catalog.builds.some((build) => build.shows.includes(facet))) {
+      report('portfolio-coverage', facet, 'nenhuma construção prova esta faceta');
+    }
   }
 }
 

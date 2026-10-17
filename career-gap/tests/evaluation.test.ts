@@ -45,7 +45,7 @@ describe('questionário: instrumento', () => {
 
   it('pergunta direto o que a tese afirma: as cinco perguntas do produto e a descoberta de lacunas', () => {
     const constructs = new Set(CAREER_GAP_ITEMS.map((item) => item.construct));
-    for (const construct of ['where-am-i', 'can-build-now', 'next-step-clarity', 'what-to-ignore', 'path-clarity', 'gap-discovery']) {
+    for (const construct of ['where-am-i', 'can-build-now', 'next-step-clarity', 'what-to-ignore', 'not-now-usefulness', 'path-clarity', 'gap-discovery']) {
       expect(constructs.has(construct), construct).toBe(true);
     }
     expect(CAREER_GAP_ITEMS.every((item) => item.source === 'career-gap')).toBe(true);
