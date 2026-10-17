@@ -115,6 +115,7 @@ export function PathScreen() {
                     profile={profile}
                     demo={Boolean(demoId)}
                     builds={builds}
+                    technologyId={path.technologyId}
                     suffix={suffix}
                   />
                 ))}
@@ -153,6 +154,7 @@ function Level({
   profile,
   demo,
   builds,
+  technologyId,
   suffix,
 }: {
   level: PathLevelView;
@@ -163,6 +165,7 @@ function Level({
   profile: UserProfile | null;
   demo: boolean;
   builds: BuildsView;
+  technologyId?: string;
   suffix: string;
 }) {
   const weeks = Math.max(1, Math.round(level.minutes / MINUTES_PER_WEEK));
@@ -225,6 +228,7 @@ function Level({
             walked={start + index < reach}
             here={stop.id === hereId}
             unlocks={builds.unlockedBy.get(stop.id) ?? []}
+            technologyId={technologyId}
             suffix={suffix}
           />
         ))}
@@ -280,6 +284,7 @@ function Station({
   walked,
   here,
   unlocks,
+  technologyId,
   suffix,
 }: {
   stop: PathStop;
@@ -287,6 +292,7 @@ function Station({
   walked: boolean;
   here: boolean;
   unlocks: readonly BuildView[];
+  technologyId?: string;
   suffix: string;
 }) {
   const kind = stop.advice?.kind;
@@ -338,7 +344,7 @@ function Station({
             conteúdo concreto — esconder recurso seria cadeado disfarçado (ADR-0009). */}
         {kind !== 'met' && stop.start && (
           <div className="mt-2.5">
-            <ResourceLine resource={stop.start} />
+            <ResourceLine resource={stop.start} yourStack={Boolean(technologyId) && stop.start.technology === technologyId} />
           </div>
         )}
         {kind !== 'met' && stop.practice && (

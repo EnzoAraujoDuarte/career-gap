@@ -1,5 +1,5 @@
 import type { Catalog } from '@/domain/roadmap';
-import type { CareerTrack, CompetencyId, Level, ProfessionalHabit, Resource } from '@/domain/model';
+import type { CareerTrack, CompetencyId, Level, ProfessionalHabit, Resource, TechnologyId } from '@/domain/model';
 import { levelIndex } from '@/domain/model';
 import { selectResourcesFor } from '@/domain/resources';
 import type { RoadmapView } from './roadmap-view';
@@ -31,6 +31,8 @@ export interface CompetencyView {
   readonly practice: readonly Resource[];
   readonly prove: readonly Resource[];
   readonly startId?: string;
+  /** Linguagem de servidor escolhida: marca os materiais que estão nela. */
+  readonly technologyId?: TechnologyId;
   /** "Não se sente pronto? Comece por…" — o desvio da Khan Academy, sem trancar nada. */
   readonly before: readonly Neighbor[];
   readonly opens: readonly Neighbor[];
@@ -67,6 +69,7 @@ export function buildCompetencyView(
     practice: all.filter((resource) => resource.actionType === 'BUILD'),
     prove: all.filter((resource) => resource.actionType === 'PROVE'),
     startId: all.find((resource) => !['BUILD', 'PROVE'].includes(resource.actionType))?.id,
+    technologyId: view?.technologyId,
     before: catalog.prerequisites
       .filter((edge) => edge.unlocks === id)
       .map((edge) => {
