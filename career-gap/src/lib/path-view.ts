@@ -49,6 +49,8 @@ export interface PathView {
   readonly hereLevelId?: string;
   /** Competências do catálogo que o track não exige: o "pode ignorar" permanente. */
   readonly outside: readonly { readonly id: CompetencyId; readonly name: string; readonly reason: string }[];
+  /** Linguagem de servidor escolhida: marca o "comece aqui" que está nela (ADR-0014). */
+  readonly technologyId?: string;
 }
 
 const isPractice = (resource: Resource) =>
@@ -124,5 +126,5 @@ export function buildPathView(
     .filter((competency) => !targetOf.has(competency.id))
     .map((competency) => ({ id: competency.id, name: competency.name, reason: competency.summary }));
 
-  return { levels, recommended, hereId: here?.id, hereLevelId, outside };
+  return { levels, recommended, hereId: here?.id, hereLevelId, outside, technologyId: view?.technologyId };
 }

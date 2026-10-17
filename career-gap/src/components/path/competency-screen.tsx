@@ -86,15 +86,17 @@ export function CompetencyScreen({ id }: { id: string }) {
           />
         )}
 
-        <ResourceGroup title="Aprender" resources={competency.learn} startId={competency.startId} />
+        <ResourceGroup title="Aprender" resources={competency.learn} startId={competency.startId} technologyId={competency.technologyId} />
         <ResourceGroup
           title="Praticar"
           resources={competency.practice}
+          technologyId={competency.technologyId}
           hint="Só assistir não forma ninguém: escolha pelo menos uma."
         />
         <ResourceGroup
           title="Provar"
           resources={competency.prove}
+          technologyId={competency.technologyId}
           hint="Dá para mostrar a alguém: vai para o portfólio ou passa por conferência."
         />
 
@@ -187,11 +189,13 @@ function ResourceGroup({
   title,
   resources,
   startId,
+  technologyId,
   hint,
 }: {
   title: string;
   resources: readonly Resource[];
   startId?: string;
+  technologyId?: string;
   hint?: string;
 }) {
   if (resources.length === 0) return null;
@@ -204,7 +208,12 @@ function ResourceGroup({
       <ul className="mt-3 space-y-4">
         {resources.map((resource) => (
           <li key={resource.id}>
-            <ResourceLine resource={resource} startHere={resource.id === startId} detailed />
+            <ResourceLine
+              resource={resource}
+              startHere={resource.id === startId}
+              yourStack={Boolean(technologyId) && resource.technology === technologyId}
+              detailed
+            />
           </li>
         ))}
       </ul>

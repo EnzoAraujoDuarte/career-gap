@@ -3,7 +3,7 @@
 import type { Resource } from '@/domain/model';
 import { ACTION_VERB } from '@/domain/model';
 import { markStarted } from '@/lib/progress-storage';
-import { COST_LABEL, PT_BR_LABEL } from '@/lib/reason-text';
+import { COST_LABEL, PT_BR_LABEL, PICK_REASON_TEXT } from '@/lib/reason-text';
 import { technologyName } from '@/lib/tech-badge';
 import { ProgressControls } from './progress-controls';
 import { Tag } from './tag';
@@ -16,11 +16,14 @@ export function ResourceLine({
   resource,
   startHere,
   detailed,
+  yourStack,
 }: {
   resource: Resource;
   startHere?: boolean;
   /** Na página da competência: mostra capítulos recomendados e o enunciado da missão. */
   detailed?: boolean;
+  /** O material está na linguagem de servidor que a pessoa escolheu (ADR-0014). */
+  yourStack?: boolean;
 }) {
   const time = resource.estimatedTime?.split('(')[0].trim();
   // A linguagem do recurso: sem ela, o "comece aqui" de autenticação era um vídeo de Java
@@ -47,6 +50,7 @@ export function ResourceLine({
       <span className="mt-1 flex flex-wrap gap-1.5">
         <Tag warn={resource.ptBrStatus === 'none'}>{PT_BR_LABEL[resource.ptBrStatus]}</Tag>
         {technology && <Tag>{technology}</Tag>}
+        {yourStack && <Tag>{PICK_REASON_TEXT.YOUR_STACK}</Tag>}
         <Tag warn={resource.cost === 'paid'}>{COST_LABEL[resource.cost]}</Tag>
         {time && <Tag>{time}</Tag>}
         {resource.requiresSignup && <Tag warn>exige cadastro</Tag>}

@@ -140,10 +140,11 @@ const STATUS_LABEL: Record<BuildStatus, string> = {
  */
 function Portfolio({ profile, progress }: { profile: UserProfile | null; progress: Readonly<Record<string, ResourceProgress>> }) {
   const groups = portfolioView(buildBuildsView(CATALOG, FIRST_WEB_ROLE, profile, progress));
-  const builtCount = groups.reduce((sum, group) => sum + group.built.length, 0);
+  // Uma construção pode provar duas facetas; conta-se cada uma uma vez.
+  const builtTotal = new Set(groups.flatMap((group) => group.built.map((item) => item.build.id))).size;
   return (
     <section>
-      <SectionLabel>Seu portfólio · {builtCount > 0 ? `${new Set(groups.flatMap((g) => g.built.map((b) => b.build.id))).size} construções` : 'nada ainda'}</SectionLabel>
+      <SectionLabel>Seu portfólio · {builtTotal === 0 ? 'nada ainda' : builtTotal === 1 ? '1 construção' : `${builtTotal} construções`}</SectionLabel>
       <p className="text-ink-soft mt-1 text-[13px] leading-relaxed">
         O que você já construiu, agrupado pelo que prova a quem contrata. Variedade vale mais que
         quantidade: um projeto de back-end, um de front-end, um com design, um com IA. Cada construção
