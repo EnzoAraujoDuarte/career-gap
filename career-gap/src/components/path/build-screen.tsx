@@ -19,6 +19,7 @@ import { CopyCommand } from '@/components/ui/copy-command';
 import { CopyPrompt } from '@/components/ui/copy-prompt';
 import { ResourceLine } from '@/components/ui/resource-line';
 import { BuildMark } from './build-mark';
+import { aimReturnAt } from '@/lib/scroll-memory';
 
 const RESOURCES = new Map(CATALOG.resources.map((resource) => [resource.id, resource]));
 const TOOLS = new Map(CATALOG.tools.map((tool) => [tool.id, tool]));
@@ -64,7 +65,10 @@ export function BuildScreen({ id }: { id: string }) {
         <EcosystemNav current="trilha" />
 
         <Link
-          href={`/trilha${suffix}#nivel-${build.levelId}`}
+          href={`/trilha${suffix}`}
+          // Sem rolar para o topo: quem decide onde parar é a volta guardada (lib/scroll-memory).
+          scroll={false}
+          onClick={() => aimReturnAt('trilha', `construcao-${build.id}`)}
           className="text-ink-soft hover:text-ink focus-visible:outline-attention mt-7 inline-block py-1 text-[13px] focus-visible:outline-2"
         >
           ← Trilha · {item.level.title}

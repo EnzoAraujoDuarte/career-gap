@@ -14,6 +14,7 @@ import { clearGoals, saveGoals, useGoals } from '@/lib/goals-storage';
 import { clearDraft, useStoredDraft } from '@/lib/profile-storage';
 import { clearProgress, useProgress } from '@/lib/progress-storage';
 import { disableRemote } from '@/lib/remote-push';
+import { rememberOnDetailLink, useRestoreScroll } from '@/lib/scroll-memory';
 import type { Goals, ResourceProgress } from '@/lib/user-state';
 import { deleteMyData } from '@/server/user-state-actions';
 import { Loading, PageShell, SectionLabel } from '@/components/ecosystem/page-shell';
@@ -34,6 +35,8 @@ export function MyAreaScreen() {
   const progress = useProgress();
   const goals = useGoals();
   const answered = Boolean(useStoredDraft());
+  const ready = progress !== undefined && goals !== undefined;
+  useRestoreScroll('minha-area', ready);
 
   return (
     <PageShell
@@ -43,10 +46,10 @@ export function MyAreaScreen() {
     >
       <Account />
 
-      {progress === undefined || goals === undefined ? (
+      {!ready ? (
         <Loading />
       ) : (
-        <>
+        <div onClickCapture={rememberOnDetailLink('minha-area', ['/construir/', '/competencias/', '/carta'])}>
           <Portfolio profile={profile ?? null} progress={progress ?? {}} />
           <ResourceList
             title="Continuar"
@@ -70,7 +73,7 @@ export function MyAreaScreen() {
           <p className="text-done mt-2 text-[13px]" aria-live="polite">
             {goals && `Guardado às ${new Date(goals.updatedAt).toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}.`}
           </p>
-        </>
+        </div>
       )}
 
       <SectionLabel>O que você já sabe</SectionLabel>
