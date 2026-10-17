@@ -18,6 +18,8 @@ export const BUILDS: readonly Build[] = [
     title: 'Uma página sobre você',
     result: 'Uma página com o seu nome, uma foto e três links seus, aberta no seu navegador.',
     kind: 'page',
+    shows: ['fundamentals'],
+    pitch: 'Publiquei minha primeira página em HTML, com foto e links, aberta no navegador.',
     levelId: 'fundamentals',
     requires: [],
     exercises: ['html-semantics'],
@@ -38,6 +40,8 @@ export const BUILDS: readonly Build[] = [
     result:
       'Um programa que recebe o valor de uma compra, o número de parcelas e os juros, e mostra o valor de cada parcela e o total pago.',
     kind: 'terminal',
+    shows: ['fundamentals'],
+    pitch: 'Escrevi um programa que calcula parcelas e juros a partir do que a pessoa digita.',
     levelId: 'fundamentals',
     requires: [needs('programming-fundamentals', 'L1')],
     exercises: ['programming-fundamentals', 'problem-decomposition'],
@@ -57,6 +61,8 @@ export const BUILDS: readonly Build[] = [
     title: 'Sua página no ar, com um link para mandar',
     result: 'A página sobre você publicada num endereço público, que abre no celular de quem você mandar.',
     kind: 'link',
+    shows: ['fundamentals', 'frontend'],
+    pitch: 'Coloquei um site no ar, num endereço público, com Git e um serviço de hospedagem gratuito.',
     levelId: 'fundamentals',
     requires: [needs('html-semantics', 'L1'), needs('command-line-basics', 'L1'), needs('version-control-git', 'L1')],
     exercises: ['version-control-git', 'deployment-basics'],
@@ -77,6 +83,8 @@ export const BUILDS: readonly Build[] = [
     result:
       'Uma página responsiva para um negócio que existe (o salão da esquina, a banda do amigo), com serviços, contato e horário, boa no celular e no computador.',
     kind: 'page',
+    shows: ['frontend', 'design'],
+    pitch: 'Fiz o site responsivo de um negócio de verdade, com serviços, contato e horário, bom no celular e no computador.',
     levelId: 'browser',
     requires: [needs('html-semantics', 'L1'), needs('css-layout', 'L1')],
     exercises: ['css-layout', 'html-semantics', 'web-accessibility-basics'],
@@ -101,6 +109,8 @@ export const BUILDS: readonly Build[] = [
     result:
       'Um conversor (real para dólar, quilômetros para milhas, ou IMC) que atualiza o resultado a cada tecla, sem recarregar a página.',
     kind: 'widget',
+    shows: ['frontend'],
+    pitch: 'Construí um conversor que atualiza o resultado a cada tecla, com JavaScript no navegador.',
     levelId: 'browser',
     requires: [needs('javascript-essentials', 'L1'), needs('dom-and-browser', 'L1')],
     exercises: ['dom-and-browser', 'javascript-essentials', 'debugging'],
@@ -121,6 +131,8 @@ export const BUILDS: readonly Build[] = [
     result:
       'Um formulário de inscrição com rótulos, validação e navegação pelo teclado, aprovado por um verificador de acessibilidade.',
     kind: 'form',
+    shows: ['frontend'],
+    pitch: 'Construí um formulário acessível, aprovado por um verificador, que dá para usar só com o teclado.',
     levelId: 'browser',
     requires: [needs('html-semantics', 'L2'), needs('web-accessibility-basics', 'L1')],
     exercises: ['web-accessibility-basics', 'html-semantics'],
@@ -136,11 +148,37 @@ export const BUILDS: readonly Build[] = [
     estimatedMinutes: 120,
   },
   {
+    id: 'site-com-design-de-premio',
+    title: 'Um site com design de prêmio',
+    result:
+      'Uma página de uma tela só, com tipografia, cor e movimento escolhidos a partir de uma referência do Awwwards, que passa no contraste e no teclado.',
+    kind: 'page',
+    shows: ['design', 'frontend'],
+    pitch: 'Fiz uma página com direção de design própria, inspirada em sites premiados, acessível e responsiva.',
+    levelId: 'browser',
+    requires: [needs('css-layout', 'L2'), needs('html-semantics', 'L2'), needs('web-accessibility-basics', 'L1')],
+    exercises: ['css-layout', 'web-accessibility-basics'],
+    steps: [
+      'Escolha uma referência no Awwwards e anote três decisões dela: tipografia, paleta e movimento.',
+      'Defina a sua escala de tipos e a sua paleta antes de escrever CSS, e escreva por quê.',
+      'Monte a página com grid e flexbox, de uma tela só, boa no celular e no computador.',
+      'Acrescente um movimento só, com propósito, respeitando quem pede menos movimento.',
+      'Confira contraste, foco de teclado e texto alternativo, e corrija o que faltar.',
+    ],
+    doneWhen:
+      'A página abre bem no celular e no computador, passa na checagem de contraste e de teclado, e você explica de onde veio cada escolha de tipografia, cor e movimento.',
+    resources: ['awwwards-sites-premiados-por-design-e-desenvolvimento-front-end', 'aprenda-css-modulos-flexbox-e-grid'],
+    tools: ['vscode', 'browser-devtools', 'impeccable'],
+    estimatedMinutes: 360,
+  },
+  {
     id: 'busca-de-cep',
     title: 'Uma busca de CEP com dados de verdade',
     result:
       'A pessoa digita um CEP e o endereço aparece, vindo de uma API pública brasileira, com aviso enquanto carrega e quando o CEP não existe.',
     kind: 'widget',
+    shows: ['frontend', 'backend'],
+    pitch: 'Consumi uma API pública brasileira tratando carregamento, sucesso e erro na interface.',
     levelId: 'build-and-ship',
     requires: [
       needs('javascript-essentials', 'L2'),
@@ -166,6 +204,8 @@ export const BUILDS: readonly Build[] = [
     result:
       'Uma API de lista de tarefas (criar, listar, concluir, apagar) que guarda tudo num banco e responde num endereço público.',
     kind: 'server',
+    shows: ['backend'],
+    pitch: 'Construí e publiquei uma API com banco de dados, quatro endpoints e status corretos, sem senha no repositório.',
     levelId: 'build-and-ship',
     requires: [needs('api-development', 'L1'), needs('sql-basics', 'L1'), needs('http-fundamentals', 'L2')],
     exercises: ['api-development', 'relational-data-modeling', 'deployment-basics'],
@@ -190,6 +230,8 @@ export const BUILDS: readonly Build[] = [
     result:
       'Um sistema pequeno e seu, com login, cadastro e listagem, publicado e com README: a peça do portfólio.',
     kind: 'app',
+    shows: ['frontend', 'backend'],
+    pitch: 'Entreguei uma aplicação completa, com login, cadastro e listagem, publicada e com README.',
     levelId: 'build-and-ship',
     requires: [
       needs('api-consumption', 'L1'),
@@ -218,6 +260,8 @@ export const BUILDS: readonly Build[] = [
     title: 'Uma contribuição aceita num projeto de verdade',
     result: 'Um pull request seu, com teste, revisado e aceito num projeto aberto brasileiro.',
     kind: 'pull-request',
+    shows: ['collaboration'],
+    pitch: 'Tive um pull request com teste revisado e aceito num projeto aberto brasileiro.',
     levelId: 'job-ready',
     requires: [needs('version-control-git', 'L2'), needs('code-readability', 'L1'), needs('automated-testing-basics', 'L1')],
     exercises: ['code-review-participation', 'automated-testing-basics', 'technical-communication'],
@@ -238,6 +282,8 @@ export const BUILDS: readonly Build[] = [
     result:
       'Uma função gerada por um assistente de IA, coberta por testes que você escreveu antes de pedir, com o que a IA errou anotado.',
     kind: 'terminal',
+    shows: ['ai'],
+    pitch: 'Pedi uma função a um assistente de IA com os testes escritos antes, e provei com eles o que a IA acertou e errou.',
     levelId: 'job-ready',
     requires: [needs('debugging', 'L2'), needs('automated-testing-basics', 'L1'), needs('ai-assisted-development-basics', 'L1')],
     exercises: ['ai-assisted-development-basics', 'automated-testing-basics'],

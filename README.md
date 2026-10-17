@@ -18,7 +18,7 @@ de base e o que pode esperar, sempre com o motivo.
    competências que afirma.
 2. **Lacunas e prioridade** calculadas por um motor determinístico: elegibilidade pelo grafo de
    pré-requisitos, depois ranking ponderado. Mesma entrada, mesma saída — dá para auditar.
-3. **Construções**: 11 coisas concretas para fazer e mostrar, de "uma página sobre você" (sem
+3. **Construções**: 12 coisas concretas para fazer e mostrar, de "uma página sobre você" (sem
    exigir nada) a "uma contribuição aceita num projeto de verdade". O motor avalia cada uma contra
    o perfil e anota: dá para fazer agora, falta só uma, mais adiante
    ([ADR-0012](docs/adr/0012-construcoes.md)). É por elas que a trilha começa. Cada uma diz o que
@@ -33,11 +33,11 @@ de base e o que pode esperar, sempre com o motivo.
 5. **Explorar**: o catálogo inteiro com filtros: 157 recursos verificados um a um (104 em
    português, 146 gratuitos, 43 de prática ou prova, 15 livros), 19 ferramentas com portão de
    competência e com "como ter" (já vem no computador, conta, programa, dependência do projeto ou
-   plugin do Claude Code, com o comando), 29 hábitos profissionais, inclusive os de carreira
+   plugin do Claude Code, com o comando), 30 hábitos profissionais, inclusive os de carreira
    (publicar o que aprendeu, conviver com outros devs, manter currículo e LinkedIn em dia), e 13
    pessoas que valem seguir, com a página oficial conferida e o momento em que cada uma rende.
-6. **Minha área**: o que você construiu, continuar, minha lista, concluídos, critérios de saída
-   marcados, propósito e meta. Fica no navegador e, com o banco ligado, no Postgres. Para quem
+6. **Minha área**: o seu portfólio (as construções feitas, pelo que provam, com a frase para o
+   currículo), continuar, minha lista, concluídos, critérios de saída marcados, propósito e meta. Fica no navegador e, com o banco ligado, no Postgres. Para quem
    testa, o questionário da pesquisa do TCC (`/pesquisa`): termo de consentimento, SUS, ResQue e
    checagem da manipulação, exportado sem identificador
    ([ADR-0013](docs/adr/0013-questionario-de-avaliacao.md)).

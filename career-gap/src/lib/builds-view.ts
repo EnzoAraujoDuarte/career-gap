@@ -1,5 +1,6 @@
 import type { Catalog } from '@/domain/roadmap';
-import type { Build, CareerTrack, CompetencyId, Level, PathLevel, UserProfile } from '@/domain/model';
+import type { Build, CareerTrack, CompetencyId, Level, PathLevel, PortfolioFacet, UserProfile } from '@/domain/model';
+import { PORTFOLIO_FACETS } from '@/domain/model';
 import { assessBuilds, type BuildAssessment, type BuildStatus } from '@/domain/builds';
 import { buildProgressKey, type ProgressMap } from './user-state';
 
@@ -80,3 +81,26 @@ export function buildBuildsView(
 
 export const findBuild = (catalog: Catalog, id: string): Build | undefined =>
   catalog.builds.find((build) => build.id === id);
+
+/** Uma faceta do portfólio: o que já prova e, se nada ainda, a construção mais perto de provar. */
+export interface PortfolioGroup {
+  readonly facet: PortfolioFacet;
+  readonly built: readonly BuildView[];
+  readonly next?: BuildView;
+}
+
+const NEXT_ORDER: readonly BuildStatus[] = ['ready', 'one-away', 'later'];
+
+/**
+ * O portfólio pelo que cada construção prova. Variedade é a régua: quem contrata pergunta
+ * "você já fez back-end? e design?", e a resposta tem de ser uma coisa que dá para abrir.
+ * Nada aqui tranca: é anotação do que falta mostrar, com a construção mais perto apontada.
+ */
+export function portfolioView(view: BuildsView): readonly PortfolioGroup[] {
+  return PORTFOLIO_FACETS.map((facet) => {
+    const proving = view.all.filter((item) => item.build.shows.includes(facet));
+    const built = proving.filter((item) => item.status === 'built');
+    const next = NEXT_ORDER.map((status) => proving.find((item) => item.status === status)).find(Boolean);
+    return { facet, built, next: built.length > 0 ? undefined : next };
+  });
+}

@@ -3,6 +3,7 @@ import { BUILDS, CATALOG, FIRST_WEB_ROLE } from '@/catalog';
 import { assessBuilds, buildsInvolving, buildsUnlockedBy } from '@/domain/builds';
 import type { Level } from '@/domain/model';
 import { buildPrompt, studyPrompt } from '@/lib/ai-prompt';
+import { buildBuildsView, portfolioView } from '@/lib/builds-view';
 import { assertCriteria, assertProgress, buildProgressKey, buildStepsKey } from '@/lib/user-state';
 import { ALL_FIXTURES, absoluteBeginner, almostReady } from './fixtures';
 
@@ -117,5 +118,27 @@ describe('prompt para o assistente de IA', () => {
     for (const step of build.steps) expect(prompt).toContain(step);
     expect(prompt).toContain(build.doneWhen);
     expect(prompt).toContain('Consumo de API');
+  });
+});
+
+describe('portfólio', () => {
+  it('cada faceta tem uma construção que a prova, e a mais perto é apontada para quem está começando', () => {
+    const groups = portfolioView(buildBuildsView(CATALOG, FIRST_WEB_ROLE, absoluteBeginner, {}));
+    expect(groups.map((group) => group.facet)).toEqual(['fundamentals', 'frontend', 'backend', 'design', 'ai', 'collaboration']);
+    for (const group of groups) {
+      expect(group.built, group.facet).toEqual([]);
+      expect(group.next?.build.shows, group.facet).toContain(group.facet);
+    }
+    expect(groups.find((group) => group.facet === 'fundamentals')?.next?.build.id).toBe('pagina-sobre-voce');
+    expect(groups.find((group) => group.facet === 'design')?.next?.build.id).toBe('pagina-de-um-negocio');
+  });
+
+  it('uma construção feita passa a provar a faceta e some do "mais perto"', () => {
+    const progress = { [buildProgressKey('sua-propria-api')]: { completedAt: '2026-10-17T12:00:00.000Z', updatedAt: '2026-10-17T12:00:00.000Z' } };
+    const groups = portfolioView(buildBuildsView(CATALOG, FIRST_WEB_ROLE, absoluteBeginner, progress));
+    const backend = groups.find((group) => group.facet === 'backend')!;
+    expect(backend.built.map((item) => item.build.id)).toEqual(['sua-propria-api']);
+    expect(backend.next).toBeUndefined();
+    expect(CATALOG.builds.every((build) => build.pitch.length > 0 && build.shows.length > 0)).toBe(true);
   });
 });

@@ -16,14 +16,14 @@ explica o desenho. Decisão: ADR-0013. Desenho do estudo: ADR-0007 e `docs/DECIS
 ## O que se pergunta
 
 Cabe em uns cinco minutos, e isso é regra verificada por teste (no máximo 30 itens de escala, 6 de
-escolha, 1 aberto; frases de até 80 caracteres). Quem testa responde de boa vontade uma vez; um
+escolha, 1 aberto; frases de até 80 caracteres). Hoje: 30 itens de escala. Quem testa responde de boa vontade uma vez; um
 questionário longo perde a segunda metade das respostas. Cada item que entra tira outro.
 
 | Bloco | Itens | Tipo | Fonte |
 |---|---|---|---|
 | Sobre você | idade, situação, tempo programando | escolha única | perfil do participante |
 | Como foi | tempo de uso, tempo até entender o próximo passo | escolha única | medida objetiva barata da ADR-0007, autodeclarada |
-| O Career Gap para você | 7 itens: o que a tese afirma, perguntado direto | concordância 1 a 5 | AGENTS.md (as perguntas do produto); pedido do autor em 2026-10-16 |
+| O Career Gap para você | 8 itens: o que a tese afirma, perguntado direto, uma por hipótese do projeto | concordância 1 a 5 | AGENTS.md (as perguntas do produto); hipóteses a–d do projeto de TCC |
 | O que você leva | primeiro passo agora | escolha única | intenção de comportamento |
 | A trilha que você recebeu | 2 itens sobre a trilha, 8 do ResQue, 2 de checagem da manipulação | concordância 1 a 5 | INITIAL_SCOPE §19; Pu, Chen e Hu (2011); DECISOES §1 |
 | O site | 10 itens | concordância 1 a 5 | SUS (Brooke, 1996) |
@@ -43,6 +43,7 @@ posso ignorar. Um item por elo; é o bloco que o texto do TCC reporta primeiro.
 | `construir-agora` | o que já construo | Sei o que já consigo construir hoje. |
 | `proximo-passo` | próximo passo | Sei qual é o meu próximo passo. |
 | `o-que-ignorar` | o que posso ignorar | Sei o que posso deixar para depois. |
+| `nao-agora-util` | utilidade do "não agora" (hipótese c) | Ver o que pode esperar ("não agora") ajudou, em vez de esconder conteúdo. |
 | `melhor-que-antes` | melhora sobre o método anterior | Ficou mais fácil decidir o que estudar do que antes. |
 
 A pergunta aberta `lacuna-descoberta` ("Qual lacuna técnica você descobriu que não conhecia?") é
@@ -88,6 +89,11 @@ mudar o id.
   ids que ficaram não mudaram de sentido; os que saíram não voltam com o mesmo id.
 - `2026.10.16-4`: uma aberta só, a lacuna descoberta. Tudo o que o método mede sai das escalas; a
   frase da pessoa é a única evidência que uma escala não captura.
+- `2026.10.17-5`: `nao-agora-util`, para a hipótese c do projeto (o "não agora" é percebido como
+  útil, não como omissão). As hipóteses do projeto e seus itens: a) irrelevância →
+  `topicos-desnecessarios`, `recomendado-corresponde`; b) clareza do próximo passo →
+  `proximo-passo`, `caminho-claro`; c) "não agora" útil → `nao-agora-util`, `o-que-ignorar`;
+  d) explicação aumenta confiança → `entendi-motivos`, `confio`.
 
 ## O que mais é gravado
 

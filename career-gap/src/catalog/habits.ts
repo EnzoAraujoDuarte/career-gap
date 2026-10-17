@@ -447,6 +447,23 @@ export const HABITS: readonly ProfessionalHabit[] = [
     ],
   },
   {
+    id: 'always-building',
+    title: 'Nunca fique sem um projeto aberto',
+    detail:
+      'Terminou um, comece o próximo no mesmo dia, pequeno e seu: um brinquedo que pode quebrar. ' +
+      'Quem está sempre construindo chega na entrevista com algo para abrir, e não espera a vaga ' +
+      'para começar.',
+    tradition: 'apprenticeship-patterns',
+    theme: 'career',
+    credit: 'Apprenticeship Patterns, padrões "Breakable Toys" e "Practice, Practice, Practice"',
+    competencies: ['build-an-application'],
+    sources: [
+      apprenticeshipPatterns('Breakable Toys', 'um projeto seu, pequeno, onde errar é barato'),
+      apprenticeshipPatterns('Practice, Practice, Practice', 'praticar fora do trabalho, de propósito'),
+      swebok('Software Engineering Professional Practice', 'desenvolvimento profissional contínuo'),
+    ],
+  },
+  {
     id: 'keep-profile-current',
     title: 'Mantenha currículo, LinkedIn e conhecimento em dia',
     detail:

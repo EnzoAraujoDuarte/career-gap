@@ -22,6 +22,7 @@ import { BuildGlyph } from '@/components/ui/build-glyph';
 import { ResourceLine } from '@/components/ui/resource-line';
 import { BuildMark } from './build-mark';
 import { BuildsNow } from './builds-now';
+import { OpeningNote } from './opening-letter';
 import { ProKit } from './pro-kit';
 import { StackChoice } from './stack-choice';
 import { FlagIcon, RoadSvg, SWAY, StationDot, rowStyle, useRoad } from './road';
@@ -83,6 +84,7 @@ export function PathScreen() {
           <Loading />
         ) : (
           <>
+          <OpeningNote suffix={suffix} />
           <BuildsNow view={builds} hasProfile={profile !== null} suffix={suffix} />
           <ProKit profile={profile} suffix={suffix} />
 

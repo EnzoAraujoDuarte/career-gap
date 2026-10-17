@@ -304,11 +304,23 @@ export interface BuildRequirement {
  * que o portão de uma ferramenta: declarado, verificável e sem cadeado — a página abre para
  * todos; o que muda é a anotação (ADR-0009). O texto é do projeto; os recursos são links.
  */
+/**
+ * O que uma construção prova a quem contrata. É a régua do portfólio: variedade (front-end,
+ * back-end, design, IA, colaboração) vale mais que quantidade, porque é o que a entrevista
+ * pergunta. O validador exige pelo menos uma construção por faceta.
+ */
+export type PortfolioFacet = 'fundamentals' | 'frontend' | 'backend' | 'design' | 'ai' | 'collaboration';
+export const PORTFOLIO_FACETS: readonly PortfolioFacet[] = ['fundamentals', 'frontend', 'backend', 'design', 'ai', 'collaboration'];
+
 export interface Build {
   readonly id: string;
   readonly title: string;
   /** O que a pessoa tem na mão quando termina, em uma frase concreta. */
   readonly result: string;
+  /** O que a construção prova no portfólio. */
+  readonly shows: readonly PortfolioFacet[];
+  /** A frase para o currículo e o LinkedIn, em primeira pessoa, no passado. */
+  readonly pitch: string;
   readonly kind: BuildKind;
   /** Nível da trilha em que a construção fecha. */
   readonly levelId: string;
