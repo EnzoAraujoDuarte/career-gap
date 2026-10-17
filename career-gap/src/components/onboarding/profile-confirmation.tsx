@@ -38,6 +38,7 @@ export function ProfileConfirmation({ groups }: { groups: readonly ProfileGroup[
     saveDraft({
       trackId: draft?.trackId ?? 'first-web-role',
       emphasisId: draft?.emphasisId,
+      technologyId: draft?.technologyId,
       levels: next,
     });
   };

@@ -12,6 +12,8 @@ import { LEVELS, type Level, type UserProfile } from '@/domain/model';
 export interface StoredProfile {
   readonly trackId: string;
   readonly emphasisId?: string;
+  /** Linguagem de servidor escolhida; só reordena materiais (ADR-0014). */
+  readonly technologyId?: string;
   readonly levels: Readonly<Record<string, Level>>;
   readonly updatedAt?: string;
 }
@@ -23,6 +25,7 @@ export function toUserProfile(profile: StoredProfile, id = 'local'): UserProfile
     id,
     trackId: profile.trackId,
     emphasisId: profile.emphasisId,
+    technologyId: profile.technologyId,
     competencies: Object.entries(profile.levels)
       .filter(([, level]) => level !== 'L0')
       .map(([competency, level]) => ({ competency, level, evidence: 'self-report' as const })),
@@ -154,6 +157,9 @@ export function assertProfile(value: unknown): asserts value is StoredProfile {
   if (!track) throw new InvalidUserState('trilha desconhecida');
   if (profile.emphasisId && !track.emphases.some((emphasis) => emphasis.id === profile.emphasisId)) {
     throw new InvalidUserState('ênfase desconhecida');
+  }
+  if (profile.technologyId && !track.stacks.some((stack) => stack.technology === profile.technologyId)) {
+    throw new InvalidUserState('linguagem desconhecida');
   }
   if (!isOptionalDate(profile.updatedAt)) throw new InvalidUserState('data inválida');
   const required = new Set(track.requirements.map((item) => item.competency));

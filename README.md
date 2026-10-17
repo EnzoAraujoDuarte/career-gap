@@ -23,7 +23,9 @@ de base e o que pode esperar, sempre com o motivo.
    o perfil e anota: dá para fazer agora, falta só uma, mais adiante
    ([ADR-0012](docs/adr/0012-construcoes.md)). É por elas que a trilha começa. Cada uma diz o que
    você precisa ter em mãos e tem o passo a passo marcável.
-4. **Trilha em 4 níveis, desenhada como uma estrada**, a mesma para todos, com conteúdo concreto
+4. **Trilha em 4 níveis, desenhada como uma estrada**, a mesma para todos e independente de
+   stack (a linguagem do servidor é escolha da pessoa no nível 3 e só reordena os materiais,
+   [ADR-0014](docs/adr/0014-caminho-independente-de-stack.md)), com conteúdo concreto
    (quem ensina, quanto tempo leva) e as marcas pessoais: *você já sabe*, *recomendado agora* (no
    máximo 3), *falta base*, *não agora*. Cada nível fecha nas suas construções; cada estação diz o
    que destrava. O trecho já percorrido fica em tinta, até o *você está aqui*

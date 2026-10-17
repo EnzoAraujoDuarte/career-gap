@@ -75,6 +75,7 @@ export const PICK_REASON_TEXT: Record<ResourcePickReason, string> = {
   NO_SIGNUP: 'sem cadastro',
   STARTING_POINT: 'o ponto de partida mais acessível',
   ONLY_OPTION: 'único material verificado para este passo',
+  YOUR_STACK: 'na linguagem que você escolheu',
 };
 
 export const PT_BR_LABEL: Record<PtBrStatus, string> = {

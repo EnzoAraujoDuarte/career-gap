@@ -6,6 +6,7 @@ import type {
   ProfessionalHabit,
   ReasonCode,
   Roadmap,
+  TechnologyId,
 } from '@/domain/model';
 import type { PickedResource } from '@/domain/resources';
 import { selectResourcesFor } from '@/domain/resources';
@@ -69,6 +70,8 @@ export interface RoadmapView {
   readonly edges: readonly ViewEdge[];
   readonly notNow: readonly ViewNotNow[];
   readonly nowId?: CompetencyId;
+  /** Linguagem de servidor escolhida: só reordena os materiais (ADR-0014). */
+  readonly technologyId?: TechnologyId;
   readonly counts: { readonly met: number; readonly open: number; readonly notNow: number };
 }
 
@@ -80,8 +83,9 @@ export function buildRoadmapView(roadmap: Roadmap, catalog: Catalog): RoadmapVie
   const verification = new Set(roadmap.verificationNeeded);
   const nowId = roadmap.nextBestAction?.competency;
 
+  const technologyId = roadmap.inputSnapshot.technologyId;
   const picked = (id: CompetencyId, level: Level) =>
-    selectResourcesFor(id, level, catalog.resources);
+    selectResourcesFor(id, level, catalog.resources, undefined, technologyId);
 
   // Competências já atingidas permanecem no mapa: sem elas o usuário perde a resposta
   // para "onde estou" e vê só o que falta.
@@ -146,6 +150,7 @@ export function buildRoadmapView(roadmap: Roadmap, catalog: Catalog): RoadmapVie
       explanation: excluded.explanation,
     })),
     nowId,
+    technologyId,
     counts: {
       met: roadmap.met.length,
       open: roadmap.items.length,

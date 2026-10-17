@@ -37,7 +37,12 @@ export function SelfAssessment({ track }: { track: CareerTrack }) {
 
   const persist = (next: Record<string, Level>, emphasisId?: string | null) => {
     const draft = loadDraft();
-    saveDraft({ trackId: track.id, emphasisId: nextEmphasis(emphasisId, draft?.emphasisId), levels: next });
+    saveDraft({
+      trackId: track.id,
+      emphasisId: nextEmphasis(emphasisId, draft?.emphasisId),
+      technologyId: draft?.technologyId,
+      levels: next,
+    });
   };
 
   // A cada pergunta, o foco vai para o título: quem usa leitor de tela ouve a pergunta nova em

@@ -161,6 +161,7 @@ export function validateCatalog(catalog: Catalog): readonly CatalogProblem[] {
 
   validateBuilds(catalog, report);
   validatePeople(catalog, report);
+  validateStacks(catalog, report);
 
   const cycle = new PrerequisiteGraph(catalog.prerequisites).findCycle();
   if (cycle) {
@@ -475,6 +476,32 @@ function validatePeople(
     }
     for (const gate of person.unlockedBy) {
       if (!catalog.competencies.has(gate.competency)) report('person-gate', person.id, `portão inexistente: ${gate.competency}`);
+    }
+  }
+}
+
+/** A linguagem oferecida precisa existir e ter material no catálogo; senão a escolha é vazia. */
+const MIN_RESOURCES_PER_STACK = 2;
+
+function validateStacks(
+  catalog: Catalog,
+  report: (rule: string, subject: string, detail: string) => void,
+): void {
+  for (const track of catalog.tracks.values()) {
+    const required = new Set(track.requirements.map((item) => item.competency));
+    const seen = new Set<string>();
+    for (const stack of track.stacks) {
+      const subject = `${track.id}:${stack.technology}`;
+      if (!TECHNOLOGY_IDS.has(stack.technology)) report('track-stack', subject, 'tecnologia inexistente');
+      if (seen.has(stack.technology)) report('track-stack', subject, 'linguagem repetida');
+      seen.add(stack.technology);
+      if (!stack.name.trim() || !stack.why.trim()) report('track-stack', subject, 'linguagem precisa de nome e motivo');
+      const backed = catalog.resources.filter(
+        (resource) => resource.technology === stack.technology && resource.competencies.some((id) => required.has(id)),
+      ).length;
+      if (backed < MIN_RESOURCES_PER_STACK) {
+        report('track-stack', subject, `${backed} materiais no track; o mínimo é ${MIN_RESOURCES_PER_STACK}`);
+      }
     }
   }
 }
