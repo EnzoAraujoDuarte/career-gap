@@ -80,19 +80,48 @@ body {
   background: var(--paper);
   color: var(--ink);
   font-family: var(--font-ui), system-ui, sans-serif;
+  /* Com `viewport-fit=cover` a página vai até a borda física; no celular deitado, o entalhe
+     não pode cobrir texto. */
+  padding-left: env(safe-area-inset-left, 0px);
+  padding-right: env(safe-area-inset-right, 0px);
 }
 
-/* Piso de leitura no celular. O site foi composto em corpos de 12 a 14,5px, que no computador
-   leem bem e numa tela de bolso, em tinta clara, cansam. Abaixo de 640px cada um desses corpos
-   sobe 1px; a hierarquia fica a mesma, só mais legível. Regra fora de camada de propósito: vence
-   os utilitários do Tailwind sem `!important`. */
+/* A escala de leitura do celular. O site foi composto em 26 corpos soltos, de 12 a 34px, que no
+   computador leem bem; no bolso, 96% do texto da trilha ficava abaixo de 16px e o corpo mais
+   comum era 13,5px. Abaixo de 640px os corpos se agrupam em seis degraus, na régua dos apps
+   (corpo 17, como o Body do iOS): rótulo 14, apoio 15, corpo 17, destaque 18, título 20 a 23,
+   abertura 28 a 30. Regra fora de camada de propósito: vence os utilitários do Tailwind sem
+   `!important`. */
 @media (max-width: 639px) {
-  .text-\[12px\] { font-size: 13px; }
-  .text-\[12\.5px\] { font-size: 13.5px; }
-  .text-\[13px\] { font-size: 14px; }
-  .text-\[13\.5px\] { font-size: 14.5px; }
-  .text-\[14px\] { font-size: 15px; }
-  .text-\[14\.5px\] { font-size: 15.5px; }
+  .text-\[11\.5px\], .text-\[12px\], .text-\[12\.5px\] { font-size: 14px; }
+  .text-\[13px\], .text-\[13\.5px\] { font-size: 15px; }
+  .text-\[14px\], .text-\[14\.5px\], .text-\[15px\], .text-\[15\.5px\] { font-size: 17px; }
+  .text-\[16px\], .text-\[17px\] { font-size: 18px; }
+  .text-\[18px\], .text-\[19px\] { font-size: 20px; }
+  .text-\[20px\], .text-\[21px\], .text-\[22px\] { font-size: 23px; }
+  .text-\[24px\], .text-\[25px\], .text-\[26px\] { font-size: 28px; }
+
+  /* Campo com letra menor que 16px faz o Safari do iPhone dar zoom na página ao tocar nele. */
+  input:not([type="checkbox"]):not([type="radio"]),
+  textarea,
+  select {
+    font-size: 16px;
+  }
+
+  /* As abas moram no rodapé no celular (EcosystemNav); o fim da página não pode ficar embaixo
+     delas. */
+  body:has(.tab-bar) {
+    padding-bottom: calc(4rem + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+/* Prateleira: no celular, uma fileira que corre para o lado, como as dos apps. Esconde a barra de
+   rolagem; o cartão cortado na borda já diz que há mais. */
+.shelf {
+  scrollbar-width: none;
+}
+.shelf::-webkit-scrollbar {
+  display: none;
 }
 
 /* Área de toque. Títulos-link de estação, construção e material têm a altura da linha (~20px);

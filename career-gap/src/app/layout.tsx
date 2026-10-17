@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Atkinson_Hyperlegible_Next, Fraunces, Shantell_Sans } from 'next/font/google';
 import { PersistenceProvider } from '@/components/persistence/persistence';
 import { configuredProviders } from '@/lib/auth';
@@ -28,6 +28,19 @@ export const metadata: Metadata = {
   description,
   openGraph: { title: 'Career Gap', description, siteName: 'Career Gap', locale: 'pt_BR', type: 'website' },
   twitter: { card: 'summary_large_image', title: 'Career Gap', description },
+  // Na tela de início do iPhone, abre como app: sem a barra do Safari, com o nome curto.
+  appleWebApp: { capable: true, title: 'Career Gap', statusBarStyle: 'default' },
+};
+
+/** `cover` leva o papel até a borda física do celular (as margens do entalhe e da barra de
+ *  gestos ficam com `env(safe-area-inset-*)`), e a cor do tema pinta a barra do navegador com o
+ *  mesmo papel: a página deixa de parecer um site dentro do navegador. */
+export const viewport: Viewport = {
+  viewportFit: 'cover',
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#fdfbf7' },
+    { media: '(prefers-color-scheme: dark)', color: '#16140f' },
+  ],
 };
 
 export default function RootLayout({ children }: LayoutProps<'/'>) {
