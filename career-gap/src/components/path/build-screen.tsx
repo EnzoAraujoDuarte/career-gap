@@ -14,6 +14,7 @@ import { formatDuration } from '@/lib/resource-duration';
 import { buildProgressKey, buildStepsKey } from '@/lib/user-state';
 import { EcosystemNav } from '@/components/ecosystem/ecosystem-nav';
 import { Loading, SectionLabel } from '@/components/ecosystem/page-shell';
+import { BackBar } from '@/components/ui/back-bar';
 import { BuildGlyph } from '@/components/ui/build-glyph';
 import { CopyCommand } from '@/components/ui/copy-command';
 import { CopyPrompt } from '@/components/ui/copy-prompt';
@@ -65,24 +66,24 @@ export function BuildScreen({ id }: { id: string }) {
       <div className="mx-auto max-w-[1040px] px-4 pb-12 sm:px-6">
         <div className="max-w-[640px]">
 
-        <Link
+        <BackBar
           href={`/trilha${suffix}`}
-          // Sem rolar para o topo: quem decide onde parar é a volta guardada (lib/scroll-memory).
-          scroll={false}
-          onClick={() => aimReturnAt('trilha', `construcao-${build.id}`)}
-          className="text-ink-soft hover:text-ink focus-visible:outline-attention mt-7 inline-block py-1 text-[13px] focus-visible:outline-2"
-        >
-          ← Trilha · {item.level.title}
-        </Link>
+          label="Trilha"
+          place={item.level.title}
+          title={build.title}
+          titleId="titulo"
+          ready={profile !== undefined && progress !== undefined}
+          onNavigate={() => aimReturnAt('trilha', `construcao-${build.id}`)}
+        />
 
         {profile === undefined || progress === undefined ? (
           <Loading />
         ) : (
           <>
-            <div className="mt-3 flex items-start gap-5">
+            <div className="mt-5 flex items-start gap-5 sm:mt-3">
               <BuildGlyph kind={build.kind} size={72} className="text-ink mt-1 shrink-0" />
               <div className="min-w-0">
-                <h1 className="font-serif text-ink text-[28px] leading-tight text-balance">{build.title}</h1>
+                <h1 id="titulo" className="font-serif text-ink text-[28px] leading-tight text-balance">{build.title}</h1>
                 <p className="text-ink-soft mt-1 text-[12.5px]">
                   {formatDuration(build.estimatedMinutes)} · nível {item.levelNumber}
                 </p>
@@ -170,6 +171,10 @@ export function BuildScreen({ id }: { id: string }) {
               <p className="text-ink-soft mt-1 text-[12.5px] leading-snug">
                 Marque conforme avança; fica guardado para você voltar depois.
               </p>
+              {/* "Aperte F12" e "abra o terminal" não existem no celular: o mentor avisa antes. */}
+              <p className="hand text-attention mt-1 text-[13.5px] leading-snug sm:hidden">
+                isto se faz no computador; no celular, leia e deixe marcado o que já fez
+              </p>
               <ol className="mt-2 space-y-1">
                 {build.steps.map((step, index) => (
                   <li key={step}>
@@ -178,7 +183,7 @@ export function BuildScreen({ id }: { id: string }) {
                         type="checkbox"
                         checked={doneSteps.has(index)}
                         onChange={() => toggleCriterionKey(stepsKey, index)}
-                        className="accent-done mt-[5px] h-4 w-4 shrink-0"
+                        className="accent-done mt-[5px] h-5 w-5 shrink-0 sm:h-4 sm:w-4"
                       />
                       <span className="font-serif text-ink-faint w-4 shrink-0 tabular-nums">{index + 1}</span>
                       <span className={doneSteps.has(index) ? 'text-ink-soft line-through' : undefined}>{step}</span>

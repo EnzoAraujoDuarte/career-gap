@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { CATALOG, FIRST_WEB_ROLE } from '@/catalog';
 import type { Resource } from '@/domain/model';
 import { generateRoadmap } from '@/domain/roadmap';
@@ -17,6 +17,7 @@ import { EcosystemNav } from '@/components/ecosystem/ecosystem-nav';
 import { SectionLabel } from '@/components/ecosystem/page-shell';
 import { ExitCriteria } from '@/components/flow/exit-criteria';
 import { AdviceMark } from '@/components/ui/advice-mark';
+import { BackBar } from '@/components/ui/back-bar';
 import { BuildGlyph } from '@/components/ui/build-glyph';
 import { CopyPrompt } from '@/components/ui/copy-prompt';
 import { ResourceLine } from '@/components/ui/resource-line';
@@ -57,16 +58,17 @@ export function CompetencyScreen({ id }: { id: string }) {
       <div className="mx-auto max-w-[1040px] px-4 pb-12 sm:px-6">
         <div className="max-w-[640px]">
 
-        <Link
+        <BackBar
           href={`/trilha${suffix}`}
-          // Sem rolar para o topo: quem decide onde parar é a volta guardada (lib/scroll-memory).
-          scroll={false}
-          onClick={() => aimReturnAt('trilha', competency.id)}
-          className="text-ink-soft hover:text-ink focus-visible:outline-attention mt-7 inline-block py-1 text-[13px] focus-visible:outline-2"
-        >
-          ← Trilha{competency.levelTitle && ` · ${competency.levelTitle}`}
-        </Link>
-        <h1 className="font-serif text-ink mt-1 text-[28px] leading-tight">{competency.name}</h1>
+          label="Trilha"
+          place={competency.levelTitle}
+          title={competency.name}
+          titleId="titulo"
+          onNavigate={() => aimReturnAt('trilha', competency.id)}
+        />
+        <h1 id="titulo" className="font-serif text-ink mt-5 text-[28px] leading-tight sm:mt-1">
+          {competency.name}
+        </h1>
         <p className="text-ink-soft mt-1 text-[12.5px]">
           a vaga pede que você {LEVEL_ASKED[competency.targetLevel]} ·{' '}
           {competency.learn.length + competency.practice.length + competency.prove.length} recursos
@@ -80,8 +82,6 @@ export function CompetencyScreen({ id }: { id: string }) {
           </div>
         )}
 
-        {builds.length > 0 && <BuildsFor items={builds} competency={id} hasProfile={Boolean(profile)} suffix={suffix} />}
-
         {competency.before.length > 0 && (
           <Neighbors
             title="Antes, vale ter"
@@ -91,19 +91,31 @@ export function CompetencyScreen({ id }: { id: string }) {
           />
         )}
 
-        <ResourceGroup title="Aprender" resources={competency.learn} startId={competency.startId} technologyId={competency.technologyId} />
+        {/* Os materiais vêm logo depois do resumo, o "comece aqui" primeiro: era a tela 1,1, depois
+            de cinco construções. Cada grupo mostra os primeiros e guarda o resto num toque. */}
+        <ResourceGroup
+          title="Aprender"
+          resources={competency.learn}
+          startId={competency.startId}
+          technologyId={competency.technologyId}
+          visible={4}
+        />
         <ResourceGroup
           title="Praticar"
           resources={competency.practice}
           technologyId={competency.technologyId}
           hint="Só assistir não forma ninguém: escolha pelo menos uma."
+          visible={3}
         />
         <ResourceGroup
           title="Provar"
           resources={competency.prove}
           technologyId={competency.technologyId}
           hint="Dá para mostrar a alguém: vai para o portfólio ou passa por conferência."
+          visible={3}
         />
+
+        {builds.length > 0 && <BuildsFor items={builds} competency={id} hasProfile={Boolean(profile)} suffix={suffix} />}
 
         {competency.habits.length > 0 && (
           <>
@@ -197,22 +209,29 @@ function ResourceGroup({
   startId,
   technologyId,
   hint,
+  visible,
 }: {
   title: string;
   resources: readonly Resource[];
   startId?: string;
   technologyId?: string;
   hint?: string;
+  /** Quantos aparecem antes do "mostrar mais". */
+  visible: number;
 }) {
+  const [expanded, setExpanded] = useState(false);
   if (resources.length === 0) return null;
+  // Uma sobra de um só não vale um botão: mostra logo.
+  const shown = expanded || resources.length <= visible + 1 ? resources : resources.slice(0, visible);
+  const hidden = resources.length - shown.length;
   return (
     <section>
       <SectionLabel>
         {title} · {resources.length}
       </SectionLabel>
       {hint && <p className="text-ink-soft mt-1 text-[12.5px]">{hint}</p>}
-      <ul className="mt-3 space-y-4">
-        {resources.map((resource) => (
+      <ul className="mt-3 space-y-5">
+        {shown.map((resource) => (
           <li key={resource.id}>
             <ResourceLine
               resource={resource}
@@ -223,6 +242,15 @@ function ResourceGroup({
           </li>
         ))}
       </ul>
+      {hidden > 0 && (
+        <button
+          type="button"
+          onClick={() => setExpanded(true)}
+          className="border-rule text-ink hover:border-ink-faint focus-visible:outline-attention mt-5 inline-flex min-h-11 w-full items-center justify-center rounded-sm border text-[14px] focus-visible:outline-2 sm:w-auto sm:px-5"
+        >
+          Mostrar mais {hidden} {hidden === 1 ? 'material' : 'materiais'}
+        </button>
+      )}
     </section>
   );
 }

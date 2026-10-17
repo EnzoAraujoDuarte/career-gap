@@ -59,6 +59,9 @@ export function KitScreen() {
               quer e roda só os comandos do Claude Code correspondentes. Sem senha, sem mexer nos
               seus arquivos. No Windows, rode no WSL ou no Git Bash.
             </p>
+            <p className="hand text-attention mt-1 text-[13.5px] leading-snug sm:hidden">
+              isto roda no computador; no celular, copie e mande para você mesmo
+            </p>
             <div className="mt-3">
               <CopyCommand command={INSTALL_COMMAND} />
             </div>
