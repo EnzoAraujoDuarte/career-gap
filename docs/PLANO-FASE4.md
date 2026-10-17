@@ -439,7 +439,15 @@ mais é trancado, e o ajuste por competência entra na Minha área (§9).
   6 de escolha, 1 aberto (a lacuna descoberta), frases de até 80 caracteres, uns 5 minutos; o SUS
   fica inteiro. Teto verificado por teste. Instrumento `2026.10.16-4`.
 
+**Feito (2026-10-17, nona rodada — stack e carreira):**
+
+- **Caminho independente de stack, dito explicitamente** (ADR-0014): abertura da trilha e bloco
+  "a linguagem do servidor é escolha sua" no nível 3, com JavaScript/Node.js e Java/Spring (as
+  duas com material verificado) ou "ainda não sei". A escolha fica no perfil (`technology_id`,
+  migração `0003`), entra no snapshot do motor e só reordena materiais, com o motivo "na linguagem
+  que você escolheu". Validador exige material para cada linguagem oferecida.
+
 **Próximo:**
 
-1. Aplicar a migração `0002` no Neon `main` antes de publicar a página da pesquisa.
+1. Aplicar a migração `0003` no Neon `main` antes de publicar (a `0002` já está lá).
 2. Condição A do experimento como trilha sem anotação, depois de falar com o orientador.

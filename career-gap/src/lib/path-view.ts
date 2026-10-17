@@ -68,7 +68,7 @@ export function buildPathView(
     const competency = catalog.competencies.get(id);
     const target = targetOf.get(id) ?? 'L1';
     // A mesma seleção da ficha, para a trilha e a ficha nunca discordarem do "comece aqui".
-    const card = selectResourcesFor(id, target, catalog.resources);
+    const card = selectResourcesFor(id, target, catalog.resources, undefined, view?.technologyId);
     const start = card.find((item) => !isPractice(item.resource))?.resource;
     if (start) startIds.add(start.id);
     return {
@@ -77,7 +77,7 @@ export function buildPathView(
       summary: competency?.summary ?? '',
       start,
       practice: card.find((item) => isPractice(item.resource))?.resource,
-      resourceCount: selectResourcesFor(id, target, catalog.resources, Infinity).length,
+      resourceCount: selectResourcesFor(id, target, catalog.resources, Infinity, view?.technologyId).length,
       targetLevel: target,
       criteriaCount: competency?.levels[target]?.exitCriteria.length ?? 0,
       advice: advice.get(id),

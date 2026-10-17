@@ -1,4 +1,4 @@
-import type { ActionType, CompetencyId, Level, Resource } from './model';
+import type { ActionType, CompetencyId, Level, Resource, TechnologyId } from './model';
 import { levelIndex } from './model';
 
 /**
@@ -15,7 +15,8 @@ export type ResourcePickReason =
   | 'FREE'
   | 'NO_SIGNUP'
   | 'STARTING_POINT'
-  | 'ONLY_OPTION';
+  | 'ONLY_OPTION'
+  | 'YOUR_STACK';
 
 export interface PickedResource {
   readonly resource: Resource;
@@ -52,6 +53,7 @@ export function selectResourcesFor(
   targetLevel: Level,
   resources: readonly Resource[],
   limit: number = MAX_PER_NODE,
+  preferred?: TechnologyId,
 ): readonly PickedResource[] {
   const eligible = resources.filter(
     (resource) =>
@@ -62,16 +64,15 @@ export function selectResourcesFor(
   // Ordem PEDAGÓGICA, não ordem de escore: o mais acessível primeiro, para a lista ser lida
   // como progressão. Ordenar pelo nível mais próximo do alvo colocava um desafio de nível
   // final como primeiro passo de quem está em L0.
-  const ordered = [...eligible]
-    .map((resource) => ({ resource, score: scoreOf(resource) }))
-    .sort(pedagogicalOrder);
+  const order = pedagogicalOrder(preferred);
+  const ordered = [...eligible].map((resource) => ({ resource, score: scoreOf(resource) })).sort(order);
 
-  const ranked = withPracticeSlot(ordered, limit);
+  const ranked = withPracticeSlot(ordered, limit, order);
 
   return ranked.map(({ resource }, index) => ({
     resource,
     recommended: index === 0,
-    reasons: reasonsFor(resource, ranked.length, index === 0),
+    reasons: reasonsFor(resource, ranked.length, index === 0, preferred),
   }));
 }
 
@@ -80,12 +81,23 @@ interface Scored {
   readonly score: number;
 }
 
+/**
+ * A linguagem escolhida só desempata entre materiais igualmente acessíveis: o acessível vem
+ * primeiro para todo mundo, e entre iguais o material na sua linguagem passa à frente. O
+ * agnóstico serve a qualquer escolha, por isso empata com ela. O caminho não muda (ADR-0014).
+ */
+const stackRank = (resource: Resource, preferred?: TechnologyId): number =>
+  !preferred || resource.technology === 'agnostic' || resource.technology === preferred ? 0 : 1;
+
 // Desempate por id mantém a ordem estável entre execuções e entre participantes.
-const pedagogicalOrder = (a: Scored, b: Scored): number =>
-  levelIndex(a.resource.levelMin) - levelIndex(b.resource.levelMin) ||
-  TEACHES_FIRST[a.resource.actionType] - TEACHES_FIRST[b.resource.actionType] ||
-  b.score - a.score ||
-  a.resource.id.localeCompare(b.resource.id);
+const pedagogicalOrder =
+  (preferred?: TechnologyId) =>
+  (a: Scored, b: Scored): number =>
+    levelIndex(a.resource.levelMin) - levelIndex(b.resource.levelMin) ||
+    TEACHES_FIRST[a.resource.actionType] - TEACHES_FIRST[b.resource.actionType] ||
+    stackRank(a.resource, preferred) - stackRank(b.resource, preferred) ||
+    b.score - a.score ||
+    a.resource.id.localeCompare(b.resource.id);
 
 const isPractice = ({ resource }: Scored): boolean => TEACHES_FIRST[resource.actionType] > 0;
 
@@ -101,20 +113,22 @@ const isPractice = ({ resource }: Scored): boolean => TEACHES_FIRST[resource.act
  * rampa; a lista começa acessível e termina no alvo. Pegar a prática mais fácil deixava a missão
  * de nível-alvo invisível para todo mundo.
  */
-function withPracticeSlot(ordered: readonly Scored[], limit: number): readonly Scored[] {
+function withPracticeSlot(
+  ordered: readonly Scored[],
+  limit: number,
+  order: (a: Scored, b: Scored) => number,
+): readonly Scored[] {
   const practices = ordered.filter(isPractice);
   if (limit < 2 || practices.length === 0) return ordered.slice(0, limit);
 
   const atTarget = [...practices].sort(
-    (a, b) =>
-      levelIndex(b.resource.levelMin) - levelIndex(a.resource.levelMin) ||
-      pedagogicalOrder(a, b),
+    (a, b) => levelIndex(b.resource.levelMin) - levelIndex(a.resource.levelMin) || order(a, b),
   )[0];
   const study = ordered.filter((item) => !isPractice(item)).slice(0, limit - 1);
   // Pouco estudo disponível: as vagas que sobram vão para as demais práticas, na ordem de sempre.
   const filler = practices.filter((item) => item !== atTarget).slice(0, limit - 1 - study.length);
 
-  return [...study, ...filler, atTarget].sort(pedagogicalOrder);
+  return [...study, ...filler, atTarget].sort(order);
 }
 
 function scoreOf(resource: Resource): number {
@@ -131,11 +145,13 @@ function reasonsFor(
   resource: Resource,
   poolSize: number,
   isFirst: boolean,
+  preferred?: TechnologyId,
 ): readonly ResourcePickReason[] {
   if (poolSize === 1) return ['ONLY_OPTION'];
 
   const reasons: ResourcePickReason[] = [];
   if (isFirst) reasons.push('STARTING_POINT');
+  if (preferred && resource.technology === preferred) reasons.push('YOUR_STACK');
   if (resource.ptBrStatus === 'complete') reasons.push('PT_BR');
   else if (resource.ptBrStatus === 'partial') reasons.push('PT_BR_PARTIAL');
   if (resource.cost === 'free') reasons.push('FREE');

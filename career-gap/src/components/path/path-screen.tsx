@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useMemo, useRef } from 'react';
 import { CATALOG, FIRST_WEB_ROLE } from '@/catalog';
-import type { Resource } from '@/domain/model';
+import type { Resource, UserProfile } from '@/domain/model';
 import { generateRoadmap } from '@/domain/roadmap';
 import { buildBuildsView, type BuildView, type BuildsView } from '@/lib/builds-view';
 import { useCurrentProfile, useProfileSuffix } from '@/lib/current-profile';
@@ -23,6 +23,7 @@ import { ResourceLine } from '@/components/ui/resource-line';
 import { BuildMark } from './build-mark';
 import { BuildsNow } from './builds-now';
 import { ProKit } from './pro-kit';
+import { StackChoice } from './stack-choice';
 import { FlagIcon, RoadSvg, SWAY, StationDot, rowStyle, useRoad } from './road';
 
 /** Ritmo de referência para traduzir horas em semanas. É o conselho do Curso em Vídeo, e é
@@ -73,7 +74,8 @@ export function PathScreen() {
             Esta é a trilha para a {track.name.toLowerCase()}: {track.requirements.length} competências
             em {track.path.length} níveis, e cada nível fecha numa coisa que você constrói e mostra.
             Nada é trancado. As marcas dizem o que você já sabe, o que vale agora e o que pode
-            esperar, sempre com o motivo.
+            esperar, sempre com o motivo. O caminho é independente de stack: as competências e a
+            ordem valem para qualquer linguagem; a do servidor você escolhe no nível 3.
           </p>
         </header>
 
@@ -108,6 +110,8 @@ export function PathScreen() {
                     reach={reach}
                     hereId={path.hereId}
                     personal={profile !== null}
+                    profile={profile}
+                    demo={Boolean(demoId)}
                     builds={builds}
                     suffix={suffix}
                   />
@@ -144,6 +148,8 @@ function Level({
   reach,
   hereId,
   personal,
+  profile,
+  demo,
   builds,
   suffix,
 }: {
@@ -152,6 +158,8 @@ function Level({
   reach: number;
   hereId?: string;
   personal: boolean;
+  profile: UserProfile | null;
+  demo: boolean;
   builds: BuildsView;
   suffix: string;
 }) {
@@ -200,6 +208,9 @@ function Level({
               </li>
             ))}
           </ul>
+          {FIRST_WEB_ROLE.stacks.length > 0 && level.level.id === 'build-and-ship' && (
+            <StackChoice track={FIRST_WEB_ROLE} profile={profile} demo={demo} suffix={suffix} />
+          )}
         </div>
       </div>
 

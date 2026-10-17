@@ -1,0 +1,1 @@
+ALTER TABLE "learner" ADD COLUMN "technology_id" text;

@@ -97,6 +97,7 @@ export const learner = pgTable('learner', {
     .references(() => user.id, { onDelete: 'cascade' }),
   trackId: text('track_id'),
   emphasisId: text('emphasis_id'),
+  technologyId: text('technology_id'),
   catalogVersion: text('catalog_version'),
   profileUpdatedAt: instant('profile_updated_at'),
   purpose: text('purpose'),

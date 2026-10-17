@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
-import { CATALOG } from '@/catalog';
+import { CATALOG, FIRST_WEB_ROLE } from '@/catalog';
 import type { Resource } from '@/domain/model';
 import type { SocialProvider } from '@/lib/auth';
 import { authClient } from '@/lib/auth-client';
@@ -30,7 +30,9 @@ const PROVIDER_LABEL: Record<SocialProvider, string> = { google: 'Google', githu
 export function MyAreaScreen() {
   const progress = useProgress();
   const goals = useGoals();
-  const answered = Boolean(useStoredDraft());
+  const draft = useStoredDraft();
+  const answered = Boolean(draft);
+  const stack = FIRST_WEB_ROLE.stacks.find((option) => option.technology === draft?.technologyId);
 
   return (
     <PageShell
@@ -83,6 +85,15 @@ export function MyAreaScreen() {
           {answered ? 'Refazer as 6 perguntas' : 'Responder as 6 perguntas'}
         </Link>
       </p>
+      {answered && (
+        <p className="text-ink-soft mt-2 text-[13px] leading-relaxed">
+          Linguagem do servidor: <span className="text-ink">{stack?.name ?? 'ainda não escolhida'}</span>. O caminho
+          é o mesmo em qualquer stack; a escolha só reordena os materiais.{' '}
+          <Link href="/trilha#nivel-build-and-ship" className="text-now underline underline-offset-2">
+            Escolher na trilha
+          </Link>
+        </p>
+      )}
 
       <Research />
 

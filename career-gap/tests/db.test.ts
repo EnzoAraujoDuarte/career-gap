@@ -80,6 +80,18 @@ describe('banco: estado da pessoa', () => {
     expect(output.items[0].score).toBeTypeOf('number');
   });
 
+  it('guarda a linguagem do servidor e registra a troca como mudança de perfil', async () => {
+    await createUser('caio');
+    await saveProfile(db, 'caio', { ...profile(1, 'L2'), technologyId: 'java' });
+    expect((await loadUserState(db, 'caio')).profile?.technologyId).toBe('java');
+    await saveProfile(db, 'caio', { ...profile(2, 'L2'), technologyId: 'node' });
+    const snapshots = await db.select().from(schema.roadmapSnapshot).where(eq(schema.roadmapSnapshot.userId, 'caio'));
+    expect(snapshots).toHaveLength(2);
+    expect((snapshots[1].input as { technologyId?: string }).technologyId).toBe('node');
+    expect(() => assertProfile({ ...profile(1), technologyId: 'php-laravel' })).toThrow(/linguagem/);
+    expect(() => assertProfile({ ...profile(1), technologyId: 'node' })).not.toThrow();
+  });
+
   it('não duplica o registro do motor quando as respostas não mudaram', async () => {
     await createUser('bia');
     const snapshots = async () =>

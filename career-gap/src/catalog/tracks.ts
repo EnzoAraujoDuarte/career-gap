@@ -216,6 +216,21 @@ export const FIRST_WEB_ROLE: CareerTrack = {
   // de afirmar o que a anterior afirma, e no mesmo nível afirmar mais. Assim quem usa IA só é
   // creditado na frase de quem depura sozinho, que é o que a competência exige. Fica sem
   // pergunta só algoritmos e custo: começa em "ainda não" e a pessoa ajusta na página.
+  // A linguagem do servidor, escolhida a partir do nível 3. Independente de stack: nenhuma
+  // competência, aresta ou lacuna muda; só os materiais preferem a linguagem escolhida. As duas
+  // opções são as que têm material verificado no catálogo (PLANO-DIRECAO §3).
+  stacks: [
+    {
+      technology: 'node',
+      name: 'JavaScript com Node.js',
+      why: 'Uma língua só, do navegador ao servidor. É a stack padrão dos materiais do catálogo e domina as vagas de entrada nos repositórios da comunidade.',
+    },
+    {
+      technology: 'java',
+      name: 'Java com Spring',
+      why: 'Lidera do lado da oferta CLT no Brasil, com Spring Boot à frente do React; o catálogo tem API, autenticação e publicação nessa stack.',
+    },
+  ],
   quickAssessment: [
     {
       id: 'programming',

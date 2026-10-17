@@ -201,6 +201,17 @@ export interface QuickQuestion {
   readonly statements: readonly QuickStatement[];
 }
 
+/**
+ * Uma linguagem de servidor que a pessoa pode escolher a partir do terceiro nível. O caminho é
+ * INDEPENDENTE de stack: competências, ordem e lacunas não mudam com a escolha; só os materiais
+ * passam a preferir a linguagem escolhida, com o motivo dito (ADR-0014).
+ */
+export interface StackOption {
+  readonly technology: TechnologyId;
+  readonly name: string;
+  readonly why: string;
+}
+
 export interface CareerTrack {
   readonly id: string;
   readonly ecosystem: EcosystemId;
@@ -210,6 +221,8 @@ export interface CareerTrack {
   readonly emphases: readonly EmphasisOverlay[];
   readonly path: readonly PathLevel[];
   readonly quickAssessment: readonly QuickQuestion[];
+  /** Linguagens de servidor oferecidas. Vazio = o track não pede essa escolha. */
+  readonly stacks: readonly StackOption[];
 }
 
 // ---------------------------------------------------------------------------
@@ -479,6 +492,8 @@ export interface UserProfile {
   readonly id: string;
   readonly trackId: string;
   readonly emphasisId?: string;
+  /** Linguagem de servidor escolhida (uma das `stacks` do track). Só reordena materiais. */
+  readonly technologyId?: TechnologyId;
   readonly competencies: readonly UserCompetency[];
   readonly assertions?: readonly CriterionAssertion[];
 }

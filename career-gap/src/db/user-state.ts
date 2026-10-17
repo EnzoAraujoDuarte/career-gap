@@ -47,6 +47,7 @@ export async function loadUserState(db: Db, userId: string): Promise<UserState> 
       ? {
           trackId: row.trackId,
           emphasisId: row.emphasisId ?? undefined,
+          technologyId: row.technologyId ?? undefined,
           levels: Object.fromEntries(levels.map((item) => [item.competencyId, item.level as Level])),
           updatedAt: iso(row.profileUpdatedAt),
         }
@@ -89,6 +90,7 @@ export async function saveProfile(db: Db, userId: string, profile: StoredProfile
         profileUpdatedAt: learner.profileUpdatedAt,
         trackId: learner.trackId,
         emphasisId: learner.emphasisId,
+        technologyId: learner.technologyId,
         catalogVersion: learner.catalogVersion,
       })
       .from(learner)
@@ -105,6 +107,7 @@ export async function saveProfile(db: Db, userId: string, profile: StoredProfile
       const unchanged =
         current.trackId === profile.trackId &&
         (current.emphasisId ?? undefined) === profile.emphasisId &&
+        (current.technologyId ?? undefined) === profile.technologyId &&
         current.catalogVersion === CATALOG.version &&
         sameLevels(stored, profile.levels);
       if (unchanged) {
@@ -116,6 +119,7 @@ export async function saveProfile(db: Db, userId: string, profile: StoredProfile
     const values = {
       trackId: profile.trackId,
       emphasisId: profile.emphasisId ?? null,
+      technologyId: profile.technologyId ?? null,
       catalogVersion: CATALOG.version,
       profileUpdatedAt: updatedAt,
     };

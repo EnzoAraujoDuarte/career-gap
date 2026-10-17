@@ -48,7 +48,7 @@ export function buildCompetencyView(
   if (!competency || !requirement) return undefined;
 
   const target = requirement.targetLevel;
-  const all = selectResourcesFor(id, target, catalog.resources, Infinity).map((item) => item.resource);
+  const all = selectResourcesFor(id, target, catalog.resources, Infinity, view?.technologyId).map((item) => item.resource);
   const nameOf = (other: CompetencyId) => catalog.competencies.get(other)?.name ?? other;
   const levelOf = (other: CompetencyId): Level | undefined => {
     const node = view?.nodes.find((candidate) => candidate.id === other);

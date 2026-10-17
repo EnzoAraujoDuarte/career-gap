@@ -30,6 +30,9 @@ After editing `docs/research/*.json`, run `pnpm build:resources` to regenerate t
   Never reduce the product to `answers → LLM → text` (ADR-0004).
 - **Nothing is locked.** The system annotates with a reason (you already know this,
   recommended now, missing base, not now) and the person chooses (ADR-0009).
+- **The path is stack-independent.** Competencies, order and gaps never change with a language;
+  the chosen server language only reorders materials, with the reason shown (ADR-0014). Never add
+  a competency, edge or rule that depends on a stack.
 - **Catalog of links only.** Resources point to the rights holder's page; nothing is hosted or
   reproduced. Never use BibliotecaDev, roadmap.sh content or freeCodeCamp lesson text
   (`docs/research/SOURCES.md`, `docs/COMPARACAO-CURRICULOS.md`).
