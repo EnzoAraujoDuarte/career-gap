@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { CATALOG } from '@/catalog';
+import { CAREER_BOOKS } from '@/catalog/career-books';
 import type { HabitTheme } from '@/domain/model';
 import { useProfileSuffix } from '@/lib/current-profile';
 import { SectionLabel } from '@/components/ecosystem/page-shell';
@@ -86,6 +87,31 @@ export function HabitsTab() {
           </section>
         );
       })}
+
+      <SectionLabel>Livros para a carreira</SectionLabel>
+      <p className="text-ink-soft mt-1 text-[13px]">
+        Não ensinam programação: ajudam a manter o ritmo e a conviver. Indicação do autor, fora do
+        motor da trilha.
+      </p>
+      <ul className="mt-3 space-y-4">
+        {CAREER_BOOKS.map((book) => (
+          <li key={book.id}>
+            <a
+              href={book.url}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="tap text-ink focus-visible:outline-attention -my-1 inline-block py-1 text-[14.5px] leading-snug underline decoration-[var(--rule)] underline-offset-2 hover:decoration-[var(--ink)] focus-visible:outline-2"
+            >
+              {book.title}
+              <span className="sr-only"> (abre em nova aba)</span>
+            </a>
+            <span className="text-ink-soft block text-[12.5px]">
+              {book.author} · {book.publisher}
+            </span>
+            <span className="text-ink-soft mt-0.5 block text-[13px] leading-relaxed">{book.why}</span>
+          </li>
+        ))}
+      </ul>
 
       <SectionLabel>De onde vêm os hábitos</SectionLabel>
       <p className="text-ink-soft mt-1 text-[13px]">

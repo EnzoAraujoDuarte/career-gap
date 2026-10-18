@@ -176,3 +176,37 @@ describe('ordem curada dos vídeos', () => {
     expect(rules).toContain('resource-featured-order');
   });
 });
+
+describe('livros', () => {
+  // Só a página do detentor dos direitos (ADR-0005): editora, nunca loja nem cópia.
+  const RETAILERS = /amazon\.|mercadolivre|submarino|americanas|magazineluiza|estantevirtual|\.pdf$/i;
+
+  it('os de carreira apontam para a editora, por https, sem repetir', async () => {
+    const { CAREER_BOOKS } = await import('@/catalog/career-books');
+    expect(CAREER_BOOKS.length).toBeGreaterThan(0);
+    expect(new Set(CAREER_BOOKS.map((book) => book.id)).size).toBe(CAREER_BOOKS.length);
+    for (const book of CAREER_BOOKS) {
+      expect(book.url, book.id).toMatch(/^https:\/\//);
+      expect(book.url, book.id).not.toMatch(RETAILERS);
+      expect(book.why.length, book.id).toBeGreaterThan(40);
+    }
+  });
+
+  it('nenhum livro do catálogo aponta para loja', () => {
+    for (const book of CATALOG.resources.filter((resource) => resource.kind === 'book')) {
+      expect(book.url, book.id).not.toMatch(RETAILERS);
+    }
+  });
+
+  it('os de depois da primeira vaga ficam fora da estrada', () => {
+    // Microsserviços e system design não têm estação: o livro aparece só no Explorar, com "não agora".
+    const onThePath = new Set(FIRST_WEB_ROLE.requirements.map((requirement) => requirement.competency));
+    const later = CATALOG.resources.filter(
+      (resource) => resource.kind === 'book' && resource.competencies.every((id) => !onThePath.has(id)),
+    );
+    expect(later.length).toBeGreaterThan(0);
+    for (const book of later) {
+      for (const id of book.competencies) expect(CATALOG.competencies.has(id), `${book.id} → ${id}`).toBe(true);
+    }
+  });
+});

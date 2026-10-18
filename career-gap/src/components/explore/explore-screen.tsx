@@ -266,12 +266,23 @@ function ContentsTab() {
   );
 }
 
+/** As competências que têm página: as da trilha. As de depois da primeira vaga (microsserviços,
+ *  system design) existem no catálogo para dizer que podem esperar, mas não têm estação. */
+const ON_THE_PATH = new Set(FIRST_WEB_ROLE.requirements.map((requirement) => requirement.competency));
+
 function Item({ item }: { item: ExploreItem }) {
+  // Um livro de arquitetura não pode parecer recomendação para quem está começando, nem para quem
+  // ainda não respondeu às perguntas: o "não agora" é um fato do catálogo, não do perfil.
+  const afterFirstJob = item.competencies.every((competency) => !ON_THE_PATH.has(competency.id));
+  const mark = item.advice?.kind ?? (afterFirstJob ? 'not-now' : undefined);
   return (
     <li>
-      {item.advice && (
+      {mark && (
         <p className="mb-0.5">
-          <AdviceMark kind={item.advice.kind} />
+          <AdviceMark kind={mark} />
+          {afterFirstJob && (
+            <span className="hand text-ink-faint ml-1.5 text-[13.5px]">· depois da primeira vaga</span>
+          )}
         </p>
       )}
       <ResourceLine resource={item.resource} startHere={item.startHere} detailed />
@@ -280,7 +291,11 @@ function Item({ item }: { item: ExploreItem }) {
         {item.competencies.map((competency, index) => (
           <span key={competency.id}>
             {index > 0 && ', '}
-            <CompetencyLink id={competency.id}>{competency.name}</CompetencyLink>
+            {ON_THE_PATH.has(competency.id) ? (
+              <CompetencyLink id={competency.id}>{competency.name}</CompetencyLink>
+            ) : (
+              competency.name
+            )}
           </span>
         ))}
       </p>
