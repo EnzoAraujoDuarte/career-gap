@@ -19,13 +19,17 @@ export interface StoredProfile {
 }
 
 /** Autoavaliação vira perfil do domínio. Tudo aqui é `self-report`: a origem da evidência
- *  é o que decide a confiança, e nenhuma tela pode mentir sobre isso (ADR-0003). */
+ *  é o que decide a confiança, e nenhuma tela pode mentir sobre isso (ADR-0003).
+ *
+ *  A linguagem do servidor fica de fora de propósito. O seletor saiu da trilha (PR #18) e não há
+ *  outro lugar para vê-la ou trocá-la; usar o valor antigo reordenava materiais e entrava no prompt
+ *  de IA sem a pessoa saber por quê. Ela continua guardada, e volta a contar quando houver onde
+ *  escolher (ADR-0014, nota de 2026-10-17). */
 export function toUserProfile(profile: StoredProfile, id = 'local'): UserProfile {
   return {
     id,
     trackId: profile.trackId,
     emphasisId: profile.emphasisId,
-    technologyId: profile.technologyId,
     competencies: Object.entries(profile.levels)
       .filter(([, level]) => level !== 'L0')
       .map(([competency, level]) => ({ competency, level, evidence: 'self-report' as const })),

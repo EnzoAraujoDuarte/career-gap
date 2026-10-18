@@ -20,11 +20,3 @@ export const clearDraft = (): void => store.clear();
 export const useStoredDraft = (): DraftProfile | null | undefined => store.useValue();
 /** Só para a sincronização: grava o que veio do banco sem mandar de volta. */
 export const replaceDraft = (profile: StoredProfile): void => store.save(profile);
-
-/** Troca só a linguagem do servidor. Sem perfil não há onde guardar, e a tela diz isso. */
-export function saveTechnology(technologyId: string | undefined): boolean {
-  const draft = store.load();
-  if (!draft) return false;
-  saveDraft({ ...draft, technologyId });
-  return true;
-}

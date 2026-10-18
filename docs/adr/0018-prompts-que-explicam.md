@@ -35,18 +35,24 @@ A pesquisa de outubro de 2026 apontou na mesma direção:
 3. **Um jeito de ajudar comum aos três:** colega mais experiente, frases curtas, sem introdução,
    sem elogios e sem resumo no fim; o esforço vai para o que foi pedido; exemplos do dia a dia no
    Brasil, no nível da pessoa; código legível, com erros tratados e sem biblioteca que ninguém
-   pediu; uma pergunta de checagem quando fizer sentido, não em toda mensagem.
-4. **Hábitos citados vêm do catálogo,** com a fonte conferida, no máximo três: a IA cita o que está
-   no prompt, não um número de dica que lembra errado.
-5. **O site preenche o que sabe:** a linguagem escolhida, o que a pessoa já concluiu na estação, as
-   frases do nível atual e do pedido, em primeira pessoa. A missão do Career Gap vem com o
-   enunciado; exercício de outro site, a pessoa cola, porque o catálogo não copia o texto dele.
+   pediu; uma pergunta de checagem quando fizer sentido, não em toda mensagem. A explicação começa
+   do jeito mais simples e sobe de nível só quando a pessoa acompanha, e os termos da área entram aos
+   poucos, explicados no fim de cada resposta numa seção "Palavras novas", sem repetir os já vistos.
+4. **Hábitos citados vêm do catálogo,** com a fonte conferida, no máximo dois: a IA cita o que está
+   no prompt, não um número de dica que lembra errado. Os da tradição "IA tutora" ficam de fora,
+   porque dizem como usar a IA, e o próprio pedido já faz isso.
+5. **O site preenche só o que sabe:** o que a pessoa já concluiu na estação e as frases do nível
+   atual e do pedido, em primeira pessoa. No zero, o prompt diz que ela nunca estudou o assunto.
+   Nenhuma linguagem é afirmada: o código vai na linguagem que o assunto pede, ou em JavaScript
+   quando tanto faz, até a pessoa dizer que usa outra. A missão do Career Gap vem com o enunciado;
+   exercício de outro site, a pessoa cola, porque o catálogo não copia o texto dele.
 6. **O hábito "Use a IA como tutora, não como autora" muda de texto** para refletir o estudo que
    cita: pedir código com explicação também preserva o aprendizado; delegar sem entender, não.
 
 ## Consequências
 
-- Um teste fixa o teto de tamanho dos prompts: passar dele pede cortar, não aumentar o teto.
+- Um teste fixa o teto de tamanho dos prompts em todo o catálogo: passar dele pede cortar, não
+  aumentar o teto.
 - O hábito mudou, então o catálogo foi para `2026.10.17-2`.
 - O Career Gap continua sem IA dentro: os prompts são texto montado por regra, com dados do
   catálogo e do perfil (ADR-0004).

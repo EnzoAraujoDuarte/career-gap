@@ -46,3 +46,13 @@ Rust, C#, PHP e Python ficavam de fora sem motivo. A seção virou texto: a inde
 da escolha, quais linguagens têm material verificado hoje e que as outras servem igual. O campo no
 perfil, a coluna no banco e a regra de desempate no motor ficam, inofensivos e testados, para o dia
 em que o catálogo cobrir mais linguagens e a escolha puder voltar como filtro de materiais.
+
+## Nota de 2026-10-17 (noite): o valor antigo não era inofensivo
+
+Quem escolheu uma linguagem enquanto o seletor existiu continuou com ela no perfil, e o site
+seguia usando o valor: reordenava materiais, mostrava a etiqueta "na linguagem que você escolheu" e,
+com os prompts da ADR-0018, dizia à IA "programo em Java no servidor". A pessoa não via nem podia
+trocar nada disso. Agora a conversão do perfil guardado para o perfil do motor deixa a linguagem de
+fora: o valor continua no navegador e no banco, sem se perder, e volta a contar quando houver um
+lugar para escolher, de preferência neutro e com resposta livre. A regra de desempate no motor
+segue testada.

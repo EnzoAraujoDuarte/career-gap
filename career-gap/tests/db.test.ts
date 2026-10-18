@@ -87,7 +87,9 @@ describe('banco: estado da pessoa', () => {
     await saveProfile(db, 'caio', { ...profile(2, 'L2'), technologyId: 'node' });
     const snapshots = await db.select().from(schema.roadmapSnapshot).where(eq(schema.roadmapSnapshot.userId, 'caio'));
     expect(snapshots).toHaveLength(2);
-    expect((snapshots[1].input as { technologyId?: string }).technologyId).toBe('node');
+    // A linguagem fica guardada, mas não entra no motor enquanto não houver onde escolhê-la
+    // (ADR-0014, nota de 2026-10-17): o registro do motor não a carrega.
+    expect((snapshots[1].input as { technologyId?: string }).technologyId).toBeUndefined();
     expect(() => assertProfile({ ...profile(1), technologyId: 'php-laravel' })).toThrow(/linguagem/);
     expect(() => assertProfile({ ...profile(1), technologyId: 'node' })).not.toThrow();
   });
