@@ -36,14 +36,14 @@ export const HABITS: readonly ProfessionalHabit[] = [
     id: 'ai-as-tutor',
     title: 'Use a IA como tutora, não como autora',
     detail:
-      'Peça explicação, exemplo e exercício novo. Não peça a solução do exercício que você ' +
-      'está tentando resolver: no ensaio, quem pediu explicação aprendeu; quem delegou, não.',
+      'Peça explicação, ou código junto com a explicação, e pergunte até entender cada parte. ' +
+      'No ensaio, quem fez isso aprendeu; quem só delegou o código, não.',
     tradition: 'ai-tutor',
     theme: 'learn',
     credit: 'Shen e Tamkin (2026), ensaio randomizado',
     competencies: ['programming-fundamentals', 'problem-decomposition'],
     sources: [
-      shenTamkin('pedir explicação preservou o aprendizado; delegar o código, não'),
+      shenTamkin('perguntar conceitos, pedir código com explicação ou gerar e depois perguntar preservaram o aprendizado; delegar, não'),
       cs2023('SEP', 'uso responsável de ferramentas automatizadas'),
     ],
   },

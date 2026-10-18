@@ -5,12 +5,13 @@ import { useMemo, useState } from 'react';
 import { CATALOG, FIRST_WEB_ROLE } from '@/catalog';
 import { levelAtLeast, type Resource } from '@/domain/model';
 import { generateRoadmap } from '@/domain/roadmap';
-import { studyPrompt } from '@/lib/ai-prompt';
+import { exercisePrompt, studyPrompt, type PromptContext } from '@/lib/ai-prompt';
 import { buildBuildsView, type BuildView } from '@/lib/builds-view';
 import { buildCompetencyView, type Neighbor } from '@/lib/competency-view';
 import { useCurrentProfile, useProfileSuffix } from '@/lib/current-profile';
 import { useProgress } from '@/lib/progress-storage';
 import { LEVEL_ASKED, LEVEL_SHORT } from '@/lib/reason-text';
+import { technologyName } from '@/lib/tech-badge';
 import { buildPathView } from '@/lib/path-view';
 import { buildRoadmapView } from '@/lib/roadmap-view';
 import { aimReturnAt } from '@/lib/scroll-memory';
@@ -54,6 +55,15 @@ export function CompetencyScreen({ id }: { id: string }) {
 
   const definition = CATALOG.competencies.get(id);
   if (!competency || !definition) return null;
+
+  // O que o site sabe e a IA não: a linguagem escolhida e o que a pessoa já estudou nesta estação.
+  const promptContext: PromptContext = {
+    serverLanguage: profile?.technologyId ? technologyName(profile.technologyId) : undefined,
+    done: [...competency.learn, ...competency.practice, ...competency.prove].filter(
+      (resource) => progress?.[resource.id]?.completedAt,
+    ),
+  };
+  const mission = competency.practice.find((resource) => resource.task);
 
   return (
     <main className="min-h-dvh bg-paper">
@@ -119,6 +129,17 @@ export function CompetencyScreen({ id }: { id: string }) {
           technologyId={competency.technologyId}
           hint="Só assistir não forma ninguém: escolha pelo menos uma."
           visible={3}
+          after={
+            <CopyPrompt
+              prompt={exercisePrompt(definition, competency.targetLevel, mission, promptContext)}
+              label="Resolver um exercício com ajuda de IA"
+              hint={
+                mission
+                  ? 'Já vem com a missão desta estação. Cole o seu código no lugar indicado; o assistente dá pistas antes da solução.'
+                  : 'Cole o enunciado e o seu código no lugar indicado; o assistente dá pistas antes da solução.'
+              }
+            />
+          }
         />
         <ResourceGroup
           title="Provar"
@@ -158,8 +179,9 @@ export function CompetencyScreen({ id }: { id: string }) {
 
         <div className="mt-8">
           <CopyPrompt
-            prompt={studyPrompt(definition, currentLevel, competency.targetLevel)}
+            prompt={studyPrompt(definition, currentLevel, competency.targetLevel, promptContext)}
             label="Estudar isto com um assistente de IA"
+            hint="Leva o que você já sabe, aonde quer chegar e os critérios desta estação. O assistente ensina no seu nível, com exemplos do dia a dia."
           />
         </div>
 
@@ -294,6 +316,7 @@ function ResourceGroup({
   technologyId,
   hint,
   visible,
+  after,
 }: {
   title: string;
   resources: readonly Resource[];
@@ -302,6 +325,8 @@ function ResourceGroup({
   hint?: string;
   /** Quantos aparecem antes do "mostrar mais". */
   visible: number;
+  /** O que vem depois da lista, como o pedido de ajuda com um exercício. */
+  after?: React.ReactNode;
 }) {
   const [expanded, setExpanded] = useState(false);
   if (resources.length === 0) return null;
@@ -335,6 +360,7 @@ function ResourceGroup({
           Mostrar mais {hidden} {hidden === 1 ? 'material' : 'materiais'}
         </button>
       )}
+      {after && <div className="mt-6">{after}</div>}
     </section>
   );
 }

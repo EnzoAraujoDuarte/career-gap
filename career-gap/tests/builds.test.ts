@@ -103,12 +103,16 @@ describe('construções', () => {
 });
 
 describe('prompt para o assistente de IA', () => {
-  it('é montado só com dados do catálogo e pede um tutor, não uma solução', () => {
+  // Antes o prompt proibia a solução ("Não me dê a solução pronta"). Mudou de propósito
+  // (ADR-0018): pedir código junto com a explicação também preservou o aprendizado no ensaio de
+  // Shen e Tamkin, e o tutor que só pergunta levou estudantes a outra IA (Eastwood e outros, 2026).
+  it('é montado só com dados do catálogo e pede código explicado, não proibido', () => {
     const competency = CATALOG.competencies.get('http-fundamentals')!;
     const prompt = studyPrompt(competency, 'L0', 'L2');
     expect(prompt).toContain(competency.name);
     for (const criterion of competency.levels.L2!.exitCriteria) expect(prompt).toContain(criterion);
-    expect(prompt).toContain('Não me dê a solução pronta');
+    expect(prompt).toContain('Se eu pedir código, escreva o código e explique as decisões.');
+    expect(prompt).not.toContain('Não me dê a solução');
     expect(prompt).not.toMatch(/\bL[0-4]\b/);
   });
 
