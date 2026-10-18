@@ -1,0 +1,397 @@
+{
+  "gerado_em": "2026-10-17",
+  "criterio": "Livros indicados pelo dono do produto (quadro \"Livros que eu indico\") e sugestões verificadas, com edição brasileira sempre que existe. Cada link é a página da editora, aberta e conferida (título, autor, ISBN) em 2026-10-17. Entram os que servem à primeira vaga, ligados às competências da trilha; os de arquitetura, microsserviços e system design entram nas competências de depois da primeira vaga, que o produto marca como \"pode esperar\". Os livros de carreira e de vida (Hábitos Atômicos, Nada Pode Me Ferir, Como Fazer Amigos e Influenciar Pessoas) não ensinam competência: ficam na aba Hábitos como indicação do autor (src/catalog/career-books.ts).",
+  "entries": [
+    {
+      "name": "Lógica de Programação e Algoritmos com JavaScript – 2ª Edição (Edécio Fernando Iepsen)",
+      "url": "https://novatec.com.br/livros/logica-programacao-algoritmos-com-javascript-2ed",
+      "kind": "book",
+      "competencies": [
+        "programming-fundamentals",
+        "problem-decomposition",
+        "javascript-essentials"
+      ],
+      "level_min": "L0",
+      "cost": "pago",
+      "pt_br_status": "complete",
+      "license": "todos os direitos reservados — apenas linkar",
+      "action_type": "READ",
+      "chapters": "caps. 1–8 (lógica com JavaScript no navegador e no Node); caps. 9–10 tocam localStorage e DOM; caps. 12–13 (Express e React) ficam para depois",
+      "why": "Livro brasileiro, de um professor de Algoritmos, que ensina lógica já em JavaScript rodando no navegador, sem instalar nada. O melhor primeiro livro pago do lote para quem começa do zero.",
+      "editora": "Novatec",
+      "edicao": "2ª ed., 2022"
+    },
+    {
+      "name": "Use a Cabeça! Aprenda a Programar (Eric Freeman)",
+      "url": "https://altabooks.com.br/produto/use-a-cabeca-aprenda-a-programar/",
+      "kind": "book",
+      "competencies": [
+        "programming-fundamentals",
+        "problem-decomposition"
+      ],
+      "level_min": "L0",
+      "cost": "pago",
+      "pt_br_status": "complete",
+      "license": "todos os direitos reservados — apenas linkar",
+      "action_type": "READ",
+      "why": "O Use a Cabeça! de introdução à programação que segue à venda na Alta Books (os de HTML/CSS, JavaScript e SQL saíram do catálogo ou estão sem estoque); ensina do zero com muitos exercícios visuais. Usa Python, então é para fundamentos, não para a web; é o mais caro do lote.",
+      "editora": "Alta Books",
+      "edicao": "1ª ed., 2018"
+    },
+    {
+      "name": "Aprendendo Git (Anna Skoulikari)",
+      "url": "https://novatec.com.br/livros/aprendendo-git",
+      "kind": "book",
+      "competencies": [
+        "version-control-git",
+        "command-line-basics"
+      ],
+      "level_min": "L0",
+      "cost": "pago",
+      "pt_br_status": "complete",
+      "license": "todos os direitos reservados — apenas linkar",
+      "action_type": "READ",
+      "chapters": "caps. 1–8 (linha de comando, commits, branches, merge, repositório remoto, clone); caps. 9–12 (merge three-way, conflitos, rebase, pull requests) antes da primeira vaga",
+      "why": "Ensina Git de forma visual e pela linha de comando, do primeiro commit ao pull request. Alternativa em português ao Head First Git, que não tem edição brasileira.",
+      "editora": "Novatec",
+      "edicao": "1ª ed., 2024 (original O'Reilly: Learning Git)"
+    },
+    {
+      "name": "Aprendendo SQL (Alan Beaulieu)",
+      "url": "https://novatec.com.br/livros/aprendendo-sql",
+      "kind": "book",
+      "competencies": [
+        "sql-basics"
+      ],
+      "level_min": "L0",
+      "cost": "pago",
+      "pt_br_status": "complete",
+      "license": "todos os direitos reservados — apenas linkar",
+      "action_type": "READ",
+      "chapters": "caps. 1–10 (criar e consultar tabelas, filtros, junções, agrupamentos, subconsultas); 11–15 (transações, índices, views) depois",
+      "why": "Introdução clássica da O'Reilly a consultas, junções, agrupamentos e transações. A edição em português é de 2010 (cita MySQL 5.1), mas o SQL básico mudou pouco; serve a quem vai pôr um banco na primeira aplicação.",
+      "editora": "Novatec",
+      "edicao": "1ª ed., 2010 (hoje só em e-book)"
+    },
+    {
+      "name": "A Arte de Escrever Programas Legíveis (Dustin Boswell e Trevor Foucher)",
+      "url": "https://novatec.com.br/livros/programas-legiveis",
+      "kind": "book",
+      "competencies": [
+        "code-readability"
+      ],
+      "level_min": "L0",
+      "cost": "pago (e-book; o impresso esgotou)",
+      "pt_br_status": "complete",
+      "license": "todos os direitos reservados — apenas linkar",
+      "action_type": "READ",
+      "chapters": "Partes I e II (nomes, estética, comentários, loops e lógica) primeiro; o resto quando já houver projeto próprio",
+      "why": "Curto e direto sobre nomes, comentários, fluxo de controle e organização do código. Mais acessível que Código Limpo para o primeiro contato com legibilidade.",
+      "editora": "Novatec",
+      "edicao": "1ª ed., 2012 (impresso esgotado)"
+    },
+    {
+      "name": "JavaScript: O Guia Definitivo – 7ª edição (David Flanagan)",
+      "url": "https://loja.grupoa.com.br/javascript-o-guia-definitivo-7ed-9788582606995-p1053246",
+      "kind": "book",
+      "competencies": [
+        "javascript-essentials",
+        "dom-and-browser"
+      ],
+      "level_min": "L1",
+      "cost": "pago",
+      "pt_br_status": "complete",
+      "license": "todos os direitos reservados — apenas linkar",
+      "action_type": "READ",
+      "chapters": "caps. 1–8 (da estrutura léxica a funções) como base; 13 (JavaScript assíncrono) e 15 (navegador) quando chegar em DOM e APIs; o resto é consulta",
+      "why": "A referência mais completa da linguagem, atualizada para o JavaScript moderno (classes, módulos, async/await). Não serve para aprender do zero: é para consultar quando o curso deixar uma dúvida.",
+      "editora": "Bookman (Grupo A)",
+      "edicao": "7ª ed., 2026"
+    },
+    {
+      "name": "O Programador Pragmático – 2ª edição (David Thomas e Andrew Hunt)",
+      "url": "https://loja.grupoa.com.br/o-programador-pragmatico-2ed-9788582606872-p1053429",
+      "kind": "book",
+      "competencies": [
+        "code-readability",
+        "debugging",
+        "technical-communication"
+      ],
+      "level_min": "L1",
+      "cost": "pago",
+      "pt_br_status": "complete",
+      "license": "todos os direitos reservados — apenas linkar",
+      "action_type": "READ",
+      "chapters": "caps. 1–3 primeiro (filosofia, abordagem e ferramentas básicas: shell, controle de versão, depuração); concorrência (cap. 6) pode esperar. Tópicos conferidos no sumário da editora original (pragprog.com/titles/tpp20)",
+      "why": "Conselhos curtos e independentes de linguagem sobre trabalhar como profissional: ferramentas, depuração, comunicação e responsabilidade pelo próprio código. Dá para ler cedo e reler a cada fase.",
+      "editora": "Bookman (Grupo A)",
+      "edicao": "2ª ed. (edição de 20 anos), 2026"
+    },
+    {
+      "name": "Fundamentos da Engenharia de Software: De Programador a Engenheiro de Software (Nathaniel Schutta e Dan Vega)",
+      "url": "https://novatec.com.br/livros/fundamentos-engenharia-de-software/",
+      "kind": "book",
+      "competencies": [
+        "code-readability",
+        "automated-testing-basics",
+        "debugging",
+        "ai-assisted-development-basics"
+      ],
+      "level_min": "L1",
+      "cost": "pago",
+      "pt_br_status": "complete",
+      "license": "todos os direitos reservados — apenas linkar",
+      "action_type": "READ",
+      "chapters": "caps. 2–3 (ler e escrever código), 5 (testes automatizados), 6 (explorar e modificar sistemas desconhecidos), 13 (habilidades interpessoais) e 15 (uso de IA)",
+      "why": "Reúne o que cursos costumam pular: ler código alheio, testar, explorar sistemas desconhecidos, ir para produção e trabalhar com pessoas. Bom para a reta final antes da primeira vaga.",
+      "editora": "Novatec",
+      "edicao": "1ª ed., 2026"
+    },
+    {
+      "name": "Construindo uma Carreira em Software (Daniel Heller)",
+      "url": "https://novatec.com.br/livros/construindo-carreira-em-software/",
+      "kind": "book",
+      "competencies": [
+        "code-review-participation",
+        "technical-communication"
+      ],
+      "level_min": "L1",
+      "cost": "pago",
+      "pt_br_status": "complete",
+      "license": "todos os direitos reservados — apenas linkar",
+      "action_type": "READ",
+      "chapters": "seções sobre encontrar emprego e entrevistas, 'Revisão de código', 'Depuração' e a parte de escrita técnica",
+      "why": "Guia de quem está entrando no mercado: processo seletivo, primeiros meses no emprego, code review, depuração e escrita técnica. O contexto é de empresas americanas, mas a parte de trabalho diário vale aqui também.",
+      "editora": "Novatec",
+      "edicao": "1ª ed., 2021"
+    },
+    {
+      "name": "Indo Além da Vibe Coding: De Programador a Desenvolvedor de Software na Era da IA (Addy Osmani)",
+      "url": "https://novatec.com.br/livros/indo-alem-da-vibe-coding/",
+      "kind": "book",
+      "competencies": [
+        "ai-assisted-development-basics"
+      ],
+      "level_min": "L1",
+      "cost": "pago",
+      "pt_br_status": "complete",
+      "license": "todos os direitos reservados — apenas linkar",
+      "action_type": "READ",
+      "chapters": "caps. 2–5 (prompts, o 'problema dos 70%' e revisar o código gerado) e 8 (segurança e manutenibilidade)",
+      "why": "Como usar IA para programar sem perder o controle do código: revisar o que foi gerado, testar e assumir a responsabilidade. Para quem já escreve código sozinho e começou a usar assistentes.",
+      "editora": "Novatec",
+      "edicao": "1ª ed., 2026"
+    },
+    {
+      "name": "Refatoração – 2ª Edição (Martin Fowler)",
+      "url": "https://novatec.com.br/livros/refatoracao",
+      "kind": "book",
+      "competencies": [
+        "code-readability",
+        "automated-testing-basics"
+      ],
+      "level_min": "L2",
+      "cost": "pago",
+      "pt_br_status": "complete",
+      "license": "todos os direitos reservados — apenas linkar",
+      "action_type": "READ",
+      "chapters": "caps. 1–4 (primeiro exemplo, princípios, maus cheiros no código e escrita de testes); o catálogo (caps. 5–12) é consulta",
+      "why": "Ensina a melhorar código que já funciona em passos pequenos e seguros, protegidos por testes; a 2ª edição traz exemplos em JavaScript. Vale quando você já tem um projeto próprio para mexer, não antes.",
+      "editora": "Novatec",
+      "edicao": "2ª ed., 2020"
+    },
+    {
+      "name": "Arquitetura Limpa: O Guia do Artesão para Estrutura e Design de Software (Robert C. Martin)",
+      "url": "https://altabooks.com.br/produto/arquitetura-limpa/",
+      "kind": "book",
+      "competencies": [
+        "build-an-application"
+      ],
+      "level_min": "L3",
+      "cost": "pago",
+      "pt_br_status": "complete",
+      "license": "todos os direitos reservados — apenas linkar",
+      "action_type": "READ",
+      "why": "Explica como separar regras de negócio de detalhes (banco, framework, web) para a aplicação continuar fácil de mudar. Faz sentido depois de ter construído e mantido uma aplicação real; num projeto pequeno, aplicar tudo vira excesso de camadas.",
+      "editora": "Alta Books",
+      "edicao": "1ª ed., 2019"
+    },
+    {
+      "name": "Padrões de Projeto: Soluções Reutilizáveis de Software Orientado a Objetos (Erich Gamma, Richard Helm, Ralph Johnson e John Vlissides)",
+      "url": "https://loja.grupoa.com.br/padroes-de-projeto-solucoes-reutilizaveis-9788573076103-p989759",
+      "kind": "book",
+      "competencies": [
+        "code-readability"
+      ],
+      "level_min": "L3",
+      "cost": "pago",
+      "pt_br_status": "complete",
+      "license": "todos os direitos reservados — apenas linkar",
+      "action_type": "READ",
+      "chapters": "caps. 1–2 (introdução e estudo de caso de um editor de documentos) antes do catálogo (caps. 3–5), que é consulta",
+      "why": "O catálogo original dos 23 padrões, que dá nome a soluções que aparecem em frameworks e entrevistas. É consulta para depois de ter escrito código de verdade: os exemplos são em C++ e Smalltalk, e muitos padrões ficam mais simples ou somem em linguagens como JavaScript (Peter Norvig, \"Design Patterns in Dynamic Languages\").",
+      "editora": "Bookman (Grupo A)",
+      "edicao": "1ª ed., 2000"
+    },
+    {
+      "name": "Aprenda Domain-Driven Design: Alinhando Arquitetura de Software e Estratégia de Negócios (Vlad Khononov)",
+      "url": "https://altabooks.com.br/produto/aprenda-domain-driven-design/",
+      "kind": "book",
+      "competencies": [
+        "advanced-system-design",
+        "microservices-architecture"
+      ],
+      "level_min": "L0",
+      "cost": "pago",
+      "pt_br_status": "complete",
+      "license": "todos os direitos reservados — apenas linkar",
+      "action_type": "READ",
+      "chapters": "caps. 1–4 (domínios, conhecimento de domínio, contextos delimitados e integração) são a porta de entrada; caps. 14–15 ligam DDD a microsserviços e arquitetura orientada a eventos (sumário na amostra da editora)",
+      "why": "A introdução mais clara e atual ao DDD, mais curta e prática que o livro do Evans. Leia antes dele, depois da primeira vaga, quando você já participa de decisões sobre como o sistema se divide.",
+      "editora": "Alta Books",
+      "edicao": "1ª ed., 2024"
+    },
+    {
+      "name": "Domain-Driven Design: Atacando as Complexidades no Coração do Software (Eric Evans)",
+      "url": "https://altabooks.com.br/produto/domain-driven-design/",
+      "kind": "book",
+      "competencies": [
+        "advanced-system-design",
+        "microservices-architecture"
+      ],
+      "level_min": "L1",
+      "cost": "pago",
+      "pt_br_status": "complete",
+      "license": "todos os direitos reservados — apenas linkar",
+      "action_type": "READ",
+      "why": "O livro que criou o vocabulário do DDD (linguagem ubíqua, contexto delimitado), base para decidir onde um sistema se divide. Denso e abstrato: vale depois da primeira vaga, e de preferência depois do Khononov, que é a porta de entrada.",
+      "editora": "Alta Books",
+      "edicao": "3ª ed., 2016 (tradução do original de 2003)"
+    },
+    {
+      "name": "Criando Microsserviços – 2ª Edição (Sam Newman)",
+      "url": "https://novatec.com.br/livros/criando-microsservicos-2ed",
+      "kind": "book",
+      "competencies": [
+        "microservices-architecture",
+        "message-queues"
+      ],
+      "level_min": "L0",
+      "cost": "pago",
+      "pt_br_status": "complete",
+      "license": "todos os direitos reservados — apenas linkar",
+      "action_type": "READ",
+      "chapters": "caps. 1–5 (o que são, modelagem, divisão do monólito e estilos de comunicação) são o núcleo; implantação, testes e observabilidade (caps. 8–10) quando houver sistema em produção",
+      "why": "A referência mais citada sobre microsserviços, inclusive sobre quando não usá-los. Assunto de depois da primeira vaga: só faz sentido quando há times e escala que justifiquem o custo.",
+      "editora": "Novatec",
+      "edicao": "2ª ed., 2022"
+    },
+    {
+      "name": "Migrando Sistemas Monolíticos para Microsserviços (Sam Newman)",
+      "url": "https://novatec.com.br/livros/migrando-monoliticos-para-microsservicos",
+      "kind": "book",
+      "competencies": [
+        "microservices-architecture"
+      ],
+      "level_min": "L1",
+      "cost": "pago",
+      "pt_br_status": "complete",
+      "license": "todos os direitos reservados — apenas linkar",
+      "action_type": "READ",
+      "chapters": "cap. 1 resume microsserviços; caps. 3–4 (dividir o monólito e decompor o banco de dados) são o miolo",
+      "why": "Mostra como sair de um monólito aos poucos, com padrões de migração e o problema mais difícil, que é separar o banco de dados. Útil quando o seu time já enfrenta essa migração; antes disso, é teoria.",
+      "editora": "Novatec",
+      "edicao": "1ª ed., 2020"
+    },
+    {
+      "name": "Fundamentos da Arquitetura de Software – 2ª Edição (Mark Richards e Neal Ford)",
+      "url": "https://novatec.com.br/livros/fundamentos-arquitetura-software-2ed",
+      "kind": "book",
+      "competencies": [
+        "advanced-system-design",
+        "microservices-architecture",
+        "message-queues"
+      ],
+      "level_min": "L0",
+      "cost": "pago",
+      "pt_br_status": "complete",
+      "license": "todos os direitos reservados — apenas linkar",
+      "action_type": "READ",
+      "chapters": "Parte I (caps. 1–8: pensamento arquitetural, modularidade, características) primeiro; caps. 15 (orientado a eventos) e 18 (microsserviços) quando o assunto aparecer",
+      "why": "Panorama dos estilos de arquitetura e de como escolher entre eles por trade-offs. Leitura para quem já está trabalhando e quer entender as decisões do time; a 1ª edição saiu pela Alta Books em 2024.",
+      "editora": "Novatec",
+      "edicao": "2ª ed., 2025"
+    },
+    {
+      "name": "Arquitetura de Software: As Partes Difíceis (Neal Ford, Mark Richards, Pramod Sadalage e Zhamak Dehghani)",
+      "url": "https://altabooks.com.br/produto/arquitetura-de-software-as-partes-dificeis/",
+      "kind": "book",
+      "competencies": [
+        "microservices-architecture",
+        "advanced-system-design"
+      ],
+      "level_min": "L1",
+      "cost": "pago",
+      "pt_br_status": "complete",
+      "license": "todos os direitos reservados — apenas linkar",
+      "action_type": "READ",
+      "why": "Continuação natural de Fundamentos: como decidir granularidade de serviços, dados distribuídos e transações quando não existe resposta certa. Só faz sentido com experiência em sistemas distribuídos.",
+      "editora": "Alta Books",
+      "edicao": "1ª ed., 2024"
+    },
+    {
+      "name": "Projetando Aplicações com Uso Intensivo de Dados – 2ª Edição (Martin Kleppmann e Chris Riccomini)",
+      "url": "https://novatec.com.br/livros/projetando-aplicacoes-com-uso-intensivo-de-dados-2ed",
+      "kind": "book",
+      "competencies": [
+        "advanced-system-design",
+        "message-queues"
+      ],
+      "level_min": "L0",
+      "cost": "pago",
+      "pt_br_status": "complete",
+      "license": "todos os direitos reservados — apenas linkar",
+      "action_type": "READ",
+      "chapters": "caps. 1–3 (trade-offs, requisitos não funcionais, modelos de dados) já se leem com SQL básico; replicação, sharding, transações e streams (caps. 6–12) depois",
+      "why": "A referência sobre como bancos, filas e sistemas distribuídos funcionam por dentro, agora em português. É para depois da primeira vaga, mas os primeiros capítulos já ajudam a entender por que existem tantos bancos diferentes.",
+      "editora": "Novatec",
+      "edicao": "2ª ed., 2026 (original: Designing Data-Intensive Applications)"
+    },
+    {
+      "name": "System Design Interview: An Insider's Guide, vols. 1 e 2 (Alex Xu e Sahn Lam)",
+      "url": "https://bytebytego.com/courses/system-design-interview",
+      "kind": "book",
+      "competencies": [
+        "advanced-system-design",
+        "message-queues"
+      ],
+      "level_min": "L1",
+      "cost": "pago",
+      "pt_br_status": "none",
+      "license": "todos os direitos reservados — apenas linkar",
+      "action_type": "READ",
+      "chapters": "na versão online do autor, as seções 2–16 são o vol. 1 e as 17–29 o vol. 2; a seção 2 é aberta, o restante exige assinatura",
+      "why": "Guia prático das entrevistas de system design, com casos clássicos (encurtador de URL, chat, fila de mensagens, pagamentos). Para depois da primeira vaga, quando a pessoa mira entrevistas de nível pleno; em inglês, sem edição brasileira.",
+      "editora": "ByteByteGo (Byte Code LLC, autopublicado)",
+      "edicao": "2020"
+    }
+  ],
+  "fora": [
+    {
+      "name": "Pai Rico, Pai Pobre (Robert T. Kiyosaki)",
+      "motivo": "finanças pessoais, fora do assunto do produto (a primeira vaga em desenvolvimento web); conselhos de investimento amplamente contestados (John T. Reed; Slate, 2002)"
+    },
+    {
+      "name": "Os Segredos da Mente Milionária (T. Harv Eker)",
+      "motivo": "finanças pessoais, fora do assunto; tese central contestada e a empresa de seminários do autor acusada de vendas agressivas (Vancouver Sun, 2007)"
+    },
+    {
+      "name": "O Homem Mais Rico da Babilônia (George S. Clason)",
+      "motivo": "finanças pessoais, fora do assunto do produto"
+    },
+    {
+      "name": "Fundamentos de HTML5 e CSS3 (Maurício Samy Silva)",
+      "motivo": "de 2015: os capítulos de layout são anteriores a Flexbox e Grid, e o catálogo já tem material atual e gratuito (MDN, web.dev)"
+    }
+  ]
+}

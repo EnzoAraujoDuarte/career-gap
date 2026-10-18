@@ -122,6 +122,7 @@ interface Built {
 const PUBLISHER: Readonly<Record<string, string>> = {
   '7daysofcode.io': 'Alura',
   'altabooks.com.br': 'Alta Books',
+  'bytebytego.com': 'ByteByteGo (Alex Xu)',
   'alura.com.br': 'Alura',
   'casadocodigo.com.br': 'Casa do Código',
   'cursoemvideo.com': 'Curso em Vídeo · Gustavo Guanabara',
@@ -130,6 +131,7 @@ const PUBLISHER: Readonly<Record<string, string>> = {
   'estudarfora.org.br': 'Fundação Estudar',
   'ev.org.br': 'Fundação Bradesco · Escola Virtual',
   'freecodecamp.org': 'freeCodeCamp',
+  'loja.grupoa.com.br': 'Bookman (Grupo A)',
   'novatec.com.br': 'Novatec',
   'origamid.com': 'Origamid',
   'penseallen.github.io': 'Allen Downey (trad. Sheila Gomes)',
@@ -217,7 +219,11 @@ for (const e of read('recursos-canonicos-verificados.json')) {
 }
 
 // --- livros e cursos --------------------------------------------------------
-for (const e of read('livros-cursos-verificados.json')) {
+// A lista de 2026-10-17 vem primeiro: são os livros que o dono do produto indica e os clássicos
+// com edição brasileira (docs/research/livros-indicados-2026-10-17.json). Os de arquitetura e
+// microsserviços vão para as competências de depois da primeira vaga.
+const BOOK_LENSES = ['livros-indicados-2026-10-17.json', 'livros-cursos-verificados.json'];
+for (const e of BOOK_LENSES.flatMap(read)) {
   const cost = normalizeCost(e.cost);
   built.push({
     id: uniqueId(slug(String(e.name))),
