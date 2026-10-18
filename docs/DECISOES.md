@@ -151,6 +151,11 @@ interatividade.
 perguntas. Segundos de atrito, em troca de não estudar meses sobre uma base falsa que o
 próprio sistema validou.
 
+**Revisto em 2026-10-17 (ADR-0017).** A sondagem de 3 perguntas nunca foi construída, e a
+reavaliação explícita ficava longe, noutra página. Agora cada estação tem "Concluí esta estação":
+uma declaração à parte, de uma competência só, que se desfaz. Marcar os critérios continua sem
+promover; com todos marcados, o aviso oferece concluir.
+
 ---
 
 ## O que a crítica derrubou e não foi consertado
