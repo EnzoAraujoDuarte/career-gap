@@ -6,8 +6,9 @@ import type { CareerTrack } from '@/domain/model';
  * O caminho é independente de stack (ADR-0014): competências, ordem e lacunas não mudam. Já
  * houve aqui um seletor com as linguagens que têm material no catálogo; saiu porque dois cartões
  * lado a lado liam como "estas são as duas linguagens aceitas", o contrário do que o texto diz.
- * A preferência continua no perfil e no motor, para o dia em que o catálogo cobrir mais
- * linguagens e a escolha puder voltar como filtro de materiais.
+ * A preferência antiga continua guardada no perfil, mas o site não a usa enquanto não houver onde
+ * vê-la e trocá-la (ADR-0014, nota de 2026-10-17). Quando o catálogo cobrir mais linguagens, a
+ * escolha pode voltar num lugar neutro, com resposta livre.
  */
 export function StackChoice({ track }: { track: CareerTrack }) {
   const withMaterial = track.stacks.map((stack) => stack.name);
