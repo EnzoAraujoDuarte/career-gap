@@ -1,6 +1,7 @@
 'use client';
 
 import { toggleCompleted, toggleSaved, useProgress } from '@/lib/progress-storage';
+import { CheckCircle } from './check-circle';
 
 /**
  * Guardar para depois e marcar como concluído. Concluir não muda o nível da competência —
@@ -46,24 +47,7 @@ export function ProgressControls({ resourceId, title }: { resourceId: string; ti
         onClick={() => toggleCompleted(resourceId)}
         className={`${button} ${completed ? 'text-done' : 'text-ink-soft hover:text-ink'}`}
       >
-        <svg width={22} height={22} viewBox="0 0 22 22" aria-hidden>
-          <circle
-            cx={11}
-            cy={11}
-            r={8}
-            fill={completed ? 'currentColor' : 'none'}
-            stroke="currentColor"
-            strokeWidth={1.6}
-          />
-          <path
-            d="M7.4 11.2l2.5 2.4 4.7-4.9"
-            fill="none"
-            stroke={completed ? 'var(--paper)' : 'currentColor'}
-            strokeWidth={1.7}
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
+        <CheckCircle filled={completed} />
       </button>
     </span>
   );

@@ -1,5 +1,5 @@
-import { CATALOG } from '@/catalog';
-import { LEVELS, type Level, type UserProfile } from '@/domain/model';
+import { CATALOG, FIRST_WEB_ROLE } from '@/catalog';
+import { LEVELS, levelIndex, type CompetencyId, type Level, type UserProfile } from '@/domain/model';
 
 /**
  * O estado de uma pessoa: o que ela diz que sabe, o que quer e o que estudou.
@@ -30,6 +30,56 @@ export function toUserProfile(profile: StoredProfile, id = 'local'): UserProfile
       .filter(([, level]) => level !== 'L0')
       .map(([competency, level]) => ({ competency, level, evidence: 'self-report' as const })),
   };
+}
+
+const targetIn = (trackId: string, competency: CompetencyId): Level | undefined =>
+  CATALOG.tracks.get(trackId)?.requirements.find((item) => item.competency === competency)?.targetLevel;
+
+/**
+ * Concluir uma estação: a pessoa diz que já faz o que a vaga pede ali, sem precisar ver todos os
+ * materiais. É autodeclaração, como as 6 perguntas (ADR-0003), numa competência só: sobe ao
+ * nível-alvo e devolve o nível de antes, para o desfazer (ADR-0017). Sem perfil, começa um com
+ * essa competência e nada mais. `undefined` quando não há o que mudar.
+ */
+export function concludeCompetency(
+  profile: StoredProfile | undefined,
+  competency: CompetencyId,
+): { readonly profile: StoredProfile; readonly previous: Level } | undefined {
+  const base: StoredProfile = profile ?? { trackId: FIRST_WEB_ROLE.id, levels: {} };
+  const target = targetIn(base.trackId, competency);
+  if (!target) return undefined;
+  const previous = base.levels[competency] ?? 'L0';
+  if (levelIndex(previous) >= levelIndex(target)) return undefined;
+  return { profile: { ...base, levels: { ...base.levels, [competency]: target } }, previous };
+}
+
+/**
+ * Reabrir: volta ao nível de antes de concluir. Sem ele (a estação veio concluída pelas 6
+ * perguntas, ou o navegador esqueceu), desce um degrau abaixo do alvo, o bastante para a estação
+ * voltar a contar como lacuna.
+ */
+export function reopenCompetency(
+  profile: StoredProfile,
+  competency: CompetencyId,
+  previous?: Level,
+): StoredProfile | undefined {
+  const target = targetIn(profile.trackId, competency);
+  if (!target) return undefined;
+  if (levelIndex(profile.levels[competency] ?? 'L0') < levelIndex(target)) return undefined;
+  const below = LEVELS[Math.max(0, levelIndex(target) - 1)];
+  const back = previous && levelIndex(previous) < levelIndex(target) ? previous : below;
+  return { ...profile, levels: { ...profile.levels, [competency]: back } };
+}
+
+/** Respondeu as 6 perguntas: toda competência que elas cobrem tem nível guardado. Um perfil
+ *  que nasceu de concluir estações tem só as estações concluídas. */
+export function answeredEveryQuestion(profile: StoredProfile): boolean {
+  const track = CATALOG.tracks.get(profile.trackId);
+  return Boolean(
+    track?.quickAssessment.every((question) =>
+      question.statements.every((statement) => statement.competencies.every((id) => id in profile.levels)),
+    ),
+  );
 }
 
 export interface Goals {

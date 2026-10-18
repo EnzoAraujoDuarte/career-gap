@@ -8,11 +8,13 @@ import { generateRoadmap } from '@/domain/roadmap';
 import { buildBuildsView, type BuildView, type BuildsView } from '@/lib/builds-view';
 import { useCurrentProfile, useProfileSuffix } from '@/lib/current-profile';
 import { useCriteria } from '@/lib/criteria-storage';
+import { useStoredDraft } from '@/lib/profile-storage';
 import { markStarted, useProgress } from '@/lib/progress-storage';
 import { buildPathView, type PathLevelView, type PathStop, type PathView } from '@/lib/path-view';
-import { criteriaKey } from '@/lib/user-state';
+import { answeredEveryQuestion, criteriaKey } from '@/lib/user-state';
 import { formatDuration } from '@/lib/resource-duration';
 import { pendingReturnAnchor, rememberOnDetailLink, useRestoreScroll } from '@/lib/scroll-memory';
+import { concludeStation, reopenStation } from '@/lib/station-done';
 import { buildRoadmapView } from '@/lib/roadmap-view';
 import type { AdviceKind } from '@/lib/advice';
 import { EcosystemNav } from '@/components/ecosystem/ecosystem-nav';
@@ -20,6 +22,7 @@ import { Loading } from '@/components/ecosystem/page-shell';
 import { DemoSwitcher } from '@/components/flow/demo-switcher';
 import { AdviceMark } from '@/components/ui/advice-mark';
 import { BuildGlyph } from '@/components/ui/build-glyph';
+import { CheckCircle } from '@/components/ui/check-circle';
 import { ResourceLine } from '@/components/ui/resource-line';
 import { BuildMark } from './build-mark';
 import { BuildsNow } from './builds-now';
@@ -61,6 +64,9 @@ export function PathScreen() {
     path.levels.slice(0, index).reduce((sum, level) => sum + level.stops.length, 0),
   );
   const levels = useOpenLevels(path, builds);
+  const draft = useStoredDraft();
+  // Concluiu estações sem responder as perguntas: o resto da trilha está no zero, e vale avisar.
+  const partial = !demoId && Boolean(draft) && !answeredEveryQuestion(draft!);
   const trailRef = useRef<HTMLOListElement>(null);
   const road = useRoad(trailRef, `${demoId}|${reach}|${profile === undefined}`);
   useRestoreScroll('trilha', profile !== undefined && progress !== undefined);
@@ -97,6 +103,7 @@ export function PathScreen() {
               path={path}
               suffix={suffix}
               hasProfile={profile !== null}
+              partial={partial}
               onOpenLevel={levels.open}
             />
 
@@ -157,6 +164,7 @@ export function PathScreen() {
                         suffix={suffix}
                         open={levels.isOpen(level.level.id)}
                         onToggle={(open) => levels.set(level.level.id, open)}
+                        editable={!demoId}
                       />
                     ))}
                     <Destination
@@ -249,6 +257,7 @@ function Level({
   suffix,
   open,
   onToggle,
+  editable,
 }: {
   level: PathLevelView;
   start: number;
@@ -260,6 +269,8 @@ function Level({
   suffix: string;
   open: boolean;
   onToggle: (open: boolean) => void;
+  /** Falso no perfil de demonstração: as marcas são do exemplo, não de quem olha. */
+  editable: boolean;
 }) {
   const weeks = Math.max(1, Math.round(level.minutes / MINUTES_PER_WEEK));
   const met = level.stops.filter((stop) => stop.advice?.kind === 'met').length;
@@ -349,6 +360,7 @@ function Level({
                 unlocks={builds.unlockedBy.get(stop.id) ?? []}
                 technologyId={technologyId}
                 suffix={suffix}
+                editable={editable}
               />
             ))}
           </ol>
@@ -407,6 +419,7 @@ function Station({
   unlocks,
   technologyId,
   suffix,
+  editable,
 }: {
   stop: PathStop;
   sway: number;
@@ -415,6 +428,7 @@ function Station({
   unlocks: readonly BuildView[];
   technologyId?: string;
   suffix: string;
+  editable: boolean;
 }) {
   const kind = stop.advice?.kind;
   const dim = kind === 'met' || kind === 'not-now';
@@ -489,14 +503,38 @@ function Station({
             </a>
           </p>
         )}
-        <Link
-          href={`/competencias/${stop.id}${suffix}`}
-          className="text-now focus-visible:outline-attention -ml-1 mt-0.5 inline-flex min-h-11 items-center px-1 text-[13px] focus-visible:outline-2"
-        >
-          ver os {stop.resourceCount} recursos →
-        </Link>
+        <div className="mt-0.5 flex flex-wrap items-center gap-x-5">
+          <Link
+            href={`/competencias/${stop.id}${suffix}`}
+            className="text-now focus-visible:outline-attention -ml-1 inline-flex min-h-11 items-center px-1 text-[13px] focus-visible:outline-2"
+          >
+            ver os {stop.resourceCount} recursos →
+          </Link>
+          {editable && <StationDone id={stop.id} name={stop.name} done={kind === 'met'} />}
+        </div>
       </div>
     </li>
+  );
+}
+
+/**
+ * Concluir a estação direto da estrada, sem abrir cada material: quem já faz o que a vaga pede
+ * diz isso com um toque, e a trilha anda (ADR-0017). Errou o toque? O aviso tem "Desfazer".
+ */
+function StationDone({ id, name, done }: { id: string; name: string; done: boolean }) {
+  return (
+    <button
+      type="button"
+      // O nome falado contém o texto visível, nos dois estados, para quem comanda por voz.
+      aria-label={done ? `${name}: concluída. Reabrir a estação` : `Concluí a estação ${name}`}
+      onClick={() => (done ? reopenStation(id, name) : concludeStation(id, name))}
+      className={`focus-visible:outline-attention -ml-1 inline-flex min-h-11 items-center gap-1.5 rounded-sm px-1 text-[13px] focus-visible:outline-2 ${
+        done ? 'text-done' : 'text-ink-soft hover:text-ink'
+      }`}
+    >
+      <CheckCircle filled={done} size={20} />
+      {done ? 'concluída' : 'concluí'}
+    </button>
   );
 }
 
@@ -575,16 +613,18 @@ function Aside({
   path,
   suffix,
   hasProfile,
+  partial,
   onOpenLevel,
 }: {
   path: PathView;
   suffix: string;
   hasProfile: boolean;
+  partial: boolean;
   onOpenLevel: (id: string) => void;
 }) {
   return (
     <aside aria-label="Seu próximo passo" className="lg:sticky lg:top-16 lg:col-start-2 lg:row-start-1 lg:self-start">
-      <NextStep path={path} suffix={suffix} hasProfile={hasProfile} onOpenLevel={onOpenLevel} />
+      <NextStep path={path} suffix={suffix} hasProfile={hasProfile} partial={partial} onOpenLevel={onOpenLevel} />
 
       <nav aria-label="Níveis da trilha" className="mt-7 hidden lg:block">
         <h2 className="text-ink-soft text-[12.5px] font-medium">Níveis</h2>
@@ -648,11 +688,13 @@ function NextStep({
   path,
   suffix,
   hasProfile,
+  partial,
   onOpenLevel,
 }: {
   path: PathView;
   suffix: string;
   hasProfile: boolean;
+  partial: boolean;
   onOpenLevel: (id: string) => void;
 }) {
   const box = 'bg-tint-now rounded-sm px-4 py-4';
@@ -717,6 +759,16 @@ function NextStep({
           de saída de cada competência.
         </p>
       )}
+      {partial && (
+        <p className="text-ink mt-4 text-[13.5px] leading-snug">
+          Você concluiu estações sem responder as 6 perguntas, então o resto da trilha ainda está no
+          começo.{' '}
+          <Link href="/avaliacao" className="text-now underline underline-offset-2">
+            Responda
+          </Link>{' '}
+          e ela marca o que você já sabe.
+        </p>
+      )}
       <p className="mt-3 flex flex-wrap gap-x-5">
         {path.hereId && hereLevel && (
           <a
@@ -731,7 +783,7 @@ function NextStep({
           href="/avaliacao"
           className="text-ink-soft hover:text-ink focus-visible:outline-attention inline-flex min-h-11 items-center text-[13px] underline underline-offset-2 focus-visible:outline-2"
         >
-          Refazer as 6 perguntas
+          {partial ? 'Responder as 6 perguntas' : 'Refazer as 6 perguntas'}
         </Link>
       </p>
     </section>

@@ -1,6 +1,5 @@
 'use client';
 
-import Link from 'next/link';
 import type { Level } from '@/domain/model';
 import { toggleCriterion, useCriteria } from '@/lib/criteria-storage';
 import { criteriaKey } from '@/lib/user-state';
@@ -11,7 +10,8 @@ import { criteriaKey } from '@/lib/user-state';
  * Marcar NÃO promove o nível (docs/DECISOES.md §3): registra a afirmação e torna o progresso
  * visível. A alternativa que descartamos promovia 16 das 25 competências com um clique, e um
  * checklist que se autopromove é o caminho mais barato para inflar o próprio roadmap. Ao marcar
- * tudo, o componente aponta para a autoavaliação — é ela que muda o nível.
+ * tudo, o componente oferece concluir a estação: uma declaração à parte, explícita e reversível
+ * (ADR-0017), em vez de mandar a pessoa refazer a autoavaliação noutra página.
  */
 export function ExitCriteria({
   competencyId,
@@ -19,6 +19,8 @@ export function ExitCriteria({
   criteria,
   competencyName,
   readOnly = false,
+  done = false,
+  onConclude,
 }: {
   competencyId: string;
   level: Level;
@@ -26,6 +28,10 @@ export function ExitCriteria({
   competencyName: string;
   /** Congelado durante a sessão experimental, nas duas condições (DECISOES §3). */
   readOnly?: boolean;
+  /** A estação já está concluída: o nível chegou ao que a vaga pede. */
+  done?: boolean;
+  /** Concluir a estação; sem ele (perfil de demonstração), o aviso só informa. */
+  onConclude?: () => void;
 }) {
   const stored = useCriteria();
   if (criteria.length === 0) return null;
@@ -35,7 +41,7 @@ export function ExitCriteria({
 
   return (
     <section>
-      <h3 className="font-serif text-[13.5px] text-ink-soft">
+      <h3 className="font-serif text-ink text-[18px] leading-snug">
         Você terminou quando
         {checked.size > 0 && (
           <span className="text-done ml-2 normal-case tracking-normal">
@@ -63,19 +69,29 @@ export function ExitCriteria({
       </ul>
 
       {complete && !readOnly && (
-        <div className="border-done mt-3 border-l-2 pl-2.5">
-          <p className="text-ink text-[12.5px] leading-snug">
-            Você marcou tudo em <strong className="font-medium">{competencyName}</strong>.
-          </p>
-          <p className="text-ink-soft mt-1 text-[12px] leading-snug">
-            Marcar não muda o seu nível. Se você já faz isso sem ajuda, diga — a trilha se ajusta.
-          </p>
-          <Link
-            href="/perfil"
-            className="border-done text-done focus-visible:outline-attention mt-2 inline-block rounded-sm border px-2 py-1 text-[12px] focus-visible:outline-2"
-          >
-            Ajustar meu nível
-          </Link>
+        <div className="border-done mt-3 border-l-2 pl-3">
+          {done ? (
+            <p className="text-done text-[13.5px] leading-snug">Tudo marcado e estação concluída.</p>
+          ) : (
+            <>
+              <p className="text-ink text-[13.5px] leading-snug">
+                Você marcou tudo em <strong className="font-medium">{competencyName}</strong>.
+              </p>
+              <p className="text-ink-soft mt-1 text-[12.5px] leading-snug">
+                Marcar os critérios não muda o seu nível sozinho. Se você já faz isso sem ajuda, conclua
+                a estação e a trilha passa para a próxima.
+              </p>
+              {onConclude && (
+                <button
+                  type="button"
+                  onClick={onConclude}
+                  className="border-done text-done focus-visible:outline-attention mt-2 inline-flex min-h-11 items-center rounded-sm border px-3 text-[13.5px] focus-visible:outline-2"
+                >
+                  Concluir a estação
+                </button>
+              )}
+            </>
+          )}
         </div>
       )}
     </section>
