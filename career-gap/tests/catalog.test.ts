@@ -1,3 +1,4 @@
+import { createHash } from 'node:crypto';
 import { describe, expect, it } from 'vitest';
 import { CATALOG, COMPETENCIES, FIRST_WEB_ROLE, PREREQUISITES } from '@/catalog';
 import { validateCatalog } from '@/catalog/validate';
@@ -208,5 +209,26 @@ describe('livros', () => {
     for (const book of later) {
       for (const id of book.competencies) expect(CATALOG.competencies.has(id), `${book.id} → ${id}`).toBe(true);
     }
+  });
+});
+
+describe('versão do catálogo', () => {
+  /**
+   * O conteúdo que cada versão descreve. Uma resposta da pesquisa grava `CATALOG_VERSION` para
+   * dizer qual catálogo a pessoa viu; em 2026-10-17 o catálogo mudou três vezes (vídeo de
+   * abertura, ordem dos vídeos, livros) sem a versão mudar, e as respostas apontariam para um
+   * catálogo que não existia mais.
+   */
+  const FINGERPRINT = { version: '2026.10.17-1', sha256: '382ebaddee5f742f037239103511ddf966a46680f8c183a06a8564f967172a52' };
+
+  it('muda quando o conteúdo muda', () => {
+    const { version, ...content } = CATALOG;
+    const sha256 = createHash('sha256')
+      .update(JSON.stringify(content, (_key, value: unknown) => (value instanceof Map ? [...value.entries()] : value)))
+      .digest('hex');
+    expect(
+      { version, sha256 },
+      'O conteúdo do catálogo mudou: suba CATALOG_VERSION em src/catalog/index.ts e registre aqui a versão e a nova impressão.',
+    ).toEqual(FINGERPRINT);
   });
 });
