@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useMemo, useState } from 'react';
 import { CATALOG, FIRST_WEB_ROLE } from '@/catalog';
-import type { Resource } from '@/domain/model';
+import { levelAtLeast, type Resource } from '@/domain/model';
 import { generateRoadmap } from '@/domain/roadmap';
 import { studyPrompt } from '@/lib/ai-prompt';
 import { buildBuildsView, type BuildView } from '@/lib/builds-view';
@@ -11,20 +11,23 @@ import { buildCompetencyView, type Neighbor } from '@/lib/competency-view';
 import { useCurrentProfile, useProfileSuffix } from '@/lib/current-profile';
 import { useProgress } from '@/lib/progress-storage';
 import { LEVEL_ASKED, LEVEL_SHORT } from '@/lib/reason-text';
+import { buildPathView } from '@/lib/path-view';
 import { buildRoadmapView } from '@/lib/roadmap-view';
 import { aimReturnAt } from '@/lib/scroll-memory';
+import { concludeStation, reopenStation } from '@/lib/station-done';
 import { EcosystemNav } from '@/components/ecosystem/ecosystem-nav';
 import { SectionLabel } from '@/components/ecosystem/page-shell';
 import { ExitCriteria } from '@/components/flow/exit-criteria';
 import { AdviceMark } from '@/components/ui/advice-mark';
 import { BackBar } from '@/components/ui/back-bar';
 import { BuildGlyph } from '@/components/ui/build-glyph';
+import { CheckCircle } from '@/components/ui/check-circle';
 import { CopyPrompt } from '@/components/ui/copy-prompt';
 import { ResourceLine } from '@/components/ui/resource-line';
 import { BuildMark } from './build-mark';
 
 export function CompetencyScreen({ id }: { id: string }) {
-  const { profile } = useCurrentProfile();
+  const { profile, demoId } = useCurrentProfile();
   const suffix = useProfileSuffix();
   const progress = useProgress();
   const track = (profile && CATALOG.tracks.get(profile.trackId)) || FIRST_WEB_ROLE;
@@ -38,16 +41,16 @@ export function CompetencyScreen({ id }: { id: string }) {
     [id, track, profile, progress],
   );
   const currentLevel = profile?.competencies.find((item) => item.competency === id)?.level ?? 'L0';
-  const competency = useMemo(
-    () =>
-      buildCompetencyView(
-        CATALOG,
-        track,
-        id,
-        profile ? buildRoadmapView(generateRoadmap(profile, CATALOG), CATALOG) : undefined,
-      ),
-    [id, profile, track],
+  const roadmap = useMemo(
+    () => (profile ? buildRoadmapView(generateRoadmap(profile, CATALOG), CATALOG) : undefined),
+    [profile],
   );
+  const competency = useMemo(() => buildCompetencyView(CATALOG, track, id, roadmap), [id, track, roadmap]);
+  // A próxima estação é o novo "você está aqui": a primeira da estrada que ainda é lacuna.
+  const next = useMemo(() => {
+    const hereId = buildPathView(CATALOG, track, roadmap).hereId;
+    return hereId && hereId !== id ? { id: hereId, name: CATALOG.competencies.get(hereId)?.name ?? hereId } : undefined;
+  }, [id, track, roadmap]);
 
   const definition = CATALOG.competencies.get(id);
   if (!competency || !definition) return null;
@@ -80,6 +83,16 @@ export function CompetencyScreen({ id }: { id: string }) {
             <AdviceMark kind={competency.advice.kind} />
             <p className="text-ink-soft mt-0.5 text-[13px] leading-snug">{competency.advice.reason}</p>
           </div>
+        )}
+
+        {!demoId && (
+          <ConcludeStation
+            id={competency.id}
+            name={competency.name}
+            done={levelAtLeast(currentLevel, competency.targetLevel)}
+            next={next}
+            suffix={suffix}
+          />
         )}
 
         {competency.before.length > 0 && (
@@ -138,6 +151,8 @@ export function CompetencyScreen({ id }: { id: string }) {
             level={competency.targetLevel}
             criteria={competency.exitCriteria}
             competencyName={competency.name}
+            done={levelAtLeast(currentLevel, competency.targetLevel)}
+            onConclude={demoId ? undefined : () => concludeStation(competency.id, competency.name)}
           />
         </div>
 
@@ -154,6 +169,75 @@ export function CompetencyScreen({ id }: { id: string }) {
         </div>
       </div>
     </main>
+  );
+}
+
+/**
+ * Concluir aqui, sem passar por todos os materiais: a pessoa que já faz o que a vaga pede diz isso
+ * com um toque, e a trilha passa para a próxima estação (ADR-0017). Concluída, a estação aponta a
+ * próxima, como um app de curso aponta a próxima aula.
+ */
+function ConcludeStation({
+  id,
+  name,
+  done,
+  next,
+  suffix,
+}: {
+  id: string;
+  name: string;
+  done: boolean;
+  next?: { readonly id: string; readonly name: string };
+  suffix: string;
+}) {
+  if (!done) {
+    return (
+      <div className="mt-5">
+        <button
+          type="button"
+          onClick={() => concludeStation(id, name)}
+          className="border-ink text-ink hover:bg-paper-edge focus-visible:outline-attention inline-flex min-h-12 items-center gap-2 rounded-sm border px-4 text-[14.5px] focus-visible:outline-2 focus-visible:outline-offset-2"
+        >
+          <CheckCircle filled={false} />
+          Concluí esta estação
+        </button>
+        <p className="text-ink-soft mt-1.5 text-[12.5px] leading-snug">
+          Não precisa ver todos os materiais: se você já faz o que a vaga pede, conclua. Dá para desfazer.
+        </p>
+      </div>
+    );
+  }
+  return (
+    <div className="mt-5 border-l-2 border-[var(--state-done)] pl-3">
+      <p className="text-done flex items-center gap-2 text-[14.5px] font-medium">
+        <CheckCircle filled />
+        Estação concluída
+      </p>
+      {next ? (
+        <Link
+          href={`/competencias/${next.id}${suffix}`}
+          className="focus-visible:outline-attention mt-3 flex min-h-12 items-center justify-center rounded-sm bg-[var(--ink)] px-4 text-center text-[14.5px] font-medium text-[var(--paper)] hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 sm:inline-flex"
+        >
+          Próxima estação: {next.name}
+        </Link>
+      ) : (
+        <Link
+          href={`/trilha${suffix}`}
+          className="text-now focus-visible:outline-attention mt-2 inline-flex min-h-11 items-center text-[14px] underline underline-offset-2 focus-visible:outline-2"
+        >
+          Voltar à trilha
+        </Link>
+      )}
+      <p>
+        <button
+          type="button"
+          onClick={() => reopenStation(id, name)}
+          className="text-ink-soft hover:text-ink focus-visible:outline-attention inline-flex min-h-11 items-center text-[12.5px] underline underline-offset-2 focus-visible:outline-2"
+        >
+          Reabrir esta estação
+        </button>
+      </p>
+    </div>
   );
 }
 

@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import { Atkinson_Hyperlegible_Next, Fraunces, Shantell_Sans } from 'next/font/google';
 import { PersistenceProvider } from '@/components/persistence/persistence';
+import { Toaster } from '@/components/ui/toaster';
 import { configuredProviders } from '@/lib/auth';
 import { SITE_URL } from '@/lib/site-url';
 import './globals.css';
@@ -52,6 +53,7 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
         {/* Só o nome dos provedores desce para o navegador; credenciais ficam no servidor. */}
         <PersistenceProvider enabled={Boolean(process.env.DATABASE_URL)} providers={configuredProviders()}>
           {children}
+          <Toaster />
         </PersistenceProvider>
       </body>
     </html>
