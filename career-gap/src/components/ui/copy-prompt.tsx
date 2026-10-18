@@ -7,7 +7,16 @@ import { useId, useState } from 'react';
  * o texto vem pronto do catálogo (ADR-0004). Sem área de transferência (http simples, iframe),
  * o texto aparece para copiar à mão.
  */
-export function CopyPrompt({ prompt, label }: { prompt: string; label: string }) {
+export function CopyPrompt({
+  prompt,
+  label,
+  hint = 'Um pedido pronto, montado com os dados desta página, para colar no assistente de IA que você já usa.',
+}: {
+  prompt: string;
+  label: string;
+  /** O que o pedido faz, antes de copiar. */
+  hint?: string;
+}) {
   const [state, setState] = useState<'idle' | 'copied' | 'manual'>('idle');
   const id = useId();
 
@@ -36,10 +45,10 @@ export function CopyPrompt({ prompt, label }: { prompt: string; label: string })
       </button>
       <p id={`${id}-hint`} className="text-ink-soft mt-1.5 text-[12.5px] leading-snug" aria-live="polite">
         {state === 'copied'
-          ? 'Copiado. Cole no ChatGPT, no Gemini ou em outro assistente: ele vai perguntar, não entregar a resposta.'
+          ? 'Copiado. Cole no ChatGPT, no Gemini ou em outro assistente: ele explica no seu nível e confere se você entendeu.'
           : state === 'manual'
             ? 'Não deu para copiar sozinho. Selecione o texto abaixo e copie.'
-            : 'Um pedido pronto, montado com os critérios desta página, que faz o assistente agir como tutor.'}
+            : hint}
       </p>
       {state === 'manual' && (
         <textarea

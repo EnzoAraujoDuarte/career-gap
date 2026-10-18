@@ -219,7 +219,7 @@ describe('versão do catálogo', () => {
    * abertura, ordem dos vídeos, livros) sem a versão mudar, e as respostas apontariam para um
    * catálogo que não existia mais.
    */
-  const FINGERPRINT = { version: '2026.10.17-1', sha256: '382ebaddee5f742f037239103511ddf966a46680f8c183a06a8564f967172a52' };
+  const FINGERPRINT = { version: '2026.10.17-2', sha256: 'd1d270a0e092a0c7b9897686542138ed1edddfb1b9bd800f9335547eddcee894' };
 
   it('muda quando o conteúdo muda', () => {
     const { version, ...content } = CATALOG;

@@ -16,7 +16,7 @@ import { PEOPLE } from './people';
  * justamente promete (DISCOVERY.md §3). Sobe a cada mudança de conteúdo: o teste da impressão
  * digital (tests/catalog.test.ts) falha quando o conteúdo muda e a versão não.
  */
-export const CATALOG_VERSION = '2026.10.17-1';
+export const CATALOG_VERSION = '2026.10.17-2';
 
 export const CATALOG: Catalog = {
   version: CATALOG_VERSION,
