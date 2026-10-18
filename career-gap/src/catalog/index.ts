@@ -9,13 +9,14 @@ import { BUILDS } from './builds';
 import { PEOPLE } from './people';
 
 /**
- * Versão do catálogo. Gravada em todo roadmap gerado.
+ * Versão do catálogo. Gravada em todo roadmap gerado e em cada resposta da pesquisa.
  *
  * Sem isto, um resultado coletado na avaliação com usuários deixa de ser reproduzível
  * assim que uma competência muda de nível-alvo — e o TCC perde a rastreabilidade que
- * justamente promete (DISCOVERY.md §3).
+ * justamente promete (DISCOVERY.md §3). Sobe a cada mudança de conteúdo: o teste da impressão
+ * digital (tests/catalog.test.ts) falha quando o conteúdo muda e a versão não.
  */
-export const CATALOG_VERSION = '2026.10.16-3';
+export const CATALOG_VERSION = '2026.10.17-1';
 
 export const CATALOG: Catalog = {
   version: CATALOG_VERSION,
