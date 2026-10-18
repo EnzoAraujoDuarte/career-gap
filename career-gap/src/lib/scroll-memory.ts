@@ -62,6 +62,12 @@ export function aimReturnAt(key: string, anchor: string): void {
   if (!read(key)) write(key, { anchor, at: Date.now() });
 }
 
+/** O elemento para onde a volta vai mirar, sem consumi-la: a trilha abre o nível que o contém
+ *  antes de rolar até ele. */
+export function pendingReturnAnchor(key: string): string | undefined {
+  return read(key)?.anchor;
+}
+
 /** Para `onClickCapture` da lista: guarda a posição quando o link leva a uma página de detalhe. */
 export const rememberOnDetailLink =
   (key: string, prefixes: readonly string[]) =>

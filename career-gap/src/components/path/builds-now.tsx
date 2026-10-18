@@ -18,7 +18,7 @@ export function BuildsNow({ view, hasProfile, suffix }: { view: BuildsView; hasP
 
   const reachable = [...view.built, ...view.ready];
   return (
-    <section aria-labelledby="construir-agora" className="mt-8">
+    <section aria-labelledby="construir-agora" className="mt-9">
       <h2 id="construir-agora" className="hand text-done text-[17px]">
         você já consegue construir
       </h2>
@@ -30,7 +30,7 @@ export function BuildsNow({ view, hasProfile, suffix }: { view: BuildsView; hasP
           </>
         )}
       </p>
-      <ul className="mt-4 grid gap-x-8 gap-y-5 sm:grid-cols-2">
+      <ul className={SHELF}>
         {reachable.map((item) => (
           <BuildItem key={item.build.id} item={item} suffix={suffix} />
         ))}
@@ -42,7 +42,7 @@ export function BuildsNow({ view, hasProfile, suffix }: { view: BuildsView; hasP
           <p className="text-ink-soft mt-1 text-[13px] leading-snug">
             Falta uma competência para cada uma. Estude-a e a construção fica pronta para você.
           </p>
-          <ul className="mt-4 grid gap-x-8 gap-y-5 sm:grid-cols-2">
+          <ul className={SHELF}>
             {view.oneAway.map((item) => (
               <BuildItem key={item.build.id} item={item} suffix={suffix} />
             ))}
@@ -53,10 +53,16 @@ export function BuildsNow({ view, hasProfile, suffix }: { view: BuildsView; hasP
   );
 }
 
+/** No celular, uma prateleira que corre para o lado, um cartão por construção, com o próximo
+ *  cortado na borda para dizer que há mais; a partir de 640px, a grade de sempre. Uma lista de
+ *  oito construções empilhadas empurrava a estrada duas telas para baixo. */
+const SHELF =
+  'shelf -mx-4 mt-4 flex snap-x snap-mandatory scroll-px-4 gap-3 overflow-x-auto px-4 pb-1 sm:mx-0 sm:grid sm:snap-none sm:grid-cols-2 sm:gap-x-8 sm:gap-y-5 sm:overflow-visible sm:px-0';
+
 function BuildItem({ item, suffix }: { item: BuildView; suffix: string }) {
   const missing = item.missingNames[0];
   return (
-    <li className="flex items-start gap-3.5">
+    <li className="border-rule flex w-[82%] shrink-0 snap-start items-start gap-3.5 rounded-sm border p-3.5 sm:w-auto sm:border-0 sm:p-0">
       <BuildGlyph kind={item.build.kind} size={44} className="text-ink mt-0.5 shrink-0" />
       <div className="min-w-0">
         <Link
@@ -89,12 +95,12 @@ function BuildItem({ item, suffix }: { item: BuildView; suffix: string }) {
 
 function FirstAccess({ doorway, suffix }: { doorway: BuildView; suffix: string }) {
   return (
-    <section aria-labelledby="comece-hoje" className="mt-8">
+    <section aria-labelledby="comece-hoje" className="mt-9">
       <h2 id="comece-hoje" className="hand text-now text-[17px]">
         dá para começar hoje, sem saber nada ainda
       </h2>
-      <div className="border-rule mt-3 flex flex-col gap-5 border-y py-5 sm:flex-row sm:items-start">
-        <BuildGlyph kind={doorway.build.kind} size={88} className="text-ink shrink-0" />
+      <div className="border-rule mt-3 flex items-start gap-4 border-y py-5 sm:gap-5">
+        <BuildGlyph kind={doorway.build.kind} size={88} className="text-ink h-14 w-14 shrink-0 sm:h-[88px] sm:w-[88px]" />
         <div className="min-w-0 max-w-[52ch]">
           <h3 className="font-serif text-ink text-[24px] leading-tight text-balance">{doorway.build.title}</h3>
           <p className="text-ink mt-2 text-[14.5px] leading-relaxed">{doorway.build.result}</p>
@@ -104,23 +110,13 @@ function FirstAccess({ doorway, suffix }: { doorway: BuildView; suffix: string }
           </p>
           <Link
             href={`/construir/${doorway.build.id}${suffix}`}
-            className="focus-visible:outline-attention mt-4 inline-flex min-h-11 items-center rounded-sm bg-[var(--ink)] px-4 text-[14.5px] text-[var(--paper)] hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2"
+            // Contorno, não preenchido: o botão cheio da tela é o do próximo passo.
+            className="border-ink text-ink hover:bg-paper-edge focus-visible:outline-attention mt-4 inline-flex min-h-11 items-center rounded-sm border px-4 text-[14.5px] focus-visible:outline-2 focus-visible:outline-offset-2"
           >
             Ver o passo a passo →
           </Link>
         </div>
       </div>
-      <p className="text-ink mt-4 max-w-[62ch] text-[14.5px] leading-relaxed">
-        Já programou alguma coisa?{' '}
-        <Link
-          href="/avaliacao"
-          className="text-now focus-visible:outline-attention underline underline-offset-2 focus-visible:outline-2"
-        >
-          Responda 6 perguntas
-        </Link>{' '}
-        (uns 2 minutos) e a trilha mostra o que você já constrói, o que vale estudar agora e o que
-        pode esperar.
-      </p>
     </section>
   );
 }

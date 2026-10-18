@@ -275,13 +275,13 @@ function Consent({ defaultChecked }: { defaultChecked: boolean }) {
           )}
         </p>
       </div>
-      <label className="text-ink mt-4 flex items-start gap-2.5 text-[14px] leading-snug">
+      <label className="text-ink mt-3 flex min-h-11 cursor-pointer items-center gap-3 text-[14px] leading-snug">
         <input
           type="checkbox"
           name="consent"
           required
           defaultChecked={defaultChecked}
-          className="focus-visible:outline-attention mt-0.5 h-4 w-4 shrink-0 accent-[var(--state-now)] focus-visible:outline-2"
+          className="focus-visible:outline-attention h-5 w-5 shrink-0 accent-[var(--state-now)] focus-visible:outline-2 sm:h-4 sm:w-4"
         />
         Li o termo e concordo em participar.
       </label>
@@ -293,16 +293,17 @@ function ChoiceField({ question, value }: { question: ChoiceQuestion; value?: st
   return (
     <fieldset>
       <legend className="text-ink text-[14px] leading-snug">{question.label}</legend>
-      <div className="mt-2 space-y-1.5">
+      <div className="mt-1">
         {question.choices.map((choice) => (
-          <label key={choice.value} className="text-ink flex items-start gap-2.5 py-0.5 text-[14px] leading-snug">
+          // A linha inteira é o alvo, com 44px de altura: com o dedo, a bolinha de 16px era errar.
+          <label key={choice.value} className="text-ink flex min-h-11 cursor-pointer items-center gap-3 py-1 text-[14px] leading-snug">
             <input
               type="radio"
               name={`p:${question.id}`}
               value={choice.value}
               required
               defaultChecked={value === choice.value}
-              className="focus-visible:outline-attention mt-0.5 h-4 w-4 shrink-0 accent-[var(--state-now)] focus-visible:outline-2"
+              className="focus-visible:outline-attention h-5 w-5 shrink-0 accent-[var(--state-now)] focus-visible:outline-2 sm:h-4 sm:w-4"
             />
             {choice.label}
           </label>
@@ -359,6 +360,12 @@ function LikertSection({
                   </label>
                 ))}
               </div>
+              {/* O sentido da escala junto de cada item: no celular, o aviso do começo da seção
+                  fica três telas acima. */}
+              <p aria-hidden className="text-ink-faint mt-1 ml-[26px] flex w-[244px] justify-between text-[12px]">
+                <span>discordo</span>
+                <span>concordo</span>
+              </p>
             </fieldset>
           </li>
         ))}

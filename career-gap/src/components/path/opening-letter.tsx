@@ -17,11 +17,19 @@ const DATA = {
 
 export function OpeningNote({ suffix }: { suffix: string }) {
   return (
-    <section aria-labelledby="antes-de-comecar" className="border-rule mt-7 max-w-[62ch] border-l pl-4">
+    <section aria-labelledby="antes-de-comecar" className="border-rule max-w-[62ch] border-l pl-4">
       <h2 id="antes-de-comecar" className="hand text-now text-[16px]">
         antes de começar, uma palavra de quem trabalha com isso
       </h2>
-      <p className="text-ink mt-1.5 text-[14px] leading-relaxed">
+      {/* No celular, só o convite: o trecho com os números do mercado ocupava a primeira tela de
+          quem ainda nem começou. A carta inteira está a um toque. */}
+      <Link
+        href={`/carta${suffix}`}
+        className="text-now focus-visible:outline-attention inline-flex min-h-11 items-center text-[14px] underline underline-offset-2 focus-visible:outline-2 sm:hidden"
+      >
+        Ler a carta · 2 minutos
+      </Link>
+      <p className="text-ink mt-1.5 hidden text-[14px] leading-relaxed sm:block">
         As IAs já escrevem código bom, e as vagas de entrada encolheram (estágio e júnior: de{' '}
         {DATA.entryBefore} para {DATA.entryAfter} num ano, nos repositórios da comunidade). O que
         conta agora é ter algo para mostrar e gente que conhece você. Este site existe para isso.{' '}

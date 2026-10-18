@@ -58,12 +58,12 @@ export function MyAreaScreen() {
           />
           <ResourceList
             title="Minha lista"
-            empty="Use “+ minha lista” em qualquer recurso para guardar para depois."
+            empty="Toque no marcador ao lado de qualquer material, na página de uma estação ou no Explorar, para guardá-lo aqui."
             entries={pick(progress ?? {}, (entry) => Boolean(entry.savedAt && !entry.completedAt), 'savedAt')}
           />
           <ResourceList
             title="Concluídos"
-            empty="Nada concluído ainda."
+            empty="Nada concluído ainda. O círculo com o visto, ao lado de cada material, marca o que você terminou."
             entries={pick(progress ?? {}, (entry) => Boolean(entry.completedAt), 'completedAt')}
           />
           {/* A chave remonta o formulário quando as metas mudam de fora (outra aba, sincronização). */}

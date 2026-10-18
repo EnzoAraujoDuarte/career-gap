@@ -28,10 +28,10 @@ export function PageShell({
   );
 }
 
+/** Título de seção. Na tinta e acima do corpo: em 13,5px e cinza ele ficava menor que o texto
+ *  que anunciava, e a página perdia o esqueleto (auditoria de 2026-10-17). */
 export function SectionLabel({ children }: { children: React.ReactNode }) {
-  return (
-    <h2 className="font-serif mt-9 text-[13.5px] text-ink-soft">{children}</h2>
-  );
+  return <h2 className="font-serif text-ink mt-10 text-[18px] leading-snug">{children}</h2>;
 }
 
 /** Estado de espera enquanto o navegador é lido — o perfil vive no `localStorage`. */

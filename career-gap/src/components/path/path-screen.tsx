@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useMemo, useRef } from 'react';
+import { useMemo, useRef, useState } from 'react';
 import { CATALOG, FIRST_WEB_ROLE } from '@/catalog';
 import type { Resource } from '@/domain/model';
 import { generateRoadmap } from '@/domain/roadmap';
@@ -12,7 +12,7 @@ import { markStarted, useProgress } from '@/lib/progress-storage';
 import { buildPathView, type PathLevelView, type PathStop, type PathView } from '@/lib/path-view';
 import { criteriaKey } from '@/lib/user-state';
 import { formatDuration } from '@/lib/resource-duration';
-import { rememberOnDetailLink, useRestoreScroll } from '@/lib/scroll-memory';
+import { pendingReturnAnchor, rememberOnDetailLink, useRestoreScroll } from '@/lib/scroll-memory';
 import { buildRoadmapView } from '@/lib/roadmap-view';
 import type { AdviceKind } from '@/lib/advice';
 import { EcosystemNav } from '@/components/ecosystem/ecosystem-nav';
@@ -60,6 +60,7 @@ export function PathScreen() {
   const starts = path.levels.map((_, index) =>
     path.levels.slice(0, index).reduce((sum, level) => sum + level.stops.length, 0),
   );
+  const levels = useOpenLevels(path, builds);
   const trailRef = useRef<HTMLOListElement>(null);
   const road = useRoad(trailRef, `${demoId}|${reach}|${profile === undefined}`);
   useRestoreScroll('trilha', profile !== undefined && progress !== undefined);
@@ -73,86 +74,107 @@ export function PathScreen() {
       <EcosystemNav current="trilha" />
       <div className="mx-auto max-w-[1040px] px-4 pb-12 sm:px-6">
 
-        <header className="mt-8 max-w-[62ch]">
+        <header className="mt-6 max-w-[62ch] sm:mt-8">
           <h1 className="font-serif text-ink text-[30px] leading-[1.15] text-balance sm:text-[34px]">
             Você não precisa saber tudo para começar a criar.
           </h1>
           <p className="text-ink-soft mt-3 text-[14.5px] leading-relaxed">
-            Esta é a trilha para a {track.name.toLowerCase()}: {track.requirements.length} competências
-            em {track.path.length} níveis, e cada nível fecha numa coisa que você constrói e mostra.
-            Nada é trancado, e o caminho vale para qualquer linguagem. As marcas dizem o que você
-            já sabe, o que vale agora e o que pode esperar, sempre com o motivo.
+            {track.requirements.length} competências em {track.path.length} níveis, e cada nível fecha
+            numa coisa que você constrói e mostra. Nada é trancado, e o caminho vale para qualquer
+            linguagem.
           </p>
         </header>
 
         {profile === undefined || progress === undefined ? (
           <Loading />
         ) : (
-          <>
-          <OpeningNote suffix={suffix} />
-          <BuildsNow view={builds} hasProfile={profile !== null} suffix={suffix} />
-          <ProKit profile={profile} suffix={suffix} />
+          // O próximo passo vem antes de tudo no celular, e fica preso ao lado da estrada no
+          // computador: era a tela 3,4 de 21, e "onde estou, o que vem agora" é a pergunta do
+          // produto. A estrada vem antes do kit, que o próprio motor marca "falta base" para quem
+          // está começando.
+          <div className="mt-6 grid gap-8 lg:grid-cols-[minmax(0,1fr)_280px] lg:gap-14">
+            <Aside
+              path={path}
+              suffix={suffix}
+              hasProfile={profile !== null}
+              onOpenLevel={levels.open}
+            />
 
-          <h2 className="font-serif text-ink mt-12 text-[22px] leading-tight">A estrada, nível a nível</h2>
-          <p className="text-ink-soft mt-1 max-w-[62ch] text-[13.5px] leading-relaxed">
-            De cima para baixo, na ordem sugerida. Cada estação mostra por onde começar e o que ela
-            destrava; a bandeira de cada nível é o que você constrói ao chegar lá.
-          </p>
-          {/* No celular a lista de níveis do lado não aparece; sem isto, chegar ao nível 3 era rolar
-              umas dez telas. */}
-          <nav aria-label="Ir para o nível" className="mt-3 lg:hidden">
-            <ol className="flex flex-wrap gap-2">
-              {path.levels.map((level) => (
-                <li key={level.level.id}>
-                  <a
-                    href={`#nivel-${level.level.id}`}
-                    aria-current={level.level.id === path.hereLevelId ? 'step' : undefined}
-                    className={`focus-visible:outline-attention inline-flex min-h-9 items-center gap-1.5 rounded-sm border px-2.5 text-[13px] focus-visible:outline-2 ${
-                      level.level.id === path.hereLevelId ? 'border-now text-now' : 'border-rule text-ink-soft hover:text-ink'
-                    }`}
+            <div className="min-w-0 lg:col-start-1 lg:row-start-1">
+              <OpeningNote suffix={suffix} />
+              <BuildsNow view={builds} hasProfile={profile !== null} suffix={suffix} />
+
+              <section aria-labelledby="estrada" className="mt-12">
+                <h2 id="estrada" className="font-serif text-ink text-[22px] leading-tight">
+                  A estrada, nível a nível
+                </h2>
+                <p className="text-ink-soft mt-1 max-w-[62ch] text-[13.5px] leading-relaxed">
+                  De cima para baixo, na ordem sugerida. Cada nível abre nas suas estações, cada
+                  estação mostra por onde começar, e a bandeira é o que você constrói ao fim do nível.
+                </p>
+                {/* No celular a lista de níveis do lado não aparece: uma fileira que corre para o
+                    lado leva a qualquer nível e já o abre. */}
+                <nav aria-label="Ir para o nível" className="mt-3 lg:hidden">
+                  <ol className="shelf -mx-4 flex gap-2 overflow-x-auto px-4 sm:mx-0 sm:flex-wrap sm:px-0">
+                    {path.levels.map((level) => (
+                      <li key={level.level.id} className="shrink-0">
+                        <a
+                          href={`#nivel-${level.level.id}`}
+                          onClick={() => levels.open(level.level.id)}
+                          aria-current={level.level.id === path.hereLevelId ? 'step' : undefined}
+                          className={`focus-visible:outline-attention inline-flex min-h-11 items-center gap-1.5 rounded-sm border px-3 text-[13px] whitespace-nowrap focus-visible:outline-2 ${
+                            level.level.id === path.hereLevelId
+                              ? 'border-now text-now'
+                              : 'border-rule text-ink-soft hover:text-ink'
+                          }`}
+                        >
+                          <span className="font-serif tabular-nums">{level.number}</span>
+                          {level.level.title}
+                        </a>
+                      </li>
+                    ))}
+                  </ol>
+                </nav>
+                <HowToRead />
+
+                <div className="relative mt-6">
+                  <RoadSvg road={road} />
+                  <ol
+                    ref={trailRef}
+                    aria-label="Trilha"
+                    className="relative [--amp:14px] [--axis:22px] sm:[--amp:40px] sm:[--axis:56px]"
                   >
-                    <span className="font-serif tabular-nums">{level.number}</span>
-                    {level.level.title}
-                  </a>
-                </li>
-              ))}
-            </ol>
-          </nav>
-
-          <div className="mt-6 grid gap-10 lg:grid-cols-[minmax(0,1fr)_280px] lg:gap-14">
-            <Aside path={path} suffix={suffix} hasProfile={profile !== null} />
-
-            <div className="relative min-w-0 lg:order-first">
-              <RoadSvg road={road} />
-              <ol
-                ref={trailRef}
-                aria-label="Trilha"
-                className="relative [--amp:14px] [--axis:22px] sm:[--amp:40px] sm:[--axis:56px]"
-              >
-                {path.levels.map((level, index) => (
-                  <Level
-                    key={level.level.id}
-                    level={level}
-                    start={starts[index]}
-                    reach={reach}
-                    hereId={path.hereId}
-                    personal={profile !== null}
-                    builds={builds}
-                    technologyId={path.technologyId}
-                    suffix={suffix}
-                  />
-                ))}
-                <Destination
-                  levels={path.levels.length}
-                  competencies={track.requirements.length}
-                  walked={reach === stops.length}
-                />
-              </ol>
+                    {path.levels.map((level, index) => (
+                      <Level
+                        key={level.level.id}
+                        level={level}
+                        start={starts[index]}
+                        reach={reach}
+                        hereId={path.hereId}
+                        personal={profile !== null}
+                        builds={builds}
+                        technologyId={path.technologyId}
+                        suffix={suffix}
+                        open={levels.isOpen(level.level.id)}
+                        onToggle={(open) => levels.set(level.level.id, open)}
+                      />
+                    ))}
+                    <Destination
+                      levels={path.levels.length}
+                      competencies={track.requirements.length}
+                      walked={reach === stops.length}
+                    />
+                  </ol>
+                </div>
+              </section>
 
               <Detours outside={path.outside} />
+              <ProKit profile={profile} suffix={suffix} />
+              <div className="mt-10 lg:hidden">
+                <ResearchInvite suffix={suffix} />
+              </div>
             </div>
           </div>
-          </>
         )}
       </div>
 
@@ -166,8 +188,56 @@ export function PathScreen() {
   );
 }
 
+const OPEN_KEY = 'career-gap:niveis-abertos';
+
+/**
+ * Quais níveis da estrada estão abertos. Só abre sozinho o nível onde a pessoa está (o primeiro,
+ * sem respostas): com os quatro abertos, a trilha tinha 21 telas no celular. O que a pessoa abre
+ * ou fecha vale até ela fechar a aba, para que a volta de uma estação a encontre do mesmo jeito;
+ * e a volta mirada numa estação (o "← Trilha" de quem chegou por outro caminho) abre o nível dela.
+ */
+function useOpenLevels(path: PathView, builds: BuildsView) {
+  const [toggled, setToggled] = useState<Record<string, boolean>>(() => {
+    try {
+      return JSON.parse(sessionStorage.getItem(OPEN_KEY) ?? '{}') as Record<string, boolean>;
+    } catch {
+      return {};
+    }
+  });
+  const [anchor] = useState(() =>
+    typeof window === 'undefined'
+      ? undefined
+      : (pendingReturnAnchor('trilha') ?? decodeURIComponent(window.location.hash.slice(1))),
+  );
+  const anchorLevel = anchor
+    ? path.levels.find(
+        (level) =>
+          `nivel-${level.level.id}` === anchor ||
+          level.stops.some((stop) => stop.id === anchor) ||
+          (builds.byLevel.get(level.level.id) ?? []).some((item) => `construcao-${item.build.id}` === anchor),
+      )?.level.id
+    : undefined;
+  const firstOpen = path.hereLevelId ?? path.levels[0]?.level.id;
+
+  const set = (id: string, open: boolean) => {
+    const next = { ...toggled, [id]: open };
+    setToggled(next);
+    try {
+      sessionStorage.setItem(OPEN_KEY, JSON.stringify(next));
+    } catch {
+      // Armazenamento bloqueado: o nível abre agora e volta ao padrão na próxima visita.
+    }
+  };
+  return {
+    isOpen: (id: string) => toggled[id] ?? (id === firstOpen || id === anchorLevel),
+    set,
+    open: (id: string) => set(id, true),
+  };
+}
+
 /** `start` é a posição da primeira estação do nível na estrada inteira; `reach`, quantas
- *  estações já ficaram para trás. */
+ *  estações já ficaram para trás. Fechado, o nível é uma linha na estrada: nome, tamanho e o
+ *  botão que abre as estações. */
 function Level({
   level,
   start,
@@ -177,6 +247,8 @@ function Level({
   builds,
   technologyId,
   suffix,
+  open,
+  onToggle,
 }: {
   level: PathLevelView;
   start: number;
@@ -186,6 +258,8 @@ function Level({
   builds: BuildsView;
   technologyId?: string;
   suffix: string;
+  open: boolean;
+  onToggle: (open: boolean) => void;
 }) {
   const weeks = Math.max(1, Math.round(level.minutes / MINUTES_PER_WEEK));
   const met = level.stops.filter((stop) => stop.advice?.kind === 'met').length;
@@ -214,8 +288,8 @@ function Level({
             {level.level.title}
           </h2>
           <p className="text-ink-soft mt-1 text-[12.5px] leading-snug">
-            {level.stops.length} competências · {formatDuration(level.minutes)} no caminho mínimo ·
-            umas {weeks} semanas a 1h30 por dia
+            {level.stops.length} competências · {formatDuration(level.minutes)} no caminho mínimo ·{' '}
+            {weeks === 1 ? 'cerca de 1 semana' : `umas ${weeks} semanas`} a 1h30 por dia
             {personal && (
               <>
                 {' · '}
@@ -224,53 +298,83 @@ function Level({
             )}
           </p>
           <p className="text-ink mt-2 text-[14px] leading-relaxed">{level.level.summary}</p>
-          <ul className="mt-3 space-y-1">
-            {level.level.outcomes.map((outcome) => (
-              <li key={outcome} className="text-ink-soft flex gap-2 text-[13px] leading-snug">
-                <span className="text-done shrink-0" aria-hidden>✓</span>
-                {outcome}
-              </li>
-            ))}
-          </ul>
-          {level.level.id === 'build-and-ship' && <StackChoice track={FIRST_WEB_ROLE} />}
+          {open && (
+            <ul className="mt-3 space-y-1">
+              {level.level.outcomes.map((outcome) => (
+                <li key={outcome} className="text-ink-soft flex gap-2 text-[13px] leading-snug">
+                  <span className="text-done shrink-0" aria-hidden>✓</span>
+                  {outcome}
+                </li>
+              ))}
+            </ul>
+          )}
+          {open && level.level.id === 'build-and-ship' && <StackChoice track={FIRST_WEB_ROLE} />}
+          <button
+            type="button"
+            aria-expanded={open}
+            onClick={() => onToggle(!open)}
+            className="text-now focus-visible:outline-attention -ml-1 mt-1 inline-flex min-h-11 items-center gap-1.5 px-1 text-[13.5px] focus-visible:outline-2"
+          >
+            <svg
+              width={16}
+              height={16}
+              viewBox="0 0 16 16"
+              className={`transition-transform duration-200 ${open ? 'rotate-180' : ''}`}
+              aria-hidden
+            >
+              <path
+                d="M3.5 6l4.5 4.5L12.5 6"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={1.7}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+            {open ? 'Recolher o nível' : `Ver as ${level.stops.length} estações`}
+          </button>
         </div>
       </div>
 
-      <ol className="mt-6 space-y-6">
-        {level.stops.map((stop, index) => (
-          <Station
-            key={stop.id}
-            stop={stop}
-            sway={SWAY[(index + 1) % SWAY.length]}
-            walked={start + index < reach}
-            here={stop.id === hereId}
-            unlocks={builds.unlockedBy.get(stop.id) ?? []}
-            technologyId={technologyId}
-            suffix={suffix}
-          />
-        ))}
-      </ol>
-
-      <div className="relative mt-7 flex items-start gap-4" style={rowStyle(0, 28)}>
-        <span
-          data-road-point
-          data-walked={start + level.stops.length <= reach}
-          className="border-ink bg-paper flex h-7 w-7 shrink-0 items-center justify-center rounded-[3px] border-2"
-          aria-hidden
-        >
-          <FlagIcon />
-        </span>
-        <div className="bg-paper min-w-0 max-w-[62ch] pr-2">
-          <h3 className="text-ink text-[13.5px] font-medium">Ao fim do nível {level.number}, você constrói</h3>
-          <ul className="mt-2 space-y-3">
-            {levelBuilds.map((item) => (
-              <LevelBuild key={item.build.id} item={item} personal={personal} suffix={suffix} />
+      {open && (
+        <>
+          <ol className="mt-4 space-y-7">
+            {level.stops.map((stop, index) => (
+              <Station
+                key={stop.id}
+                stop={stop}
+                sway={SWAY[(index + 1) % SWAY.length]}
+                walked={start + index < reach}
+                here={stop.id === hereId}
+                unlocks={builds.unlockedBy.get(stop.id) ?? []}
+                technologyId={technologyId}
+                suffix={suffix}
+              />
             ))}
-          </ul>
-        </div>
-      </div>
+          </ol>
 
-      {level.books.length > 0 && <Books books={level.books} />}
+          <div className="relative mt-7 flex items-start gap-4" style={rowStyle(0, 28)}>
+            <span
+              data-road-point
+              data-walked={start + level.stops.length <= reach}
+              className="border-ink bg-paper flex h-7 w-7 shrink-0 items-center justify-center rounded-[3px] border-2"
+              aria-hidden
+            >
+              <FlagIcon />
+            </span>
+            <div className="bg-paper min-w-0 max-w-[62ch] pr-2">
+              <h3 className="text-ink text-[13.5px] font-medium">Ao fim do nível {level.number}, você constrói</h3>
+              <ul className="mt-2 space-y-3">
+                {levelBuilds.map((item) => (
+                  <LevelBuild key={item.build.id} item={item} personal={personal} suffix={suffix} />
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {level.books.length > 0 && <Books books={level.books} />}
+        </>
+      )}
     </li>
   );
 }
@@ -357,22 +461,37 @@ function Station({
           </p>
         )}
 
-        {/* Quem já sabe não precisa do "comece por"; o resto, inclusive o "não agora", vê
-            conteúdo concreto — esconder recurso seria cadeado disfarçado (ADR-0009). */}
+        {/* Na estrada, o material que abre a estação numa ficha e a prática garantida numa linha
+            (ADR-0015). Quem já sabe não precisa deles; o resto, inclusive o "não agora", vê
+            conteúdo concreto — esconder recurso seria cadeado disfarçado (ADR-0009). Guardar e
+            concluir ficam na página da estação. */}
         {kind !== 'met' && stop.start && (
-          <div className="mt-2.5">
-            <ResourceLine resource={stop.start} yourStack={Boolean(technologyId) && stop.start.technology === technologyId} />
+          <div className="mt-2">
+            <ResourceLine
+              resource={stop.start}
+              compact
+              yourStack={Boolean(technologyId) && stop.start.technology === technologyId}
+            />
           </div>
         )}
         {kind !== 'met' && stop.practice && (
-          <p className="text-ink-soft mt-2 text-[12.5px] leading-snug">
+          <p className="text-ink-soft mt-1.5 text-[12.5px] leading-snug">
             pratique com:{' '}
-            <ExternalLink resource={stop.practice} />
+            <a
+              href={stop.practice.url}
+              target="_blank"
+              rel="noreferrer noopener"
+              onClick={() => stop.practice && markStarted(stop.practice.id)}
+              className="text-ink focus-visible:outline-attention underline decoration-[var(--rule)] underline-offset-2 hover:decoration-[var(--ink)] focus-visible:outline-2"
+            >
+              {stop.practice.title}
+              <span className="sr-only"> (abre em nova aba)</span>
+            </a>
           </p>
         )}
         <Link
           href={`/competencias/${stop.id}${suffix}`}
-          className="text-now focus-visible:outline-attention mt-1.5 inline-block py-1 text-[13px] focus-visible:outline-2"
+          className="text-now focus-visible:outline-attention -ml-1 mt-0.5 inline-flex min-h-11 items-center px-1 text-[13px] focus-visible:outline-2"
         >
           ver os {stop.resourceCount} recursos →
         </Link>
@@ -381,34 +500,22 @@ function Station({
   );
 }
 
-function ExternalLink({ resource }: { resource: Resource }) {
-  return (
-    <a
-      href={resource.url}
-      target="_blank"
-      rel="noreferrer noopener"
-      onClick={() => markStarted(resource.id)}
-      className="text-ink focus-visible:outline-attention underline decoration-[var(--rule)] underline-offset-2 hover:decoration-[var(--ink)] focus-visible:outline-2"
-    >
-      {resource.title}
-      <span className="sr-only"> (abre em nova aba)</span>
-    </a>
-  );
-}
-
-/** Livros ficam fora da estrada: ramo opcional para quem quer ir além, como um desvio. */
+/** Livros ficam fora da estrada: ramo opcional para quem quer ir além, como um desvio. Fechado
+ *  por padrão: aberto, o do nível 1 ocupava mais de uma tela do celular. */
 function Books({ books }: { books: readonly Resource[] }) {
   return (
-    <div className="border-rule relative mt-6 ml-[calc(var(--axis)+24px)] max-w-[62ch] rounded-sm border border-dashed bg-paper px-4 py-3">
-      <h3 className="hand text-ink-soft text-[15px]">para ir além · livros</h3>
-      <ul className="mt-2 space-y-3">
+    <details className="border-rule relative mt-6 ml-[calc(var(--axis)+24px)] max-w-[62ch] rounded-sm border border-dashed bg-paper px-4">
+      <summary className="hand text-ink-soft focus-visible:outline-attention flex min-h-11 cursor-pointer items-center text-[15px] focus-visible:outline-2">
+        para ir além · {books.length} {books.length === 1 ? 'livro' : 'livros'}
+      </summary>
+      <ul className="space-y-4 pb-4 pt-1">
         {books.map((book) => (
           <li key={book.id}>
             <ResourceLine resource={book} />
           </li>
         ))}
       </ul>
-    </div>
+    </details>
   );
 }
 
@@ -468,62 +575,16 @@ function Aside({
   path,
   suffix,
   hasProfile,
+  onOpenLevel,
 }: {
   path: PathView;
   suffix: string;
   hasProfile: boolean;
+  onOpenLevel: (id: string) => void;
 }) {
   return (
-    <aside aria-label="Resumo da trilha" className="lg:sticky lg:top-6 lg:self-start">
-      {hasProfile ? (
-        <section>
-          {path.recommended.length > 0 ? (
-            <>
-              <h2 className="hand text-now text-[16px]">para você agora</h2>
-              <ol className="mt-2 space-y-3">
-                {path.recommended.map((stop) => (
-                  <li key={stop.id}>
-                    <Link
-                      href={`/competencias/${stop.id}${suffix}`}
-                      className="text-ink focus-visible:outline-attention text-[14.5px] font-medium underline decoration-[var(--rule)] underline-offset-2 hover:decoration-[var(--ink)] focus-visible:outline-2"
-                    >
-                      {stop.name}
-                    </Link>
-                    <p className="text-ink-soft mt-0.5 text-[12.5px] leading-snug">{stop.advice?.reason}</p>
-                  </li>
-                ))}
-              </ol>
-            </>
-          ) : (
-            <p className="text-ink text-[14px] leading-relaxed">
-              Pelas suas respostas, você já está no nível que a vaga pede em tudo. Confira pelos
-              critérios de saída de cada competência.
-            </p>
-          )}
-          <Link
-            href="/avaliacao"
-            className="text-ink-soft hover:text-ink focus-visible:outline-attention mt-3 inline-block py-1 text-[12.5px] underline underline-offset-2 focus-visible:outline-2"
-          >
-            Refazer as 6 perguntas
-          </Link>
-        </section>
-      ) : (
-        <section>
-          <p className="text-ink-soft text-[13px] leading-relaxed">
-            {CATALOG.resources.length} materiais conferidos um a um,{' '}
-            {CATALOG.resources.filter((r) => r.ptBrStatus === 'complete').length} em português.
-          </p>
-          <p className="text-ink mt-1.5 text-[14px] leading-relaxed">
-            Responda 6 perguntas e a estrada marca o que você pode pular e o que vale agora.
-          </p>
-          <Link
-            href="/avaliacao"
-            className="text-now focus-visible:outline-attention mt-1 inline-block py-1 text-[14px] underline underline-offset-2 focus-visible:outline-2"
-          >
-            Marcar o que já sei
-          </Link>
-        </section>
-      )}
+    <aside aria-label="Seu próximo passo" className="lg:sticky lg:top-16 lg:col-start-2 lg:row-start-1 lg:self-start">
+      <NextStep path={path} suffix={suffix} hasProfile={hasProfile} onOpenLevel={onOpenLevel} />
 
       <nav aria-label="Níveis da trilha" className="mt-7 hidden lg:block">
         <h2 className="text-ink-soft text-[12.5px] font-medium">Níveis</h2>
@@ -535,6 +596,7 @@ function Aside({
               <li key={level.level.id}>
                 <a
                   href={`#nivel-${level.level.id}`}
+                  onClick={() => onOpenLevel(level.level.id)}
                   aria-current={here ? 'step' : undefined}
                   className="group focus-visible:outline-attention block rounded-sm py-0.5 focus-visible:outline-2"
                 >
@@ -567,35 +629,150 @@ function Aside({
         </ol>
       </nav>
 
-      <details className="border-rule mt-7 border-t pt-3">
-        <summary className="text-ink-soft focus-visible:outline-attention cursor-pointer py-1 text-[12.5px] font-medium focus-visible:outline-2">
-          Como ler a trilha
-        </summary>
-        <ul className="mt-3 space-y-2 text-[12.5px] leading-snug">
-          <Legend kind="met" text="você já sabe; a estrada em tinta é o que ficou para trás" />
-          <Legend kind="recommended" text="recomendado agora, no máximo três, com o motivo" />
-          <Legend kind="missing-base" text="falta base: abre, mas rende mais depois de outra" />
-          <Legend kind="not-now" text="não agora: pode esperar, e diz por quê" />
-          <li className="text-ink-soft flex items-center gap-2.5">
-            <span className="border-ink flex h-[18px] w-[18px] shrink-0 items-center justify-center rounded-[3px] border-2">
-              <FlagIcon />
-            </span>
-o que você constrói ao fim de cada nível
-          </li>
-        </ul>
-      </details>
-
-      <p className="text-ink-soft mt-6 text-[12.5px] leading-snug">
-        Testando o Career Gap?{' '}
-        <Link
-          href={`/pesquisa${suffix}`}
-          className="text-ink focus-visible:outline-attention underline decoration-[var(--rule)] underline-offset-2 hover:decoration-[var(--ink)] focus-visible:outline-2"
-        >
-          Conte como foi
-        </Link>
-        : uns 5 minutos de perguntas, que viram dado no TCC.
-      </p>
+      <div className="mt-6 hidden lg:block">
+        <ResearchInvite suffix={suffix} />
+      </div>
     </aside>
+  );
+}
+
+const PRIMARY =
+  'focus-visible:outline-attention mt-4 flex min-h-12 w-full items-center justify-center rounded-sm bg-[var(--ink)] px-4 text-center text-[14.5px] font-medium text-[var(--paper)] hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2';
+
+/**
+ * A primeira coisa da trilha: o que fazer agora, com um botão de verdade. É o único bloco com
+ * fundo na página, na tinta de "agora": a pessoa no ônibus abre o site e vê para onde ir sem
+ * rolar. Sem respostas, o próximo passo é responder; com elas, a estação que o motor recomenda.
+ */
+function NextStep({
+  path,
+  suffix,
+  hasProfile,
+  onOpenLevel,
+}: {
+  path: PathView;
+  suffix: string;
+  hasProfile: boolean;
+  onOpenLevel: (id: string) => void;
+}) {
+  const box = 'bg-tint-now rounded-sm px-4 py-4';
+  if (!hasProfile) {
+    const ptBr = CATALOG.resources.filter((resource) => resource.ptBrStatus === 'complete').length;
+    return (
+      <section aria-labelledby="proximo-passo" className={box}>
+        <h2 id="proximo-passo" className="hand text-now text-[16px]">
+          por onde começar
+        </h2>
+        <p className="text-ink mt-1 text-[14.5px] leading-relaxed">
+          Responda 6 perguntas e a estrada marca o que você pode pular e o que vale agora.
+        </p>
+        <Link href="/avaliacao" className={PRIMARY}>
+          Responder as 6 perguntas
+        </Link>
+        <p className="text-ink-soft mt-2.5 text-[12.5px] leading-snug">
+          Uns 2 minutos, sem cadastro. {CATALOG.resources.length} materiais conferidos um a um, {ptBr} em
+          português.
+        </p>
+      </section>
+    );
+  }
+
+  const [first, ...others] = path.recommended;
+  const hereLevel = path.hereLevelId;
+  return (
+    <section aria-labelledby="proximo-passo" className={box}>
+      <h2 id="proximo-passo" className="hand text-now text-[16px]">
+        para você agora
+      </h2>
+      {first ? (
+        <>
+          <p className="font-serif text-ink mt-1 text-[22px] leading-tight text-balance">{first.name}</p>
+          <p className="text-ink-soft mt-1 text-[13px] leading-snug">{first.advice?.reason}</p>
+          <Link href={`/competencias/${first.id}${suffix}`} className={PRIMARY}>
+            Abrir a estação
+          </Link>
+          {others.length > 0 && (
+            <>
+              <h3 className="text-ink-soft mt-5 text-[12.5px] font-medium">Também vale agora</h3>
+              {/* Só o nome: o motivo de cada uma está na estação e na estrada, e repetido aqui
+                  empurrava a estrada para a segunda tela. */}
+              <ul className="mt-1">
+                {others.map((stop) => (
+                  <li key={stop.id}>
+                    <Link
+                      href={`/competencias/${stop.id}${suffix}`}
+                      className="text-ink focus-visible:outline-attention inline-flex min-h-11 items-center text-[14.5px] font-medium underline decoration-[var(--rule)] underline-offset-2 hover:decoration-[var(--ink)] focus-visible:outline-2"
+                    >
+                      {stop.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </>
+          )}
+        </>
+      ) : (
+        <p className="text-ink mt-1 text-[14px] leading-relaxed">
+          Pelas suas respostas, você já está no nível que a vaga pede em tudo. Confira pelos critérios
+          de saída de cada competência.
+        </p>
+      )}
+      <p className="mt-3 flex flex-wrap gap-x-5">
+        {path.hereId && hereLevel && (
+          <a
+            href={`#${path.hereId}`}
+            onClick={() => onOpenLevel(hereLevel)}
+            className="text-now focus-visible:outline-attention inline-flex min-h-11 items-center text-[13px] underline underline-offset-2 focus-visible:outline-2"
+          >
+            Ver onde estou na estrada
+          </a>
+        )}
+        <Link
+          href="/avaliacao"
+          className="text-ink-soft hover:text-ink focus-visible:outline-attention inline-flex min-h-11 items-center text-[13px] underline underline-offset-2 focus-visible:outline-2"
+        >
+          Refazer as 6 perguntas
+        </Link>
+      </p>
+    </section>
+  );
+}
+
+/** A legenda das marcas, junto da estrada que ela explica. */
+function HowToRead() {
+  return (
+    <details className="mt-2">
+      <summary className="text-ink-soft focus-visible:outline-attention inline-flex min-h-11 cursor-pointer items-center text-[13px] font-medium focus-visible:outline-2">
+        Como ler a trilha
+      </summary>
+      <ul className="mt-1 space-y-2 pb-2 text-[12.5px] leading-snug">
+        <Legend kind="met" text="você já sabe; a estrada em tinta é o que ficou para trás" />
+        <Legend kind="recommended" text="recomendado agora, no máximo três, com o motivo" />
+        <Legend kind="missing-base" text="falta base: abre, mas rende mais depois de outra" />
+        <Legend kind="not-now" text="não agora: pode esperar, e diz por quê" />
+        <li className="text-ink-soft flex items-center gap-2.5">
+          <span className="border-ink flex h-[18px] w-[18px] shrink-0 items-center justify-center rounded-[3px] border-2">
+            <FlagIcon />
+          </span>
+          o que você constrói ao fim de cada nível
+        </li>
+      </ul>
+    </details>
+  );
+}
+
+function ResearchInvite({ suffix }: { suffix: string }) {
+  return (
+    <p className="text-ink-soft text-[12.5px] leading-snug">
+      Testando o Career Gap?{' '}
+      <Link
+        href={`/pesquisa${suffix}`}
+        className="text-ink focus-visible:outline-attention underline decoration-[var(--rule)] underline-offset-2 hover:decoration-[var(--ink)] focus-visible:outline-2"
+      >
+        Conte como foi
+      </Link>
+      : uns 5 minutos de perguntas, que viram dado no TCC.
+    </p>
   );
 }
 
