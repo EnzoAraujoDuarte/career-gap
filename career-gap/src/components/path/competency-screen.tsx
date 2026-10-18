@@ -11,7 +11,6 @@ import { buildCompetencyView, type Neighbor } from '@/lib/competency-view';
 import { useCurrentProfile, useProfileSuffix } from '@/lib/current-profile';
 import { useProgress } from '@/lib/progress-storage';
 import { LEVEL_ASKED, LEVEL_SHORT } from '@/lib/reason-text';
-import { technologyName } from '@/lib/tech-badge';
 import { buildPathView } from '@/lib/path-view';
 import { buildRoadmapView } from '@/lib/roadmap-view';
 import { aimReturnAt } from '@/lib/scroll-memory';
@@ -56,9 +55,8 @@ export function CompetencyScreen({ id }: { id: string }) {
   const definition = CATALOG.competencies.get(id);
   if (!competency || !definition) return null;
 
-  // O que o site sabe e a IA não: a linguagem escolhida e o que a pessoa já estudou nesta estação.
+  // O que o site sabe e a IA não: o que a pessoa já estudou nesta estação.
   const promptContext: PromptContext = {
-    serverLanguage: profile?.technologyId ? technologyName(profile.technologyId) : undefined,
     done: [...competency.learn, ...competency.practice, ...competency.prove].filter(
       (resource) => progress?.[resource.id]?.completedAt,
     ),
@@ -131,7 +129,7 @@ export function CompetencyScreen({ id }: { id: string }) {
           visible={3}
           after={
             <CopyPrompt
-              prompt={exercisePrompt(definition, competency.targetLevel, mission, promptContext)}
+              prompt={exercisePrompt(definition, currentLevel, competency.targetLevel, mission, promptContext)}
               label="Resolver um exercício com ajuda de IA"
               hint={
                 mission

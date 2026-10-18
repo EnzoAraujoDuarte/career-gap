@@ -11,7 +11,6 @@ import { useCurrentProfile, useProfileSuffix } from '@/lib/current-profile';
 import { toggleCompleted, useProgress } from '@/lib/progress-storage';
 import { LEVEL_SHORT } from '@/lib/reason-text';
 import { formatDuration } from '@/lib/resource-duration';
-import { technologyName } from '@/lib/tech-badge';
 import { buildProgressKey, buildStepsKey } from '@/lib/user-state';
 import { EcosystemNav } from '@/components/ecosystem/ecosystem-nav';
 import { Loading, SectionLabel } from '@/components/ecosystem/page-shell';
@@ -220,11 +219,7 @@ export function BuildScreen({ id }: { id: string }) {
                 </p>
               </div>
               <CopyPrompt
-                prompt={buildPrompt(
-                  build,
-                  exercises.map((competency) => competency.name),
-                  { serverLanguage: profile?.technologyId ? technologyName(profile.technologyId) : undefined },
-                )}
+                prompt={buildPrompt(build, exercises.map((competency) => competency.name))}
                 label="Construir com um assistente de IA"
                 hint="Leva o plano e o critério de pronto. O assistente programa junto, um passo por vez, e explica cada decisão."
               />

@@ -18,35 +18,37 @@ import { LEVEL_ASKED } from './reason-text';
  * fazer em vez do que evitar, e prompt curto.
  */
 
-/** O que o site sabe e a IA não: a linguagem escolhida e o que a pessoa já estudou ali. */
+/** O que o site sabe e a IA não. A linguagem não entra: o prompt não afirma o que a pessoa sabe
+ *  além do que ela declarou, e quem nunca programou não pode receber "programo em JavaScript". */
 export interface PromptContext {
-  /** Nome legível da linguagem de servidor escolhida (ADR-0014). Sem ela, só JavaScript. */
-  readonly serverLanguage?: string;
   /** Materiais desta estação que a pessoa marcou como concluídos. */
   readonly done?: readonly Resource[];
 }
 
 /** Mais que isso e o bloco de hábitos vira lista de regras, que os guias dizem piorar a resposta. */
-const MAX_HABITS = 3;
+const MAX_HABITS = 2;
 const MAX_DONE = 3;
 
 /** Os hábitos do catálogo ligados a estas competências, com a fonte já conferida: a IA cita o
- *  que está aqui, e não um número de dica que ela lembra errado. */
+ *  que está aqui, e não um número de dica que ela lembra errado. Os da tradição "IA tutora"
+ *  ficam de fora: dizem à pessoa como usar a IA, e o próprio pedido já faz isso. */
 export function habitsFor(competencies: readonly CompetencyId[]): ProfessionalHabit[] {
-  return CATALOG.habits.filter((habit) => habit.competencies.some((id) => competencies.includes(id))).slice(0, MAX_HABITS);
+  return CATALOG.habits
+    .filter((habit) => habit.tradition !== 'ai-tutor' && habit.competencies.some((id) => competencies.includes(id)))
+    .slice(0, MAX_HABITS);
 }
 
-function whoIAm({ serverLanguage, done = [] }: PromptContext): string[] {
-  const languages = serverLanguage
-    ? `Programo em JavaScript no navegador e em ${serverLanguage} no servidor.`
-    : 'Programo em JavaScript.';
+/** `newToSubject`: a pessoa está no zero neste assunto. Fala do assunto, não da pessoa inteira:
+ *  dá para estar começando em SQL e já saber JavaScript. */
+function whoIAm({ done = [] }: PromptContext, newToSubject = false): string[] {
   const studied = done
     .slice(0, MAX_DONE)
     .map((resource) => `"${resource.title}", de ${resource.sourceName}`)
     .join('; ');
   return [
     '## Quem sou',
-    `Estou estudando sozinho para a primeira vaga em desenvolvimento web, pelo Career Gap. ${languages}`,
+    'Estou estudando sozinho para a primeira vaga em desenvolvimento web, pelo Career Gap.',
+    ...(newToSubject ? ['Nunca estudei este assunto: explique como para quem está começando.'] : []),
     ...(studied ? [`Já estudei: ${studied}.`] : []),
   ];
 }
@@ -56,9 +58,14 @@ function whoIAm({ serverLanguage, done = [] }: PromptContext): string[] {
 function howYouHelp(habits: readonly ProfessionalHabit[]): string[] {
   return [
     'Fale comigo como um colega mais experiente: frases curtas, direto ao ponto, sem introdução, sem elogios e sem resumo no fim.',
+    'Explique do jeito mais simples que der, e só suba o nível quando eu mostrar que acompanho.',
     'Gaste o esforço no que eu pedi. Se eu pedir uma explicação, explique bem e só isso. Se eu pedir código, escreva o código e explique as decisões.',
     'Use exemplos do dia a dia no Brasil, no meu nível: uma compra parcelada, um CEP, um pedido de delivery.',
+    'Se precisar de código, use a linguagem que o assunto pede; quando tanto faz, JavaScript, até eu dizer que uso outra.',
     'No código: nomes que dizem o que guardam, funções pequenas, erros tratados, só as bibliotecas que eu pedir, e como rodar e testar.',
+    // O vocabulário da área é barreira para quem começa, e a pessoa vai ouvi-lo na entrevista:
+    // a IA o apresenta aos poucos, sem despejar um glossário inteiro a cada resposta.
+    'Use os termos da área aos poucos, porque vou ouvi-los no trabalho. No fim da resposta, em "Palavras novas", explique numa frase simples cada termo novo, como deploy, debugar ou hardcoded, sem repetir os já explicados.',
     'Quero aprender, não só receber pronto. Quando fizer sentido, termine com uma pergunta curta que confira se entendi, ou me peça para mudar algo no código.',
     ...(habits.length > 0
       ? [
@@ -81,10 +88,8 @@ function whereIAm(competency: Competency, current: Level, target: Level): string
   }
   const now = competency.levels[current]?.canDo;
   const goal = competency.levels[target]?.canDo ?? competency.summary;
-  return [
-    now ? `O que eu já faço: "${now}"` : 'Ainda não sei nada disso.',
-    `Quero chegar a este ponto: "${goal}"`,
-  ];
+  // No zero não há "o que eu já faço": o "Quem sou" já diz que a pessoa está começando.
+  return [...(now ? [`O que eu já faço: "${now}"`] : []), `Quero chegar a este ponto: "${goal}"`];
 }
 
 /** Estudar uma estação: a IA ensina a partir do que a pessoa já sabe. */
@@ -95,7 +100,7 @@ export function studyPrompt(
   context: PromptContext = {},
 ): string {
   return [
-    ...whoIAm(context),
+    ...whoIAm(context, currentLevel === 'L0'),
     '',
     '## O que quero aprender',
     `${competency.name}. ${competency.summary}`,
@@ -118,6 +123,7 @@ export function studyPrompt(
  */
 export function exercisePrompt(
   competency: Competency,
+  currentLevel: Level,
   targetLevel: Level,
   mission?: Resource,
   context: PromptContext = {},
@@ -131,7 +137,7 @@ export function exercisePrompt(
       ]
     : ['Enunciado: [cole aqui o enunciado ou o link]'];
   return [
-    ...whoIAm(context),
+    ...whoIAm(context, currentLevel === 'L0'),
     '',
     '## O exercício',
     `Estação: ${competency.name}. A vaga pede que eu ${LEVEL_ASKED[targetLevel]}.`,
