@@ -30,8 +30,8 @@ de base e o que pode esperar, sempre com o motivo.
    máximo 3), *falta base*, *não agora*. Cada nível fecha nas suas construções; cada estação diz o
    que destrava. O trecho já percorrido fica em tinta, até o *você está aqui*
    ([ADR-0011](docs/adr/0011-trilha-como-estrada.md)).
-5. **Explorar**: o catálogo inteiro com filtros: 230 recursos verificados um a um (177 em
-   português, 215 gratuitos, 43 de prática ou prova, 15 livros, 110 vídeos; toda estação abre por
+5. **Explorar**: o catálogo inteiro com filtros: 251 recursos verificados um a um (197 em
+   português, 215 gratuitos, 43 de prática ou prova, 36 livros, 110 vídeos; toda estação abre por
    um vídeo em português recente, [ADR-0015](docs/adr/0015-video-em-portugues-primeiro.md)), 19 ferramentas com portão de
    competência e com "como ter" (já vem no computador, conta, programa, dependência do projeto ou
    plugin do Claude Code, com o comando), 30 hábitos profissionais, inclusive os de carreira
@@ -72,7 +72,7 @@ de base e o que pode esperar, sempre com o motivo.
 | [`docs/adr/`](docs/adr/) | Decisões de arquitetura, curtas |
 | [`docs/research/`](docs/research/) | Fontes verificadas e os dados que geram o catálogo de recursos |
 
-Os ADRs e alguns comentários citam documentos de planejamento que não estão mais aqui
+Os ADRs e duas notas em `docs/research/` citam documentos de planejamento que não estão mais aqui
 (`SYSTEM_SPEC.md`, `INITIAL_SCOPE.md`, `DISCOVERY.md`, `DECISOES.md`, `PLANO-FASE4.md` e outros).
 Eles continuam no histórico do git.
 
@@ -84,4 +84,5 @@ Banco no Neon, login anônimo por padrão. As páginas chegam renderizadas do se
 `robots.txt` e `sitemap.xml`; o tema segue o do sistema (claro ou escuro). Ainda falta:
 - **Credenciais de Google e GitHub.** O login social aparece sozinho quando elas existirem, e a
   página de privacidade passa a citá-lo.
-- **Condição de controle do experimento**, que espera o desenho com o orientador.
+- **Comparação com a mesma pessoa nas duas condições**, em ordem sorteada. A avaliação de 2026
+  comparou quem respondeu às seis perguntas com quem não respondeu.
