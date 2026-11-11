@@ -58,11 +58,11 @@ export const FIRST_WEB_ROLE: CareerTrack = {
 
     requirement('api-consumption', 'L2', 'core', [cs2023('NC'), sfia('PROG')]),
     // De apoio no track geral: do lado da oferta, Java e C# lideram e Spring e .NET aparecem à
-    // frente de React (PLANO-DIRECAO §3). A ênfase em frontend a torna central.
+    // frente de React. A ênfase em frontend a torna central.
     requirement('ui-components-and-state', 'L1', 'supporting', [cs2023('SPD'), entryLevelBar]),
     requirement('api-development', 'L1', 'supporting', [swebok('Software Design'), sfia('SWDN')]),
     // De apoio, e não opcional: cinco dos seis currículos comparados tratam login e senha como
-    // parte do núcleo do backend (docs/COMPARACAO-CURRICULOS.md §4).
+    // parte do núcleo do backend.
     requirement('authentication-basics', 'L1', 'supporting', [
       swebok('Software Security'),
       sfia('SCTY'),
@@ -218,7 +218,7 @@ export const FIRST_WEB_ROLE: CareerTrack = {
   // pergunta só algoritmos e custo: começa em "ainda não" e a pessoa ajusta na página.
   // A linguagem do servidor, escolhida a partir do nível 3. Independente de stack: nenhuma
   // competência, aresta ou lacuna muda; só os materiais preferem a linguagem escolhida. As duas
-  // opções são as que têm material verificado no catálogo (PLANO-DIRECAO §3).
+  // opções são as que têm material verificado no catálogo.
   stacks: [
     {
       technology: 'node',

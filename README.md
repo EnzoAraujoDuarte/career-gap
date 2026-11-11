@@ -70,16 +70,15 @@ de base e o que pode esperar, sempre com o motivo.
 |---|---|
 | [`career-gap/`](career-gap/) | O sistema (Next.js). Como rodar: [`career-gap/README.md`](career-gap/README.md) |
 | [`docs/adr/`](docs/adr/) | Decisões de arquitetura, curtas |
-| [`docs/PLANO-FASE4.md`](docs/PLANO-FASE4.md) | Direção atual: pesquisa de 14 plataformas, evidência sobre controle do aprendiz, banco |
-| [`docs/COMPARACAO-CURRICULOS.md`](docs/COMPARACAO-CURRICULOS.md) | O catálogo contra MDN, freeCodeCamp, Odin, Full Stack Open, Tech Guide e Trilha Info; licenças |
-| [`docs/REFERENCIAS-UX.md`](docs/REFERENCIAS-UX.md) | As referências de produto e de evidência por trás das construções e do primeiro acesso |
-| [`docs/DISCOVERY.md`](docs/DISCOVERY.md) | Modelo de domínio e desenho do motor |
 | [`docs/research/`](docs/research/) | Fontes verificadas e os dados que geram o catálogo de recursos |
-| [`tcc/`](tcc/) | Documento acadêmico (gerado por script, no formato da UNESC) |
+
+Os ADRs e alguns comentários citam documentos de planejamento que não estão mais aqui
+(`SYSTEM_SPEC.md`, `INITIAL_SCOPE.md`, `DISCOVERY.md`, `DECISOES.md`, `PLANO-FASE4.md` e outros).
+Eles continuam no histórico do git.
 
 ## Estado
 
-116 testes (motor, catálogo, construções, trilha, explorar, banco em Postgres em memória); tipos, lint e
+172 testes (motor, catálogo, construções, trilha, explorar, banco em Postgres em memória); tipos, lint e
 build verificados a cada envio pela integração contínua; cada envio à `main` publica na Vercel.
 Banco no Neon, login anônimo por padrão. As páginas chegam renderizadas do servidor, com
 `robots.txt` e `sitemap.xml`; o tema segue o do sistema (claro ou escuro). Ainda falta:

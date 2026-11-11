@@ -9,7 +9,7 @@ import './globals.css';
 /** Leitura: formulários, textos e detalhes. Atkinson Hyperlegible foi desenhada pelo Braille
  *  Institute para quem lê com baixa visão — letras que não se confundem (I, l e 1; O e 0). Um
  *  produto que ensina acessibilidade lê melhor nela do que na Inter, a face padrão de toda
- *  interface gerada (auditoria impeccable, docs/AUDITORIA-UI-2026-10-15.md). Licença OFL. */
+ *  interface gerada (auditoria de interface de 2026-10-15). Licença OFL. */
 const ui = Atkinson_Hyperlegible_Next({ variable: '--font-ui', subsets: ['latin', 'latin-ext'] });
 
 /** Anotação: "você está aqui", "comece aqui", "não agora". Shantell Sans tem altura-x maior

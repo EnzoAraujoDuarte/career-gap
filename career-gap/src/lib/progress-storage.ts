@@ -8,7 +8,7 @@ import type { ProgressMap, ResourceProgress } from './user-state';
  * O que a pessoa guardou, abriu e concluiu — Minha lista, Continuar e Concluídos.
  *
  * Concluir um recurso NÃO muda o nível da competência: consumir não é saber fazer. O nível só
- * muda pela autoavaliação (docs/DECISOES.md §3).
+ * muda pela autoavaliação.
  */
 const store = createLocalStore<ProgressMap>('career-gap:progress:v1');
 

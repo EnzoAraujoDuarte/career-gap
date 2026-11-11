@@ -12,7 +12,7 @@ import { moveUserData } from '@/db/user-state';
  * anônima vai junto (`moveUserData`).
  *
  * Só Google e GitHub, e só os que têm credencial no ambiente: GitHub sozinho excluiria o
- * iniciante absoluto, que ainda não tem conta (docs/PLANO-FASE4.md §8).
+ * iniciante absoluto, que ainda não tem conta.
  */
 
 export const SOCIAL_PROVIDERS = ['google', 'github'] as const;

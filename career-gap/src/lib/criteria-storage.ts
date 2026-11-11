@@ -7,7 +7,7 @@ import { criteriaKey, type CriteriaMap } from './user-state';
 
 /**
  * Critérios de saída marcados. Antes viviam só na memória da tela e sumiam ao recarregar.
- * Marcar não muda o nível (docs/DECISOES.md §3) — mostra o progresso dentro da competência.
+ * Marcar não muda o nível — mostra o progresso dentro da competência.
  */
 const store = createLocalStore<CriteriaMap>('career-gap:criteria:v1');
 

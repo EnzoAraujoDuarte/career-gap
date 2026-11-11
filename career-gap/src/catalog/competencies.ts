@@ -186,7 +186,7 @@ export const COMPETENCIES: readonly Competency[] = [
     sources: [canonical('MDN — Document Object Model'), sfia('PROG')],
   },
   {
-    // As seis referências comparadas em docs/COMPARACAO-CURRICULOS.md ensinam interface por
+    // As seis referências de currículo comparadas ensinam interface por
     // componentes e nenhuma das outras competências cobria. Fica agnóstica: React é o selo da
     // stack JavaScript, não o nome da competência.
     id: 'ui-components-and-state',
@@ -643,7 +643,7 @@ export const COMPETENCIES: readonly Competency[] = [
       },
     },
     // O pré-requisito de depuração não é arbitrário: quanto mais autonomia se dá ao
-    // agente, maior precisa ser a capacidade de avaliar a saída (SYSTEM_SPEC §17).
+    // agente, maior precisa ser a capacidade de avaliar a saída.
     sources: [
       swebok('Software Engineering Professional Practice'),
       cs2023('SEP', 'uso responsável de ferramentas automatizadas'),
@@ -653,7 +653,7 @@ export const COMPETENCIES: readonly Competency[] = [
 
   // ------------------------------------------------------------------- horizonte
   // Não são requisitos deste track. Existem no catálogo para poderem ser
-  // explicitamente despriorizadas: dizer NOT NOW é parte do produto (SYSTEM_SPEC §27).
+  // explicitamente despriorizadas: dizer NOT NOW é parte do produto.
   {
     id: 'container-orchestration',
     name: 'Orquestração de contêineres',

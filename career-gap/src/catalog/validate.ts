@@ -7,7 +7,7 @@ import type { Catalog } from '@/domain/roadmap';
 /**
  * Invariantes do catálogo.
  *
- * Existe para que o protocolo de fundamentação (DISCOVERY.md §3) seja um mecanismo
+ * Existe para que o protocolo de fundamentação seja um mecanismo
  * verificável e não uma promessa no texto do TCC: se uma competência entrar sem duas
  * classes de fonte, ou se uma aresta criar ciclo, a suíte falha.
  */
@@ -263,7 +263,7 @@ function validateTrack(
       report('resource-coverage', subject, 'nenhum recurso no nível-alvo');
     }
 
-    // Regra de suficiência (PLANO-FASE3 §9): só consumir não forma ninguém. Toda competência
+    // Regra de suficiência: só consumir não forma ninguém. Toda competência
     // core precisa de algo para aprender em português E de algo para praticar.
     if (item.criticality !== 'core') continue;
     if (!available.some((r) => LEARN_ACTIONS.has(r.actionType) && r.ptBrStatus === 'complete')) {

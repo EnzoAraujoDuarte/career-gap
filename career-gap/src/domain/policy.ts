@@ -13,7 +13,7 @@ import type {
  * Regras aqui só REBAIXAM ou EXCLUEM. Nenhuma regra promove um item — promoção é
  * responsabilidade exclusiva do escore, que é auditável. Cada exclusão carrega um
  * código e uma explicação legível, porque dizer "isto não agora, e por quê" é parte
- * do produto, não um detalhe de UI (SYSTEM_SPEC §27).
+ * do produto, não um detalhe de UI.
  */
 
 export interface PolicyContext {
@@ -34,7 +34,7 @@ const OPTIONAL_NOISE_THRESHOLD = 3;
 type PolicyRule = (context: PolicyContext) => readonly PolicyVerdict[];
 
 /** Tecnologia volátil não pode competir com fundamento pendente pela atenção de quem
- *  está começando (SYSTEM_SPEC §16). */
+ *  está começando. */
 const prematureSpecialization: PolicyRule = ({ gaps, competencies }) => {
   const hasCoreFoundationGap = gaps.some(
     (gap) =>

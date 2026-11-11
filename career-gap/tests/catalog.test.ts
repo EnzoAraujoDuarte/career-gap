@@ -113,7 +113,7 @@ describe('invariantes do catálogo — estrutura', () => {
     const required = new Set(FIRST_WEB_ROLE.requirements.map((item) => item.competency));
     const horizon = COMPETENCIES.filter((competency) => competency.domain === 'horizon');
 
-    // 26 desde a competência de interface com componentes (docs/COMPARACAO-CURRICULOS.md §4).
+    // 26 desde a competência de interface com componentes.
     expect(required.size).toBe(26);
     expect(horizon.length).toBeGreaterThanOrEqual(3);
     for (const competency of horizon) {

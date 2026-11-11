@@ -4,7 +4,7 @@ import { LEVEL_ASKED, LEVEL_NOW } from './reason-text';
 
 /**
  * A camada de direção: o que o motor diz vira ANOTAÇÃO sobre um catálogo aberto, nunca
- * cadeado (docs/PLANO-FASE4.md §4). A pessoa estuda o que quiser; o sistema diz o que vale
+ * cadeado. A pessoa estuda o que quiser; o sistema diz o que vale
  * agora, o que falta de base e o que pode esperar — sempre com o motivo.
  *
  * Nenhuma anotação desabilita link nem esconde recurso. Este módulo só classifica.

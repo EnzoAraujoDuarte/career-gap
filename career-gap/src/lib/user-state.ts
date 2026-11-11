@@ -4,8 +4,8 @@ import { LEVELS, levelIndex, type CompetencyId, type Level, type UserProfile } f
 /**
  * O estado de uma pessoa: o que ela diz que sabe, o que quer e o que estudou.
  *
- * Vive no navegador sempre, e também no Postgres quando o banco está ligado (docs/PLANO-FASE4.md
- * §5). Cada pedaço carrega `updatedAt`: quando o mesmo pedaço existe nos dois lados, ganha o mais
+ * Vive no navegador sempre, e também no Postgres quando o banco está ligado.
+ * Cada pedaço carrega `updatedAt`: quando o mesmo pedaço existe nos dois lados, ganha o mais
  * recente. É a regra mais simples que não perde a escrita de quem estudou offline.
  */
 
@@ -107,8 +107,8 @@ export interface ResourceProgress {
 export type ProgressMap = Readonly<Record<string, ResourceProgress>>;
 
 /**
- * Critérios de saída que a pessoa marcou numa competência, num nível. Marcar NUNCA muda o nível
- * (docs/DECISOES.md §3): torna o progresso visível, e o nível só muda pela autoavaliação.
+ * Critérios de saída que a pessoa marcou numa competência, num nível. Marcar NUNCA muda o nível:
+ * torna o progresso visível, e o nível só muda pela autoavaliação.
  */
 export interface CriteriaChecks {
   /** Índices em `exitCriteria` do nível. */

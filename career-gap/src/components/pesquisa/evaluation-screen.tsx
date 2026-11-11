@@ -29,7 +29,7 @@ const CONTACT_EMAIL = process.env.NEXT_PUBLIC_CONTACT_EMAIL;
 type Status = 'idle' | 'sending' | 'sent' | 'invalid' | 'failed';
 
 /**
- * O questionário da pesquisa do TCC (docs/AVALIACAO-COM-USUARIOS.md). Os itens vêm de
+ * O questionário da pesquisa do TCC. Os itens vêm de
  * `lib/evaluation.ts`; aqui só a tela. Precisa do servidor: sem banco, não há onde guardar.
  */
 export function EvaluationScreen() {

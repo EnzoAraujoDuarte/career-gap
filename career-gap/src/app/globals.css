@@ -26,7 +26,7 @@
   --state-now: #2c5aa0;
   --state-critical: #b33a3a;
   /* Mesmo matiz do âmbar original (#c07b26), escurecido: como texto ele tinha 3,3:1 no papel;
-     este passa no AA (4,5:1) nos três fundos (docs/AUDITORIA-UI-2026-10-15.md). */
+     este passa no AA (4,5:1) nos três fundos. */
   --state-attention: #955f1d;
   --state-future: #9a948a;
 
