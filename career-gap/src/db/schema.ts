@@ -1,7 +1,7 @@
 import { boolean, index, jsonb, pgTable, primaryKey, text, timestamp } from 'drizzle-orm/pg-core';
 
 /**
- * Esquema do Postgres (docs/PLANO-FASE4.md §5).
+ * Esquema do Postgres.
  *
  * O CATÁLOGO NÃO ESTÁ AQUI. Ele é código, validado por teste e versionado (`CATALOG_VERSION`);
  * o banco guarda só o estado de cada pessoa, referenciando ids do catálogo como texto. Por isso
@@ -175,7 +175,7 @@ export const roadmapSnapshot = pgTable(
 );
 
 /**
- * Respostas ao questionário de avaliação do TCC (docs/AVALIACAO-COM-USUARIOS.md). Uma por
+ * Respostas ao questionário de avaliação do TCC. Uma por
  * pessoa: reenviar substitui. Os itens moram no código (`lib/evaluation.ts`), por isso as
  * respostas são jsonb por id, com a versão do instrumento e a do catálogo que valiam. `context`
  * guarda o que a pessoa via na hora (níveis, "você está aqui", recomendados): o perfil pode

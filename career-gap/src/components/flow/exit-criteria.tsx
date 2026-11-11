@@ -7,7 +7,7 @@ import { criteriaKey } from '@/lib/user-state';
 /**
  * Critério de saída, marcável e guardado.
  *
- * Marcar NÃO promove o nível (docs/DECISOES.md §3): registra a afirmação e torna o progresso
+ * Marcar NÃO promove o nível: registra a afirmação e torna o progresso
  * visível. A alternativa que descartamos promovia 16 das 25 competências com um clique, e um
  * checklist que se autopromove é o caminho mais barato para inflar o próprio roadmap. Ao marcar
  * tudo, o componente oferece concluir a estação: uma declaração à parte, explícita e reversível
@@ -26,7 +26,7 @@ export function ExitCriteria({
   level: Level;
   criteria: readonly string[];
   competencyName: string;
-  /** Congelado durante a sessão experimental, nas duas condições (DECISOES §3). */
+  /** Congelado durante a sessão experimental, nas duas condições. */
   readOnly?: boolean;
   /** A estação já está concluída: o nível chegou ao que a vaga pede. */
   done?: boolean;

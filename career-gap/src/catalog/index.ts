@@ -13,7 +13,7 @@ import { PEOPLE } from './people';
  *
  * Sem isto, um resultado coletado na avaliação com usuários deixa de ser reproduzível
  * assim que uma competência muda de nível-alvo — e o TCC perde a rastreabilidade que
- * justamente promete (DISCOVERY.md §3). Sobe a cada mudança de conteúdo: o teste da impressão
+ * justamente promete. Sobe a cada mudança de conteúdo: o teste da impressão
  * digital (tests/catalog.test.ts) falha quando o conteúdo muda e a versão não.
  */
 export const CATALOG_VERSION = '2026.10.17-2';

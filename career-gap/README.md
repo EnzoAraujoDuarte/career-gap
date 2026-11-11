@@ -20,7 +20,7 @@ Abre em http://localhost:3000. **Funciona sem banco**: tudo fica no navegador.
 3. Reiniciar o `pnpm dev`.
 
 Login com Google ou GitHub é opcional: o botão aparece só para o provedor com as duas
-credenciais no `.env.local`. Passo a passo completo em `../docs/PLANO-FASE4.md` §5.
+credenciais no `.env.local`.
 
 **Dois branches no Neon.** O ambiente local usa o branch `dev`, criado só com a estrutura das
 tabelas (nenhum dado de produção); o site publicado usa o `main`. Migração nova: aplique no `dev`

@@ -1,5 +1,5 @@
 /**
- * O questionário de avaliação com usuários (docs/AVALIACAO-COM-USUARIOS.md).
+ * O questionário de avaliação com usuários.
  *
  * O instrumento é CÓDIGO, como o catálogo: itens com id, construto e fonte, versionados. O banco
  * guarda só as respostas por id (`evaluation_response`), e tudo o que chega do navegador é
@@ -9,7 +9,7 @@
  * Itens de escala: as perguntas que o produto promete responder (onde estou, o que já construo, o
  * que vem depois, por quê, o que pode esperar; AGENTS.md) e o que a pessoa descobriu com ele; SUS
  * (Brooke, 1996); um subconjunto do ResQue (Pu, Chen e Hu, RecSys 2011); dois itens de checagem da
- * manipulação; e dois sobre a trilha (INITIAL_SCOPE §19).
+ * manipulação; e dois sobre a trilha.
  *
  * Cabe em uns cinco minutos, e isso é regra (teste): frase curta, uma ideia por item, e cada item
  * que entra tira outro. Quem testa responde de boa vontade uma vez; um questionário longo perde a
@@ -149,7 +149,7 @@ export const CAREER_GAP_ITEMS: readonly LikertItem[] = [
 /**
  * Sobre a trilha recebida: construções e tópicos desnecessários, o ResQue e, por último, a
  * checagem da manipulação. Se a percepção de personalização não se mover, nada no ResQue é efeito
- * do motor (docs/DECISOES.md §1).
+ * do motor.
  */
 export const PATH_ITEMS: readonly LikertItem[] = [
   item('roadmap', 'builds', 'construcoes-motivam', 'As construções me deram vontade de começar algo hoje.'),

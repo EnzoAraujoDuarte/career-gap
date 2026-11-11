@@ -27,7 +27,7 @@ export const LEVEL_NAMES: Record<Level, string> = {
 };
 
 // ---------------------------------------------------------------------------
-// Proveniência — o protocolo de fundamentação do DISCOVERY.md §3
+// Proveniência — o protocolo de fundamentação
 // ---------------------------------------------------------------------------
 
 /** Classes de fonte. A regra do catálogo exige duas classes DIFERENTES por afirmação;
@@ -62,7 +62,7 @@ export type CompetencyDomain =
   | 'ai-assisted'
   | 'horizon';
 
-/** Estabilidade do conhecimento (SYSTEM_SPEC §16). Usada pela política editorial para
+/** Estabilidade do conhecimento. Usada pela política editorial para
  *  impedir que ferramentas voláteis dominem a formação de quem ainda não tem base. */
 export type Stability = 'evergreen' | 'volatile';
 
@@ -306,7 +306,7 @@ export interface BuildRequirement {
  * Algo concreto que a pessoa constrói e mostra — a unidade que liga saber a conseguir fazer.
  *
  * O roadmap só com competências dizia o que estudar; a construção diz o que você já pode criar
- * com o que sabe e o que cada competência destrava (docs/COMPARACAO-CURRICULOS.md, Hyperskill e
+ * com o que sabe e o que cada competência destrava (Hyperskill e
  * Frontend Mentor organizam o estudo assim). `requires` é avaliado contra o perfil da mesma forma
  * que o portão de uma ferramenta: declarado, verificável e sem cadeado — a página abre para
  * todos; o que muda é a anotação (ADR-0009). O texto é do projeto; os recursos são links.
@@ -495,7 +495,7 @@ export interface UserCompetency {
 /**
  * Critério de saída que o usuário declarou cumprir.
  *
- * Marcar NUNCA promove o nível (docs/DECISOES.md §3). Registra a afirmação e torna o
+ * Marcar NUNCA promove o nível. Registra a afirmação e torna o
  * progresso visível; quem promove é evidência — sondagem ou reavaliação. A proposta
  * anterior, de confiança agregada com pesos, promovia 16 das 25 competências com um
  * clique, e um checklist que se autopromove é o mecanismo de gaming mais barato que existe.

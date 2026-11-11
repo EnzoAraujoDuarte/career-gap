@@ -253,7 +253,7 @@ describe('ficha do nó', () => {
   it('mostra os mesmos recursos nas duas condições do experimento', () => {
     // A condição A usa o nível-alvo do TRACK; a B também. Se a seleção dependesse do nível
     // do usuário, os conjuntos divergiriam e o experimento mediria curadoria, não
-    // personalização (docs/DECISOES.md §1).
+    // personalização.
     const requirement = FIRST_WEB_ROLE.requirements.find((r) => r.competency === 'sql-basics')!;
     const baseline = selectResourcesFor(requirement.competency, requirement.targetLevel, RESOURCES);
 

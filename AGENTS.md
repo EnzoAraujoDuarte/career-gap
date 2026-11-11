@@ -35,7 +35,7 @@ After editing `docs/research/*.json`, run `pnpm build:resources` to regenerate t
   a competency, edge or rule that depends on a stack.
 - **Catalog of links only.** Resources point to the rights holder's page; nothing is hosted or
   reproduced. Never use BibliotecaDev, roadmap.sh content or freeCodeCamp lesson text
-  (`docs/research/SOURCES.md`, `docs/COMPARACAO-CURRICULOS.md`).
+  (`docs/research/SOURCES.md`).
 - **Provenance is enforced.** Competencies, prerequisites and habits need two source classes;
   `validate.ts` fails the suite otherwise. Don't weaken a rule to make data fit.
 - **TCC scope.** No CV/LinkedIn/GitHub analysis, senior tracks, job scraping, mobile app or

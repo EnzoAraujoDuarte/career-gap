@@ -15,15 +15,9 @@ coverage/
 
 # Configuração do Claude Code que vale só nesta máquina
 .claude/settings.local.json
-# Skill de terceiro instalada localmente (14 MB, reinstalável)
+# Skill de terceiro instalada localmente (14 MB, reinstalável) e os agentes dela
 .claude/skills/
-
-# Documento de outra pessoa, usado só como referência de formato e no teste de plágio
-TCC_AI_WASHING_ENXUTO.docx
-tcc/plagio/corpus/
-
-# Páginas renderizadas pelo conferir.py
-tcc/.paginas/
+.claude/agents/
 
 # Ligação local com o projeto na Vercel
 .vercel

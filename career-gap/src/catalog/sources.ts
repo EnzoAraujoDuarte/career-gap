@@ -6,7 +6,7 @@ import type { Source } from '@/domain/model';
  * Os identificadores foram conferidos contra as publicações oficiais em 2026-09-10:
  * CS2023 tem 17 Knowledge Areas, SWEBOK v4 tem 18, e os códigos SFIA 9 abaixo existem
  * no catálogo publicado. Referência inventada aqui destrói exatamente aquilo que o
- * protocolo de fundamentação existe para garantir (DISCOVERY.md §3).
+ * protocolo de fundamentação existe para garantir.
  */
 
 /** ACM/IEEE-CS/AAAI Computer Science Curricula 2023 — código da Knowledge Area. */

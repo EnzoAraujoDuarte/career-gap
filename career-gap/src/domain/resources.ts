@@ -46,7 +46,7 @@ const TEACHES_FIRST: Record<ActionType, number> = {
  *
  * Essa escolha é o que mantém as duas condições do experimento comparáveis: o conjunto de
  * recursos por competência é literalmente o mesmo objeto nos dois lados, e só a seleção de
- * quais nós aparecem e em que ordem varia (docs/DECISOES.md §1).
+ * quais nós aparecem e em que ordem varia.
  */
 export function selectResourcesFor(
   competency: CompetencyId,

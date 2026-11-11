@@ -37,7 +37,7 @@ export interface ViewNode {
   readonly needsVerification: boolean;
   readonly summary: string;
   /** Recursos do nível-alvo do TRACK — nunca do nível do usuário. É o que mantém as duas
-   *  condições do experimento comparáveis (docs/DECISOES.md §1). */
+   *  condições do experimento comparáveis. */
   readonly resources: readonly PickedResource[];
   /** Tecnologia dominante entre os recursos, exibida como selo no nó. */
   readonly techBadge?: string;

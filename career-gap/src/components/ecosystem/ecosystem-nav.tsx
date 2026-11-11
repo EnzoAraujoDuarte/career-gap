@@ -13,8 +13,7 @@ import { forgetReturns } from '@/lib/scroll-memory';
  *
  * No computador, a barra fica presa ao topo, na mesma moldura (1040px) em todas as telas. No
  * celular, ela desce para o rodapé, como as abas de um app: fica ao alcance do polegar e sempre à
- * vista, então a pessoa nunca perde em que lugar está (HIG Tab bars; Material Navigation bar;
- * docs/research/celular-referencias-2026-10-17.md).
+ * vista, então a pessoa nunca perde em que lugar está (HIG Tab bars; Material Navigation bar).
  */
 const SPACES = [
   { id: 'trilha', href: '/trilha', label: 'Trilha' },

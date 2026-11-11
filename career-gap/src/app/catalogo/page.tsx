@@ -16,8 +16,7 @@ export const metadata: Metadata = {
  *
  * Usa o MESMO componente de estação da condição personalizada, com os mesmos recursos por
  * competência. Se a camada de recursos ou o tratamento visual existisse só de um lado, a
- * variável independente deixaria de ser a seleção e ordenação por lacuna — que é a tese
- * (docs/DECISOES.md §1).
+ * variável independente deixaria de ser a seleção e ordenação por lacuna — que é a tese.
  */
 export default function CatalogoPage() {
   return (

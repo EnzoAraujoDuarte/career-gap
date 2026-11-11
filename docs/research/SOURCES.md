@@ -81,6 +81,7 @@ aqui está a trilha de origem e a razão de cada fonte estar na lista.
 | **BibliotecaDev** (`github.com/KAYOKG/BibliotecaDev`) | Hospeda PDFs digitalizados de livros comerciais protegidos (Casa do Código, Fowler, Martin). Distribuição não autorizada. | **Não usar**, nem como destino de link. |
 | **free-programming-books** (EbookFoundation) | Índice sob CC BY; exige acesso livre e recomenda linkar a fonte mais autoritativa. | Usar como **índice de descoberta**; linkar sempre a fonte original. https://github.com/EbookFoundation/free-programming-books |
 | **roadmap.sh** | Licença proíbe redistribuição do conteúdo fora do repositório. | Apenas **trabalho relacionado** na escrita. |
+| **freeCodeCamp** | "copyright © 2014 freeCodeCamp.org", sem licença aberta. A BSD-3 cobre só o software; os repositórios de curso não têm arquivo de licença. | Apenas link; nunca o texto das lições. |
 | **CS50x (Harvard)** | CC BY-NC-SA 4.0. | Link permitido; sem reuso comercial ou derivados. https://cs50.harvard.edu/x/ |
 | **refactoring.guru** | Uso de conteúdo restrito; até 10 ilustrações sob condições. | Apenas link; sem reuso de imagem. https://refactoring.guru/content-usage-policy |
 | **Pro Git** | Creative Commons, com tradução pt-BR mantida. | Link direto. https://git-scm.com/book/pt-br |

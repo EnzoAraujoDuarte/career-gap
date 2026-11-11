@@ -8,7 +8,7 @@ import { CHOICE_QUESTIONS, LIKERT_ITEMS, OPEN_QUESTIONS, susScore } from '@/lib/
 
 /**
  * Exporta as respostas do questionário em CSV, sem o id de ninguém: cada pessoa vira P01, P02…
- * na ordem de envio. O escore SUS sai calculado (docs/AVALIACAO-COM-USUARIOS.md).
+ * na ordem de envio. O escore SUS sai calculado.
  *
  * Uso, de dentro de career-gap/:  pnpm db:respostas > respostas.csv
  * Separador ponto e vírgula e decimal com vírgula, que é o que o Excel em português abre direto.

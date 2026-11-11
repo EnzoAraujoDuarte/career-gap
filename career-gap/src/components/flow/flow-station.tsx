@@ -49,7 +49,7 @@ export function FlowStation({
   expanded: boolean;
   onToggle?: () => void;
   alwaysOpen?: boolean;
-  /** Congelado durante a sessão experimental, nas duas condições (DECISOES §3). */
+  /** Congelado durante a sessão experimental, nas duas condições. */
   readOnlyCriteria?: boolean;
 }) {
   const dot = DOT[node.status];

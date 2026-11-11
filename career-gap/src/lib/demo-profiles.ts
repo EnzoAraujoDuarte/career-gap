@@ -4,7 +4,7 @@ import type { UserCompetency, UserProfile } from '@/domain/model';
  * Perfis-fixture.
  *
  * São o instrumento de validação do motor antes de existir qualquer interface: se o
- * roadmap não faz sentido aqui, nenhuma tela conserta (DISCOVERY.md §9, passo 2).
+ * roadmap não faz sentido aqui, nenhuma tela conserta.
  * Cada perfil representa um caso realista do público-alvo.
  */
 

@@ -7,7 +7,7 @@ import Link from 'next/link';
  */
 
 /** Dos repositórios frontendbr/vagas e backend-br/vagas, 12 meses contra os 12 anteriores,
- *  coletados em 2026-10-15 (docs/PLANO-FASE3.md §1, com as ressalvas de amostra). */
+ *  coletados em 2026-10-15, com as ressalvas de amostra. */
 const DATA = {
   entryBefore: 75,
   entryAfter: 42,
